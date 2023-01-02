@@ -1,40 +1,38 @@
 require('./bootstrap');
 
 
-// import axios from 'axios';
- 
-// window.Vue = Vue;
-// window.axios = axios;
-
-window.Vue = require('vue');
 import { createApp } from 'vue'
-import VueRouter from 'vue-router';
-import App from './components/App.vue';
-// import Builders from './components/Builders.vue';
-// import VueAxios from 'vue-axios';
+import { createRouter, createWebHistory } from 'vue-router';
+
+import Builders from './components/Builders.vue';
+import CreateBuilder from './components/CreateBuilder.vue';
+import EditBuilder from './components/EditBuilder.vue';
 
 
-import {
+const routes = [
+        {
+            name: 'home',
+            path:'/',
+            component:Builders
+        },
+        {
+            name: 'add',
+            path:'/bundle/create',
+            component:CreateBuilder
+        },
+        {
+            name: 'edit',
+            path:'/bundle/:id',
+            component:EditBuilder
+        }
+    ];
+
+const app = createApp({});
+
+const router = createRouter({
+    history: createWebHistory(process.env.BASE_URL),
     routes
-} from './routes';	
-// import App from  './components/App.vue';
-
-import VueRouter from 'vue-router';
-
-// Vue.use(VueRouter);
-
-const router = new VueRouter({
-    mode: 'history',
-    routes: routes
-});
-
-// const app = new Vue({
-//     el: '#app',
-//     router: router,
-//     render: h => h(App),
-// });
-
-const app = createApp(App)
+})
 
 app.use(router)
 

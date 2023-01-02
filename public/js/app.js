@@ -121,7 +121,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "processSlotOutlet": () => (/* binding */ processSlotOutlet),
 /* harmony export */   "registerRuntimeHelpers": () => (/* binding */ registerRuntimeHelpers),
 /* harmony export */   "resolveComponentType": () => (/* binding */ resolveComponentType),
-/* harmony export */   "stringifyExpression": () => (/* binding */ stringifyExpression),
 /* harmony export */   "toValidAssetId": () => (/* binding */ toValidAssetId),
 /* harmony export */   "trackSlotScopes": () => (/* binding */ trackSlotScopes),
 /* harmony export */   "trackVForSlotScopes": () => (/* binding */ trackVForSlotScopes),
@@ -158,66 +157,65 @@ function createCompilerError(code, loc, messages, additionalMessage) {
 }
 const errorMessages = {
     // parse errors
-    [0 /* ErrorCodes.ABRUPT_CLOSING_OF_EMPTY_COMMENT */]: 'Illegal comment.',
-    [1 /* ErrorCodes.CDATA_IN_HTML_CONTENT */]: 'CDATA section is allowed only in XML context.',
-    [2 /* ErrorCodes.DUPLICATE_ATTRIBUTE */]: 'Duplicate attribute.',
-    [3 /* ErrorCodes.END_TAG_WITH_ATTRIBUTES */]: 'End tag cannot have attributes.',
-    [4 /* ErrorCodes.END_TAG_WITH_TRAILING_SOLIDUS */]: "Illegal '/' in tags.",
-    [5 /* ErrorCodes.EOF_BEFORE_TAG_NAME */]: 'Unexpected EOF in tag.',
-    [6 /* ErrorCodes.EOF_IN_CDATA */]: 'Unexpected EOF in CDATA section.',
-    [7 /* ErrorCodes.EOF_IN_COMMENT */]: 'Unexpected EOF in comment.',
-    [8 /* ErrorCodes.EOF_IN_SCRIPT_HTML_COMMENT_LIKE_TEXT */]: 'Unexpected EOF in script.',
-    [9 /* ErrorCodes.EOF_IN_TAG */]: 'Unexpected EOF in tag.',
-    [10 /* ErrorCodes.INCORRECTLY_CLOSED_COMMENT */]: 'Incorrectly closed comment.',
-    [11 /* ErrorCodes.INCORRECTLY_OPENED_COMMENT */]: 'Incorrectly opened comment.',
-    [12 /* ErrorCodes.INVALID_FIRST_CHARACTER_OF_TAG_NAME */]: "Illegal tag name. Use '&lt;' to print '<'.",
-    [13 /* ErrorCodes.MISSING_ATTRIBUTE_VALUE */]: 'Attribute value was expected.',
-    [14 /* ErrorCodes.MISSING_END_TAG_NAME */]: 'End tag name was expected.',
-    [15 /* ErrorCodes.MISSING_WHITESPACE_BETWEEN_ATTRIBUTES */]: 'Whitespace was expected.',
-    [16 /* ErrorCodes.NESTED_COMMENT */]: "Unexpected '<!--' in comment.",
-    [17 /* ErrorCodes.UNEXPECTED_CHARACTER_IN_ATTRIBUTE_NAME */]: 'Attribute name cannot contain U+0022 ("), U+0027 (\'), and U+003C (<).',
-    [18 /* ErrorCodes.UNEXPECTED_CHARACTER_IN_UNQUOTED_ATTRIBUTE_VALUE */]: 'Unquoted attribute value cannot contain U+0022 ("), U+0027 (\'), U+003C (<), U+003D (=), and U+0060 (`).',
-    [19 /* ErrorCodes.UNEXPECTED_EQUALS_SIGN_BEFORE_ATTRIBUTE_NAME */]: "Attribute name cannot start with '='.",
-    [21 /* ErrorCodes.UNEXPECTED_QUESTION_MARK_INSTEAD_OF_TAG_NAME */]: "'<?' is allowed only in XML context.",
-    [20 /* ErrorCodes.UNEXPECTED_NULL_CHARACTER */]: `Unexpected null character.`,
-    [22 /* ErrorCodes.UNEXPECTED_SOLIDUS_IN_TAG */]: "Illegal '/' in tags.",
+    [0 /* ABRUPT_CLOSING_OF_EMPTY_COMMENT */]: 'Illegal comment.',
+    [1 /* CDATA_IN_HTML_CONTENT */]: 'CDATA section is allowed only in XML context.',
+    [2 /* DUPLICATE_ATTRIBUTE */]: 'Duplicate attribute.',
+    [3 /* END_TAG_WITH_ATTRIBUTES */]: 'End tag cannot have attributes.',
+    [4 /* END_TAG_WITH_TRAILING_SOLIDUS */]: "Illegal '/' in tags.",
+    [5 /* EOF_BEFORE_TAG_NAME */]: 'Unexpected EOF in tag.',
+    [6 /* EOF_IN_CDATA */]: 'Unexpected EOF in CDATA section.',
+    [7 /* EOF_IN_COMMENT */]: 'Unexpected EOF in comment.',
+    [8 /* EOF_IN_SCRIPT_HTML_COMMENT_LIKE_TEXT */]: 'Unexpected EOF in script.',
+    [9 /* EOF_IN_TAG */]: 'Unexpected EOF in tag.',
+    [10 /* INCORRECTLY_CLOSED_COMMENT */]: 'Incorrectly closed comment.',
+    [11 /* INCORRECTLY_OPENED_COMMENT */]: 'Incorrectly opened comment.',
+    [12 /* INVALID_FIRST_CHARACTER_OF_TAG_NAME */]: "Illegal tag name. Use '&lt;' to print '<'.",
+    [13 /* MISSING_ATTRIBUTE_VALUE */]: 'Attribute value was expected.',
+    [14 /* MISSING_END_TAG_NAME */]: 'End tag name was expected.',
+    [15 /* MISSING_WHITESPACE_BETWEEN_ATTRIBUTES */]: 'Whitespace was expected.',
+    [16 /* NESTED_COMMENT */]: "Unexpected '<!--' in comment.",
+    [17 /* UNEXPECTED_CHARACTER_IN_ATTRIBUTE_NAME */]: 'Attribute name cannot contain U+0022 ("), U+0027 (\'), and U+003C (<).',
+    [18 /* UNEXPECTED_CHARACTER_IN_UNQUOTED_ATTRIBUTE_VALUE */]: 'Unquoted attribute value cannot contain U+0022 ("), U+0027 (\'), U+003C (<), U+003D (=), and U+0060 (`).',
+    [19 /* UNEXPECTED_EQUALS_SIGN_BEFORE_ATTRIBUTE_NAME */]: "Attribute name cannot start with '='.",
+    [21 /* UNEXPECTED_QUESTION_MARK_INSTEAD_OF_TAG_NAME */]: "'<?' is allowed only in XML context.",
+    [20 /* UNEXPECTED_NULL_CHARACTER */]: `Unexpected null character.`,
+    [22 /* UNEXPECTED_SOLIDUS_IN_TAG */]: "Illegal '/' in tags.",
     // Vue-specific parse errors
-    [23 /* ErrorCodes.X_INVALID_END_TAG */]: 'Invalid end tag.',
-    [24 /* ErrorCodes.X_MISSING_END_TAG */]: 'Element is missing end tag.',
-    [25 /* ErrorCodes.X_MISSING_INTERPOLATION_END */]: 'Interpolation end sign was not found.',
-    [27 /* ErrorCodes.X_MISSING_DYNAMIC_DIRECTIVE_ARGUMENT_END */]: 'End bracket for dynamic directive argument was not found. ' +
+    [23 /* X_INVALID_END_TAG */]: 'Invalid end tag.',
+    [24 /* X_MISSING_END_TAG */]: 'Element is missing end tag.',
+    [25 /* X_MISSING_INTERPOLATION_END */]: 'Interpolation end sign was not found.',
+    [27 /* X_MISSING_DYNAMIC_DIRECTIVE_ARGUMENT_END */]: 'End bracket for dynamic directive argument was not found. ' +
         'Note that dynamic directive argument cannot contain spaces.',
-    [26 /* ErrorCodes.X_MISSING_DIRECTIVE_NAME */]: 'Legal directive name was expected.',
+    [26 /* X_MISSING_DIRECTIVE_NAME */]: 'Legal directive name was expected.',
     // transform errors
-    [28 /* ErrorCodes.X_V_IF_NO_EXPRESSION */]: `v-if/v-else-if is missing expression.`,
-    [29 /* ErrorCodes.X_V_IF_SAME_KEY */]: `v-if/else branches must use unique keys.`,
-    [30 /* ErrorCodes.X_V_ELSE_NO_ADJACENT_IF */]: `v-else/v-else-if has no adjacent v-if or v-else-if.`,
-    [31 /* ErrorCodes.X_V_FOR_NO_EXPRESSION */]: `v-for is missing expression.`,
-    [32 /* ErrorCodes.X_V_FOR_MALFORMED_EXPRESSION */]: `v-for has invalid expression.`,
-    [33 /* ErrorCodes.X_V_FOR_TEMPLATE_KEY_PLACEMENT */]: `<template v-for> key should be placed on the <template> tag.`,
-    [34 /* ErrorCodes.X_V_BIND_NO_EXPRESSION */]: `v-bind is missing expression.`,
-    [35 /* ErrorCodes.X_V_ON_NO_EXPRESSION */]: `v-on is missing expression.`,
-    [36 /* ErrorCodes.X_V_SLOT_UNEXPECTED_DIRECTIVE_ON_SLOT_OUTLET */]: `Unexpected custom directive on <slot> outlet.`,
-    [37 /* ErrorCodes.X_V_SLOT_MIXED_SLOT_USAGE */]: `Mixed v-slot usage on both the component and nested <template>.` +
+    [28 /* X_V_IF_NO_EXPRESSION */]: `v-if/v-else-if is missing expression.`,
+    [29 /* X_V_IF_SAME_KEY */]: `v-if/else branches must use unique keys.`,
+    [30 /* X_V_ELSE_NO_ADJACENT_IF */]: `v-else/v-else-if has no adjacent v-if or v-else-if.`,
+    [31 /* X_V_FOR_NO_EXPRESSION */]: `v-for is missing expression.`,
+    [32 /* X_V_FOR_MALFORMED_EXPRESSION */]: `v-for has invalid expression.`,
+    [33 /* X_V_FOR_TEMPLATE_KEY_PLACEMENT */]: `<template v-for> key should be placed on the <template> tag.`,
+    [34 /* X_V_BIND_NO_EXPRESSION */]: `v-bind is missing expression.`,
+    [35 /* X_V_ON_NO_EXPRESSION */]: `v-on is missing expression.`,
+    [36 /* X_V_SLOT_UNEXPECTED_DIRECTIVE_ON_SLOT_OUTLET */]: `Unexpected custom directive on <slot> outlet.`,
+    [37 /* X_V_SLOT_MIXED_SLOT_USAGE */]: `Mixed v-slot usage on both the component and nested <template>.` +
         `When there are multiple named slots, all slots should use <template> ` +
         `syntax to avoid scope ambiguity.`,
-    [38 /* ErrorCodes.X_V_SLOT_DUPLICATE_SLOT_NAMES */]: `Duplicate slot names found. `,
-    [39 /* ErrorCodes.X_V_SLOT_EXTRANEOUS_DEFAULT_SLOT_CHILDREN */]: `Extraneous children found when component already has explicitly named ` +
+    [38 /* X_V_SLOT_DUPLICATE_SLOT_NAMES */]: `Duplicate slot names found. `,
+    [39 /* X_V_SLOT_EXTRANEOUS_DEFAULT_SLOT_CHILDREN */]: `Extraneous children found when component already has explicitly named ` +
         `default slot. These children will be ignored.`,
-    [40 /* ErrorCodes.X_V_SLOT_MISPLACED */]: `v-slot can only be used on components or <template> tags.`,
-    [41 /* ErrorCodes.X_V_MODEL_NO_EXPRESSION */]: `v-model is missing expression.`,
-    [42 /* ErrorCodes.X_V_MODEL_MALFORMED_EXPRESSION */]: `v-model value must be a valid JavaScript member expression.`,
-    [43 /* ErrorCodes.X_V_MODEL_ON_SCOPE_VARIABLE */]: `v-model cannot be used on v-for or v-slot scope variables because they are not writable.`,
-    [44 /* ErrorCodes.X_V_MODEL_ON_PROPS */]: `v-model cannot be used on a prop, because local prop bindings are not writable.\nUse a v-bind binding combined with a v-on listener that emits update:x event instead.`,
-    [45 /* ErrorCodes.X_INVALID_EXPRESSION */]: `Error parsing JavaScript expression: `,
-    [46 /* ErrorCodes.X_KEEP_ALIVE_INVALID_CHILDREN */]: `<KeepAlive> expects exactly one child component.`,
+    [40 /* X_V_SLOT_MISPLACED */]: `v-slot can only be used on components or <template> tags.`,
+    [41 /* X_V_MODEL_NO_EXPRESSION */]: `v-model is missing expression.`,
+    [42 /* X_V_MODEL_MALFORMED_EXPRESSION */]: `v-model value must be a valid JavaScript member expression.`,
+    [43 /* X_V_MODEL_ON_SCOPE_VARIABLE */]: `v-model cannot be used on v-for or v-slot scope variables because they are not writable.`,
+    [44 /* X_INVALID_EXPRESSION */]: `Error parsing JavaScript expression: `,
+    [45 /* X_KEEP_ALIVE_INVALID_CHILDREN */]: `<KeepAlive> expects exactly one child component.`,
     // generic errors
-    [47 /* ErrorCodes.X_PREFIX_ID_NOT_SUPPORTED */]: `"prefixIdentifiers" option is not supported in this build of compiler.`,
-    [48 /* ErrorCodes.X_MODULE_MODE_NOT_SUPPORTED */]: `ES module mode is not supported in this build of compiler.`,
-    [49 /* ErrorCodes.X_CACHE_HANDLER_NOT_SUPPORTED */]: `"cacheHandlers" option is only supported when the "prefixIdentifiers" option is enabled.`,
-    [50 /* ErrorCodes.X_SCOPE_ID_NOT_SUPPORTED */]: `"scopeId" option is only supported in module mode.`,
+    [46 /* X_PREFIX_ID_NOT_SUPPORTED */]: `"prefixIdentifiers" option is not supported in this build of compiler.`,
+    [47 /* X_MODULE_MODE_NOT_SUPPORTED */]: `ES module mode is not supported in this build of compiler.`,
+    [48 /* X_CACHE_HANDLER_NOT_SUPPORTED */]: `"cacheHandlers" option is only supported when the "prefixIdentifiers" option is enabled.`,
+    [49 /* X_SCOPE_ID_NOT_SUPPORTED */]: `"scopeId" option is only supported in module mode.`,
     // just to fulfill types
-    [51 /* ErrorCodes.__EXTEND_POINT__ */]: ``
+    [50 /* __EXTEND_POINT__ */]: ``
 };
 
 const FRAGMENT = Symbol(( true) ? `Fragment` : 0);
@@ -261,6 +259,7 @@ const WITH_MEMO = Symbol(( true) ? `withMemo` : 0);
 const IS_MEMO_SAME = Symbol(( true) ? `isMemoSame` : 0);
 // Name mapping for runtime helpers that need to be imported from 'vue' in
 // generated code. Make sure these are correctly exported in the runtime!
+// Using `any` here because TS doesn't allow symbols as index type.
 const helperNameMap = {
     [FRAGMENT]: `Fragment`,
     [TELEPORT]: `Teleport`,
@@ -319,7 +318,7 @@ const locStub = {
 };
 function createRoot(children, loc = locStub) {
     return {
-        type: 0 /* NodeTypes.ROOT */,
+        type: 0 /* ROOT */,
         children,
         helpers: [],
         components: [],
@@ -346,7 +345,7 @@ function createVNodeCall(context, tag, props, children, patchFlag, dynamicProps,
         }
     }
     return {
-        type: 13 /* NodeTypes.VNODE_CALL */,
+        type: 13 /* VNODE_CALL */,
         tag,
         props,
         children,
@@ -361,38 +360,38 @@ function createVNodeCall(context, tag, props, children, patchFlag, dynamicProps,
 }
 function createArrayExpression(elements, loc = locStub) {
     return {
-        type: 17 /* NodeTypes.JS_ARRAY_EXPRESSION */,
+        type: 17 /* JS_ARRAY_EXPRESSION */,
         loc,
         elements
     };
 }
 function createObjectExpression(properties, loc = locStub) {
     return {
-        type: 15 /* NodeTypes.JS_OBJECT_EXPRESSION */,
+        type: 15 /* JS_OBJECT_EXPRESSION */,
         loc,
         properties
     };
 }
 function createObjectProperty(key, value) {
     return {
-        type: 16 /* NodeTypes.JS_PROPERTY */,
+        type: 16 /* JS_PROPERTY */,
         loc: locStub,
         key: (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isString)(key) ? createSimpleExpression(key, true) : key,
         value
     };
 }
-function createSimpleExpression(content, isStatic = false, loc = locStub, constType = 0 /* ConstantTypes.NOT_CONSTANT */) {
+function createSimpleExpression(content, isStatic = false, loc = locStub, constType = 0 /* NOT_CONSTANT */) {
     return {
-        type: 4 /* NodeTypes.SIMPLE_EXPRESSION */,
+        type: 4 /* SIMPLE_EXPRESSION */,
         loc,
         content,
         isStatic,
-        constType: isStatic ? 3 /* ConstantTypes.CAN_STRINGIFY */ : constType
+        constType: isStatic ? 3 /* CAN_STRINGIFY */ : constType
     };
 }
 function createInterpolation(content, loc) {
     return {
-        type: 5 /* NodeTypes.INTERPOLATION */,
+        type: 5 /* INTERPOLATION */,
         loc,
         content: (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isString)(content)
             ? createSimpleExpression(content, false, loc)
@@ -401,14 +400,14 @@ function createInterpolation(content, loc) {
 }
 function createCompoundExpression(children, loc = locStub) {
     return {
-        type: 8 /* NodeTypes.COMPOUND_EXPRESSION */,
+        type: 8 /* COMPOUND_EXPRESSION */,
         loc,
         children
     };
 }
 function createCallExpression(callee, args = [], loc = locStub) {
     return {
-        type: 14 /* NodeTypes.JS_CALL_EXPRESSION */,
+        type: 14 /* JS_CALL_EXPRESSION */,
         loc,
         callee,
         arguments: args
@@ -416,7 +415,7 @@ function createCallExpression(callee, args = [], loc = locStub) {
 }
 function createFunctionExpression(params, returns = undefined, newline = false, isSlot = false, loc = locStub) {
     return {
-        type: 18 /* NodeTypes.JS_FUNCTION_EXPRESSION */,
+        type: 18 /* JS_FUNCTION_EXPRESSION */,
         params,
         returns,
         newline,
@@ -426,7 +425,7 @@ function createFunctionExpression(params, returns = undefined, newline = false, 
 }
 function createConditionalExpression(test, consequent, alternate, newline = true) {
     return {
-        type: 19 /* NodeTypes.JS_CONDITIONAL_EXPRESSION */,
+        type: 19 /* JS_CONDITIONAL_EXPRESSION */,
         test,
         consequent,
         alternate,
@@ -436,7 +435,7 @@ function createConditionalExpression(test, consequent, alternate, newline = true
 }
 function createCacheExpression(index, value, isVNode = false) {
     return {
-        type: 20 /* NodeTypes.JS_CACHE_EXPRESSION */,
+        type: 20 /* JS_CACHE_EXPRESSION */,
         index,
         value,
         isVNode,
@@ -445,21 +444,21 @@ function createCacheExpression(index, value, isVNode = false) {
 }
 function createBlockStatement(body) {
     return {
-        type: 21 /* NodeTypes.JS_BLOCK_STATEMENT */,
+        type: 21 /* JS_BLOCK_STATEMENT */,
         body,
         loc: locStub
     };
 }
 function createTemplateLiteral(elements) {
     return {
-        type: 22 /* NodeTypes.JS_TEMPLATE_LITERAL */,
+        type: 22 /* JS_TEMPLATE_LITERAL */,
         elements,
         loc: locStub
     };
 }
 function createIfStatement(test, consequent, alternate) {
     return {
-        type: 23 /* NodeTypes.JS_IF_STATEMENT */,
+        type: 23 /* JS_IF_STATEMENT */,
         test,
         consequent,
         alternate,
@@ -468,7 +467,7 @@ function createIfStatement(test, consequent, alternate) {
 }
 function createAssignmentExpression(left, right) {
     return {
-        type: 24 /* NodeTypes.JS_ASSIGNMENT_EXPRESSION */,
+        type: 24 /* JS_ASSIGNMENT_EXPRESSION */,
         left,
         right,
         loc: locStub
@@ -476,20 +475,20 @@ function createAssignmentExpression(left, right) {
 }
 function createSequenceExpression(expressions) {
     return {
-        type: 25 /* NodeTypes.JS_SEQUENCE_EXPRESSION */,
+        type: 25 /* JS_SEQUENCE_EXPRESSION */,
         expressions,
         loc: locStub
     };
 }
 function createReturnStatement(returns) {
     return {
-        type: 26 /* NodeTypes.JS_RETURN_STATEMENT */,
+        type: 26 /* JS_RETURN_STATEMENT */,
         returns,
         loc: locStub
     };
 }
 
-const isStaticExp = (p) => p.type === 4 /* NodeTypes.SIMPLE_EXPRESSION */ && p.isStatic;
+const isStaticExp = (p) => p.type === 4 /* SIMPLE_EXPRESSION */ && p.isStatic;
 const isBuiltInType = (tag, expected) => tag === expected || tag === (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.hyphenate)(expected);
 function isCoreComponent(tag) {
     if (isBuiltInType(tag, 'Teleport')) {
@@ -519,7 +518,7 @@ const whitespaceRE = /\s+[.[]\s*|\s*[.[]\s+/g;
 const isMemberExpressionBrowser = (path) => {
     // remove whitespaces around . or [ first
     path = path.trim().replace(whitespaceRE, s => s.trim());
-    let state = 0 /* MemberExpLexState.inMemberExp */;
+    let state = 0 /* inMemberExp */;
     let stateStack = [];
     let currentOpenBracketCount = 0;
     let currentOpenParensCount = 0;
@@ -527,25 +526,25 @@ const isMemberExpressionBrowser = (path) => {
     for (let i = 0; i < path.length; i++) {
         const char = path.charAt(i);
         switch (state) {
-            case 0 /* MemberExpLexState.inMemberExp */:
+            case 0 /* inMemberExp */:
                 if (char === '[') {
                     stateStack.push(state);
-                    state = 1 /* MemberExpLexState.inBrackets */;
+                    state = 1 /* inBrackets */;
                     currentOpenBracketCount++;
                 }
                 else if (char === '(') {
                     stateStack.push(state);
-                    state = 2 /* MemberExpLexState.inParens */;
+                    state = 2 /* inParens */;
                     currentOpenParensCount++;
                 }
                 else if (!(i === 0 ? validFirstIdentCharRE : validIdentCharRE).test(char)) {
                     return false;
                 }
                 break;
-            case 1 /* MemberExpLexState.inBrackets */:
+            case 1 /* inBrackets */:
                 if (char === `'` || char === `"` || char === '`') {
                     stateStack.push(state);
-                    state = 3 /* MemberExpLexState.inString */;
+                    state = 3 /* inString */;
                     currentStringType = char;
                 }
                 else if (char === `[`) {
@@ -557,10 +556,10 @@ const isMemberExpressionBrowser = (path) => {
                     }
                 }
                 break;
-            case 2 /* MemberExpLexState.inParens */:
+            case 2 /* inParens */:
                 if (char === `'` || char === `"` || char === '`') {
                     stateStack.push(state);
-                    state = 3 /* MemberExpLexState.inString */;
+                    state = 3 /* inString */;
                     currentStringType = char;
                 }
                 else if (char === `(`) {
@@ -576,7 +575,7 @@ const isMemberExpressionBrowser = (path) => {
                     }
                 }
                 break;
-            case 3 /* MemberExpLexState.inString */:
+            case 3 /* inString */:
                 if (char === currentStringType) {
                     state = stateStack.pop();
                     currentStringType = null;
@@ -633,7 +632,7 @@ function assert(condition, msg) {
 function findDir(node, name, allowEmpty = false) {
     for (let i = 0; i < node.props.length; i++) {
         const p = node.props[i];
-        if (p.type === 7 /* NodeTypes.DIRECTIVE */ &&
+        if (p.type === 7 /* DIRECTIVE */ &&
             (allowEmpty || p.exp) &&
             ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isString)(name) ? p.name === name : name.test(p.name))) {
             return p;
@@ -643,7 +642,7 @@ function findDir(node, name, allowEmpty = false) {
 function findProp(node, name, dynamicOnly = false, allowEmpty = false) {
     for (let i = 0; i < node.props.length; i++) {
         const p = node.props[i];
-        if (p.type === 6 /* NodeTypes.ATTRIBUTE */) {
+        if (p.type === 6 /* ATTRIBUTE */) {
             if (dynamicOnly)
                 continue;
             if (p.name === name && (p.value || allowEmpty)) {
@@ -661,24 +660,24 @@ function isStaticArgOf(arg, name) {
     return !!(arg && isStaticExp(arg) && arg.content === name);
 }
 function hasDynamicKeyVBind(node) {
-    return node.props.some(p => p.type === 7 /* NodeTypes.DIRECTIVE */ &&
+    return node.props.some(p => p.type === 7 /* DIRECTIVE */ &&
         p.name === 'bind' &&
         (!p.arg || // v-bind="obj"
-            p.arg.type !== 4 /* NodeTypes.SIMPLE_EXPRESSION */ || // v-bind:[_ctx.foo]
+            p.arg.type !== 4 /* SIMPLE_EXPRESSION */ || // v-bind:[_ctx.foo]
             !p.arg.isStatic) // v-bind:[foo]
     );
 }
 function isText(node) {
-    return node.type === 5 /* NodeTypes.INTERPOLATION */ || node.type === 2 /* NodeTypes.TEXT */;
+    return node.type === 5 /* INTERPOLATION */ || node.type === 2 /* TEXT */;
 }
 function isVSlot(p) {
-    return p.type === 7 /* NodeTypes.DIRECTIVE */ && p.name === 'slot';
+    return p.type === 7 /* DIRECTIVE */ && p.name === 'slot';
 }
 function isTemplateNode(node) {
-    return (node.type === 1 /* NodeTypes.ELEMENT */ && node.tagType === 3 /* ElementTypes.TEMPLATE */);
+    return (node.type === 1 /* ELEMENT */ && node.tagType === 3 /* TEMPLATE */);
 }
 function isSlotOutlet(node) {
-    return node.type === 1 /* NodeTypes.ELEMENT */ && node.tagType === 2 /* ElementTypes.SLOT */;
+    return node.type === 1 /* ELEMENT */ && node.tagType === 2 /* SLOT */;
 }
 function getVNodeHelper(ssr, isComponent) {
     return ssr || isComponent ? CREATE_VNODE : CREATE_ELEMENT_VNODE;
@@ -690,7 +689,7 @@ const propsHelperSet = new Set([NORMALIZE_PROPS, GUARD_REACTIVE_PROPS]);
 function getUnnormalizedProps(props, callPath = []) {
     if (props &&
         !(0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isString)(props) &&
-        props.type === 14 /* NodeTypes.JS_CALL_EXPRESSION */) {
+        props.type === 14 /* JS_CALL_EXPRESSION */) {
         const callee = props.callee;
         if (!(0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isString)(callee) && propsHelperSet.has(callee)) {
             return getUnnormalizedProps(props.arguments[0], callPath.concat(props));
@@ -708,12 +707,12 @@ function injectProp(node, prop, context) {
      *
      * we need to get the real props before normalization
      */
-    let props = node.type === 13 /* NodeTypes.VNODE_CALL */ ? node.props : node.arguments[2];
+    let props = node.type === 13 /* VNODE_CALL */ ? node.props : node.arguments[2];
     let callPath = [];
     let parentCall;
     if (props &&
         !(0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isString)(props) &&
-        props.type === 14 /* NodeTypes.JS_CALL_EXPRESSION */) {
+        props.type === 14 /* JS_CALL_EXPRESSION */) {
         const ret = getUnnormalizedProps(props);
         props = ret[0];
         callPath = ret[1];
@@ -722,16 +721,13 @@ function injectProp(node, prop, context) {
     if (props == null || (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isString)(props)) {
         propsWithInjection = createObjectExpression([prop]);
     }
-    else if (props.type === 14 /* NodeTypes.JS_CALL_EXPRESSION */) {
+    else if (props.type === 14 /* JS_CALL_EXPRESSION */) {
         // merged props... add ours
         // only inject key to object literal if it's the first argument so that
         // if doesn't override user provided keys
         const first = props.arguments[0];
-        if (!(0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isString)(first) && first.type === 15 /* NodeTypes.JS_OBJECT_EXPRESSION */) {
-            // #6631
-            if (!hasProp(prop, first)) {
-                first.properties.unshift(prop);
-            }
+        if (!(0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isString)(first) && first.type === 15 /* JS_OBJECT_EXPRESSION */) {
+            first.properties.unshift(prop);
         }
         else {
             if (props.callee === TO_HANDLERS) {
@@ -747,8 +743,15 @@ function injectProp(node, prop, context) {
         }
         !propsWithInjection && (propsWithInjection = props);
     }
-    else if (props.type === 15 /* NodeTypes.JS_OBJECT_EXPRESSION */) {
-        if (!hasProp(prop, props)) {
+    else if (props.type === 15 /* JS_OBJECT_EXPRESSION */) {
+        let alreadyExists = false;
+        // check existing key to avoid overriding user provided keys
+        if (prop.key.type === 4 /* SIMPLE_EXPRESSION */) {
+            const propKeyName = prop.key.content;
+            alreadyExists = props.properties.some(p => p.key.type === 4 /* SIMPLE_EXPRESSION */ &&
+                p.key.content === propKeyName);
+        }
+        if (!alreadyExists) {
             props.properties.unshift(prop);
         }
         propsWithInjection = props;
@@ -766,7 +769,7 @@ function injectProp(node, prop, context) {
             parentCall = callPath[callPath.length - 2];
         }
     }
-    if (node.type === 13 /* NodeTypes.VNODE_CALL */) {
+    if (node.type === 13 /* VNODE_CALL */) {
         if (parentCall) {
             parentCall.arguments[0] = propsWithInjection;
         }
@@ -783,16 +786,6 @@ function injectProp(node, prop, context) {
         }
     }
 }
-// check existing key to avoid overriding user provided keys
-function hasProp(prop, props) {
-    let result = false;
-    if (prop.key.type === 4 /* NodeTypes.SIMPLE_EXPRESSION */) {
-        const propKeyName = prop.key.content;
-        result = props.properties.some(p => p.key.type === 4 /* NodeTypes.SIMPLE_EXPRESSION */ &&
-            p.key.content === propKeyName);
-    }
-    return result;
-}
 function toValidAssetId(name, type) {
     // see issue#4422, we need adding identifier on validAssetId if variable `name` has specific character
     return `_${type}_${name.replace(/[^\w]/g, (searchValue, replaceValue) => {
@@ -805,38 +798,38 @@ function hasScopeRef(node, ids) {
         return false;
     }
     switch (node.type) {
-        case 1 /* NodeTypes.ELEMENT */:
+        case 1 /* ELEMENT */:
             for (let i = 0; i < node.props.length; i++) {
                 const p = node.props[i];
-                if (p.type === 7 /* NodeTypes.DIRECTIVE */ &&
+                if (p.type === 7 /* DIRECTIVE */ &&
                     (hasScopeRef(p.arg, ids) || hasScopeRef(p.exp, ids))) {
                     return true;
                 }
             }
             return node.children.some(c => hasScopeRef(c, ids));
-        case 11 /* NodeTypes.FOR */:
+        case 11 /* FOR */:
             if (hasScopeRef(node.source, ids)) {
                 return true;
             }
             return node.children.some(c => hasScopeRef(c, ids));
-        case 9 /* NodeTypes.IF */:
+        case 9 /* IF */:
             return node.branches.some(b => hasScopeRef(b, ids));
-        case 10 /* NodeTypes.IF_BRANCH */:
+        case 10 /* IF_BRANCH */:
             if (hasScopeRef(node.condition, ids)) {
                 return true;
             }
             return node.children.some(c => hasScopeRef(c, ids));
-        case 4 /* NodeTypes.SIMPLE_EXPRESSION */:
+        case 4 /* SIMPLE_EXPRESSION */:
             return (!node.isStatic &&
                 isSimpleIdentifier(node.content) &&
                 !!ids[node.content]);
-        case 8 /* NodeTypes.COMPOUND_EXPRESSION */:
+        case 8 /* COMPOUND_EXPRESSION */:
             return node.children.some(c => (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isObject)(c) && hasScopeRef(c, ids));
-        case 5 /* NodeTypes.INTERPOLATION */:
-        case 12 /* NodeTypes.TEXT_CALL */:
+        case 5 /* INTERPOLATION */:
+        case 12 /* TEXT_CALL */:
             return hasScopeRef(node.content, ids);
-        case 2 /* NodeTypes.TEXT */:
-        case 3 /* NodeTypes.COMMENT */:
+        case 2 /* TEXT */:
+        case 3 /* COMMENT */:
             return false;
         default:
             if ((true)) ;
@@ -844,7 +837,7 @@ function hasScopeRef(node, ids) {
     }
 }
 function getMemoedVNodeCall(node) {
-    if (node.type === 14 /* NodeTypes.JS_CALL_EXPRESSION */ && node.callee === WITH_MEMO) {
+    if (node.type === 14 /* JS_CALL_EXPRESSION */ && node.callee === WITH_MEMO) {
         return node.arguments[1].returns;
     }
     else {
@@ -861,23 +854,23 @@ function makeBlock(node, { helper, removeHelper, inSSR }) {
 }
 
 const deprecationData = {
-    ["COMPILER_IS_ON_ELEMENT" /* CompilerDeprecationTypes.COMPILER_IS_ON_ELEMENT */]: {
+    ["COMPILER_IS_ON_ELEMENT" /* COMPILER_IS_ON_ELEMENT */]: {
         message: `Platform-native elements with "is" prop will no longer be ` +
             `treated as components in Vue 3 unless the "is" value is explicitly ` +
             `prefixed with "vue:".`,
         link: `https://v3-migration.vuejs.org/breaking-changes/custom-elements-interop.html`
     },
-    ["COMPILER_V_BIND_SYNC" /* CompilerDeprecationTypes.COMPILER_V_BIND_SYNC */]: {
+    ["COMPILER_V_BIND_SYNC" /* COMPILER_V_BIND_SYNC */]: {
         message: key => `.sync modifier for v-bind has been removed. Use v-model with ` +
             `argument instead. \`v-bind:${key}.sync\` should be changed to ` +
             `\`v-model:${key}\`.`,
         link: `https://v3-migration.vuejs.org/breaking-changes/v-model.html`
     },
-    ["COMPILER_V_BIND_PROP" /* CompilerDeprecationTypes.COMPILER_V_BIND_PROP */]: {
+    ["COMPILER_V_BIND_PROP" /* COMPILER_V_BIND_PROP */]: {
         message: `.prop modifier for v-bind has been removed and no longer necessary. ` +
             `Vue 3 will automatically set a binding as DOM property when appropriate.`
     },
-    ["COMPILER_V_BIND_OBJECT_ORDER" /* CompilerDeprecationTypes.COMPILER_V_BIND_OBJECT_ORDER */]: {
+    ["COMPILER_V_BIND_OBJECT_ORDER" /* COMPILER_V_BIND_OBJECT_ORDER */]: {
         message: `v-bind="obj" usage is now order sensitive and behaves like JavaScript ` +
             `object spread: it will now overwrite an existing non-mergeable attribute ` +
             `that appears before v-bind in the case of conflict. ` +
@@ -885,11 +878,11 @@ const deprecationData = {
             `You can also suppress this warning if the usage is intended.`,
         link: `https://v3-migration.vuejs.org/breaking-changes/v-bind.html`
     },
-    ["COMPILER_V_ON_NATIVE" /* CompilerDeprecationTypes.COMPILER_V_ON_NATIVE */]: {
+    ["COMPILER_V_ON_NATIVE" /* COMPILER_V_ON_NATIVE */]: {
         message: `.native modifier for v-on has been removed as is no longer necessary.`,
         link: `https://v3-migration.vuejs.org/breaking-changes/v-on-native-modifier-removed.html`
     },
-    ["COMPILER_V_IF_V_FOR_PRECEDENCE" /* CompilerDeprecationTypes.COMPILER_V_IF_V_FOR_PRECEDENCE */]: {
+    ["COMPILER_V_IF_V_FOR_PRECEDENCE" /* COMPILER_V_IF_V_FOR_PRECEDENCE */]: {
         message: `v-if / v-for precedence when used on the same element has changed ` +
             `in Vue 3: v-if now takes higher precedence and will no longer have ` +
             `access to v-for scope variables. It is best to avoid the ambiguity ` +
@@ -897,15 +890,15 @@ const deprecationData = {
             `data source.`,
         link: `https://v3-migration.vuejs.org/breaking-changes/v-if-v-for.html`
     },
-    ["COMPILER_NATIVE_TEMPLATE" /* CompilerDeprecationTypes.COMPILER_NATIVE_TEMPLATE */]: {
+    ["COMPILER_NATIVE_TEMPLATE" /* COMPILER_NATIVE_TEMPLATE */]: {
         message: `<template> with no special directives will render as a native template ` +
             `element instead of its inner content in Vue 3.`
     },
-    ["COMPILER_INLINE_TEMPLATE" /* CompilerDeprecationTypes.COMPILER_INLINE_TEMPLATE */]: {
+    ["COMPILER_INLINE_TEMPLATE" /* COMPILER_INLINE_TEMPLATE */]: {
         message: `"inline-template" has been removed in Vue 3.`,
         link: `https://v3-migration.vuejs.org/breaking-changes/inline-template-attribute.html`
     },
-    ["COMPILER_FILTER" /* CompilerDeprecationTypes.COMPILER_FILTERS */]: {
+    ["COMPILER_FILTER" /* COMPILER_FILTERS */]: {
         message: `filters have been removed in Vue 3. ` +
             `The "|" symbol will be treated as native JavaScript bitwise OR operator. ` +
             `Use method calls or computed properties instead.`,
@@ -965,8 +958,8 @@ const decodeMap = {
 };
 const defaultParserOptions = {
     delimiters: [`{{`, `}}`],
-    getNamespace: () => 0 /* Namespaces.HTML */,
-    getTextMode: () => 0 /* TextModes.DATA */,
+    getNamespace: () => 0 /* HTML */,
+    getTextMode: () => 0 /* DATA */,
     isVoidTag: _vue_shared__WEBPACK_IMPORTED_MODULE_0__.NO,
     isPreTag: _vue_shared__WEBPACK_IMPORTED_MODULE_0__.NO,
     isCustomElement: _vue_shared__WEBPACK_IMPORTED_MODULE_0__.NO,
@@ -978,7 +971,7 @@ const defaultParserOptions = {
 function baseParse(content, options = {}) {
     const context = createParserContext(content, options);
     const start = getCursor(context);
-    return createRoot(parseChildren(context, 0 /* TextModes.DATA */, []), getSelection(context, start));
+    return createRoot(parseChildren(context, 0 /* DATA */, []), getSelection(context, start));
 }
 function createParserContext(content, rawOptions) {
     const options = (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.extend)({}, defaultParserOptions);
@@ -1004,20 +997,20 @@ function createParserContext(content, rawOptions) {
 }
 function parseChildren(context, mode, ancestors) {
     const parent = last(ancestors);
-    const ns = parent ? parent.ns : 0 /* Namespaces.HTML */;
+    const ns = parent ? parent.ns : 0 /* HTML */;
     const nodes = [];
     while (!isEnd(context, mode, ancestors)) {
         const s = context.source;
         let node = undefined;
-        if (mode === 0 /* TextModes.DATA */ || mode === 1 /* TextModes.RCDATA */) {
+        if (mode === 0 /* DATA */ || mode === 1 /* RCDATA */) {
             if (!context.inVPre && startsWith(s, context.options.delimiters[0])) {
                 // '{{'
                 node = parseInterpolation(context, mode);
             }
-            else if (mode === 0 /* TextModes.DATA */ && s[0] === '<') {
+            else if (mode === 0 /* DATA */ && s[0] === '<') {
                 // https://html.spec.whatwg.org/multipage/parsing.html#tag-open-state
                 if (s.length === 1) {
-                    emitError(context, 5 /* ErrorCodes.EOF_BEFORE_TAG_NAME */, 1);
+                    emitError(context, 5 /* EOF_BEFORE_TAG_NAME */, 1);
                 }
                 else if (s[1] === '!') {
                     // https://html.spec.whatwg.org/multipage/parsing.html#markup-declaration-open-state
@@ -1029,58 +1022,58 @@ function parseChildren(context, mode, ancestors) {
                         node = parseBogusComment(context);
                     }
                     else if (startsWith(s, '<![CDATA[')) {
-                        if (ns !== 0 /* Namespaces.HTML */) {
+                        if (ns !== 0 /* HTML */) {
                             node = parseCDATA(context, ancestors);
                         }
                         else {
-                            emitError(context, 1 /* ErrorCodes.CDATA_IN_HTML_CONTENT */);
+                            emitError(context, 1 /* CDATA_IN_HTML_CONTENT */);
                             node = parseBogusComment(context);
                         }
                     }
                     else {
-                        emitError(context, 11 /* ErrorCodes.INCORRECTLY_OPENED_COMMENT */);
+                        emitError(context, 11 /* INCORRECTLY_OPENED_COMMENT */);
                         node = parseBogusComment(context);
                     }
                 }
                 else if (s[1] === '/') {
                     // https://html.spec.whatwg.org/multipage/parsing.html#end-tag-open-state
                     if (s.length === 2) {
-                        emitError(context, 5 /* ErrorCodes.EOF_BEFORE_TAG_NAME */, 2);
+                        emitError(context, 5 /* EOF_BEFORE_TAG_NAME */, 2);
                     }
                     else if (s[2] === '>') {
-                        emitError(context, 14 /* ErrorCodes.MISSING_END_TAG_NAME */, 2);
+                        emitError(context, 14 /* MISSING_END_TAG_NAME */, 2);
                         advanceBy(context, 3);
                         continue;
                     }
                     else if (/[a-z]/i.test(s[2])) {
-                        emitError(context, 23 /* ErrorCodes.X_INVALID_END_TAG */);
-                        parseTag(context, 1 /* TagType.End */, parent);
+                        emitError(context, 23 /* X_INVALID_END_TAG */);
+                        parseTag(context, 1 /* End */, parent);
                         continue;
                     }
                     else {
-                        emitError(context, 12 /* ErrorCodes.INVALID_FIRST_CHARACTER_OF_TAG_NAME */, 2);
+                        emitError(context, 12 /* INVALID_FIRST_CHARACTER_OF_TAG_NAME */, 2);
                         node = parseBogusComment(context);
                     }
                 }
                 else if (/[a-z]/i.test(s[1])) {
                     node = parseElement(context, ancestors);
                     // 2.x <template> with no directive compat
-                    if (isCompatEnabled("COMPILER_NATIVE_TEMPLATE" /* CompilerDeprecationTypes.COMPILER_NATIVE_TEMPLATE */, context) &&
+                    if (isCompatEnabled("COMPILER_NATIVE_TEMPLATE" /* COMPILER_NATIVE_TEMPLATE */, context) &&
                         node &&
                         node.tag === 'template' &&
-                        !node.props.some(p => p.type === 7 /* NodeTypes.DIRECTIVE */ &&
+                        !node.props.some(p => p.type === 7 /* DIRECTIVE */ &&
                             isSpecialTemplateDirective(p.name))) {
                         ( true) &&
-                            warnDeprecation("COMPILER_NATIVE_TEMPLATE" /* CompilerDeprecationTypes.COMPILER_NATIVE_TEMPLATE */, context, node.loc);
+                            warnDeprecation("COMPILER_NATIVE_TEMPLATE" /* COMPILER_NATIVE_TEMPLATE */, context, node.loc);
                         node = node.children;
                     }
                 }
                 else if (s[1] === '?') {
-                    emitError(context, 21 /* ErrorCodes.UNEXPECTED_QUESTION_MARK_INSTEAD_OF_TAG_NAME */, 1);
+                    emitError(context, 21 /* UNEXPECTED_QUESTION_MARK_INSTEAD_OF_TAG_NAME */, 1);
                     node = parseBogusComment(context);
                 }
                 else {
-                    emitError(context, 12 /* ErrorCodes.INVALID_FIRST_CHARACTER_OF_TAG_NAME */, 1);
+                    emitError(context, 12 /* INVALID_FIRST_CHARACTER_OF_TAG_NAME */, 1);
                 }
             }
         }
@@ -1098,55 +1091,42 @@ function parseChildren(context, mode, ancestors) {
     }
     // Whitespace handling strategy like v2
     let removedWhitespace = false;
-    if (mode !== 2 /* TextModes.RAWTEXT */ && mode !== 1 /* TextModes.RCDATA */) {
+    if (mode !== 2 /* RAWTEXT */ && mode !== 1 /* RCDATA */) {
         const shouldCondense = context.options.whitespace !== 'preserve';
         for (let i = 0; i < nodes.length; i++) {
             const node = nodes[i];
-            if (node.type === 2 /* NodeTypes.TEXT */) {
-                if (!context.inPre) {
-                    if (!/[^\t\r\n\f ]/.test(node.content)) {
-                        const prev = nodes[i - 1];
-                        const next = nodes[i + 1];
-                        // Remove if:
-                        // - the whitespace is the first or last node, or:
-                        // - (condense mode) the whitespace is between twos comments, or:
-                        // - (condense mode) the whitespace is between comment and element, or:
-                        // - (condense mode) the whitespace is between two elements AND contains newline
-                        if (!prev ||
-                            !next ||
-                            (shouldCondense &&
-                                ((prev.type === 3 /* NodeTypes.COMMENT */ &&
-                                    next.type === 3 /* NodeTypes.COMMENT */) ||
-                                    (prev.type === 3 /* NodeTypes.COMMENT */ &&
-                                        next.type === 1 /* NodeTypes.ELEMENT */) ||
-                                    (prev.type === 1 /* NodeTypes.ELEMENT */ &&
-                                        next.type === 3 /* NodeTypes.COMMENT */) ||
-                                    (prev.type === 1 /* NodeTypes.ELEMENT */ &&
-                                        next.type === 1 /* NodeTypes.ELEMENT */ &&
-                                        /[\r\n]/.test(node.content))))) {
-                            removedWhitespace = true;
-                            nodes[i] = null;
-                        }
-                        else {
-                            // Otherwise, the whitespace is condensed into a single space
-                            node.content = ' ';
-                        }
+            if (!context.inPre && node.type === 2 /* TEXT */) {
+                if (!/[^\t\r\n\f ]/.test(node.content)) {
+                    const prev = nodes[i - 1];
+                    const next = nodes[i + 1];
+                    // Remove if:
+                    // - the whitespace is the first or last node, or:
+                    // - (condense mode) the whitespace is adjacent to a comment, or:
+                    // - (condense mode) the whitespace is between two elements AND contains newline
+                    if (!prev ||
+                        !next ||
+                        (shouldCondense &&
+                            (prev.type === 3 /* COMMENT */ ||
+                                next.type === 3 /* COMMENT */ ||
+                                (prev.type === 1 /* ELEMENT */ &&
+                                    next.type === 1 /* ELEMENT */ &&
+                                    /[\r\n]/.test(node.content))))) {
+                        removedWhitespace = true;
+                        nodes[i] = null;
                     }
-                    else if (shouldCondense) {
-                        // in condense mode, consecutive whitespaces in text are condensed
-                        // down to a single space.
-                        node.content = node.content.replace(/[\t\r\n\f ]+/g, ' ');
+                    else {
+                        // Otherwise, the whitespace is condensed into a single space
+                        node.content = ' ';
                     }
                 }
-                else {
-                    // #6410 normalize windows newlines in <pre>:
-                    // in SSR, browsers normalize server-rendered \r\n into a single \n
-                    // in the DOM
-                    node.content = node.content.replace(/\r\n/g, '\n');
+                else if (shouldCondense) {
+                    // in condense mode, consecutive whitespaces in text are condensed
+                    // down to a single space.
+                    node.content = node.content.replace(/[\t\r\n\f ]+/g, ' ');
                 }
             }
             // Remove comment nodes if desired by configuration.
-            else if (node.type === 3 /* NodeTypes.COMMENT */ && !context.options.comments) {
+            else if (node.type === 3 /* COMMENT */ && !context.options.comments) {
                 removedWhitespace = true;
                 nodes[i] = null;
             }
@@ -1155,7 +1135,7 @@ function parseChildren(context, mode, ancestors) {
             // remove leading newline per html spec
             // https://html.spec.whatwg.org/multipage/grouping-content.html#the-pre-element
             const first = nodes[0];
-            if (first && first.type === 2 /* NodeTypes.TEXT */) {
+            if (first && first.type === 2 /* TEXT */) {
                 first.content = first.content.replace(/^\r?\n/, '');
             }
         }
@@ -1163,12 +1143,12 @@ function parseChildren(context, mode, ancestors) {
     return removedWhitespace ? nodes.filter(Boolean) : nodes;
 }
 function pushNode(nodes, node) {
-    if (node.type === 2 /* NodeTypes.TEXT */) {
+    if (node.type === 2 /* TEXT */) {
         const prev = last(nodes);
         // Merge if both this and the previous node are text and those are
         // consecutive. This happens for cases like "a < b".
         if (prev &&
-            prev.type === 2 /* NodeTypes.TEXT */ &&
+            prev.type === 2 /* TEXT */ &&
             prev.loc.end.offset === node.loc.start.offset) {
             prev.content += node.content;
             prev.loc.end = node.loc.end;
@@ -1180,9 +1160,9 @@ function pushNode(nodes, node) {
 }
 function parseCDATA(context, ancestors) {
     advanceBy(context, 9);
-    const nodes = parseChildren(context, 3 /* TextModes.CDATA */, ancestors);
+    const nodes = parseChildren(context, 3 /* CDATA */, ancestors);
     if (context.source.length === 0) {
-        emitError(context, 6 /* ErrorCodes.EOF_IN_CDATA */);
+        emitError(context, 6 /* EOF_IN_CDATA */);
     }
     else {
         advanceBy(context, 3);
@@ -1197,14 +1177,14 @@ function parseComment(context) {
     if (!match) {
         content = context.source.slice(4);
         advanceBy(context, context.source.length);
-        emitError(context, 7 /* ErrorCodes.EOF_IN_COMMENT */);
+        emitError(context, 7 /* EOF_IN_COMMENT */);
     }
     else {
         if (match.index <= 3) {
-            emitError(context, 0 /* ErrorCodes.ABRUPT_CLOSING_OF_EMPTY_COMMENT */);
+            emitError(context, 0 /* ABRUPT_CLOSING_OF_EMPTY_COMMENT */);
         }
         if (match[1]) {
-            emitError(context, 10 /* ErrorCodes.INCORRECTLY_CLOSED_COMMENT */);
+            emitError(context, 10 /* INCORRECTLY_CLOSED_COMMENT */);
         }
         content = context.source.slice(4, match.index);
         // Advancing with reporting nested comments.
@@ -1213,14 +1193,14 @@ function parseComment(context) {
         while ((nestedIndex = s.indexOf('<!--', prevIndex)) !== -1) {
             advanceBy(context, nestedIndex - prevIndex + 1);
             if (nestedIndex + 4 < s.length) {
-                emitError(context, 16 /* ErrorCodes.NESTED_COMMENT */);
+                emitError(context, 16 /* NESTED_COMMENT */);
             }
             prevIndex = nestedIndex + 1;
         }
         advanceBy(context, match.index + match[0].length - prevIndex + 1);
     }
     return {
-        type: 3 /* NodeTypes.COMMENT */,
+        type: 3 /* COMMENT */,
         content,
         loc: getSelection(context, start)
     };
@@ -1239,7 +1219,7 @@ function parseBogusComment(context) {
         advanceBy(context, closeIndex + 1);
     }
     return {
-        type: 3 /* NodeTypes.COMMENT */,
+        type: 3 /* COMMENT */,
         content,
         loc: getSelection(context, start)
     };
@@ -1249,7 +1229,7 @@ function parseElement(context, ancestors) {
     const wasInPre = context.inPre;
     const wasInVPre = context.inVPre;
     const parent = last(ancestors);
-    const element = parseTag(context, 0 /* TagType.Start */, parent);
+    const element = parseTag(context, 0 /* Start */, parent);
     const isPreBoundary = context.inPre && !wasInPre;
     const isVPreBoundary = context.inVPre && !wasInVPre;
     if (element.isSelfClosing || context.options.isVoidTag(element.tag)) {
@@ -1269,12 +1249,12 @@ function parseElement(context, ancestors) {
     ancestors.pop();
     // 2.x inline-template compat
     {
-        const inlineTemplateProp = element.props.find(p => p.type === 6 /* NodeTypes.ATTRIBUTE */ && p.name === 'inline-template');
+        const inlineTemplateProp = element.props.find(p => p.type === 6 /* ATTRIBUTE */ && p.name === 'inline-template');
         if (inlineTemplateProp &&
-            checkCompatEnabled("COMPILER_INLINE_TEMPLATE" /* CompilerDeprecationTypes.COMPILER_INLINE_TEMPLATE */, context, inlineTemplateProp.loc)) {
+            checkCompatEnabled("COMPILER_INLINE_TEMPLATE" /* COMPILER_INLINE_TEMPLATE */, context, inlineTemplateProp.loc)) {
             const loc = getSelection(context, element.loc.end);
             inlineTemplateProp.value = {
-                type: 2 /* NodeTypes.TEXT */,
+                type: 2 /* TEXT */,
                 content: loc.source,
                 loc
             };
@@ -1283,14 +1263,14 @@ function parseElement(context, ancestors) {
     element.children = children;
     // End tag.
     if (startsWithEndTagOpen(context.source, element.tag)) {
-        parseTag(context, 1 /* TagType.End */, parent);
+        parseTag(context, 1 /* End */, parent);
     }
     else {
-        emitError(context, 24 /* ErrorCodes.X_MISSING_END_TAG */, 0, element.loc.start);
+        emitError(context, 24 /* X_MISSING_END_TAG */, 0, element.loc.start);
         if (context.source.length === 0 && element.tag.toLowerCase() === 'script') {
             const first = children[0];
             if (first && startsWith(first.loc.source, '<!--')) {
-                emitError(context, 8 /* ErrorCodes.EOF_IN_SCRIPT_HTML_COMMENT_LIKE_TEXT */);
+                emitError(context, 8 /* EOF_IN_SCRIPT_HTML_COMMENT_LIKE_TEXT */);
             }
         }
     }
@@ -1322,9 +1302,9 @@ function parseTag(context, type, parent) {
     // Attributes.
     let props = parseAttributes(context, type);
     // check v-pre
-    if (type === 0 /* TagType.Start */ &&
+    if (type === 0 /* Start */ &&
         !context.inVPre &&
-        props.some(p => p.type === 7 /* NodeTypes.DIRECTIVE */ && p.name === 'pre')) {
+        props.some(p => p.type === 7 /* DIRECTIVE */ && p.name === 'pre')) {
         context.inVPre = true;
         // reset context
         (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.extend)(context, cursor);
@@ -1335,26 +1315,26 @@ function parseTag(context, type, parent) {
     // Tag close.
     let isSelfClosing = false;
     if (context.source.length === 0) {
-        emitError(context, 9 /* ErrorCodes.EOF_IN_TAG */);
+        emitError(context, 9 /* EOF_IN_TAG */);
     }
     else {
         isSelfClosing = startsWith(context.source, '/>');
-        if (type === 1 /* TagType.End */ && isSelfClosing) {
-            emitError(context, 4 /* ErrorCodes.END_TAG_WITH_TRAILING_SOLIDUS */);
+        if (type === 1 /* End */ && isSelfClosing) {
+            emitError(context, 4 /* END_TAG_WITH_TRAILING_SOLIDUS */);
         }
         advanceBy(context, isSelfClosing ? 2 : 1);
     }
-    if (type === 1 /* TagType.End */) {
+    if (type === 1 /* End */) {
         return;
     }
     // 2.x deprecation checks
     if (( true) &&
-        isCompatEnabled("COMPILER_V_IF_V_FOR_PRECEDENCE" /* CompilerDeprecationTypes.COMPILER_V_IF_V_FOR_PRECEDENCE */, context)) {
+        isCompatEnabled("COMPILER_V_IF_V_FOR_PRECEDENCE" /* COMPILER_V_IF_V_FOR_PRECEDENCE */, context)) {
         let hasIf = false;
         let hasFor = false;
         for (let i = 0; i < props.length; i++) {
             const p = props[i];
-            if (p.type === 7 /* NodeTypes.DIRECTIVE */) {
+            if (p.type === 7 /* DIRECTIVE */) {
                 if (p.name === 'if') {
                     hasIf = true;
                 }
@@ -1363,27 +1343,27 @@ function parseTag(context, type, parent) {
                 }
             }
             if (hasIf && hasFor) {
-                warnDeprecation("COMPILER_V_IF_V_FOR_PRECEDENCE" /* CompilerDeprecationTypes.COMPILER_V_IF_V_FOR_PRECEDENCE */, context, getSelection(context, start));
+                warnDeprecation("COMPILER_V_IF_V_FOR_PRECEDENCE" /* COMPILER_V_IF_V_FOR_PRECEDENCE */, context, getSelection(context, start));
                 break;
             }
         }
     }
-    let tagType = 0 /* ElementTypes.ELEMENT */;
+    let tagType = 0 /* ELEMENT */;
     if (!context.inVPre) {
         if (tag === 'slot') {
-            tagType = 2 /* ElementTypes.SLOT */;
+            tagType = 2 /* SLOT */;
         }
         else if (tag === 'template') {
-            if (props.some(p => p.type === 7 /* NodeTypes.DIRECTIVE */ && isSpecialTemplateDirective(p.name))) {
-                tagType = 3 /* ElementTypes.TEMPLATE */;
+            if (props.some(p => p.type === 7 /* DIRECTIVE */ && isSpecialTemplateDirective(p.name))) {
+                tagType = 3 /* TEMPLATE */;
             }
         }
         else if (isComponent(tag, props, context)) {
-            tagType = 1 /* ElementTypes.COMPONENT */;
+            tagType = 1 /* COMPONENT */;
         }
     }
     return {
-        type: 1 /* NodeTypes.ELEMENT */,
+        type: 1 /* ELEMENT */,
         ns,
         tag,
         tagType,
@@ -1410,12 +1390,12 @@ function isComponent(tag, props, context) {
     // casting
     for (let i = 0; i < props.length; i++) {
         const p = props[i];
-        if (p.type === 6 /* NodeTypes.ATTRIBUTE */) {
+        if (p.type === 6 /* ATTRIBUTE */) {
             if (p.name === 'is' && p.value) {
                 if (p.value.content.startsWith('vue:')) {
                     return true;
                 }
-                else if (checkCompatEnabled("COMPILER_IS_ON_ELEMENT" /* CompilerDeprecationTypes.COMPILER_IS_ON_ELEMENT */, context, p.loc)) {
+                else if (checkCompatEnabled("COMPILER_IS_ON_ELEMENT" /* COMPILER_IS_ON_ELEMENT */, context, p.loc)) {
                     return true;
                 }
             }
@@ -1431,7 +1411,7 @@ function isComponent(tag, props, context) {
             p.name === 'bind' &&
                 isStaticArgOf(p.arg, 'is') &&
                 true &&
-                checkCompatEnabled("COMPILER_IS_ON_ELEMENT" /* CompilerDeprecationTypes.COMPILER_IS_ON_ELEMENT */, context, p.loc)) {
+                checkCompatEnabled("COMPILER_IS_ON_ELEMENT" /* COMPILER_IS_ON_ELEMENT */, context, p.loc)) {
                 return true;
             }
         }
@@ -1444,27 +1424,27 @@ function parseAttributes(context, type) {
         !startsWith(context.source, '>') &&
         !startsWith(context.source, '/>')) {
         if (startsWith(context.source, '/')) {
-            emitError(context, 22 /* ErrorCodes.UNEXPECTED_SOLIDUS_IN_TAG */);
+            emitError(context, 22 /* UNEXPECTED_SOLIDUS_IN_TAG */);
             advanceBy(context, 1);
             advanceSpaces(context);
             continue;
         }
-        if (type === 1 /* TagType.End */) {
-            emitError(context, 3 /* ErrorCodes.END_TAG_WITH_ATTRIBUTES */);
+        if (type === 1 /* End */) {
+            emitError(context, 3 /* END_TAG_WITH_ATTRIBUTES */);
         }
         const attr = parseAttribute(context, attributeNames);
         // Trim whitespace between class
         // https://github.com/vuejs/core/issues/4251
-        if (attr.type === 6 /* NodeTypes.ATTRIBUTE */ &&
+        if (attr.type === 6 /* ATTRIBUTE */ &&
             attr.value &&
             attr.name === 'class') {
             attr.value.content = attr.value.content.replace(/\s+/g, ' ').trim();
         }
-        if (type === 0 /* TagType.Start */) {
+        if (type === 0 /* Start */) {
             props.push(attr);
         }
         if (/^[^\t\r\n\f />]/.test(context.source)) {
-            emitError(context, 15 /* ErrorCodes.MISSING_WHITESPACE_BETWEEN_ATTRIBUTES */);
+            emitError(context, 15 /* MISSING_WHITESPACE_BETWEEN_ATTRIBUTES */);
         }
         advanceSpaces(context);
     }
@@ -1476,17 +1456,17 @@ function parseAttribute(context, nameSet) {
     const match = /^[^\t\r\n\f />][^\t\r\n\f />=]*/.exec(context.source);
     const name = match[0];
     if (nameSet.has(name)) {
-        emitError(context, 2 /* ErrorCodes.DUPLICATE_ATTRIBUTE */);
+        emitError(context, 2 /* DUPLICATE_ATTRIBUTE */);
     }
     nameSet.add(name);
     if (name[0] === '=') {
-        emitError(context, 19 /* ErrorCodes.UNEXPECTED_EQUALS_SIGN_BEFORE_ATTRIBUTE_NAME */);
+        emitError(context, 19 /* UNEXPECTED_EQUALS_SIGN_BEFORE_ATTRIBUTE_NAME */);
     }
     {
         const pattern = /["'<]/g;
         let m;
         while ((m = pattern.exec(name))) {
-            emitError(context, 17 /* ErrorCodes.UNEXPECTED_CHARACTER_IN_ATTRIBUTE_NAME */, m.index);
+            emitError(context, 17 /* UNEXPECTED_CHARACTER_IN_ATTRIBUTE_NAME */, m.index);
         }
     }
     advanceBy(context, name.length);
@@ -1498,7 +1478,7 @@ function parseAttribute(context, nameSet) {
         advanceSpaces(context);
         value = parseAttributeValue(context);
         if (!value) {
-            emitError(context, 13 /* ErrorCodes.MISSING_ATTRIBUTE_VALUE */);
+            emitError(context, 13 /* MISSING_ATTRIBUTE_VALUE */);
         }
     }
     const loc = getSelection(context, start);
@@ -1521,7 +1501,7 @@ function parseAttribute(context, nameSet) {
             if (content.startsWith('[')) {
                 isStatic = false;
                 if (!content.endsWith(']')) {
-                    emitError(context, 27 /* ErrorCodes.X_MISSING_DYNAMIC_DIRECTIVE_ARGUMENT_END */);
+                    emitError(context, 27 /* X_MISSING_DYNAMIC_DIRECTIVE_ARGUMENT_END */);
                     content = content.slice(1);
                 }
                 else {
@@ -1535,12 +1515,12 @@ function parseAttribute(context, nameSet) {
                 content += match[3] || '';
             }
             arg = {
-                type: 4 /* NodeTypes.SIMPLE_EXPRESSION */,
+                type: 4 /* SIMPLE_EXPRESSION */,
                 content,
                 isStatic,
                 constType: isStatic
-                    ? 3 /* ConstantTypes.CAN_STRINGIFY */
-                    : 0 /* ConstantTypes.NOT_CONSTANT */,
+                    ? 3 /* CAN_STRINGIFY */
+                    : 0 /* NOT_CONSTANT */,
                 loc
             };
         }
@@ -1557,24 +1537,24 @@ function parseAttribute(context, nameSet) {
         // 2.x compat v-bind:foo.sync -> v-model:foo
         if (dirName === 'bind' && arg) {
             if (modifiers.includes('sync') &&
-                checkCompatEnabled("COMPILER_V_BIND_SYNC" /* CompilerDeprecationTypes.COMPILER_V_BIND_SYNC */, context, loc, arg.loc.source)) {
+                checkCompatEnabled("COMPILER_V_BIND_SYNC" /* COMPILER_V_BIND_SYNC */, context, loc, arg.loc.source)) {
                 dirName = 'model';
                 modifiers.splice(modifiers.indexOf('sync'), 1);
             }
             if (( true) && modifiers.includes('prop')) {
-                checkCompatEnabled("COMPILER_V_BIND_PROP" /* CompilerDeprecationTypes.COMPILER_V_BIND_PROP */, context, loc);
+                checkCompatEnabled("COMPILER_V_BIND_PROP" /* COMPILER_V_BIND_PROP */, context, loc);
             }
         }
         return {
-            type: 7 /* NodeTypes.DIRECTIVE */,
+            type: 7 /* DIRECTIVE */,
             name: dirName,
             exp: value && {
-                type: 4 /* NodeTypes.SIMPLE_EXPRESSION */,
+                type: 4 /* SIMPLE_EXPRESSION */,
                 content: value.content,
                 isStatic: false,
                 // Treat as non-constant by default. This can be potentially set to
                 // other values by `transformExpression` to make it eligible for hoisting.
-                constType: 0 /* ConstantTypes.NOT_CONSTANT */,
+                constType: 0 /* NOT_CONSTANT */,
                 loc: value.loc
             },
             arg,
@@ -1584,13 +1564,13 @@ function parseAttribute(context, nameSet) {
     }
     // missing directive name or illegal directive name
     if (!context.inVPre && startsWith(name, 'v-')) {
-        emitError(context, 26 /* ErrorCodes.X_MISSING_DIRECTIVE_NAME */);
+        emitError(context, 26 /* X_MISSING_DIRECTIVE_NAME */);
     }
     return {
-        type: 6 /* NodeTypes.ATTRIBUTE */,
+        type: 6 /* ATTRIBUTE */,
         name,
         value: value && {
-            type: 2 /* NodeTypes.TEXT */,
+            type: 2 /* TEXT */,
             content: value.content,
             loc: value.loc
         },
@@ -1607,10 +1587,10 @@ function parseAttributeValue(context) {
         advanceBy(context, 1);
         const endIndex = context.source.indexOf(quote);
         if (endIndex === -1) {
-            content = parseTextData(context, context.source.length, 4 /* TextModes.ATTRIBUTE_VALUE */);
+            content = parseTextData(context, context.source.length, 4 /* ATTRIBUTE_VALUE */);
         }
         else {
-            content = parseTextData(context, endIndex, 4 /* TextModes.ATTRIBUTE_VALUE */);
+            content = parseTextData(context, endIndex, 4 /* ATTRIBUTE_VALUE */);
             advanceBy(context, 1);
         }
     }
@@ -1623,9 +1603,9 @@ function parseAttributeValue(context) {
         const unexpectedChars = /["'<=`]/g;
         let m;
         while ((m = unexpectedChars.exec(match[0]))) {
-            emitError(context, 18 /* ErrorCodes.UNEXPECTED_CHARACTER_IN_UNQUOTED_ATTRIBUTE_VALUE */, m.index);
+            emitError(context, 18 /* UNEXPECTED_CHARACTER_IN_UNQUOTED_ATTRIBUTE_VALUE */, m.index);
         }
-        content = parseTextData(context, match[0].length, 4 /* TextModes.ATTRIBUTE_VALUE */);
+        content = parseTextData(context, match[0].length, 4 /* ATTRIBUTE_VALUE */);
     }
     return { content, isQuoted, loc: getSelection(context, start) };
 }
@@ -1633,7 +1613,7 @@ function parseInterpolation(context, mode) {
     const [open, close] = context.options.delimiters;
     const closeIndex = context.source.indexOf(close, open.length);
     if (closeIndex === -1) {
-        emitError(context, 25 /* ErrorCodes.X_MISSING_INTERPOLATION_END */);
+        emitError(context, 25 /* X_MISSING_INTERPOLATION_END */);
         return undefined;
     }
     const start = getCursor(context);
@@ -1652,12 +1632,12 @@ function parseInterpolation(context, mode) {
     advancePositionWithMutation(innerEnd, rawContent, endOffset);
     advanceBy(context, close.length);
     return {
-        type: 5 /* NodeTypes.INTERPOLATION */,
+        type: 5 /* INTERPOLATION */,
         content: {
-            type: 4 /* NodeTypes.SIMPLE_EXPRESSION */,
+            type: 4 /* SIMPLE_EXPRESSION */,
             isStatic: false,
             // Set `isConstant` to false by default and will decide in transformExpression
-            constType: 0 /* ConstantTypes.NOT_CONSTANT */,
+            constType: 0 /* NOT_CONSTANT */,
             content,
             loc: getSelection(context, innerStart, innerEnd)
         },
@@ -1665,7 +1645,7 @@ function parseInterpolation(context, mode) {
     };
 }
 function parseText(context, mode) {
-    const endTokens = mode === 3 /* TextModes.CDATA */ ? [']]>'] : ['<', context.options.delimiters[0]];
+    const endTokens = mode === 3 /* CDATA */ ? [']]>'] : ['<', context.options.delimiters[0]];
     let endIndex = context.source.length;
     for (let i = 0; i < endTokens.length; i++) {
         const index = context.source.indexOf(endTokens[i], 1);
@@ -1676,7 +1656,7 @@ function parseText(context, mode) {
     const start = getCursor(context);
     const content = parseTextData(context, endIndex, mode);
     return {
-        type: 2 /* NodeTypes.TEXT */,
+        type: 2 /* TEXT */,
         content,
         loc: getSelection(context, start)
     };
@@ -1688,14 +1668,14 @@ function parseText(context, mode) {
 function parseTextData(context, length, mode) {
     const rawText = context.source.slice(0, length);
     advanceBy(context, length);
-    if (mode === 2 /* TextModes.RAWTEXT */ ||
-        mode === 3 /* TextModes.CDATA */ ||
+    if (mode === 2 /* RAWTEXT */ ||
+        mode === 3 /* CDATA */ ||
         !rawText.includes('&')) {
         return rawText;
     }
     else {
         // DATA or RCDATA containing "&"". Entity decoding required.
-        return context.options.decodeEntities(rawText, mode === 4 /* TextModes.ATTRIBUTE_VALUE */);
+        return context.options.decodeEntities(rawText, mode === 4 /* ATTRIBUTE_VALUE */);
     }
 }
 function getCursor(context) {
@@ -1744,7 +1724,7 @@ function emitError(context, code, offset, loc = getCursor(context)) {
 function isEnd(context, mode, ancestors) {
     const s = context.source;
     switch (mode) {
-        case 0 /* TextModes.DATA */:
+        case 0 /* DATA */:
             if (startsWith(s, '</')) {
                 // TODO: probably bad performance
                 for (let i = ancestors.length - 1; i >= 0; --i) {
@@ -1754,15 +1734,15 @@ function isEnd(context, mode, ancestors) {
                 }
             }
             break;
-        case 1 /* TextModes.RCDATA */:
-        case 2 /* TextModes.RAWTEXT */: {
+        case 1 /* RCDATA */:
+        case 2 /* RAWTEXT */: {
             const parent = last(ancestors);
             if (parent && startsWithEndTagOpen(s, parent.tag)) {
                 return true;
             }
             break;
         }
-        case 3 /* TextModes.CDATA */:
+        case 3 /* CDATA */:
             if (startsWith(s, ']]>')) {
                 return true;
             }
@@ -1785,7 +1765,7 @@ function hoistStatic(root, context) {
 function isSingleElementRoot(root, child) {
     const { children } = root;
     return (children.length === 1 &&
-        child.type === 1 /* NodeTypes.ELEMENT */ &&
+        child.type === 1 /* ELEMENT */ &&
         !isSlotOutlet(child));
 }
 function walk(node, context, doNotHoistNode = false) {
@@ -1795,15 +1775,15 @@ function walk(node, context, doNotHoistNode = false) {
     for (let i = 0; i < children.length; i++) {
         const child = children[i];
         // only plain elements & text calls are eligible for hoisting.
-        if (child.type === 1 /* NodeTypes.ELEMENT */ &&
-            child.tagType === 0 /* ElementTypes.ELEMENT */) {
+        if (child.type === 1 /* ELEMENT */ &&
+            child.tagType === 0 /* ELEMENT */) {
             const constantType = doNotHoistNode
-                ? 0 /* ConstantTypes.NOT_CONSTANT */
+                ? 0 /* NOT_CONSTANT */
                 : getConstantType(child, context);
-            if (constantType > 0 /* ConstantTypes.NOT_CONSTANT */) {
-                if (constantType >= 2 /* ConstantTypes.CAN_HOIST */) {
+            if (constantType > 0 /* NOT_CONSTANT */) {
+                if (constantType >= 2 /* CAN_HOIST */) {
                     child.codegenNode.patchFlag =
-                        -1 /* PatchFlags.HOISTED */ + (( true) ? ` /* HOISTED */` : 0);
+                        -1 /* HOISTED */ + (( true) ? ` /* HOISTED */` : 0);
                     child.codegenNode = context.hoist(child.codegenNode);
                     hoistedCount++;
                     continue;
@@ -1813,13 +1793,13 @@ function walk(node, context, doNotHoistNode = false) {
                 // node may contain dynamic children, but its props may be eligible for
                 // hoisting.
                 const codegenNode = child.codegenNode;
-                if (codegenNode.type === 13 /* NodeTypes.VNODE_CALL */) {
+                if (codegenNode.type === 13 /* VNODE_CALL */) {
                     const flag = getPatchFlag(codegenNode);
                     if ((!flag ||
-                        flag === 512 /* PatchFlags.NEED_PATCH */ ||
-                        flag === 1 /* PatchFlags.TEXT */) &&
+                        flag === 512 /* NEED_PATCH */ ||
+                        flag === 1 /* TEXT */) &&
                         getGeneratedPropsConstantType(child, context) >=
-                            2 /* ConstantTypes.CAN_HOIST */) {
+                            2 /* CAN_HOIST */) {
                         const props = getNodeProps(child);
                         if (props) {
                             codegenNode.props = context.hoist(props);
@@ -1831,9 +1811,14 @@ function walk(node, context, doNotHoistNode = false) {
                 }
             }
         }
+        else if (child.type === 12 /* TEXT_CALL */ &&
+            getConstantType(child.content, context) >= 2 /* CAN_HOIST */) {
+            child.codegenNode = context.hoist(child.codegenNode);
+            hoistedCount++;
+        }
         // walk further
-        if (child.type === 1 /* NodeTypes.ELEMENT */) {
-            const isComponent = child.tagType === 1 /* ElementTypes.COMPONENT */;
+        if (child.type === 1 /* ELEMENT */) {
+            const isComponent = child.tagType === 1 /* COMPONENT */;
             if (isComponent) {
                 context.scopes.vSlot++;
             }
@@ -1842,11 +1827,11 @@ function walk(node, context, doNotHoistNode = false) {
                 context.scopes.vSlot--;
             }
         }
-        else if (child.type === 11 /* NodeTypes.FOR */) {
+        else if (child.type === 11 /* FOR */) {
             // Do not hoist v-for single child because it has to be a block
             walk(child, context, child.children.length === 1);
         }
-        else if (child.type === 9 /* NodeTypes.IF */) {
+        else if (child.type === 9 /* IF */) {
             for (let i = 0; i < child.branches.length; i++) {
                 // Do not hoist v-if single child because it has to be a block
                 walk(child.branches[i], context, child.branches[i].children.length === 1);
@@ -1859,10 +1844,10 @@ function walk(node, context, doNotHoistNode = false) {
     // all children were hoisted - the entire children array is hoistable.
     if (hoistedCount &&
         hoistedCount === originalCount &&
-        node.type === 1 /* NodeTypes.ELEMENT */ &&
-        node.tagType === 0 /* ElementTypes.ELEMENT */ &&
+        node.type === 1 /* ELEMENT */ &&
+        node.tagType === 0 /* ELEMENT */ &&
         node.codegenNode &&
-        node.codegenNode.type === 13 /* NodeTypes.VNODE_CALL */ &&
+        node.codegenNode.type === 13 /* VNODE_CALL */ &&
         (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isArray)(node.codegenNode.children)) {
         node.codegenNode.children = context.hoist(createArrayExpression(node.codegenNode.children));
     }
@@ -1870,35 +1855,35 @@ function walk(node, context, doNotHoistNode = false) {
 function getConstantType(node, context) {
     const { constantCache } = context;
     switch (node.type) {
-        case 1 /* NodeTypes.ELEMENT */:
-            if (node.tagType !== 0 /* ElementTypes.ELEMENT */) {
-                return 0 /* ConstantTypes.NOT_CONSTANT */;
+        case 1 /* ELEMENT */:
+            if (node.tagType !== 0 /* ELEMENT */) {
+                return 0 /* NOT_CONSTANT */;
             }
             const cached = constantCache.get(node);
             if (cached !== undefined) {
                 return cached;
             }
             const codegenNode = node.codegenNode;
-            if (codegenNode.type !== 13 /* NodeTypes.VNODE_CALL */) {
-                return 0 /* ConstantTypes.NOT_CONSTANT */;
+            if (codegenNode.type !== 13 /* VNODE_CALL */) {
+                return 0 /* NOT_CONSTANT */;
             }
             if (codegenNode.isBlock &&
                 node.tag !== 'svg' &&
                 node.tag !== 'foreignObject') {
-                return 0 /* ConstantTypes.NOT_CONSTANT */;
+                return 0 /* NOT_CONSTANT */;
             }
             const flag = getPatchFlag(codegenNode);
             if (!flag) {
-                let returnType = 3 /* ConstantTypes.CAN_STRINGIFY */;
+                let returnType = 3 /* CAN_STRINGIFY */;
                 // Element itself has no patch flag. However we still need to check:
                 // 1. Even for a node with no patch flag, it is possible for it to contain
                 // non-hoistable expressions that refers to scope variables, e.g. compiler
                 // injected keys or cached event handlers. Therefore we need to always
                 // check the codegenNode's props to be sure.
                 const generatedPropsType = getGeneratedPropsConstantType(node, context);
-                if (generatedPropsType === 0 /* ConstantTypes.NOT_CONSTANT */) {
-                    constantCache.set(node, 0 /* ConstantTypes.NOT_CONSTANT */);
-                    return 0 /* ConstantTypes.NOT_CONSTANT */;
+                if (generatedPropsType === 0 /* NOT_CONSTANT */) {
+                    constantCache.set(node, 0 /* NOT_CONSTANT */);
+                    return 0 /* NOT_CONSTANT */;
                 }
                 if (generatedPropsType < returnType) {
                     returnType = generatedPropsType;
@@ -1906,9 +1891,9 @@ function getConstantType(node, context) {
                 // 2. its children.
                 for (let i = 0; i < node.children.length; i++) {
                     const childType = getConstantType(node.children[i], context);
-                    if (childType === 0 /* ConstantTypes.NOT_CONSTANT */) {
-                        constantCache.set(node, 0 /* ConstantTypes.NOT_CONSTANT */);
-                        return 0 /* ConstantTypes.NOT_CONSTANT */;
+                    if (childType === 0 /* NOT_CONSTANT */) {
+                        constantCache.set(node, 0 /* NOT_CONSTANT */);
+                        return 0 /* NOT_CONSTANT */;
                     }
                     if (childType < returnType) {
                         returnType = childType;
@@ -1918,14 +1903,14 @@ function getConstantType(node, context) {
                 // type, check if any of the props can cause the type to be lowered
                 // we can skip can_patch because it's guaranteed by the absence of a
                 // patchFlag.
-                if (returnType > 1 /* ConstantTypes.CAN_SKIP_PATCH */) {
+                if (returnType > 1 /* CAN_SKIP_PATCH */) {
                     for (let i = 0; i < node.props.length; i++) {
                         const p = node.props[i];
-                        if (p.type === 7 /* NodeTypes.DIRECTIVE */ && p.name === 'bind' && p.exp) {
+                        if (p.type === 7 /* DIRECTIVE */ && p.name === 'bind' && p.exp) {
                             const expType = getConstantType(p.exp, context);
-                            if (expType === 0 /* ConstantTypes.NOT_CONSTANT */) {
-                                constantCache.set(node, 0 /* ConstantTypes.NOT_CONSTANT */);
-                                return 0 /* ConstantTypes.NOT_CONSTANT */;
+                            if (expType === 0 /* NOT_CONSTANT */) {
+                                constantCache.set(node, 0 /* NOT_CONSTANT */);
+                                return 0 /* NOT_CONSTANT */;
                             }
                             if (expType < returnType) {
                                 returnType = expType;
@@ -1940,9 +1925,9 @@ function getConstantType(node, context) {
                     // except set custom directives.
                     for (let i = 0; i < node.props.length; i++) {
                         const p = node.props[i];
-                        if (p.type === 7 /* NodeTypes.DIRECTIVE */) {
-                            constantCache.set(node, 0 /* ConstantTypes.NOT_CONSTANT */);
-                            return 0 /* ConstantTypes.NOT_CONSTANT */;
+                        if (p.type === 7 /* DIRECTIVE */) {
+                            constantCache.set(node, 0 /* NOT_CONSTANT */);
+                            return 0 /* NOT_CONSTANT */;
                         }
                     }
                     context.removeHelper(OPEN_BLOCK);
@@ -1954,31 +1939,31 @@ function getConstantType(node, context) {
                 return returnType;
             }
             else {
-                constantCache.set(node, 0 /* ConstantTypes.NOT_CONSTANT */);
-                return 0 /* ConstantTypes.NOT_CONSTANT */;
+                constantCache.set(node, 0 /* NOT_CONSTANT */);
+                return 0 /* NOT_CONSTANT */;
             }
-        case 2 /* NodeTypes.TEXT */:
-        case 3 /* NodeTypes.COMMENT */:
-            return 3 /* ConstantTypes.CAN_STRINGIFY */;
-        case 9 /* NodeTypes.IF */:
-        case 11 /* NodeTypes.FOR */:
-        case 10 /* NodeTypes.IF_BRANCH */:
-            return 0 /* ConstantTypes.NOT_CONSTANT */;
-        case 5 /* NodeTypes.INTERPOLATION */:
-        case 12 /* NodeTypes.TEXT_CALL */:
+        case 2 /* TEXT */:
+        case 3 /* COMMENT */:
+            return 3 /* CAN_STRINGIFY */;
+        case 9 /* IF */:
+        case 11 /* FOR */:
+        case 10 /* IF_BRANCH */:
+            return 0 /* NOT_CONSTANT */;
+        case 5 /* INTERPOLATION */:
+        case 12 /* TEXT_CALL */:
             return getConstantType(node.content, context);
-        case 4 /* NodeTypes.SIMPLE_EXPRESSION */:
+        case 4 /* SIMPLE_EXPRESSION */:
             return node.constType;
-        case 8 /* NodeTypes.COMPOUND_EXPRESSION */:
-            let returnType = 3 /* ConstantTypes.CAN_STRINGIFY */;
+        case 8 /* COMPOUND_EXPRESSION */:
+            let returnType = 3 /* CAN_STRINGIFY */;
             for (let i = 0; i < node.children.length; i++) {
                 const child = node.children[i];
                 if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isString)(child) || (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isSymbol)(child)) {
                     continue;
                 }
                 const childType = getConstantType(child, context);
-                if (childType === 0 /* ConstantTypes.NOT_CONSTANT */) {
-                    return 0 /* ConstantTypes.NOT_CONSTANT */;
+                if (childType === 0 /* NOT_CONSTANT */) {
+                    return 0 /* NOT_CONSTANT */;
                 }
                 else if (childType < returnType) {
                     returnType = childType;
@@ -1987,7 +1972,7 @@ function getConstantType(node, context) {
             return returnType;
         default:
             if ((true)) ;
-            return 0 /* ConstantTypes.NOT_CONSTANT */;
+            return 0 /* NOT_CONSTANT */;
     }
 }
 const allowHoistedHelperSet = new Set([
@@ -1997,48 +1982,48 @@ const allowHoistedHelperSet = new Set([
     GUARD_REACTIVE_PROPS
 ]);
 function getConstantTypeOfHelperCall(value, context) {
-    if (value.type === 14 /* NodeTypes.JS_CALL_EXPRESSION */ &&
+    if (value.type === 14 /* JS_CALL_EXPRESSION */ &&
         !(0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isString)(value.callee) &&
         allowHoistedHelperSet.has(value.callee)) {
         const arg = value.arguments[0];
-        if (arg.type === 4 /* NodeTypes.SIMPLE_EXPRESSION */) {
+        if (arg.type === 4 /* SIMPLE_EXPRESSION */) {
             return getConstantType(arg, context);
         }
-        else if (arg.type === 14 /* NodeTypes.JS_CALL_EXPRESSION */) {
+        else if (arg.type === 14 /* JS_CALL_EXPRESSION */) {
             // in the case of nested helper call, e.g. `normalizeProps(guardReactiveProps(exp))`
             return getConstantTypeOfHelperCall(arg, context);
         }
     }
-    return 0 /* ConstantTypes.NOT_CONSTANT */;
+    return 0 /* NOT_CONSTANT */;
 }
 function getGeneratedPropsConstantType(node, context) {
-    let returnType = 3 /* ConstantTypes.CAN_STRINGIFY */;
+    let returnType = 3 /* CAN_STRINGIFY */;
     const props = getNodeProps(node);
-    if (props && props.type === 15 /* NodeTypes.JS_OBJECT_EXPRESSION */) {
+    if (props && props.type === 15 /* JS_OBJECT_EXPRESSION */) {
         const { properties } = props;
         for (let i = 0; i < properties.length; i++) {
             const { key, value } = properties[i];
             const keyType = getConstantType(key, context);
-            if (keyType === 0 /* ConstantTypes.NOT_CONSTANT */) {
+            if (keyType === 0 /* NOT_CONSTANT */) {
                 return keyType;
             }
             if (keyType < returnType) {
                 returnType = keyType;
             }
             let valueType;
-            if (value.type === 4 /* NodeTypes.SIMPLE_EXPRESSION */) {
+            if (value.type === 4 /* SIMPLE_EXPRESSION */) {
                 valueType = getConstantType(value, context);
             }
-            else if (value.type === 14 /* NodeTypes.JS_CALL_EXPRESSION */) {
+            else if (value.type === 14 /* JS_CALL_EXPRESSION */) {
                 // some helper calls can be hoisted,
                 // such as the `normalizeProps` generated by the compiler for pre-normalize class,
                 // in this case we need to respect the ConstantType of the helper's arguments
                 valueType = getConstantTypeOfHelperCall(value, context);
             }
             else {
-                valueType = 0 /* ConstantTypes.NOT_CONSTANT */;
+                valueType = 0 /* NOT_CONSTANT */;
             }
-            if (valueType === 0 /* ConstantTypes.NOT_CONSTANT */) {
+            if (valueType === 0 /* NOT_CONSTANT */) {
                 return valueType;
             }
             if (valueType < returnType) {
@@ -2050,7 +2035,7 @@ function getGeneratedPropsConstantType(node, context) {
 }
 function getNodeProps(node) {
     const codegenNode = node.codegenNode;
-    if (codegenNode.type === 13 /* NodeTypes.VNODE_CALL */) {
+    if (codegenNode.type === 13 /* VNODE_CALL */) {
         return codegenNode.props;
     }
 }
@@ -2175,7 +2160,7 @@ function createTransformContext(root, { filename = '', prefixIdentifiers = false
             if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isString)(exp))
                 exp = createSimpleExpression(exp);
             context.hoists.push(exp);
-            const identifier = createSimpleExpression(`_hoisted_${context.hoists.length}`, false, exp.loc, 2 /* ConstantTypes.CAN_HOIST */);
+            const identifier = createSimpleExpression(`_hoisted_${context.hoists.length}`, false, exp.loc, 2 /* CAN_HOIST */);
             identifier.hoisted = exp;
             return identifier;
         },
@@ -2219,7 +2204,7 @@ function createRootCodegen(root, context) {
             // single element root is never hoisted so codegenNode will never be
             // SimpleExpressionNode
             const codegenNode = child.codegenNode;
-            if (codegenNode.type === 13 /* NodeTypes.VNODE_CALL */) {
+            if (codegenNode.type === 13 /* VNODE_CALL */) {
                 makeBlock(codegenNode, context);
             }
             root.codegenNode = codegenNode;
@@ -2233,13 +2218,13 @@ function createRootCodegen(root, context) {
     }
     else if (children.length > 1) {
         // root has multiple nodes - return a fragment block.
-        let patchFlag = 64 /* PatchFlags.STABLE_FRAGMENT */;
+        let patchFlag = 64 /* STABLE_FRAGMENT */;
         let patchFlagText = _vue_shared__WEBPACK_IMPORTED_MODULE_0__.PatchFlagNames[64];
         // check if the fragment actually contains a single valid child with
         // the rest being comments
         if (( true) &&
-            children.filter(c => c.type !== 3 /* NodeTypes.COMMENT */).length === 1) {
-            patchFlag |= 2048 /* PatchFlags.DEV_ROOT_FRAGMENT */;
+            children.filter(c => c.type !== 3 /* COMMENT */).length === 1) {
+            patchFlag |= 2048 /* DEV_ROOT_FRAGMENT */;
             patchFlagText += `, ${_vue_shared__WEBPACK_IMPORTED_MODULE_0__.PatchFlagNames[2048]}`;
         }
         root.codegenNode = createVNodeCall(context, helper(FRAGMENT), undefined, root.children, patchFlag + (( true) ? ` /* ${patchFlagText} */` : 0), undefined, undefined, true, undefined, false /* isComponent */);
@@ -2286,29 +2271,29 @@ function traverseNode(node, context) {
         }
     }
     switch (node.type) {
-        case 3 /* NodeTypes.COMMENT */:
+        case 3 /* COMMENT */:
             if (!context.ssr) {
                 // inject import for the Comment symbol, which is needed for creating
                 // comment nodes with `createVNode`
                 context.helper(CREATE_COMMENT);
             }
             break;
-        case 5 /* NodeTypes.INTERPOLATION */:
+        case 5 /* INTERPOLATION */:
             // no need to traverse, but we need to inject toString helper
             if (!context.ssr) {
                 context.helper(TO_DISPLAY_STRING);
             }
             break;
         // for container types, further traverse downwards
-        case 9 /* NodeTypes.IF */:
+        case 9 /* IF */:
             for (let i = 0; i < node.branches.length; i++) {
                 traverseNode(node.branches[i], context);
             }
             break;
-        case 10 /* NodeTypes.IF_BRANCH */:
-        case 11 /* NodeTypes.FOR */:
-        case 1 /* NodeTypes.ELEMENT */:
-        case 0 /* NodeTypes.ROOT */:
+        case 10 /* IF_BRANCH */:
+        case 11 /* FOR */:
+        case 1 /* ELEMENT */:
+        case 0 /* ROOT */:
             traverseChildren(node, context);
             break;
     }
@@ -2324,17 +2309,17 @@ function createStructuralDirectiveTransform(name, fn) {
         ? (n) => n === name
         : (n) => name.test(n);
     return (node, context) => {
-        if (node.type === 1 /* NodeTypes.ELEMENT */) {
+        if (node.type === 1 /* ELEMENT */) {
             const { props } = node;
             // structural directive transforms are not concerned with slots
             // as they are handled separately in vSlot.ts
-            if (node.tagType === 3 /* ElementTypes.TEMPLATE */ && props.some(isVSlot)) {
+            if (node.tagType === 3 /* TEMPLATE */ && props.some(isVSlot)) {
                 return;
             }
             const exitFns = [];
             for (let i = 0; i < props.length; i++) {
                 const prop = props[i];
-                if (prop.type === 7 /* NodeTypes.DIRECTIVE */ && matches(prop.name)) {
+                if (prop.type === 7 /* DIRECTIVE */ && matches(prop.name)) {
                     // structural directives are removed to avoid infinite recursion
                     // also we remove them *before* applying so that it can further
                     // traverse itself in case it moves the node around
@@ -2557,10 +2542,10 @@ function genHoists(hoists, context) {
 }
 function isText$1(n) {
     return ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isString)(n) ||
-        n.type === 4 /* NodeTypes.SIMPLE_EXPRESSION */ ||
-        n.type === 2 /* NodeTypes.TEXT */ ||
-        n.type === 5 /* NodeTypes.INTERPOLATION */ ||
-        n.type === 8 /* NodeTypes.COMPOUND_EXPRESSION */);
+        n.type === 4 /* SIMPLE_EXPRESSION */ ||
+        n.type === 2 /* TEXT */ ||
+        n.type === 5 /* INTERPOLATION */ ||
+        n.type === 8 /* COMPOUND_EXPRESSION */);
 }
 function genNodeListAsArray(nodes, context) {
     const multilines = nodes.length > 3 ||
@@ -2605,69 +2590,69 @@ function genNode(node, context) {
         return;
     }
     switch (node.type) {
-        case 1 /* NodeTypes.ELEMENT */:
-        case 9 /* NodeTypes.IF */:
-        case 11 /* NodeTypes.FOR */:
+        case 1 /* ELEMENT */:
+        case 9 /* IF */:
+        case 11 /* FOR */:
             ( true) &&
                 assert(node.codegenNode != null, `Codegen node is missing for element/if/for node. ` +
                     `Apply appropriate transforms first.`);
             genNode(node.codegenNode, context);
             break;
-        case 2 /* NodeTypes.TEXT */:
+        case 2 /* TEXT */:
             genText(node, context);
             break;
-        case 4 /* NodeTypes.SIMPLE_EXPRESSION */:
+        case 4 /* SIMPLE_EXPRESSION */:
             genExpression(node, context);
             break;
-        case 5 /* NodeTypes.INTERPOLATION */:
+        case 5 /* INTERPOLATION */:
             genInterpolation(node, context);
             break;
-        case 12 /* NodeTypes.TEXT_CALL */:
+        case 12 /* TEXT_CALL */:
             genNode(node.codegenNode, context);
             break;
-        case 8 /* NodeTypes.COMPOUND_EXPRESSION */:
+        case 8 /* COMPOUND_EXPRESSION */:
             genCompoundExpression(node, context);
             break;
-        case 3 /* NodeTypes.COMMENT */:
+        case 3 /* COMMENT */:
             genComment(node, context);
             break;
-        case 13 /* NodeTypes.VNODE_CALL */:
+        case 13 /* VNODE_CALL */:
             genVNodeCall(node, context);
             break;
-        case 14 /* NodeTypes.JS_CALL_EXPRESSION */:
+        case 14 /* JS_CALL_EXPRESSION */:
             genCallExpression(node, context);
             break;
-        case 15 /* NodeTypes.JS_OBJECT_EXPRESSION */:
+        case 15 /* JS_OBJECT_EXPRESSION */:
             genObjectExpression(node, context);
             break;
-        case 17 /* NodeTypes.JS_ARRAY_EXPRESSION */:
+        case 17 /* JS_ARRAY_EXPRESSION */:
             genArrayExpression(node, context);
             break;
-        case 18 /* NodeTypes.JS_FUNCTION_EXPRESSION */:
+        case 18 /* JS_FUNCTION_EXPRESSION */:
             genFunctionExpression(node, context);
             break;
-        case 19 /* NodeTypes.JS_CONDITIONAL_EXPRESSION */:
+        case 19 /* JS_CONDITIONAL_EXPRESSION */:
             genConditionalExpression(node, context);
             break;
-        case 20 /* NodeTypes.JS_CACHE_EXPRESSION */:
+        case 20 /* JS_CACHE_EXPRESSION */:
             genCacheExpression(node, context);
             break;
-        case 21 /* NodeTypes.JS_BLOCK_STATEMENT */:
+        case 21 /* JS_BLOCK_STATEMENT */:
             genNodeList(node.body, context, true, false);
             break;
         // SSR only types
-        case 22 /* NodeTypes.JS_TEMPLATE_LITERAL */:
+        case 22 /* JS_TEMPLATE_LITERAL */:
             break;
-        case 23 /* NodeTypes.JS_IF_STATEMENT */:
+        case 23 /* JS_IF_STATEMENT */:
             break;
-        case 24 /* NodeTypes.JS_ASSIGNMENT_EXPRESSION */:
+        case 24 /* JS_ASSIGNMENT_EXPRESSION */:
             break;
-        case 25 /* NodeTypes.JS_SEQUENCE_EXPRESSION */:
+        case 25 /* JS_SEQUENCE_EXPRESSION */:
             break;
-        case 26 /* NodeTypes.JS_RETURN_STATEMENT */:
+        case 26 /* JS_RETURN_STATEMENT */:
             break;
         /* istanbul ignore next */
-        case 10 /* NodeTypes.IF_BRANCH */:
+        case 10 /* IF_BRANCH */:
             // noop
             break;
         default:
@@ -2707,7 +2692,7 @@ function genCompoundExpression(node, context) {
 }
 function genExpressionAsPropertyKey(node, context) {
     const { push } = context;
-    if (node.type === 8 /* NodeTypes.COMPOUND_EXPRESSION */) {
+    if (node.type === 8 /* COMPOUND_EXPRESSION */) {
         push(`[`);
         genCompoundExpression(node, context);
         push(`]`);
@@ -2785,7 +2770,7 @@ function genObjectExpression(node, context) {
     }
     const multilines = properties.length > 1 ||
         ((( true)) &&
-            properties.some(p => p.value.type !== 4 /* NodeTypes.SIMPLE_EXPRESSION */));
+            properties.some(p => p.value.type !== 4 /* SIMPLE_EXPRESSION */));
     push(multilines ? `{` : `{ `);
     multilines && indent();
     for (let i = 0; i < properties.length; i++) {
@@ -2854,7 +2839,7 @@ function genFunctionExpression(node, context) {
 function genConditionalExpression(node, context) {
     const { test, consequent, alternate, newline: needNewline } = node;
     const { push, indent, deindent, newline } = context;
-    if (test.type === 4 /* NodeTypes.SIMPLE_EXPRESSION */) {
+    if (test.type === 4 /* SIMPLE_EXPRESSION */) {
         const needsParens = !isSimpleIdentifier(test.content);
         needsParens && push(`(`);
         genExpression(test, context);
@@ -2874,7 +2859,7 @@ function genConditionalExpression(node, context) {
     needNewline && newline();
     needNewline || push(` `);
     push(`: `);
-    const isNested = alternate.type === 19 /* NodeTypes.JS_CONDITIONAL_EXPRESSION */;
+    const isNested = alternate.type === 19 /* JS_CONDITIONAL_EXPRESSION */;
     if (!isNested) {
         context.indentLevel++;
     }
@@ -3038,32 +3023,32 @@ function validateBrowserExpression(node, context, asParams = false, asRawStateme
         if (keywordMatch) {
             message = `avoid using JavaScript keyword as property name: "${keywordMatch[0]}"`;
         }
-        context.onError(createCompilerError(45 /* ErrorCodes.X_INVALID_EXPRESSION */, node.loc, undefined, message));
+        context.onError(createCompilerError(44 /* X_INVALID_EXPRESSION */, node.loc, undefined, message));
     }
 }
 
 const transformExpression = (node, context) => {
-    if (node.type === 5 /* NodeTypes.INTERPOLATION */) {
+    if (node.type === 5 /* INTERPOLATION */) {
         node.content = processExpression(node.content, context);
     }
-    else if (node.type === 1 /* NodeTypes.ELEMENT */) {
+    else if (node.type === 1 /* ELEMENT */) {
         // handle directives on element
         for (let i = 0; i < node.props.length; i++) {
             const dir = node.props[i];
             // do not process for v-on & v-for since they are special handled
-            if (dir.type === 7 /* NodeTypes.DIRECTIVE */ && dir.name !== 'for') {
+            if (dir.type === 7 /* DIRECTIVE */ && dir.name !== 'for') {
                 const exp = dir.exp;
                 const arg = dir.arg;
                 // do not process exp if this is v-on:arg - we need special handling
                 // for wrapping inline statements.
                 if (exp &&
-                    exp.type === 4 /* NodeTypes.SIMPLE_EXPRESSION */ &&
+                    exp.type === 4 /* SIMPLE_EXPRESSION */ &&
                     !(dir.name === 'on' && arg)) {
                     dir.exp = processExpression(exp, context, 
                     // slot args must be processed as function params
                     dir.name === 'slot');
                 }
-                if (arg && arg.type === 4 /* NodeTypes.SIMPLE_EXPRESSION */ && !arg.isStatic) {
+                if (arg && arg.type === 4 /* SIMPLE_EXPRESSION */ && !arg.isStatic) {
                     dir.arg = processExpression(arg, context);
                 }
             }
@@ -3087,19 +3072,6 @@ asRawStatements = false, localVars = Object.create(context.identifiers)) {
         return node;
     }
 }
-function stringifyExpression(exp) {
-    if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isString)(exp)) {
-        return exp;
-    }
-    else if (exp.type === 4 /* NodeTypes.SIMPLE_EXPRESSION */) {
-        return exp.content;
-    }
-    else {
-        return exp.children
-            .map(stringifyExpression)
-            .join('');
-    }
-}
 
 const transformIf = createStructuralDirectiveTransform(/^(if|else|else-if)$/, (node, dir, context) => {
     return processIf(node, dir, context, (ifNode, branch, isRoot) => {
@@ -3111,7 +3083,7 @@ const transformIf = createStructuralDirectiveTransform(/^(if|else|else-if)$/, (n
         let key = 0;
         while (i-- >= 0) {
             const sibling = siblings[i];
-            if (sibling && sibling.type === 9 /* NodeTypes.IF */) {
+            if (sibling && sibling.type === 9 /* IF */) {
                 key += sibling.branches.length;
             }
         }
@@ -3134,7 +3106,7 @@ function processIf(node, dir, context, processCodegen) {
     if (dir.name !== 'else' &&
         (!dir.exp || !dir.exp.content.trim())) {
         const loc = dir.exp ? dir.exp.loc : node.loc;
-        context.onError(createCompilerError(28 /* ErrorCodes.X_V_IF_NO_EXPRESSION */, dir.loc));
+        context.onError(createCompilerError(28 /* X_V_IF_NO_EXPRESSION */, dir.loc));
         dir.exp = createSimpleExpression(`true`, false, loc);
     }
     if ( true && dir.exp) {
@@ -3143,7 +3115,7 @@ function processIf(node, dir, context, processCodegen) {
     if (dir.name === 'if') {
         const branch = createIfBranch(node, dir);
         const ifNode = {
-            type: 9 /* NodeTypes.IF */,
+            type: 9 /* IF */,
             loc: node.loc,
             branches: [branch]
         };
@@ -3159,22 +3131,22 @@ function processIf(node, dir, context, processCodegen) {
         let i = siblings.indexOf(node);
         while (i-- >= -1) {
             const sibling = siblings[i];
-            if (sibling && sibling.type === 3 /* NodeTypes.COMMENT */) {
+            if (( true) && sibling && sibling.type === 3 /* COMMENT */) {
                 context.removeNode(sibling);
-                ( true) && comments.unshift(sibling);
+                comments.unshift(sibling);
                 continue;
             }
             if (sibling &&
-                sibling.type === 2 /* NodeTypes.TEXT */ &&
+                sibling.type === 2 /* TEXT */ &&
                 !sibling.content.trim().length) {
                 context.removeNode(sibling);
                 continue;
             }
-            if (sibling && sibling.type === 9 /* NodeTypes.IF */) {
+            if (sibling && sibling.type === 9 /* IF */) {
                 // Check if v-else was followed by v-else-if
                 if (dir.name === 'else-if' &&
                     sibling.branches[sibling.branches.length - 1].condition === undefined) {
-                    context.onError(createCompilerError(30 /* ErrorCodes.X_V_ELSE_NO_ADJACENT_IF */, node.loc));
+                    context.onError(createCompilerError(30 /* X_V_ELSE_NO_ADJACENT_IF */, node.loc));
                 }
                 // move the node to the if node's branches
                 context.removeNode();
@@ -3183,7 +3155,7 @@ function processIf(node, dir, context, processCodegen) {
                     comments.length &&
                     // #3619 ignore comments if the v-if is direct child of <transition>
                     !(context.parent &&
-                        context.parent.type === 1 /* NodeTypes.ELEMENT */ &&
+                        context.parent.type === 1 /* ELEMENT */ &&
                         isBuiltInType(context.parent.tag, 'transition'))) {
                     branch.children = [...comments, ...branch.children];
                 }
@@ -3193,7 +3165,7 @@ function processIf(node, dir, context, processCodegen) {
                     if (key) {
                         sibling.branches.forEach(({ userKey }) => {
                             if (isSameKey(userKey, key)) {
-                                context.onError(createCompilerError(29 /* ErrorCodes.X_V_IF_SAME_KEY */, branch.userKey.loc));
+                                context.onError(createCompilerError(29 /* X_V_IF_SAME_KEY */, branch.userKey.loc));
                             }
                         });
                     }
@@ -3211,16 +3183,16 @@ function processIf(node, dir, context, processCodegen) {
                 context.currentNode = null;
             }
             else {
-                context.onError(createCompilerError(30 /* ErrorCodes.X_V_ELSE_NO_ADJACENT_IF */, node.loc));
+                context.onError(createCompilerError(30 /* X_V_ELSE_NO_ADJACENT_IF */, node.loc));
             }
             break;
         }
     }
 }
 function createIfBranch(node, dir) {
-    const isTemplateIf = node.tagType === 3 /* ElementTypes.TEMPLATE */;
+    const isTemplateIf = node.tagType === 3 /* TEMPLATE */;
     return {
-        type: 10 /* NodeTypes.IF_BRANCH */,
+        type: 10 /* IF_BRANCH */,
         loc: node.loc,
         condition: dir.name === 'else' ? undefined : dir.exp,
         children: isTemplateIf && !findDir(node, 'for') ? node.children : [node],
@@ -3244,26 +3216,26 @@ function createCodegenNodeForBranch(branch, keyIndex, context) {
 }
 function createChildrenCodegenNode(branch, keyIndex, context) {
     const { helper } = context;
-    const keyProperty = createObjectProperty(`key`, createSimpleExpression(`${keyIndex}`, false, locStub, 2 /* ConstantTypes.CAN_HOIST */));
+    const keyProperty = createObjectProperty(`key`, createSimpleExpression(`${keyIndex}`, false, locStub, 2 /* CAN_HOIST */));
     const { children } = branch;
     const firstChild = children[0];
-    const needFragmentWrapper = children.length !== 1 || firstChild.type !== 1 /* NodeTypes.ELEMENT */;
+    const needFragmentWrapper = children.length !== 1 || firstChild.type !== 1 /* ELEMENT */;
     if (needFragmentWrapper) {
-        if (children.length === 1 && firstChild.type === 11 /* NodeTypes.FOR */) {
+        if (children.length === 1 && firstChild.type === 11 /* FOR */) {
             // optimize away nested fragments when child is a ForNode
             const vnodeCall = firstChild.codegenNode;
             injectProp(vnodeCall, keyProperty, context);
             return vnodeCall;
         }
         else {
-            let patchFlag = 64 /* PatchFlags.STABLE_FRAGMENT */;
+            let patchFlag = 64 /* STABLE_FRAGMENT */;
             let patchFlagText = _vue_shared__WEBPACK_IMPORTED_MODULE_0__.PatchFlagNames[64];
             // check if the fragment actually contains a single valid child with
             // the rest being comments
             if (( true) &&
                 !branch.isTemplateIf &&
-                children.filter(c => c.type !== 3 /* NodeTypes.COMMENT */).length === 1) {
-                patchFlag |= 2048 /* PatchFlags.DEV_ROOT_FRAGMENT */;
+                children.filter(c => c.type !== 3 /* COMMENT */).length === 1) {
+                patchFlag |= 2048 /* DEV_ROOT_FRAGMENT */;
                 patchFlagText += `, ${_vue_shared__WEBPACK_IMPORTED_MODULE_0__.PatchFlagNames[2048]}`;
             }
             return createVNodeCall(context, helper(FRAGMENT), createObjectExpression([keyProperty]), children, patchFlag + (( true) ? ` /* ${patchFlagText} */` : 0), undefined, undefined, true, false, false /* isComponent */, branch.loc);
@@ -3273,7 +3245,7 @@ function createChildrenCodegenNode(branch, keyIndex, context) {
         const ret = firstChild.codegenNode;
         const vnodeCall = getMemoedVNodeCall(ret);
         // Change createVNode to createBlock.
-        if (vnodeCall.type === 13 /* NodeTypes.VNODE_CALL */) {
+        if (vnodeCall.type === 13 /* VNODE_CALL */) {
             makeBlock(vnodeCall, context);
         }
         // inject branch key
@@ -3285,7 +3257,7 @@ function isSameKey(a, b) {
     if (!a || a.type !== b.type) {
         return false;
     }
-    if (a.type === 6 /* NodeTypes.ATTRIBUTE */) {
+    if (a.type === 6 /* ATTRIBUTE */) {
         if (a.value.content !== b.value.content) {
             return false;
         }
@@ -3297,7 +3269,7 @@ function isSameKey(a, b) {
         if (exp.type !== branchExp.type) {
             return false;
         }
-        if (exp.type !== 4 /* NodeTypes.SIMPLE_EXPRESSION */ ||
+        if (exp.type !== 4 /* SIMPLE_EXPRESSION */ ||
             exp.isStatic !== branchExp.isStatic ||
             exp.content !== branchExp.content) {
             return false;
@@ -3307,15 +3279,15 @@ function isSameKey(a, b) {
 }
 function getParentCondition(node) {
     while (true) {
-        if (node.type === 19 /* NodeTypes.JS_CONDITIONAL_EXPRESSION */) {
-            if (node.alternate.type === 19 /* NodeTypes.JS_CONDITIONAL_EXPRESSION */) {
+        if (node.type === 19 /* JS_CONDITIONAL_EXPRESSION */) {
+            if (node.alternate.type === 19 /* JS_CONDITIONAL_EXPRESSION */) {
                 node = node.alternate;
             }
             else {
                 return node;
             }
         }
-        else if (node.type === 20 /* NodeTypes.JS_CACHE_EXPRESSION */) {
+        else if (node.type === 20 /* JS_CACHE_EXPRESSION */) {
             node = node.value;
         }
     }
@@ -3333,17 +3305,17 @@ const transformFor = createStructuralDirectiveTransform('for', (node, dir, conte
         const memo = findDir(node, 'memo');
         const keyProp = findProp(node, `key`);
         const keyExp = keyProp &&
-            (keyProp.type === 6 /* NodeTypes.ATTRIBUTE */
+            (keyProp.type === 6 /* ATTRIBUTE */
                 ? createSimpleExpression(keyProp.value.content, true)
                 : keyProp.exp);
         const keyProperty = keyProp ? createObjectProperty(`key`, keyExp) : null;
-        const isStableFragment = forNode.source.type === 4 /* NodeTypes.SIMPLE_EXPRESSION */ &&
-            forNode.source.constType > 0 /* ConstantTypes.NOT_CONSTANT */;
+        const isStableFragment = forNode.source.type === 4 /* SIMPLE_EXPRESSION */ &&
+            forNode.source.constType > 0 /* NOT_CONSTANT */;
         const fragmentFlag = isStableFragment
-            ? 64 /* PatchFlags.STABLE_FRAGMENT */
+            ? 64 /* STABLE_FRAGMENT */
             : keyProp
-                ? 128 /* PatchFlags.KEYED_FRAGMENT */
-                : 256 /* PatchFlags.UNKEYED_FRAGMENT */;
+                ? 128 /* KEYED_FRAGMENT */
+                : 256 /* UNKEYED_FRAGMENT */;
         forNode.codegenNode = createVNodeCall(context, helper(FRAGMENT), undefined, renderExp, fragmentFlag +
             (( true) ? ` /* ${_vue_shared__WEBPACK_IMPORTED_MODULE_0__.PatchFlagNames[fragmentFlag]} */` : 0), undefined, undefined, true /* isBlock */, !isStableFragment /* disableTracking */, false /* isComponent */, node.loc);
         return () => {
@@ -3353,16 +3325,16 @@ const transformFor = createStructuralDirectiveTransform('for', (node, dir, conte
             // check <template v-for> key placement
             if (( true) && isTemplate) {
                 node.children.some(c => {
-                    if (c.type === 1 /* NodeTypes.ELEMENT */) {
+                    if (c.type === 1 /* ELEMENT */) {
                         const key = findProp(c, 'key');
                         if (key) {
-                            context.onError(createCompilerError(33 /* ErrorCodes.X_V_FOR_TEMPLATE_KEY_PLACEMENT */, key.loc));
+                            context.onError(createCompilerError(33 /* X_V_FOR_TEMPLATE_KEY_PLACEMENT */, key.loc));
                             return true;
                         }
                     }
                 });
             }
-            const needFragmentWrapper = children.length !== 1 || children[0].type !== 1 /* NodeTypes.ELEMENT */;
+            const needFragmentWrapper = children.length !== 1 || children[0].type !== 1 /* ELEMENT */;
             const slotOutlet = isSlotOutlet(node)
                 ? node
                 : isTemplate &&
@@ -3383,7 +3355,7 @@ const transformFor = createStructuralDirectiveTransform('for', (node, dir, conte
             else if (needFragmentWrapper) {
                 // <template v-for="..."> with text or multi-elements
                 // should generate a fragment block for each loop
-                childBlock = createVNodeCall(context, helper(FRAGMENT), keyProperty ? createObjectExpression([keyProperty]) : undefined, node.children, 64 /* PatchFlags.STABLE_FRAGMENT */ +
+                childBlock = createVNodeCall(context, helper(FRAGMENT), keyProperty ? createObjectExpression([keyProperty]) : undefined, node.children, 64 /* STABLE_FRAGMENT */ +
                     (( true)
                         ? ` /* ${_vue_shared__WEBPACK_IMPORTED_MODULE_0__.PatchFlagNames[64]} */`
                         : 0), undefined, undefined, true, undefined, false /* isComponent */);
@@ -3442,7 +3414,7 @@ const transformFor = createStructuralDirectiveTransform('for', (node, dir, conte
 // target-agnostic transform used for both Client and SSR
 function processFor(node, dir, context, processCodegen) {
     if (!dir.exp) {
-        context.onError(createCompilerError(31 /* ErrorCodes.X_V_FOR_NO_EXPRESSION */, dir.loc));
+        context.onError(createCompilerError(31 /* X_V_FOR_NO_EXPRESSION */, dir.loc));
         return;
     }
     const parseResult = parseForExpression(
@@ -3450,13 +3422,13 @@ function processFor(node, dir, context, processCodegen) {
     // before expression transform.
     dir.exp, context);
     if (!parseResult) {
-        context.onError(createCompilerError(32 /* ErrorCodes.X_V_FOR_MALFORMED_EXPRESSION */, dir.loc));
+        context.onError(createCompilerError(32 /* X_V_FOR_MALFORMED_EXPRESSION */, dir.loc));
         return;
     }
     const { addIdentifiers, removeIdentifiers, scopes } = context;
     const { source, value, key, index } = parseResult;
     const forNode = {
-        type: 11 /* NodeTypes.FOR */,
+        type: 11 /* FOR */,
         loc: dir.loc,
         source,
         valueAlias: value,
@@ -3556,9 +3528,9 @@ const defaultFallback = createSimpleExpression(`undefined`, false);
 //    Note the exit callback is executed before buildSlots() on the same node,
 //    so only nested slots see positive numbers.
 const trackSlotScopes = (node, context) => {
-    if (node.type === 1 /* NodeTypes.ELEMENT */ &&
-        (node.tagType === 1 /* ElementTypes.COMPONENT */ ||
-            node.tagType === 3 /* ElementTypes.TEMPLATE */)) {
+    if (node.type === 1 /* ELEMENT */ &&
+        (node.tagType === 1 /* COMPONENT */ ||
+            node.tagType === 3 /* TEMPLATE */)) {
         // We are only checking non-empty v-slot here
         // since we only care about slots that introduce scope variables.
         const vSlot = findDir(node, 'slot');
@@ -3620,21 +3592,20 @@ function buildSlots(node, context, buildSlotFn = buildClientSlotFn) {
     let hasNamedDefaultSlot = false;
     const implicitDefaultChildren = [];
     const seenSlotNames = new Set();
-    let conditionalBranchIndex = 0;
     for (let i = 0; i < children.length; i++) {
         const slotElement = children[i];
         let slotDir;
         if (!isTemplateNode(slotElement) ||
             !(slotDir = findDir(slotElement, 'slot', true))) {
             // not a <template v-slot>, skip.
-            if (slotElement.type !== 3 /* NodeTypes.COMMENT */) {
+            if (slotElement.type !== 3 /* COMMENT */) {
                 implicitDefaultChildren.push(slotElement);
             }
             continue;
         }
         if (onComponentSlot) {
             // already has on-component slot - this is incorrect usage.
-            context.onError(createCompilerError(37 /* ErrorCodes.X_V_SLOT_MIXED_SLOT_USAGE */, slotDir.loc));
+            context.onError(createCompilerError(37 /* X_V_SLOT_MIXED_SLOT_USAGE */, slotDir.loc));
             break;
         }
         hasTemplateSlots = true;
@@ -3655,7 +3626,7 @@ function buildSlots(node, context, buildSlotFn = buildClientSlotFn) {
         let vFor;
         if ((vIf = findDir(slotElement, 'if'))) {
             hasDynamicSlots = true;
-            dynamicSlots.push(createConditionalExpression(vIf.exp, buildDynamicSlot(slotName, slotFunction, conditionalBranchIndex++), defaultFallback));
+            dynamicSlots.push(createConditionalExpression(vIf.exp, buildDynamicSlot(slotName, slotFunction), defaultFallback));
         }
         else if ((vElse = findDir(slotElement, /^else(-if)?$/, true /* allowEmpty */))) {
             // find adjacent v-if
@@ -3663,7 +3634,7 @@ function buildSlots(node, context, buildSlotFn = buildClientSlotFn) {
             let prev;
             while (j--) {
                 prev = children[j];
-                if (prev.type !== 3 /* NodeTypes.COMMENT */) {
+                if (prev.type !== 3 /* COMMENT */) {
                     break;
                 }
             }
@@ -3673,15 +3644,15 @@ function buildSlots(node, context, buildSlotFn = buildClientSlotFn) {
                 i--;
                 // attach this slot to previous conditional
                 let conditional = dynamicSlots[dynamicSlots.length - 1];
-                while (conditional.alternate.type === 19 /* NodeTypes.JS_CONDITIONAL_EXPRESSION */) {
+                while (conditional.alternate.type === 19 /* JS_CONDITIONAL_EXPRESSION */) {
                     conditional = conditional.alternate;
                 }
                 conditional.alternate = vElse.exp
-                    ? createConditionalExpression(vElse.exp, buildDynamicSlot(slotName, slotFunction, conditionalBranchIndex++), defaultFallback)
-                    : buildDynamicSlot(slotName, slotFunction, conditionalBranchIndex++);
+                    ? createConditionalExpression(vElse.exp, buildDynamicSlot(slotName, slotFunction), defaultFallback)
+                    : buildDynamicSlot(slotName, slotFunction);
             }
             else {
-                context.onError(createCompilerError(30 /* ErrorCodes.X_V_ELSE_NO_ADJACENT_IF */, vElse.loc));
+                context.onError(createCompilerError(30 /* X_V_ELSE_NO_ADJACENT_IF */, vElse.loc));
             }
         }
         else if ((vFor = findDir(slotElement, 'for'))) {
@@ -3697,14 +3668,14 @@ function buildSlots(node, context, buildSlotFn = buildClientSlotFn) {
                 ]));
             }
             else {
-                context.onError(createCompilerError(32 /* ErrorCodes.X_V_FOR_MALFORMED_EXPRESSION */, vFor.loc));
+                context.onError(createCompilerError(32 /* X_V_FOR_MALFORMED_EXPRESSION */, vFor.loc));
             }
         }
         else {
             // check duplicate static names
             if (staticSlotName) {
                 if (seenSlotNames.has(staticSlotName)) {
-                    context.onError(createCompilerError(38 /* ErrorCodes.X_V_SLOT_DUPLICATE_SLOT_NAMES */, dirLoc));
+                    context.onError(createCompilerError(38 /* X_V_SLOT_DUPLICATE_SLOT_NAMES */, dirLoc));
                     continue;
                 }
                 seenSlotNames.add(staticSlotName);
@@ -3734,7 +3705,7 @@ function buildSlots(node, context, buildSlotFn = buildClientSlotFn) {
             implicitDefaultChildren.some(node => isNonWhitespaceContent(node))) {
             // implicit default slot (mixed with named slots)
             if (hasNamedDefaultSlot) {
-                context.onError(createCompilerError(39 /* ErrorCodes.X_V_SLOT_EXTRANEOUS_DEFAULT_SLOT_CHILDREN */, implicitDefaultChildren[0].loc));
+                context.onError(createCompilerError(39 /* X_V_SLOT_EXTRANEOUS_DEFAULT_SLOT_CHILDREN */, implicitDefaultChildren[0].loc));
             }
             else {
                 slotsProperties.push(buildDefaultSlotProperty(undefined, implicitDefaultChildren));
@@ -3742,10 +3713,10 @@ function buildSlots(node, context, buildSlotFn = buildClientSlotFn) {
         }
     }
     const slotFlag = hasDynamicSlots
-        ? 2 /* SlotFlags.DYNAMIC */
+        ? 2 /* DYNAMIC */
         : hasForwardedSlots(node.children)
-            ? 3 /* SlotFlags.FORWARDED */
-            : 1 /* SlotFlags.STABLE */;
+            ? 3 /* FORWARDED */
+            : 1 /* STABLE */;
     let slots = createObjectExpression(slotsProperties.concat(createObjectProperty(`_`, 
     // 2 = compiled but dynamic = can skip normalization, but must run diff
     // 1 = compiled and static = can skip normalization AND diff as optimized
@@ -3761,32 +3732,28 @@ function buildSlots(node, context, buildSlotFn = buildClientSlotFn) {
         hasDynamicSlots
     };
 }
-function buildDynamicSlot(name, fn, index) {
-    const props = [
+function buildDynamicSlot(name, fn) {
+    return createObjectExpression([
         createObjectProperty(`name`, name),
         createObjectProperty(`fn`, fn)
-    ];
-    if (index != null) {
-        props.push(createObjectProperty(`key`, createSimpleExpression(String(index), true)));
-    }
-    return createObjectExpression(props);
+    ]);
 }
 function hasForwardedSlots(children) {
     for (let i = 0; i < children.length; i++) {
         const child = children[i];
         switch (child.type) {
-            case 1 /* NodeTypes.ELEMENT */:
-                if (child.tagType === 2 /* ElementTypes.SLOT */ ||
+            case 1 /* ELEMENT */:
+                if (child.tagType === 2 /* SLOT */ ||
                     hasForwardedSlots(child.children)) {
                     return true;
                 }
                 break;
-            case 9 /* NodeTypes.IF */:
+            case 9 /* IF */:
                 if (hasForwardedSlots(child.branches))
                     return true;
                 break;
-            case 10 /* NodeTypes.IF_BRANCH */:
-            case 11 /* NodeTypes.FOR */:
+            case 10 /* IF_BRANCH */:
+            case 11 /* FOR */:
                 if (hasForwardedSlots(child.children))
                     return true;
                 break;
@@ -3795,9 +3762,9 @@ function hasForwardedSlots(children) {
     return false;
 }
 function isNonWhitespaceContent(node) {
-    if (node.type !== 2 /* NodeTypes.TEXT */ && node.type !== 12 /* NodeTypes.TEXT_CALL */)
+    if (node.type !== 2 /* TEXT */ && node.type !== 12 /* TEXT_CALL */)
         return true;
-    return node.type === 2 /* NodeTypes.TEXT */
+    return node.type === 2 /* TEXT */
         ? !!node.content.trim()
         : isNonWhitespaceContent(node.content);
 }
@@ -3811,13 +3778,13 @@ const transformElement = (node, context) => {
     // processed and merged.
     return function postTransformElement() {
         node = context.currentNode;
-        if (!(node.type === 1 /* NodeTypes.ELEMENT */ &&
-            (node.tagType === 0 /* ElementTypes.ELEMENT */ ||
-                node.tagType === 1 /* ElementTypes.COMPONENT */))) {
+        if (!(node.type === 1 /* ELEMENT */ &&
+            (node.tagType === 0 /* ELEMENT */ ||
+                node.tagType === 1 /* COMPONENT */))) {
             return;
         }
         const { tag, props } = node;
-        const isComponent = node.tagType === 1 /* ElementTypes.COMPONENT */;
+        const isComponent = node.tagType === 1 /* COMPONENT */;
         // The goal of the transform is to create a codegenNode implementing the
         // VNodeCall interface.
         let vnodeTag = isComponent
@@ -3868,9 +3835,9 @@ const transformElement = (node, context) => {
                 //    collected by a parent block.
                 shouldUseBlock = true;
                 // 2. Force keep-alive to always be updated, since it uses raw children.
-                patchFlag |= 1024 /* PatchFlags.DYNAMIC_SLOTS */;
+                patchFlag |= 1024 /* DYNAMIC_SLOTS */;
                 if (( true) && node.children.length > 1) {
-                    context.onError(createCompilerError(46 /* ErrorCodes.X_KEEP_ALIVE_INVALID_CHILDREN */, {
+                    context.onError(createCompilerError(45 /* X_KEEP_ALIVE_INVALID_CHILDREN */, {
                         start: node.children[0].loc.start,
                         end: node.children[node.children.length - 1].loc.end,
                         source: ''
@@ -3886,22 +3853,22 @@ const transformElement = (node, context) => {
                 const { slots, hasDynamicSlots } = buildSlots(node, context);
                 vnodeChildren = slots;
                 if (hasDynamicSlots) {
-                    patchFlag |= 1024 /* PatchFlags.DYNAMIC_SLOTS */;
+                    patchFlag |= 1024 /* DYNAMIC_SLOTS */;
                 }
             }
             else if (node.children.length === 1 && vnodeTag !== TELEPORT) {
                 const child = node.children[0];
                 const type = child.type;
                 // check for dynamic text children
-                const hasDynamicTextChild = type === 5 /* NodeTypes.INTERPOLATION */ ||
-                    type === 8 /* NodeTypes.COMPOUND_EXPRESSION */;
+                const hasDynamicTextChild = type === 5 /* INTERPOLATION */ ||
+                    type === 8 /* COMPOUND_EXPRESSION */;
                 if (hasDynamicTextChild &&
-                    getConstantType(child, context) === 0 /* ConstantTypes.NOT_CONSTANT */) {
-                    patchFlag |= 1 /* PatchFlags.TEXT */;
+                    getConstantType(child, context) === 0 /* NOT_CONSTANT */) {
+                    patchFlag |= 1 /* TEXT */;
                 }
                 // pass directly if the only child is a text node
                 // (plain / interpolation / expression)
-                if (hasDynamicTextChild || type === 2 /* NodeTypes.TEXT */) {
+                if (hasDynamicTextChild || type === 2 /* TEXT */) {
                     vnodeChildren = child;
                 }
                 else {
@@ -3944,8 +3911,8 @@ function resolveComponentType(node, context, ssr = false) {
     const isProp = findProp(node, 'is');
     if (isProp) {
         if (isExplicitDynamic ||
-            (isCompatEnabled("COMPILER_IS_ON_ELEMENT" /* CompilerDeprecationTypes.COMPILER_IS_ON_ELEMENT */, context))) {
-            const exp = isProp.type === 6 /* NodeTypes.ATTRIBUTE */
+            (isCompatEnabled("COMPILER_IS_ON_ELEMENT" /* COMPILER_IS_ON_ELEMENT */, context))) {
+            const exp = isProp.type === 6 /* ATTRIBUTE */
                 ? isProp.value && createSimpleExpression(isProp.value.content, true)
                 : isProp.exp;
             if (exp) {
@@ -3954,7 +3921,7 @@ function resolveComponentType(node, context, ssr = false) {
                 ]);
             }
         }
-        else if (isProp.type === 6 /* NodeTypes.ATTRIBUTE */ &&
+        else if (isProp.type === 6 /* ATTRIBUTE */ &&
             isProp.value.content.startsWith('vue:')) {
             // <button is="vue:xxx">
             // if not <component>, only is value that starts with "vue:" will be
@@ -4000,14 +3967,6 @@ function buildProps(node, context, props = node.props, isComponent, isDynamicCom
     let hasDynamicKeys = false;
     let hasVnodeHook = false;
     const dynamicPropNames = [];
-    const pushMergeArg = (arg) => {
-        if (properties.length) {
-            mergeArgs.push(createObjectExpression(dedupeProperties(properties), elementLoc));
-            properties = [];
-        }
-        if (arg)
-            mergeArgs.push(arg);
-    };
     const analyzePatchFlag = ({ key, value }) => {
         if (isStaticExp(key)) {
             const name = key.content;
@@ -4026,9 +3985,9 @@ function buildProps(node, context, props = node.props, isComponent, isDynamicCom
             if (isEventHandler && (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isReservedProp)(name)) {
                 hasVnodeHook = true;
             }
-            if (value.type === 20 /* NodeTypes.JS_CACHE_EXPRESSION */ ||
-                ((value.type === 4 /* NodeTypes.SIMPLE_EXPRESSION */ ||
-                    value.type === 8 /* NodeTypes.COMPOUND_EXPRESSION */) &&
+            if (value.type === 20 /* JS_CACHE_EXPRESSION */ ||
+                ((value.type === 4 /* SIMPLE_EXPRESSION */ ||
+                    value.type === 8 /* COMPOUND_EXPRESSION */) &&
                     getConstantType(value, context) > 0)) {
                 // skip if the prop is a cached handler or has constant value
                 return;
@@ -4059,7 +4018,7 @@ function buildProps(node, context, props = node.props, isComponent, isDynamicCom
     for (let i = 0; i < props.length; i++) {
         // static attribute
         const prop = props[i];
-        if (prop.type === 6 /* NodeTypes.ATTRIBUTE */) {
+        if (prop.type === 6 /* ATTRIBUTE */) {
             const { loc, name, value } = prop;
             let isStatic = true;
             if (name === 'ref') {
@@ -4072,7 +4031,7 @@ function buildProps(node, context, props = node.props, isComponent, isDynamicCom
             if (name === 'is' &&
                 (isComponentTag(tag) ||
                     (value && value.content.startsWith('vue:')) ||
-                    (isCompatEnabled("COMPILER_IS_ON_ELEMENT" /* CompilerDeprecationTypes.COMPILER_IS_ON_ELEMENT */, context)))) {
+                    (isCompatEnabled("COMPILER_IS_ON_ELEMENT" /* COMPILER_IS_ON_ELEMENT */, context)))) {
                 continue;
             }
             properties.push(createObjectProperty(createSimpleExpression(name, true, getInnerRange(loc, 0, name.length)), createSimpleExpression(value ? value.content : '', isStatic, value ? value.loc : loc)));
@@ -4085,7 +4044,7 @@ function buildProps(node, context, props = node.props, isComponent, isDynamicCom
             // skip v-slot - it is handled by its dedicated transform.
             if (name === 'slot') {
                 if (!isComponent) {
-                    context.onError(createCompilerError(40 /* ErrorCodes.X_V_SLOT_MISPLACED */, loc));
+                    context.onError(createCompilerError(40 /* X_V_SLOT_MISPLACED */, loc));
                 }
                 continue;
             }
@@ -4098,7 +4057,7 @@ function buildProps(node, context, props = node.props, isComponent, isDynamicCom
                 (isVBind &&
                     isStaticArgOf(arg, 'is') &&
                     (isComponentTag(tag) ||
-                        (isCompatEnabled("COMPILER_IS_ON_ELEMENT" /* CompilerDeprecationTypes.COMPILER_IS_ON_ELEMENT */, context))))) {
+                        (isCompatEnabled("COMPILER_IS_ON_ELEMENT" /* COMPILER_IS_ON_ELEMENT */, context))))) {
                 continue;
             }
             // skip v-on in SSR compilation
@@ -4120,16 +4079,18 @@ function buildProps(node, context, props = node.props, isComponent, isDynamicCom
             if (!arg && (isVBind || isVOn)) {
                 hasDynamicKeys = true;
                 if (exp) {
+                    if (properties.length) {
+                        mergeArgs.push(createObjectExpression(dedupeProperties(properties), elementLoc));
+                        properties = [];
+                    }
                     if (isVBind) {
-                        // have to merge early for compat build check
-                        pushMergeArg();
                         {
                             // 2.x v-bind object order compat
                             if ((true)) {
                                 const hasOverridableKeys = mergeArgs.some(arg => {
-                                    if (arg.type === 15 /* NodeTypes.JS_OBJECT_EXPRESSION */) {
+                                    if (arg.type === 15 /* JS_OBJECT_EXPRESSION */) {
                                         return arg.properties.some(({ key }) => {
-                                            if (key.type !== 4 /* NodeTypes.SIMPLE_EXPRESSION */ ||
+                                            if (key.type !== 4 /* SIMPLE_EXPRESSION */ ||
                                                 !key.isStatic) {
                                                 return true;
                                             }
@@ -4144,10 +4105,10 @@ function buildProps(node, context, props = node.props, isComponent, isDynamicCom
                                     }
                                 });
                                 if (hasOverridableKeys) {
-                                    checkCompatEnabled("COMPILER_V_BIND_OBJECT_ORDER" /* CompilerDeprecationTypes.COMPILER_V_BIND_OBJECT_ORDER */, context, loc);
+                                    checkCompatEnabled("COMPILER_V_BIND_OBJECT_ORDER" /* COMPILER_V_BIND_OBJECT_ORDER */, context, loc);
                                 }
                             }
-                            if (isCompatEnabled("COMPILER_V_BIND_OBJECT_ORDER" /* CompilerDeprecationTypes.COMPILER_V_BIND_OBJECT_ORDER */, context)) {
+                            if (isCompatEnabled("COMPILER_V_BIND_OBJECT_ORDER" /* COMPILER_V_BIND_OBJECT_ORDER */, context)) {
                                 mergeArgs.unshift(exp);
                                 continue;
                             }
@@ -4156,18 +4117,18 @@ function buildProps(node, context, props = node.props, isComponent, isDynamicCom
                     }
                     else {
                         // v-on="obj" -> toHandlers(obj)
-                        pushMergeArg({
-                            type: 14 /* NodeTypes.JS_CALL_EXPRESSION */,
+                        mergeArgs.push({
+                            type: 14 /* JS_CALL_EXPRESSION */,
                             loc,
                             callee: context.helper(TO_HANDLERS),
-                            arguments: isComponent ? [exp] : [exp, `true`]
+                            arguments: [exp]
                         });
                     }
                 }
                 else {
                     context.onError(createCompilerError(isVBind
-                        ? 34 /* ErrorCodes.X_V_BIND_NO_EXPRESSION */
-                        : 35 /* ErrorCodes.X_V_ON_NO_EXPRESSION */, loc));
+                        ? 34 /* X_V_BIND_NO_EXPRESSION */
+                        : 35 /* X_V_ON_NO_EXPRESSION */, loc));
                 }
                 continue;
             }
@@ -4176,12 +4137,7 @@ function buildProps(node, context, props = node.props, isComponent, isDynamicCom
                 // has built-in directive transform.
                 const { props, needRuntime } = directiveTransform(prop, node, context);
                 !ssr && props.forEach(analyzePatchFlag);
-                if (isVOn && arg && !isStaticExp(arg)) {
-                    pushMergeArg(createObjectExpression(props, elementLoc));
-                }
-                else {
-                    properties.push(...props);
-                }
+                properties.push(...props);
                 if (needRuntime) {
                     runtimeDirectives.push(prop);
                     if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isSymbol)(needRuntime)) {
@@ -4203,8 +4159,9 @@ function buildProps(node, context, props = node.props, isComponent, isDynamicCom
     let propsExpression = undefined;
     // has v-bind="object" or v-on="object", wrap with mergeProps
     if (mergeArgs.length) {
-        // close up any not-yet-merged props
-        pushMergeArg();
+        if (properties.length) {
+            mergeArgs.push(createObjectExpression(dedupeProperties(properties), elementLoc));
+        }
         if (mergeArgs.length > 1) {
             propsExpression = createCallExpression(context.helper(MERGE_PROPS), mergeArgs, elementLoc);
         }
@@ -4218,31 +4175,31 @@ function buildProps(node, context, props = node.props, isComponent, isDynamicCom
     }
     // patchFlag analysis
     if (hasDynamicKeys) {
-        patchFlag |= 16 /* PatchFlags.FULL_PROPS */;
+        patchFlag |= 16 /* FULL_PROPS */;
     }
     else {
         if (hasClassBinding && !isComponent) {
-            patchFlag |= 2 /* PatchFlags.CLASS */;
+            patchFlag |= 2 /* CLASS */;
         }
         if (hasStyleBinding && !isComponent) {
-            patchFlag |= 4 /* PatchFlags.STYLE */;
+            patchFlag |= 4 /* STYLE */;
         }
         if (dynamicPropNames.length) {
-            patchFlag |= 8 /* PatchFlags.PROPS */;
+            patchFlag |= 8 /* PROPS */;
         }
         if (hasHydrationEventBinding) {
-            patchFlag |= 32 /* PatchFlags.HYDRATE_EVENTS */;
+            patchFlag |= 32 /* HYDRATE_EVENTS */;
         }
     }
     if (!shouldUseBlock &&
-        (patchFlag === 0 || patchFlag === 32 /* PatchFlags.HYDRATE_EVENTS */) &&
+        (patchFlag === 0 || patchFlag === 32 /* HYDRATE_EVENTS */) &&
         (hasRef || hasVnodeHook || runtimeDirectives.length > 0)) {
-        patchFlag |= 512 /* PatchFlags.NEED_PATCH */;
+        patchFlag |= 512 /* NEED_PATCH */;
     }
     // pre-normalize props, SSR is skipped for now
     if (!context.inSSR && propsExpression) {
         switch (propsExpression.type) {
-            case 15 /* NodeTypes.JS_OBJECT_EXPRESSION */:
+            case 15 /* JS_OBJECT_EXPRESSION */:
                 // means that there is no v-bind,
                 // but still need to deal with dynamic key binding
                 let classKeyIndex = -1;
@@ -4273,11 +4230,11 @@ function buildProps(node, context, props = node.props, isComponent, isDynamicCom
                         // the static style is compiled into an object,
                         // so use `hasStyleBinding` to ensure that it is a dynamic style binding
                         (hasStyleBinding ||
-                            (styleProp.value.type === 4 /* NodeTypes.SIMPLE_EXPRESSION */ &&
+                            (styleProp.value.type === 4 /* SIMPLE_EXPRESSION */ &&
                                 styleProp.value.content.trim()[0] === `[`) ||
                             // v-bind:style and style both exist,
                             // v-bind:style with static literal object
-                            styleProp.value.type === 17 /* NodeTypes.JS_ARRAY_EXPRESSION */)) {
+                            styleProp.value.type === 17 /* JS_ARRAY_EXPRESSION */)) {
                         styleProp.value = createCallExpression(context.helper(NORMALIZE_STYLE), [styleProp.value]);
                     }
                 }
@@ -4286,7 +4243,7 @@ function buildProps(node, context, props = node.props, isComponent, isDynamicCom
                     propsExpression = createCallExpression(context.helper(NORMALIZE_PROPS), [propsExpression]);
                 }
                 break;
-            case 14 /* NodeTypes.JS_CALL_EXPRESSION */:
+            case 14 /* JS_CALL_EXPRESSION */:
                 // mergeProps call, do nothing
                 break;
             default:
@@ -4319,7 +4276,7 @@ function dedupeProperties(properties) {
     for (let i = 0; i < properties.length; i++) {
         const prop = properties[i];
         // dynamic keys are always allowed
-        if (prop.key.type === 8 /* NodeTypes.COMPOUND_EXPRESSION */ || !prop.key.isStatic) {
+        if (prop.key.type === 8 /* COMPOUND_EXPRESSION */ || !prop.key.isStatic) {
             deduped.push(prop);
             continue;
         }
@@ -4339,7 +4296,7 @@ function dedupeProperties(properties) {
     return deduped;
 }
 function mergeAsArray(existing, incoming) {
-    if (existing.value.type === 17 /* NodeTypes.JS_ARRAY_EXPRESSION */) {
+    if (existing.value.type === 17 /* JS_ARRAY_EXPRESSION */) {
         existing.value.elements.push(incoming.value);
     }
     else {
@@ -4447,7 +4404,7 @@ function processSlotOutlet(node, context) {
     const nonNameProps = [];
     for (let i = 0; i < node.props.length; i++) {
         const p = node.props[i];
-        if (p.type === 6 /* NodeTypes.ATTRIBUTE */) {
+        if (p.type === 6 /* ATTRIBUTE */) {
             if (p.value) {
                 if (p.name === 'name') {
                     slotName = JSON.stringify(p.value.content);
@@ -4475,7 +4432,7 @@ function processSlotOutlet(node, context) {
         const { props, directives } = buildProps(node, context, nonNameProps, false, false);
         slotProps = props;
         if (directives.length) {
-            context.onError(createCompilerError(36 /* ErrorCodes.X_V_SLOT_UNEXPECTED_DIRECTIVE_ON_SLOT_OUTLET */, directives[0].loc));
+            context.onError(createCompilerError(36 /* X_V_SLOT_UNEXPECTED_DIRECTIVE_ON_SLOT_OUTLET */, directives[0].loc));
         }
     }
     return {
@@ -4484,30 +4441,22 @@ function processSlotOutlet(node, context) {
     };
 }
 
-const fnExpRE = /^\s*([\w$_]+|(async\s*)?\([^)]*?\))\s*(:[^=]+)?=>|^\s*(async\s+)?function(?:\s+[\w$]+)?\s*\(/;
+const fnExpRE = /^\s*([\w$_]+|(async\s*)?\([^)]*?\))\s*=>|^\s*(async\s+)?function(?:\s+[\w$]+)?\s*\(/;
 const transformOn = (dir, node, context, augmentor) => {
     const { loc, modifiers, arg } = dir;
     if (!dir.exp && !modifiers.length) {
-        context.onError(createCompilerError(35 /* ErrorCodes.X_V_ON_NO_EXPRESSION */, loc));
+        context.onError(createCompilerError(35 /* X_V_ON_NO_EXPRESSION */, loc));
     }
     let eventName;
-    if (arg.type === 4 /* NodeTypes.SIMPLE_EXPRESSION */) {
+    if (arg.type === 4 /* SIMPLE_EXPRESSION */) {
         if (arg.isStatic) {
             let rawName = arg.content;
             // TODO deprecate @vnodeXXX usage
             if (rawName.startsWith('vue:')) {
                 rawName = `vnode-${rawName.slice(4)}`;
             }
-            const eventString = node.tagType !== 0 /* ElementTypes.ELEMENT */ ||
-                rawName.startsWith('vnode') ||
-                !/[A-Z]/.test(rawName)
-                ? // for non-element and vnode lifecycle event listeners, auto convert
-                    // it to camelCase. See issue #2249
-                    (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.toHandlerKey)((0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.camelize)(rawName))
-                : // preserve case for plain element listeners that have uppercase
-                    // letters, as these may be custom elements' custom events
-                    `on:${rawName}`;
-            eventName = createSimpleExpression(eventString, true, arg.loc);
+            // for all event listeners, auto convert it to camelCase. See issue #2249
+            eventName = createSimpleExpression((0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.toHandlerKey)((0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.camelize)(rawName)), true, arg.loc);
         }
         else {
             // #2388
@@ -4574,7 +4523,7 @@ const transformOn = (dir, node, context, augmentor) => {
 const transformBind = (dir, _node, context) => {
     const { exp, modifiers, loc } = dir;
     const arg = dir.arg;
-    if (arg.type !== 4 /* NodeTypes.SIMPLE_EXPRESSION */) {
+    if (arg.type !== 4 /* SIMPLE_EXPRESSION */) {
         arg.children.unshift(`(`);
         arg.children.push(`) || ""`);
     }
@@ -4583,7 +4532,7 @@ const transformBind = (dir, _node, context) => {
     }
     // .sync is replaced by v-model:arg
     if (modifiers.includes('camel')) {
-        if (arg.type === 4 /* NodeTypes.SIMPLE_EXPRESSION */) {
+        if (arg.type === 4 /* SIMPLE_EXPRESSION */) {
             if (arg.isStatic) {
                 arg.content = (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.camelize)(arg.content);
             }
@@ -4605,8 +4554,8 @@ const transformBind = (dir, _node, context) => {
         }
     }
     if (!exp ||
-        (exp.type === 4 /* NodeTypes.SIMPLE_EXPRESSION */ && !exp.content.trim())) {
-        context.onError(createCompilerError(34 /* ErrorCodes.X_V_BIND_NO_EXPRESSION */, loc));
+        (exp.type === 4 /* SIMPLE_EXPRESSION */ && !exp.content.trim())) {
+        context.onError(createCompilerError(34 /* X_V_BIND_NO_EXPRESSION */, loc));
         return {
             props: [createObjectProperty(arg, createSimpleExpression('', true, loc))]
         };
@@ -4616,7 +4565,7 @@ const transformBind = (dir, _node, context) => {
     };
 };
 const injectPrefix = (arg, prefix) => {
-    if (arg.type === 4 /* NodeTypes.SIMPLE_EXPRESSION */) {
+    if (arg.type === 4 /* SIMPLE_EXPRESSION */) {
         if (arg.isStatic) {
             arg.content = prefix + arg.content;
         }
@@ -4633,10 +4582,10 @@ const injectPrefix = (arg, prefix) => {
 // Merge adjacent text nodes and expressions into a single expression
 // e.g. <div>abc {{ d }} {{ e }}</div> should have a single expression node as child.
 const transformText = (node, context) => {
-    if (node.type === 0 /* NodeTypes.ROOT */ ||
-        node.type === 1 /* NodeTypes.ELEMENT */ ||
-        node.type === 11 /* NodeTypes.FOR */ ||
-        node.type === 10 /* NodeTypes.IF_BRANCH */) {
+    if (node.type === 0 /* ROOT */ ||
+        node.type === 1 /* ELEMENT */ ||
+        node.type === 11 /* FOR */ ||
+        node.type === 10 /* IF_BRANCH */) {
         // perform the transform on node exit so that all expressions have already
         // been processed.
         return () => {
@@ -4671,15 +4620,15 @@ const transformText = (node, context) => {
                 // setting textContent of the element.
                 // for component root it's always normalized anyway.
                 (children.length === 1 &&
-                    (node.type === 0 /* NodeTypes.ROOT */ ||
-                        (node.type === 1 /* NodeTypes.ELEMENT */ &&
-                            node.tagType === 0 /* ElementTypes.ELEMENT */ &&
+                    (node.type === 0 /* ROOT */ ||
+                        (node.type === 1 /* ELEMENT */ &&
+                            node.tagType === 0 /* ELEMENT */ &&
                             // #3756
                             // custom directives can potentially add DOM elements arbitrarily,
                             // we need to avoid setting textContent of the element at runtime
                             // to avoid accidentally overwriting the DOM elements added
                             // by the user through custom directives.
-                            !node.props.find(p => p.type === 7 /* NodeTypes.DIRECTIVE */ &&
+                            !node.props.find(p => p.type === 7 /* DIRECTIVE */ &&
                                 !context.directiveTransforms[p.name]) &&
                             // in compat mode, <template> tags with no special directives
                             // will be rendered as a fragment so its children must be
@@ -4691,21 +4640,21 @@ const transformText = (node, context) => {
             // runtime normalization.
             for (let i = 0; i < children.length; i++) {
                 const child = children[i];
-                if (isText(child) || child.type === 8 /* NodeTypes.COMPOUND_EXPRESSION */) {
+                if (isText(child) || child.type === 8 /* COMPOUND_EXPRESSION */) {
                     const callArgs = [];
                     // createTextVNode defaults to single whitespace, so if it is a
                     // single space the code could be an empty call to save bytes.
-                    if (child.type !== 2 /* NodeTypes.TEXT */ || child.content !== ' ') {
+                    if (child.type !== 2 /* TEXT */ || child.content !== ' ') {
                         callArgs.push(child);
                     }
                     // mark dynamic text with flag so it gets patched inside a block
                     if (!context.ssr &&
-                        getConstantType(child, context) === 0 /* ConstantTypes.NOT_CONSTANT */) {
-                        callArgs.push(1 /* PatchFlags.TEXT */ +
+                        getConstantType(child, context) === 0 /* NOT_CONSTANT */) {
+                        callArgs.push(1 /* TEXT */ +
                             (( true) ? ` /* ${_vue_shared__WEBPACK_IMPORTED_MODULE_0__.PatchFlagNames[1]} */` : 0));
                     }
                     children[i] = {
-                        type: 12 /* NodeTypes.TEXT_CALL */,
+                        type: 12 /* TEXT_CALL */,
                         content: child,
                         loc: child.loc,
                         codegenNode: createCallExpression(context.helper(CREATE_TEXT), callArgs)
@@ -4718,7 +4667,7 @@ const transformText = (node, context) => {
 
 const seen = new WeakSet();
 const transformOnce = (node, context) => {
-    if (node.type === 1 /* NodeTypes.ELEMENT */ && findDir(node, 'once', true)) {
+    if (node.type === 1 /* ELEMENT */ && findDir(node, 'once', true)) {
         if (seen.has(node) || context.inVOnce) {
             return;
         }
@@ -4738,24 +4687,18 @@ const transformOnce = (node, context) => {
 const transformModel = (dir, node, context) => {
     const { exp, arg } = dir;
     if (!exp) {
-        context.onError(createCompilerError(41 /* ErrorCodes.X_V_MODEL_NO_EXPRESSION */, dir.loc));
+        context.onError(createCompilerError(41 /* X_V_MODEL_NO_EXPRESSION */, dir.loc));
         return createTransformProps();
     }
     const rawExp = exp.loc.source;
-    const expString = exp.type === 4 /* NodeTypes.SIMPLE_EXPRESSION */ ? exp.content : rawExp;
+    const expString = exp.type === 4 /* SIMPLE_EXPRESSION */ ? exp.content : rawExp;
     // im SFC <script setup> inline mode, the exp may have been transformed into
     // _unref(exp)
-    const bindingType = context.bindingMetadata[rawExp];
-    // check props
-    if (bindingType === "props" /* BindingTypes.PROPS */ ||
-        bindingType === "props-aliased" /* BindingTypes.PROPS_ALIASED */) {
-        context.onError(createCompilerError(44 /* ErrorCodes.X_V_MODEL_ON_PROPS */, exp.loc));
-        return createTransformProps();
-    }
-    const maybeRef = !true  ;
+    context.bindingMetadata[rawExp];
+    const maybeRef = !true    /* SETUP_CONST */;
     if (!expString.trim() ||
         (!isMemberExpression(expString) && !maybeRef)) {
-        context.onError(createCompilerError(42 /* ErrorCodes.X_V_MODEL_MALFORMED_EXPRESSION */, exp.loc));
+        context.onError(createCompilerError(42 /* X_V_MODEL_MALFORMED_EXPRESSION */, exp.loc));
         return createTransformProps();
     }
     const propName = arg ? arg : createSimpleExpression('modelValue', true);
@@ -4780,7 +4723,7 @@ const transformModel = (dir, node, context) => {
         createObjectProperty(eventName, assignmentExp)
     ];
     // modelModifiers: { foo: true, "bar-baz": true }
-    if (dir.modifiers.length && node.tagType === 1 /* ElementTypes.COMPONENT */) {
+    if (dir.modifiers.length && node.tagType === 1 /* COMPONENT */) {
         const modifiers = dir.modifiers
             .map(m => (isSimpleIdentifier(m) ? m : JSON.stringify(m)) + `: true`)
             .join(`, `);
@@ -4789,7 +4732,7 @@ const transformModel = (dir, node, context) => {
                 ? `${arg.content}Modifiers`
                 : createCompoundExpression([arg, ' + "Modifiers"'])
             : `modelModifiers`;
-        props.push(createObjectProperty(modifiersKey, createSimpleExpression(`{ ${modifiers} }`, false, dir.loc, 2 /* ConstantTypes.CAN_HOIST */)));
+        props.push(createObjectProperty(modifiersKey, createSimpleExpression(`{ ${modifiers} }`, false, dir.loc, 2 /* CAN_HOIST */)));
     }
     return createTransformProps(props);
 };
@@ -4799,17 +4742,17 @@ function createTransformProps(props = []) {
 
 const validDivisionCharRE = /[\w).+\-_$\]]/;
 const transformFilter = (node, context) => {
-    if (!isCompatEnabled("COMPILER_FILTER" /* CompilerDeprecationTypes.COMPILER_FILTERS */, context)) {
+    if (!isCompatEnabled("COMPILER_FILTER" /* COMPILER_FILTERS */, context)) {
         return;
     }
-    if (node.type === 5 /* NodeTypes.INTERPOLATION */) {
+    if (node.type === 5 /* INTERPOLATION */) {
         // filter rewrite is applied before expression transform so only
         // simple expressions are possible at this stage
         rewriteFilter(node.content, context);
     }
-    if (node.type === 1 /* NodeTypes.ELEMENT */) {
+    if (node.type === 1 /* ELEMENT */) {
         node.props.forEach((prop) => {
-            if (prop.type === 7 /* NodeTypes.DIRECTIVE */ &&
+            if (prop.type === 7 /* DIRECTIVE */ &&
                 prop.name !== 'for' &&
                 prop.exp) {
                 rewriteFilter(prop.exp, context);
@@ -4818,7 +4761,7 @@ const transformFilter = (node, context) => {
     }
 };
 function rewriteFilter(node, context) {
-    if (node.type === 4 /* NodeTypes.SIMPLE_EXPRESSION */) {
+    if (node.type === 4 /* SIMPLE_EXPRESSION */) {
         parseFilter(node, context);
     }
     else {
@@ -4826,13 +4769,13 @@ function rewriteFilter(node, context) {
             const child = node.children[i];
             if (typeof child !== 'object')
                 continue;
-            if (child.type === 4 /* NodeTypes.SIMPLE_EXPRESSION */) {
+            if (child.type === 4 /* SIMPLE_EXPRESSION */) {
                 parseFilter(child, context);
             }
-            else if (child.type === 8 /* NodeTypes.COMPOUND_EXPRESSION */) {
+            else if (child.type === 8 /* COMPOUND_EXPRESSION */) {
                 rewriteFilter(node, context);
             }
-            else if (child.type === 5 /* NodeTypes.INTERPOLATION */) {
+            else if (child.type === 5 /* INTERPOLATION */) {
                 rewriteFilter(child.content, context);
             }
         }
@@ -4941,7 +4884,7 @@ function parseFilter(node, context) {
     }
     if (filters.length) {
         ( true) &&
-            warnDeprecation("COMPILER_FILTER" /* CompilerDeprecationTypes.COMPILER_FILTERS */, context, node.loc);
+            warnDeprecation("COMPILER_FILTER" /* COMPILER_FILTERS */, context, node.loc);
         for (i = 0; i < filters.length; i++) {
             expression = wrapFilter(expression, filters[i], context);
         }
@@ -4965,7 +4908,7 @@ function wrapFilter(exp, filter, context) {
 
 const seen$1 = new WeakSet();
 const transformMemo = (node, context) => {
-    if (node.type === 1 /* NodeTypes.ELEMENT */) {
+    if (node.type === 1 /* ELEMENT */) {
         const dir = findDir(node, 'memo');
         if (!dir || seen$1.has(node)) {
             return;
@@ -4974,9 +4917,9 @@ const transformMemo = (node, context) => {
         return () => {
             const codegenNode = node.codegenNode ||
                 context.currentNode.codegenNode;
-            if (codegenNode && codegenNode.type === 13 /* NodeTypes.VNODE_CALL */) {
+            if (codegenNode && codegenNode.type === 13 /* VNODE_CALL */) {
                 // non-component sub tree should be turned into a block
-                if (node.tagType !== 1 /* ElementTypes.COMPONENT */) {
+                if (node.tagType !== 1 /* COMPONENT */) {
                     makeBlock(codegenNode, context);
                 }
                 node.codegenNode = createCallExpression(context.helper(WITH_MEMO), [
@@ -5021,18 +4964,18 @@ function baseCompile(template, options = {}) {
     /* istanbul ignore if */
     {
         if (options.prefixIdentifiers === true) {
-            onError(createCompilerError(47 /* ErrorCodes.X_PREFIX_ID_NOT_SUPPORTED */));
+            onError(createCompilerError(46 /* X_PREFIX_ID_NOT_SUPPORTED */));
         }
         else if (isModuleMode) {
-            onError(createCompilerError(48 /* ErrorCodes.X_MODULE_MODE_NOT_SUPPORTED */));
+            onError(createCompilerError(47 /* X_MODULE_MODE_NOT_SUPPORTED */));
         }
     }
     const prefixIdentifiers = !true ;
     if (options.cacheHandlers) {
-        onError(createCompilerError(49 /* ErrorCodes.X_CACHE_HANDLER_NOT_SUPPORTED */));
+        onError(createCompilerError(48 /* X_CACHE_HANDLER_NOT_SUPPORTED */));
     }
     if (options.scopeId && !isModuleMode) {
-        onError(createCompilerError(50 /* ErrorCodes.X_SCOPE_ID_NOT_SUPPORTED */));
+        onError(createCompilerError(49 /* X_SCOPE_ID_NOT_SUPPORTED */));
     }
     const ast = (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isString)(template) ? baseParse(template, options) : template;
     const [nodeTransforms, directiveTransforms] = getBaseTransformPreset();
@@ -5193,7 +5136,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "processSlotOutlet": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.processSlotOutlet),
 /* harmony export */   "registerRuntimeHelpers": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.registerRuntimeHelpers),
 /* harmony export */   "resolveComponentType": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.resolveComponentType),
-/* harmony export */   "stringifyExpression": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.stringifyExpression),
 /* harmony export */   "toValidAssetId": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.toValidAssetId),
 /* harmony export */   "trackSlotScopes": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.trackSlotScopes),
 /* harmony export */   "trackVForSlotScopes": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.trackVForSlotScopes),
@@ -5271,54 +5213,54 @@ const parserOptions = {
     },
     // https://html.spec.whatwg.org/multipage/parsing.html#tree-construction-dispatcher
     getNamespace(tag, parent) {
-        let ns = parent ? parent.ns : 0 /* DOMNamespaces.HTML */;
-        if (parent && ns === 2 /* DOMNamespaces.MATH_ML */) {
+        let ns = parent ? parent.ns : 0 /* HTML */;
+        if (parent && ns === 2 /* MATH_ML */) {
             if (parent.tag === 'annotation-xml') {
                 if (tag === 'svg') {
-                    return 1 /* DOMNamespaces.SVG */;
+                    return 1 /* SVG */;
                 }
-                if (parent.props.some(a => a.type === 6 /* NodeTypes.ATTRIBUTE */ &&
+                if (parent.props.some(a => a.type === 6 /* ATTRIBUTE */ &&
                     a.name === 'encoding' &&
                     a.value != null &&
                     (a.value.content === 'text/html' ||
                         a.value.content === 'application/xhtml+xml'))) {
-                    ns = 0 /* DOMNamespaces.HTML */;
+                    ns = 0 /* HTML */;
                 }
             }
             else if (/^m(?:[ions]|text)$/.test(parent.tag) &&
                 tag !== 'mglyph' &&
                 tag !== 'malignmark') {
-                ns = 0 /* DOMNamespaces.HTML */;
+                ns = 0 /* HTML */;
             }
         }
-        else if (parent && ns === 1 /* DOMNamespaces.SVG */) {
+        else if (parent && ns === 1 /* SVG */) {
             if (parent.tag === 'foreignObject' ||
                 parent.tag === 'desc' ||
                 parent.tag === 'title') {
-                ns = 0 /* DOMNamespaces.HTML */;
+                ns = 0 /* HTML */;
             }
         }
-        if (ns === 0 /* DOMNamespaces.HTML */) {
+        if (ns === 0 /* HTML */) {
             if (tag === 'svg') {
-                return 1 /* DOMNamespaces.SVG */;
+                return 1 /* SVG */;
             }
             if (tag === 'math') {
-                return 2 /* DOMNamespaces.MATH_ML */;
+                return 2 /* MATH_ML */;
             }
         }
         return ns;
     },
     // https://html.spec.whatwg.org/multipage/parsing.html#parsing-html-fragments
     getTextMode({ tag, ns }) {
-        if (ns === 0 /* DOMNamespaces.HTML */) {
+        if (ns === 0 /* HTML */) {
             if (tag === 'textarea' || tag === 'title') {
-                return 1 /* TextModes.RCDATA */;
+                return 1 /* RCDATA */;
             }
             if (isRawTextContainer(tag)) {
-                return 2 /* TextModes.RAWTEXT */;
+                return 2 /* RAWTEXT */;
             }
         }
-        return 0 /* TextModes.DATA */;
+        return 0 /* DATA */;
     }
 };
 
@@ -5329,12 +5271,12 @@ const parserOptions = {
 // It is then processed by `transformElement` and included in the generated
 // props.
 const transformStyle = node => {
-    if (node.type === 1 /* NodeTypes.ELEMENT */) {
+    if (node.type === 1 /* ELEMENT */) {
         node.props.forEach((p, i) => {
-            if (p.type === 6 /* NodeTypes.ATTRIBUTE */ && p.name === 'style' && p.value) {
+            if (p.type === 6 /* ATTRIBUTE */ && p.name === 'style' && p.value) {
                 // replace p with an expression node
                 node.props[i] = {
-                    type: 7 /* NodeTypes.DIRECTIVE */,
+                    type: 7 /* DIRECTIVE */,
                     name: `bind`,
                     arg: (0,_vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createSimpleExpression)(`style`, true, p.loc),
                     exp: parseInlineCSS(p.value.content, p.loc),
@@ -5347,33 +5289,33 @@ const transformStyle = node => {
 };
 const parseInlineCSS = (cssText, loc) => {
     const normalized = (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.parseStringStyle)(cssText);
-    return (0,_vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createSimpleExpression)(JSON.stringify(normalized), false, loc, 3 /* ConstantTypes.CAN_STRINGIFY */);
+    return (0,_vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createSimpleExpression)(JSON.stringify(normalized), false, loc, 3 /* CAN_STRINGIFY */);
 };
 
 function createDOMCompilerError(code, loc) {
     return (0,_vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createCompilerError)(code, loc,  true ? DOMErrorMessages : 0);
 }
 const DOMErrorMessages = {
-    [51 /* DOMErrorCodes.X_V_HTML_NO_EXPRESSION */]: `v-html is missing expression.`,
-    [52 /* DOMErrorCodes.X_V_HTML_WITH_CHILDREN */]: `v-html will override element children.`,
-    [53 /* DOMErrorCodes.X_V_TEXT_NO_EXPRESSION */]: `v-text is missing expression.`,
-    [54 /* DOMErrorCodes.X_V_TEXT_WITH_CHILDREN */]: `v-text will override element children.`,
-    [55 /* DOMErrorCodes.X_V_MODEL_ON_INVALID_ELEMENT */]: `v-model can only be used on <input>, <textarea> and <select> elements.`,
-    [56 /* DOMErrorCodes.X_V_MODEL_ARG_ON_ELEMENT */]: `v-model argument is not supported on plain elements.`,
-    [57 /* DOMErrorCodes.X_V_MODEL_ON_FILE_INPUT_ELEMENT */]: `v-model cannot be used on file inputs since they are read-only. Use a v-on:change listener instead.`,
-    [58 /* DOMErrorCodes.X_V_MODEL_UNNECESSARY_VALUE */]: `Unnecessary value binding used alongside v-model. It will interfere with v-model's behavior.`,
-    [59 /* DOMErrorCodes.X_V_SHOW_NO_EXPRESSION */]: `v-show is missing expression.`,
-    [60 /* DOMErrorCodes.X_TRANSITION_INVALID_CHILDREN */]: `<Transition> expects exactly one child element or component.`,
-    [61 /* DOMErrorCodes.X_IGNORED_SIDE_EFFECT_TAG */]: `Tags with side effect (<script> and <style>) are ignored in client component templates.`
+    [50 /* X_V_HTML_NO_EXPRESSION */]: `v-html is missing expression.`,
+    [51 /* X_V_HTML_WITH_CHILDREN */]: `v-html will override element children.`,
+    [52 /* X_V_TEXT_NO_EXPRESSION */]: `v-text is missing expression.`,
+    [53 /* X_V_TEXT_WITH_CHILDREN */]: `v-text will override element children.`,
+    [54 /* X_V_MODEL_ON_INVALID_ELEMENT */]: `v-model can only be used on <input>, <textarea> and <select> elements.`,
+    [55 /* X_V_MODEL_ARG_ON_ELEMENT */]: `v-model argument is not supported on plain elements.`,
+    [56 /* X_V_MODEL_ON_FILE_INPUT_ELEMENT */]: `v-model cannot be used on file inputs since they are read-only. Use a v-on:change listener instead.`,
+    [57 /* X_V_MODEL_UNNECESSARY_VALUE */]: `Unnecessary value binding used alongside v-model. It will interfere with v-model's behavior.`,
+    [58 /* X_V_SHOW_NO_EXPRESSION */]: `v-show is missing expression.`,
+    [59 /* X_TRANSITION_INVALID_CHILDREN */]: `<Transition> expects exactly one child element or component.`,
+    [60 /* X_IGNORED_SIDE_EFFECT_TAG */]: `Tags with side effect (<script> and <style>) are ignored in client component templates.`
 };
 
 const transformVHtml = (dir, node, context) => {
     const { exp, loc } = dir;
     if (!exp) {
-        context.onError(createDOMCompilerError(51 /* DOMErrorCodes.X_V_HTML_NO_EXPRESSION */, loc));
+        context.onError(createDOMCompilerError(50 /* X_V_HTML_NO_EXPRESSION */, loc));
     }
     if (node.children.length) {
-        context.onError(createDOMCompilerError(52 /* DOMErrorCodes.X_V_HTML_WITH_CHILDREN */, loc));
+        context.onError(createDOMCompilerError(51 /* X_V_HTML_WITH_CHILDREN */, loc));
         node.children.length = 0;
     }
     return {
@@ -5386,10 +5328,10 @@ const transformVHtml = (dir, node, context) => {
 const transformVText = (dir, node, context) => {
     const { exp, loc } = dir;
     if (!exp) {
-        context.onError(createDOMCompilerError(53 /* DOMErrorCodes.X_V_TEXT_NO_EXPRESSION */, loc));
+        context.onError(createDOMCompilerError(52 /* X_V_TEXT_NO_EXPRESSION */, loc));
     }
     if (node.children.length) {
-        context.onError(createDOMCompilerError(54 /* DOMErrorCodes.X_V_TEXT_WITH_CHILDREN */, loc));
+        context.onError(createDOMCompilerError(53 /* X_V_TEXT_WITH_CHILDREN */, loc));
         node.children.length = 0;
     }
     return {
@@ -5406,16 +5348,16 @@ const transformVText = (dir, node, context) => {
 const transformModel = (dir, node, context) => {
     const baseResult = (0,_vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.transformModel)(dir, node, context);
     // base transform has errors OR component v-model (only need props)
-    if (!baseResult.props.length || node.tagType === 1 /* ElementTypes.COMPONENT */) {
+    if (!baseResult.props.length || node.tagType === 1 /* COMPONENT */) {
         return baseResult;
     }
     if (dir.arg) {
-        context.onError(createDOMCompilerError(56 /* DOMErrorCodes.X_V_MODEL_ARG_ON_ELEMENT */, dir.arg.loc));
+        context.onError(createDOMCompilerError(55 /* X_V_MODEL_ARG_ON_ELEMENT */, dir.arg.loc));
     }
     function checkDuplicatedValue() {
         const value = (0,_vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.findProp)(node, 'value');
         if (value) {
-            context.onError(createDOMCompilerError(58 /* DOMErrorCodes.X_V_MODEL_UNNECESSARY_VALUE */, value.loc));
+            context.onError(createDOMCompilerError(57 /* X_V_MODEL_UNNECESSARY_VALUE */, value.loc));
         }
     }
     const { tag } = node;
@@ -5429,7 +5371,7 @@ const transformModel = (dir, node, context) => {
         if (tag === 'input' || isCustomElement) {
             const type = (0,_vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.findProp)(node, `type`);
             if (type) {
-                if (type.type === 7 /* NodeTypes.DIRECTIVE */) {
+                if (type.type === 7 /* DIRECTIVE */) {
                     // :type="foo"
                     directiveToUse = V_MODEL_DYNAMIC;
                 }
@@ -5443,7 +5385,7 @@ const transformModel = (dir, node, context) => {
                             break;
                         case 'file':
                             isInvalidType = true;
-                            context.onError(createDOMCompilerError(57 /* DOMErrorCodes.X_V_MODEL_ON_FILE_INPUT_ELEMENT */, dir.loc));
+                            context.onError(createDOMCompilerError(56 /* X_V_MODEL_ON_FILE_INPUT_ELEMENT */, dir.loc));
                             break;
                         default:
                             // text type
@@ -5477,11 +5419,11 @@ const transformModel = (dir, node, context) => {
         }
     }
     else {
-        context.onError(createDOMCompilerError(55 /* DOMErrorCodes.X_V_MODEL_ON_INVALID_ELEMENT */, dir.loc));
+        context.onError(createDOMCompilerError(54 /* X_V_MODEL_ON_INVALID_ELEMENT */, dir.loc));
     }
     // native vmodel doesn't need the `modelValue` props since they are also
     // passed to the runtime as `binding.value`. removing it reduces code size.
-    baseResult.props = baseResult.props.filter(p => !(p.key.type === 4 /* NodeTypes.SIMPLE_EXPRESSION */ &&
+    baseResult.props = baseResult.props.filter(p => !(p.key.type === 4 /* SIMPLE_EXPRESSION */ &&
         p.key.content === 'modelValue'));
     return baseResult;
 };
@@ -5504,7 +5446,7 @@ const resolveModifiers = (key, modifiers, context, loc) => {
     for (let i = 0; i < modifiers.length; i++) {
         const modifier = modifiers[i];
         if (modifier === 'native' &&
-            (0,_vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.checkCompatEnabled)("COMPILER_V_ON_NATIVE" /* CompilerDeprecationTypes.COMPILER_V_ON_NATIVE */, context, loc)) {
+            (0,_vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.checkCompatEnabled)("COMPILER_V_ON_NATIVE" /* COMPILER_V_ON_NATIVE */, context, loc)) {
             eventOptionModifiers.push(modifier);
         }
         else if (isEventOptionModifier(modifier)) {
@@ -5548,7 +5490,7 @@ const transformClick = (key, event) => {
     const isStaticClick = (0,_vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isStaticExp)(key) && key.content.toLowerCase() === 'onclick';
     return isStaticClick
         ? (0,_vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createSimpleExpression)(event, true)
-        : key.type !== 4 /* NodeTypes.SIMPLE_EXPRESSION */
+        : key.type !== 4 /* SIMPLE_EXPRESSION */
             ? (0,_vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createCompoundExpression)([
                 `(`,
                 key,
@@ -5601,7 +5543,7 @@ const transformOn = (dir, node, context) => {
 const transformShow = (dir, node, context) => {
     const { exp, loc } = dir;
     if (!exp) {
-        context.onError(createDOMCompilerError(59 /* DOMErrorCodes.X_V_SHOW_NO_EXPRESSION */, loc));
+        context.onError(createDOMCompilerError(58 /* X_V_SHOW_NO_EXPRESSION */, loc));
     }
     return {
         props: [],
@@ -5610,8 +5552,8 @@ const transformShow = (dir, node, context) => {
 };
 
 const transformTransition = (node, context) => {
-    if (node.type === 1 /* NodeTypes.ELEMENT */ &&
-        node.tagType === 1 /* ElementTypes.COMPONENT */) {
+    if (node.type === 1 /* ELEMENT */ &&
+        node.tagType === 1 /* COMPONENT */) {
         const component = context.isBuiltInComponent(node.tag);
         if (component === TRANSITION) {
             return () => {
@@ -5620,7 +5562,7 @@ const transformTransition = (node, context) => {
                 }
                 // warn multiple transition children
                 if (hasMultipleChildren(node)) {
-                    context.onError(createDOMCompilerError(60 /* DOMErrorCodes.X_TRANSITION_INVALID_CHILDREN */, {
+                    context.onError(createDOMCompilerError(59 /* X_TRANSITION_INVALID_CHILDREN */, {
                         start: node.children[0].loc.start,
                         end: node.children[node.children.length - 1].loc.end,
                         source: ''
@@ -5629,11 +5571,11 @@ const transformTransition = (node, context) => {
                 // check if it's s single child w/ v-show
                 // if yes, inject "persisted: true" to the transition props
                 const child = node.children[0];
-                if (child.type === 1 /* NodeTypes.ELEMENT */) {
+                if (child.type === 1 /* ELEMENT */) {
                     for (const p of child.props) {
-                        if (p.type === 7 /* NodeTypes.DIRECTIVE */ && p.name === 'show') {
+                        if (p.type === 7 /* DIRECTIVE */ && p.name === 'show') {
                             node.props.push({
-                                type: 6 /* NodeTypes.ATTRIBUTE */,
+                                type: 6 /* ATTRIBUTE */,
                                 name: 'persisted',
                                 value: undefined,
                                 loc: node.loc
@@ -5647,19 +5589,19 @@ const transformTransition = (node, context) => {
 };
 function hasMultipleChildren(node) {
     // #1352 filter out potential comment nodes.
-    const children = (node.children = node.children.filter(c => c.type !== 3 /* NodeTypes.COMMENT */ &&
-        !(c.type === 2 /* NodeTypes.TEXT */ && !c.content.trim())));
+    const children = (node.children = node.children.filter(c => c.type !== 3 /* COMMENT */ &&
+        !(c.type === 2 /* TEXT */ && !c.content.trim())));
     const child = children[0];
     return (children.length !== 1 ||
-        child.type === 11 /* NodeTypes.FOR */ ||
-        (child.type === 9 /* NodeTypes.IF */ && child.branches.some(hasMultipleChildren)));
+        child.type === 11 /* FOR */ ||
+        (child.type === 9 /* IF */ && child.branches.some(hasMultipleChildren)));
 }
 
 const ignoreSideEffectTags = (node, context) => {
-    if (node.type === 1 /* NodeTypes.ELEMENT */ &&
-        node.tagType === 0 /* ElementTypes.ELEMENT */ &&
+    if (node.type === 1 /* ELEMENT */ &&
+        node.tagType === 0 /* ELEMENT */ &&
         (node.tag === 'script' || node.tag === 'style')) {
-        context.onError(createDOMCompilerError(61 /* DOMErrorCodes.X_IGNORED_SIDE_EFFECT_TAG */, node.loc));
+        context.onError(createDOMCompilerError(60 /* X_IGNORED_SIDE_EFFECT_TAG */, node.loc));
         context.removeNode();
     }
 };
@@ -5695,6 +5637,263 @@ function parse(template, options = {}) {
 }
 
 
+
+
+/***/ }),
+
+/***/ "./node_modules/@vue/devtools-api/lib/esm/const.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/@vue/devtools-api/lib/esm/const.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "HOOK_PLUGIN_SETTINGS_SET": () => (/* binding */ HOOK_PLUGIN_SETTINGS_SET),
+/* harmony export */   "HOOK_SETUP": () => (/* binding */ HOOK_SETUP)
+/* harmony export */ });
+const HOOK_SETUP = 'devtools-plugin:setup';
+const HOOK_PLUGIN_SETTINGS_SET = 'plugin:settings:set';
+
+
+/***/ }),
+
+/***/ "./node_modules/@vue/devtools-api/lib/esm/env.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/@vue/devtools-api/lib/esm/env.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getDevtoolsGlobalHook": () => (/* binding */ getDevtoolsGlobalHook),
+/* harmony export */   "getTarget": () => (/* binding */ getTarget),
+/* harmony export */   "isProxyAvailable": () => (/* binding */ isProxyAvailable)
+/* harmony export */ });
+function getDevtoolsGlobalHook() {
+    return getTarget().__VUE_DEVTOOLS_GLOBAL_HOOK__;
+}
+function getTarget() {
+    // @ts-ignore
+    return (typeof navigator !== 'undefined' && typeof window !== 'undefined')
+        ? window
+        : typeof __webpack_require__.g !== 'undefined'
+            ? __webpack_require__.g
+            : {};
+}
+const isProxyAvailable = typeof Proxy === 'function';
+
+
+/***/ }),
+
+/***/ "./node_modules/@vue/devtools-api/lib/esm/index.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/@vue/devtools-api/lib/esm/index.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "isPerformanceSupported": () => (/* reexport safe */ _time_js__WEBPACK_IMPORTED_MODULE_0__.isPerformanceSupported),
+/* harmony export */   "now": () => (/* reexport safe */ _time_js__WEBPACK_IMPORTED_MODULE_0__.now),
+/* harmony export */   "setupDevtoolsPlugin": () => (/* binding */ setupDevtoolsPlugin)
+/* harmony export */ });
+/* harmony import */ var _env_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./env.js */ "./node_modules/@vue/devtools-api/lib/esm/env.js");
+/* harmony import */ var _const_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./const.js */ "./node_modules/@vue/devtools-api/lib/esm/const.js");
+/* harmony import */ var _proxy_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./proxy.js */ "./node_modules/@vue/devtools-api/lib/esm/proxy.js");
+/* harmony import */ var _time_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./time.js */ "./node_modules/@vue/devtools-api/lib/esm/time.js");
+
+
+
+
+
+
+function setupDevtoolsPlugin(pluginDescriptor, setupFn) {
+    const descriptor = pluginDescriptor;
+    const target = (0,_env_js__WEBPACK_IMPORTED_MODULE_1__.getTarget)();
+    const hook = (0,_env_js__WEBPACK_IMPORTED_MODULE_1__.getDevtoolsGlobalHook)();
+    const enableProxy = _env_js__WEBPACK_IMPORTED_MODULE_1__.isProxyAvailable && descriptor.enableEarlyProxy;
+    if (hook && (target.__VUE_DEVTOOLS_PLUGIN_API_AVAILABLE__ || !enableProxy)) {
+        hook.emit(_const_js__WEBPACK_IMPORTED_MODULE_2__.HOOK_SETUP, pluginDescriptor, setupFn);
+    }
+    else {
+        const proxy = enableProxy ? new _proxy_js__WEBPACK_IMPORTED_MODULE_3__.ApiProxy(descriptor, hook) : null;
+        const list = target.__VUE_DEVTOOLS_PLUGINS__ = target.__VUE_DEVTOOLS_PLUGINS__ || [];
+        list.push({
+            pluginDescriptor: descriptor,
+            setupFn,
+            proxy,
+        });
+        if (proxy)
+            setupFn(proxy.proxiedTarget);
+    }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@vue/devtools-api/lib/esm/proxy.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/@vue/devtools-api/lib/esm/proxy.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ApiProxy": () => (/* binding */ ApiProxy)
+/* harmony export */ });
+/* harmony import */ var _const_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./const.js */ "./node_modules/@vue/devtools-api/lib/esm/const.js");
+/* harmony import */ var _time_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./time.js */ "./node_modules/@vue/devtools-api/lib/esm/time.js");
+
+
+class ApiProxy {
+    constructor(plugin, hook) {
+        this.target = null;
+        this.targetQueue = [];
+        this.onQueue = [];
+        this.plugin = plugin;
+        this.hook = hook;
+        const defaultSettings = {};
+        if (plugin.settings) {
+            for (const id in plugin.settings) {
+                const item = plugin.settings[id];
+                defaultSettings[id] = item.defaultValue;
+            }
+        }
+        const localSettingsSaveId = `__vue-devtools-plugin-settings__${plugin.id}`;
+        let currentSettings = Object.assign({}, defaultSettings);
+        try {
+            const raw = localStorage.getItem(localSettingsSaveId);
+            const data = JSON.parse(raw);
+            Object.assign(currentSettings, data);
+        }
+        catch (e) {
+            // noop
+        }
+        this.fallbacks = {
+            getSettings() {
+                return currentSettings;
+            },
+            setSettings(value) {
+                try {
+                    localStorage.setItem(localSettingsSaveId, JSON.stringify(value));
+                }
+                catch (e) {
+                    // noop
+                }
+                currentSettings = value;
+            },
+            now() {
+                return (0,_time_js__WEBPACK_IMPORTED_MODULE_0__.now)();
+            },
+        };
+        if (hook) {
+            hook.on(_const_js__WEBPACK_IMPORTED_MODULE_1__.HOOK_PLUGIN_SETTINGS_SET, (pluginId, value) => {
+                if (pluginId === this.plugin.id) {
+                    this.fallbacks.setSettings(value);
+                }
+            });
+        }
+        this.proxiedOn = new Proxy({}, {
+            get: (_target, prop) => {
+                if (this.target) {
+                    return this.target.on[prop];
+                }
+                else {
+                    return (...args) => {
+                        this.onQueue.push({
+                            method: prop,
+                            args,
+                        });
+                    };
+                }
+            },
+        });
+        this.proxiedTarget = new Proxy({}, {
+            get: (_target, prop) => {
+                if (this.target) {
+                    return this.target[prop];
+                }
+                else if (prop === 'on') {
+                    return this.proxiedOn;
+                }
+                else if (Object.keys(this.fallbacks).includes(prop)) {
+                    return (...args) => {
+                        this.targetQueue.push({
+                            method: prop,
+                            args,
+                            resolve: () => { },
+                        });
+                        return this.fallbacks[prop](...args);
+                    };
+                }
+                else {
+                    return (...args) => {
+                        return new Promise(resolve => {
+                            this.targetQueue.push({
+                                method: prop,
+                                args,
+                                resolve,
+                            });
+                        });
+                    };
+                }
+            },
+        });
+    }
+    async setRealTarget(target) {
+        this.target = target;
+        for (const item of this.onQueue) {
+            this.target.on[item.method](...item.args);
+        }
+        for (const item of this.targetQueue) {
+            item.resolve(await this.target[item.method](...item.args));
+        }
+    }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@vue/devtools-api/lib/esm/time.js":
+/*!********************************************************!*\
+  !*** ./node_modules/@vue/devtools-api/lib/esm/time.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "isPerformanceSupported": () => (/* binding */ isPerformanceSupported),
+/* harmony export */   "now": () => (/* binding */ now)
+/* harmony export */ });
+let supported;
+let perf;
+function isPerformanceSupported() {
+    var _a;
+    if (supported !== undefined) {
+        return supported;
+    }
+    if (typeof window !== 'undefined' && window.performance) {
+        supported = true;
+        perf = window.performance;
+    }
+    else if (typeof __webpack_require__.g !== 'undefined' && ((_a = __webpack_require__.g.perf_hooks) === null || _a === void 0 ? void 0 : _a.performance)) {
+        supported = true;
+        perf = __webpack_require__.g.perf_hooks.performance;
+    }
+    else {
+        supported = false;
+    }
+    return supported;
+}
+function now() {
+    return isPerformanceSupported() ? perf.now() : Date.now();
+}
 
 
 /***/ }),
@@ -5753,7 +5952,6 @@ function warn(msg, ...args) {
 let activeEffectScope;
 class EffectScope {
     constructor(detached = false) {
-        this.detached = detached;
         /**
          * @internal
          */
@@ -5766,8 +5964,8 @@ class EffectScope {
          * @internal
          */
         this.cleanups = [];
-        this.parent = activeEffectScope;
         if (!detached && activeEffectScope) {
+            this.parent = activeEffectScope;
             this.index =
                 (activeEffectScope.scopes || (activeEffectScope.scopes = [])).push(this) - 1;
         }
@@ -5816,7 +6014,7 @@ class EffectScope {
                 }
             }
             // nested scope, dereference from parent to avoid memory leaks
-            if (!this.detached && this.parent && !fromParent) {
+            if (this.parent && !fromParent) {
                 // optimized O(1) removal
                 const last = this.parent.scopes.pop();
                 if (last && last !== this) {
@@ -5824,7 +6022,6 @@ class EffectScope {
                     last.index = this.index;
                 }
             }
-            this.parent = undefined;
             this.active = false;
         }
     }
@@ -6045,15 +6242,14 @@ function trigger(target, type, key, newValue, oldValue, oldTarget) {
         return;
     }
     let deps = [];
-    if (type === "clear" /* TriggerOpTypes.CLEAR */) {
+    if (type === "clear" /* CLEAR */) {
         // collection being cleared
         // trigger all effects for target
         deps = [...depsMap.values()];
     }
     else if (key === 'length' && (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isArray)(target)) {
-        const newLength = (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.toNumber)(newValue);
         depsMap.forEach((dep, key) => {
-            if (key === 'length' || key >= newLength) {
+            if (key === 'length' || key >= newValue) {
                 deps.push(dep);
             }
         });
@@ -6065,7 +6261,7 @@ function trigger(target, type, key, newValue, oldValue, oldTarget) {
         }
         // also run for iteration key on ADD | DELETE | Map.SET
         switch (type) {
-            case "add" /* TriggerOpTypes.ADD */:
+            case "add" /* ADD */:
                 if (!(0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isArray)(target)) {
                     deps.push(depsMap.get(ITERATE_KEY));
                     if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isMap)(target)) {
@@ -6077,7 +6273,7 @@ function trigger(target, type, key, newValue, oldValue, oldTarget) {
                     deps.push(depsMap.get('length'));
                 }
                 break;
-            case "delete" /* TriggerOpTypes.DELETE */:
+            case "delete" /* DELETE */:
                 if (!(0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isArray)(target)) {
                     deps.push(depsMap.get(ITERATE_KEY));
                     if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isMap)(target)) {
@@ -6085,7 +6281,7 @@ function trigger(target, type, key, newValue, oldValue, oldTarget) {
                     }
                 }
                 break;
-            case "set" /* TriggerOpTypes.SET */:
+            case "set" /* SET */:
                 if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isMap)(target)) {
                     deps.push(depsMap.get(ITERATE_KEY));
                 }
@@ -6165,7 +6361,7 @@ function createArrayInstrumentations() {
         instrumentations[key] = function (...args) {
             const arr = toRaw(this);
             for (let i = 0, l = this.length; i < l; i++) {
-                track(arr, "get" /* TrackOpTypes.GET */, i + '');
+                track(arr, "get" /* GET */, i + '');
             }
             // we run the method using the original args first (which may be reactive)
             const res = arr[key](...args);
@@ -6190,16 +6386,16 @@ function createArrayInstrumentations() {
 }
 function createGetter(isReadonly = false, shallow = false) {
     return function get(target, key, receiver) {
-        if (key === "__v_isReactive" /* ReactiveFlags.IS_REACTIVE */) {
+        if (key === "__v_isReactive" /* IS_REACTIVE */) {
             return !isReadonly;
         }
-        else if (key === "__v_isReadonly" /* ReactiveFlags.IS_READONLY */) {
+        else if (key === "__v_isReadonly" /* IS_READONLY */) {
             return isReadonly;
         }
-        else if (key === "__v_isShallow" /* ReactiveFlags.IS_SHALLOW */) {
+        else if (key === "__v_isShallow" /* IS_SHALLOW */) {
             return shallow;
         }
-        else if (key === "__v_raw" /* ReactiveFlags.RAW */ &&
+        else if (key === "__v_raw" /* RAW */ &&
             receiver ===
                 (isReadonly
                     ? shallow
@@ -6219,7 +6415,7 @@ function createGetter(isReadonly = false, shallow = false) {
             return res;
         }
         if (!isReadonly) {
-            track(target, "get" /* TrackOpTypes.GET */, key);
+            track(target, "get" /* GET */, key);
         }
         if (shallow) {
             return res;
@@ -6245,10 +6441,10 @@ function createSetter(shallow = false) {
         if (isReadonly(oldValue) && isRef(oldValue) && !isRef(value)) {
             return false;
         }
-        if (!shallow) {
-            if (!isShallow(value) && !isReadonly(value)) {
-                oldValue = toRaw(oldValue);
+        if (!shallow && !isReadonly(value)) {
+            if (!isShallow(value)) {
                 value = toRaw(value);
+                oldValue = toRaw(oldValue);
             }
             if (!(0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isArray)(target) && isRef(oldValue) && !isRef(value)) {
                 oldValue.value = value;
@@ -6262,10 +6458,10 @@ function createSetter(shallow = false) {
         // don't trigger if target is something up in the prototype chain of original
         if (target === toRaw(receiver)) {
             if (!hadKey) {
-                trigger(target, "add" /* TriggerOpTypes.ADD */, key, value);
+                trigger(target, "add" /* ADD */, key, value);
             }
             else if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.hasChanged)(value, oldValue)) {
-                trigger(target, "set" /* TriggerOpTypes.SET */, key, value, oldValue);
+                trigger(target, "set" /* SET */, key, value, oldValue);
             }
         }
         return result;
@@ -6276,19 +6472,19 @@ function deleteProperty(target, key) {
     const oldValue = target[key];
     const result = Reflect.deleteProperty(target, key);
     if (result && hadKey) {
-        trigger(target, "delete" /* TriggerOpTypes.DELETE */, key, undefined, oldValue);
+        trigger(target, "delete" /* DELETE */, key, undefined, oldValue);
     }
     return result;
 }
 function has(target, key) {
     const result = Reflect.has(target, key);
     if (!(0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isSymbol)(key) || !builtInSymbols.has(key)) {
-        track(target, "has" /* TrackOpTypes.HAS */, key);
+        track(target, "has" /* HAS */, key);
     }
     return result;
 }
 function ownKeys(target) {
-    track(target, "iterate" /* TrackOpTypes.ITERATE */, (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isArray)(target) ? 'length' : ITERATE_KEY);
+    track(target, "iterate" /* ITERATE */, (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isArray)(target) ? 'length' : ITERATE_KEY);
     return Reflect.ownKeys(target);
 }
 const mutableHandlers = {
@@ -6329,14 +6525,14 @@ const getProto = (v) => Reflect.getPrototypeOf(v);
 function get$1(target, key, isReadonly = false, isShallow = false) {
     // #1772: readonly(reactive(Map)) should return readonly + reactive version
     // of the value
-    target = target["__v_raw" /* ReactiveFlags.RAW */];
+    target = target["__v_raw" /* RAW */];
     const rawTarget = toRaw(target);
     const rawKey = toRaw(key);
     if (!isReadonly) {
         if (key !== rawKey) {
-            track(rawTarget, "get" /* TrackOpTypes.GET */, key);
+            track(rawTarget, "get" /* GET */, key);
         }
-        track(rawTarget, "get" /* TrackOpTypes.GET */, rawKey);
+        track(rawTarget, "get" /* GET */, rawKey);
     }
     const { has } = getProto(rawTarget);
     const wrap = isShallow ? toShallow : isReadonly ? toReadonly : toReactive;
@@ -6353,22 +6549,22 @@ function get$1(target, key, isReadonly = false, isShallow = false) {
     }
 }
 function has$1(key, isReadonly = false) {
-    const target = this["__v_raw" /* ReactiveFlags.RAW */];
+    const target = this["__v_raw" /* RAW */];
     const rawTarget = toRaw(target);
     const rawKey = toRaw(key);
     if (!isReadonly) {
         if (key !== rawKey) {
-            track(rawTarget, "has" /* TrackOpTypes.HAS */, key);
+            track(rawTarget, "has" /* HAS */, key);
         }
-        track(rawTarget, "has" /* TrackOpTypes.HAS */, rawKey);
+        track(rawTarget, "has" /* HAS */, rawKey);
     }
     return key === rawKey
         ? target.has(key)
         : target.has(key) || target.has(rawKey);
 }
 function size(target, isReadonly = false) {
-    target = target["__v_raw" /* ReactiveFlags.RAW */];
-    !isReadonly && track(toRaw(target), "iterate" /* TrackOpTypes.ITERATE */, ITERATE_KEY);
+    target = target["__v_raw" /* RAW */];
+    !isReadonly && track(toRaw(target), "iterate" /* ITERATE */, ITERATE_KEY);
     return Reflect.get(target, 'size', target);
 }
 function add(value) {
@@ -6378,7 +6574,7 @@ function add(value) {
     const hadKey = proto.has.call(target, value);
     if (!hadKey) {
         target.add(value);
-        trigger(target, "add" /* TriggerOpTypes.ADD */, value, value);
+        trigger(target, "add" /* ADD */, value, value);
     }
     return this;
 }
@@ -6397,10 +6593,10 @@ function set$1(key, value) {
     const oldValue = get.call(target, key);
     target.set(key, value);
     if (!hadKey) {
-        trigger(target, "add" /* TriggerOpTypes.ADD */, key, value);
+        trigger(target, "add" /* ADD */, key, value);
     }
     else if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.hasChanged)(value, oldValue)) {
-        trigger(target, "set" /* TriggerOpTypes.SET */, key, value, oldValue);
+        trigger(target, "set" /* SET */, key, value, oldValue);
     }
     return this;
 }
@@ -6419,7 +6615,7 @@ function deleteEntry(key) {
     // forward the operation before queueing reactions
     const result = target.delete(key);
     if (hadKey) {
-        trigger(target, "delete" /* TriggerOpTypes.DELETE */, key, undefined, oldValue);
+        trigger(target, "delete" /* DELETE */, key, undefined, oldValue);
     }
     return result;
 }
@@ -6434,17 +6630,17 @@ function clear() {
     // forward the operation before queueing reactions
     const result = target.clear();
     if (hadItems) {
-        trigger(target, "clear" /* TriggerOpTypes.CLEAR */, undefined, undefined, oldTarget);
+        trigger(target, "clear" /* CLEAR */, undefined, undefined, oldTarget);
     }
     return result;
 }
 function createForEach(isReadonly, isShallow) {
     return function forEach(callback, thisArg) {
         const observed = this;
-        const target = observed["__v_raw" /* ReactiveFlags.RAW */];
+        const target = observed["__v_raw" /* RAW */];
         const rawTarget = toRaw(target);
         const wrap = isShallow ? toShallow : isReadonly ? toReadonly : toReactive;
-        !isReadonly && track(rawTarget, "iterate" /* TrackOpTypes.ITERATE */, ITERATE_KEY);
+        !isReadonly && track(rawTarget, "iterate" /* ITERATE */, ITERATE_KEY);
         return target.forEach((value, key) => {
             // important: make sure the callback is
             // 1. invoked with the reactive map as `this` and 3rd arg
@@ -6455,7 +6651,7 @@ function createForEach(isReadonly, isShallow) {
 }
 function createIterableMethod(method, isReadonly, isShallow) {
     return function (...args) {
-        const target = this["__v_raw" /* ReactiveFlags.RAW */];
+        const target = this["__v_raw" /* RAW */];
         const rawTarget = toRaw(target);
         const targetIsMap = (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isMap)(rawTarget);
         const isPair = method === 'entries' || (method === Symbol.iterator && targetIsMap);
@@ -6463,7 +6659,7 @@ function createIterableMethod(method, isReadonly, isShallow) {
         const innerIterator = target[method](...args);
         const wrap = isShallow ? toShallow : isReadonly ? toReadonly : toReactive;
         !isReadonly &&
-            track(rawTarget, "iterate" /* TrackOpTypes.ITERATE */, isKeyOnly ? MAP_KEY_ITERATE_KEY : ITERATE_KEY);
+            track(rawTarget, "iterate" /* ITERATE */, isKeyOnly ? MAP_KEY_ITERATE_KEY : ITERATE_KEY);
         // return a wrapped iterator which returns observed versions of the
         // values emitted from the real iterator
         return {
@@ -6490,7 +6686,7 @@ function createReadonlyMethod(type) {
             const key = args[0] ? `on key "${args[0]}" ` : ``;
             console.warn(`${(0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.capitalize)(type)} operation ${key}failed: target is readonly.`, toRaw(this));
         }
-        return type === "delete" /* TriggerOpTypes.DELETE */ ? false : this;
+        return type === "delete" /* DELETE */ ? false : this;
     };
 }
 function createInstrumentations() {
@@ -6532,10 +6728,10 @@ function createInstrumentations() {
         has(key) {
             return has$1.call(this, key, true);
         },
-        add: createReadonlyMethod("add" /* TriggerOpTypes.ADD */),
-        set: createReadonlyMethod("set" /* TriggerOpTypes.SET */),
-        delete: createReadonlyMethod("delete" /* TriggerOpTypes.DELETE */),
-        clear: createReadonlyMethod("clear" /* TriggerOpTypes.CLEAR */),
+        add: createReadonlyMethod("add" /* ADD */),
+        set: createReadonlyMethod("set" /* SET */),
+        delete: createReadonlyMethod("delete" /* DELETE */),
+        clear: createReadonlyMethod("clear" /* CLEAR */),
         forEach: createForEach(true, false)
     };
     const shallowReadonlyInstrumentations = {
@@ -6548,10 +6744,10 @@ function createInstrumentations() {
         has(key) {
             return has$1.call(this, key, true);
         },
-        add: createReadonlyMethod("add" /* TriggerOpTypes.ADD */),
-        set: createReadonlyMethod("set" /* TriggerOpTypes.SET */),
-        delete: createReadonlyMethod("delete" /* TriggerOpTypes.DELETE */),
-        clear: createReadonlyMethod("clear" /* TriggerOpTypes.CLEAR */),
+        add: createReadonlyMethod("add" /* ADD */),
+        set: createReadonlyMethod("set" /* SET */),
+        delete: createReadonlyMethod("delete" /* DELETE */),
+        clear: createReadonlyMethod("clear" /* CLEAR */),
         forEach: createForEach(true, true)
     };
     const iteratorMethods = ['keys', 'values', 'entries', Symbol.iterator];
@@ -6578,13 +6774,13 @@ function createInstrumentationGetter(isReadonly, shallow) {
             ? readonlyInstrumentations
             : mutableInstrumentations;
     return (target, key, receiver) => {
-        if (key === "__v_isReactive" /* ReactiveFlags.IS_REACTIVE */) {
+        if (key === "__v_isReactive" /* IS_REACTIVE */) {
             return !isReadonly;
         }
-        else if (key === "__v_isReadonly" /* ReactiveFlags.IS_READONLY */) {
+        else if (key === "__v_isReadonly" /* IS_READONLY */) {
             return isReadonly;
         }
-        else if (key === "__v_raw" /* ReactiveFlags.RAW */) {
+        else if (key === "__v_raw" /* RAW */) {
             return target;
         }
         return Reflect.get((0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.hasOwn)(instrumentations, key) && key in target
@@ -6624,19 +6820,19 @@ function targetTypeMap(rawType) {
     switch (rawType) {
         case 'Object':
         case 'Array':
-            return 1 /* TargetType.COMMON */;
+            return 1 /* COMMON */;
         case 'Map':
         case 'Set':
         case 'WeakMap':
         case 'WeakSet':
-            return 2 /* TargetType.COLLECTION */;
+            return 2 /* COLLECTION */;
         default:
-            return 0 /* TargetType.INVALID */;
+            return 0 /* INVALID */;
     }
 }
 function getTargetType(value) {
-    return value["__v_skip" /* ReactiveFlags.SKIP */] || !Object.isExtensible(value)
-        ? 0 /* TargetType.INVALID */
+    return value["__v_skip" /* SKIP */] || !Object.isExtensible(value)
+        ? 0 /* INVALID */
         : targetTypeMap((0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.toRawType)(value));
 }
 function reactive(target) {
@@ -6679,8 +6875,8 @@ function createReactiveObject(target, isReadonly, baseHandlers, collectionHandle
     }
     // target is already a Proxy, return it.
     // exception: calling readonly() on a reactive object
-    if (target["__v_raw" /* ReactiveFlags.RAW */] &&
-        !(isReadonly && target["__v_isReactive" /* ReactiveFlags.IS_REACTIVE */])) {
+    if (target["__v_raw" /* RAW */] &&
+        !(isReadonly && target["__v_isReactive" /* IS_REACTIVE */])) {
         return target;
     }
     // target already has corresponding Proxy
@@ -6690,34 +6886,34 @@ function createReactiveObject(target, isReadonly, baseHandlers, collectionHandle
     }
     // only specific value types can be observed.
     const targetType = getTargetType(target);
-    if (targetType === 0 /* TargetType.INVALID */) {
+    if (targetType === 0 /* INVALID */) {
         return target;
     }
-    const proxy = new Proxy(target, targetType === 2 /* TargetType.COLLECTION */ ? collectionHandlers : baseHandlers);
+    const proxy = new Proxy(target, targetType === 2 /* COLLECTION */ ? collectionHandlers : baseHandlers);
     proxyMap.set(target, proxy);
     return proxy;
 }
 function isReactive(value) {
     if (isReadonly(value)) {
-        return isReactive(value["__v_raw" /* ReactiveFlags.RAW */]);
+        return isReactive(value["__v_raw" /* RAW */]);
     }
-    return !!(value && value["__v_isReactive" /* ReactiveFlags.IS_REACTIVE */]);
+    return !!(value && value["__v_isReactive" /* IS_REACTIVE */]);
 }
 function isReadonly(value) {
-    return !!(value && value["__v_isReadonly" /* ReactiveFlags.IS_READONLY */]);
+    return !!(value && value["__v_isReadonly" /* IS_READONLY */]);
 }
 function isShallow(value) {
-    return !!(value && value["__v_isShallow" /* ReactiveFlags.IS_SHALLOW */]);
+    return !!(value && value["__v_isShallow" /* IS_SHALLOW */]);
 }
 function isProxy(value) {
     return isReactive(value) || isReadonly(value);
 }
 function toRaw(observed) {
-    const raw = observed && observed["__v_raw" /* ReactiveFlags.RAW */];
+    const raw = observed && observed["__v_raw" /* RAW */];
     return raw ? toRaw(raw) : observed;
 }
 function markRaw(value) {
-    (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.def)(value, "__v_skip" /* ReactiveFlags.SKIP */, true);
+    (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.def)(value, "__v_skip" /* SKIP */, true);
     return value;
 }
 const toReactive = (value) => (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isObject)(value) ? reactive(value) : value;
@@ -6729,7 +6925,7 @@ function trackRefValue(ref) {
         if ((true)) {
             trackEffects(ref.dep || (ref.dep = createDep()), {
                 target: ref,
-                type: "get" /* TrackOpTypes.GET */,
+                type: "get" /* GET */,
                 key: 'value'
             });
         }
@@ -6742,7 +6938,7 @@ function triggerRefValue(ref, newVal) {
         if ((true)) {
             triggerEffects(ref.dep, {
                 target: ref,
-                type: "set" /* TriggerOpTypes.SET */,
+                type: "set" /* SET */,
                 key: 'value',
                 newValue: newVal
             });
@@ -6778,11 +6974,10 @@ class RefImpl {
         return this._value;
     }
     set value(newVal) {
-        const useDirectValue = this.__v_isShallow || isShallow(newVal) || isReadonly(newVal);
-        newVal = useDirectValue ? newVal : toRaw(newVal);
+        newVal = this.__v_isShallow ? newVal : toRaw(newVal);
         if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.hasChanged)(newVal, this._rawValue)) {
             this._rawValue = newVal;
-            this._value = useDirectValue ? newVal : toReactive(newVal);
+            this._value = this.__v_isShallow ? newVal : toReactive(newVal);
             triggerRefValue(this, newVal);
         }
     }
@@ -6861,13 +7056,11 @@ function toRef(object, key, defaultValue) {
         : new ObjectRefImpl(object, key, defaultValue);
 }
 
-var _a;
 class ComputedRefImpl {
     constructor(getter, _setter, isReadonly, isSSR) {
         this._setter = _setter;
         this.dep = undefined;
         this.__v_isRef = true;
-        this[_a] = false;
         this._dirty = true;
         this.effect = new ReactiveEffect(getter, () => {
             if (!this._dirty) {
@@ -6877,7 +7070,7 @@ class ComputedRefImpl {
         });
         this.effect.computed = this;
         this.effect.active = this._cacheable = !isSSR;
-        this["__v_isReadonly" /* ReactiveFlags.IS_READONLY */] = isReadonly;
+        this["__v_isReadonly" /* IS_READONLY */] = isReadonly;
     }
     get value() {
         // the computed ref may get wrapped by other proxies e.g. readonly() #3376
@@ -6893,7 +7086,6 @@ class ComputedRefImpl {
         this._setter(newValue);
     }
 }
-_a = "__v_isReadonly" /* ReactiveFlags.IS_READONLY */;
 function computed(getterOrOptions, debugOptions, isSSR = false) {
     let getter;
     let setter;
@@ -6918,7 +7110,7 @@ function computed(getterOrOptions, debugOptions, isSSR = false) {
     return cRef;
 }
 
-var _a$1;
+var _a;
 const tick = /*#__PURE__*/ Promise.resolve();
 const queue = [];
 let queued = false;
@@ -6941,7 +7133,7 @@ class DeferredComputedRefImpl {
         this.dep = undefined;
         this._dirty = true;
         this.__v_isRef = true;
-        this[_a$1] = true;
+        this[_a] = true;
         let compareTarget;
         let hasCompareTarget = false;
         let scheduled = false;
@@ -6988,7 +7180,7 @@ class DeferredComputedRefImpl {
         return toRaw(this)._get();
     }
 }
-_a$1 = "__v_isReadonly" /* ReactiveFlags.IS_READONLY */;
+_a = "__v_isReadonly" /* IS_READONLY */;
 function deferredComputed(getter) {
     return new DeferredComputedRefImpl(getter);
 }
@@ -7147,8 +7339,6 @@ function popWarningContext() {
     stack.pop();
 }
 function warn(msg, ...args) {
-    if (false)
-        {}
     // avoid props formatting or warn handler tracking deps that might be mutated
     // during patch, leading to infinite recursion.
     (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.pauseTracking)();
@@ -7156,7 +7346,7 @@ function warn(msg, ...args) {
     const appWarnHandler = instance && instance.appContext.config.warnHandler;
     const trace = getComponentTrace();
     if (appWarnHandler) {
-        callWithErrorHandling(appWarnHandler, instance, 11 /* ErrorCodes.APP_WARN_HANDLER */, [
+        callWithErrorHandling(appWarnHandler, instance, 11 /* APP_WARN_HANDLER */, [
             msg + args.join(''),
             instance && instance.proxy,
             trace
@@ -7256,35 +7446,35 @@ function formatProp(key, value, raw) {
 }
 
 const ErrorTypeStrings = {
-    ["sp" /* LifecycleHooks.SERVER_PREFETCH */]: 'serverPrefetch hook',
-    ["bc" /* LifecycleHooks.BEFORE_CREATE */]: 'beforeCreate hook',
-    ["c" /* LifecycleHooks.CREATED */]: 'created hook',
-    ["bm" /* LifecycleHooks.BEFORE_MOUNT */]: 'beforeMount hook',
-    ["m" /* LifecycleHooks.MOUNTED */]: 'mounted hook',
-    ["bu" /* LifecycleHooks.BEFORE_UPDATE */]: 'beforeUpdate hook',
-    ["u" /* LifecycleHooks.UPDATED */]: 'updated',
-    ["bum" /* LifecycleHooks.BEFORE_UNMOUNT */]: 'beforeUnmount hook',
-    ["um" /* LifecycleHooks.UNMOUNTED */]: 'unmounted hook',
-    ["a" /* LifecycleHooks.ACTIVATED */]: 'activated hook',
-    ["da" /* LifecycleHooks.DEACTIVATED */]: 'deactivated hook',
-    ["ec" /* LifecycleHooks.ERROR_CAPTURED */]: 'errorCaptured hook',
-    ["rtc" /* LifecycleHooks.RENDER_TRACKED */]: 'renderTracked hook',
-    ["rtg" /* LifecycleHooks.RENDER_TRIGGERED */]: 'renderTriggered hook',
-    [0 /* ErrorCodes.SETUP_FUNCTION */]: 'setup function',
-    [1 /* ErrorCodes.RENDER_FUNCTION */]: 'render function',
-    [2 /* ErrorCodes.WATCH_GETTER */]: 'watcher getter',
-    [3 /* ErrorCodes.WATCH_CALLBACK */]: 'watcher callback',
-    [4 /* ErrorCodes.WATCH_CLEANUP */]: 'watcher cleanup function',
-    [5 /* ErrorCodes.NATIVE_EVENT_HANDLER */]: 'native event handler',
-    [6 /* ErrorCodes.COMPONENT_EVENT_HANDLER */]: 'component event handler',
-    [7 /* ErrorCodes.VNODE_HOOK */]: 'vnode hook',
-    [8 /* ErrorCodes.DIRECTIVE_HOOK */]: 'directive hook',
-    [9 /* ErrorCodes.TRANSITION_HOOK */]: 'transition hook',
-    [10 /* ErrorCodes.APP_ERROR_HANDLER */]: 'app errorHandler',
-    [11 /* ErrorCodes.APP_WARN_HANDLER */]: 'app warnHandler',
-    [12 /* ErrorCodes.FUNCTION_REF */]: 'ref function',
-    [13 /* ErrorCodes.ASYNC_COMPONENT_LOADER */]: 'async component loader',
-    [14 /* ErrorCodes.SCHEDULER */]: 'scheduler flush. This is likely a Vue internals bug. ' +
+    ["sp" /* SERVER_PREFETCH */]: 'serverPrefetch hook',
+    ["bc" /* BEFORE_CREATE */]: 'beforeCreate hook',
+    ["c" /* CREATED */]: 'created hook',
+    ["bm" /* BEFORE_MOUNT */]: 'beforeMount hook',
+    ["m" /* MOUNTED */]: 'mounted hook',
+    ["bu" /* BEFORE_UPDATE */]: 'beforeUpdate hook',
+    ["u" /* UPDATED */]: 'updated',
+    ["bum" /* BEFORE_UNMOUNT */]: 'beforeUnmount hook',
+    ["um" /* UNMOUNTED */]: 'unmounted hook',
+    ["a" /* ACTIVATED */]: 'activated hook',
+    ["da" /* DEACTIVATED */]: 'deactivated hook',
+    ["ec" /* ERROR_CAPTURED */]: 'errorCaptured hook',
+    ["rtc" /* RENDER_TRACKED */]: 'renderTracked hook',
+    ["rtg" /* RENDER_TRIGGERED */]: 'renderTriggered hook',
+    [0 /* SETUP_FUNCTION */]: 'setup function',
+    [1 /* RENDER_FUNCTION */]: 'render function',
+    [2 /* WATCH_GETTER */]: 'watcher getter',
+    [3 /* WATCH_CALLBACK */]: 'watcher callback',
+    [4 /* WATCH_CLEANUP */]: 'watcher cleanup function',
+    [5 /* NATIVE_EVENT_HANDLER */]: 'native event handler',
+    [6 /* COMPONENT_EVENT_HANDLER */]: 'component event handler',
+    [7 /* VNODE_HOOK */]: 'vnode hook',
+    [8 /* DIRECTIVE_HOOK */]: 'directive hook',
+    [9 /* TRANSITION_HOOK */]: 'transition hook',
+    [10 /* APP_ERROR_HANDLER */]: 'app errorHandler',
+    [11 /* APP_WARN_HANDLER */]: 'app warnHandler',
+    [12 /* FUNCTION_REF */]: 'ref function',
+    [13 /* ASYNC_COMPONENT_LOADER */]: 'async component loader',
+    [14 /* SCHEDULER */]: 'scheduler flush. This is likely a Vue internals bug. ' +
         'Please open an issue at https://new-issue.vuejs.org/?repo=vuejs/core'
 };
 function callWithErrorHandling(fn, instance, type, args) {
@@ -7335,7 +7525,7 @@ function handleError(err, instance, type, throwInDev = true) {
         // app-level handling
         const appErrorHandler = instance.appContext.config.errorHandler;
         if (appErrorHandler) {
-            callWithErrorHandling(appErrorHandler, null, 10 /* ErrorCodes.APP_ERROR_HANDLER */, [err, exposedInstance, errorInfo]);
+            callWithErrorHandling(appErrorHandler, null, 10 /* APP_ERROR_HANDLER */, [err, exposedInstance, errorInfo]);
             return;
         }
     }
@@ -7366,11 +7556,15 @@ let isFlushing = false;
 let isFlushPending = false;
 const queue = [];
 let flushIndex = 0;
+const pendingPreFlushCbs = [];
+let activePreFlushCbs = null;
+let preFlushIndex = 0;
 const pendingPostFlushCbs = [];
 let activePostFlushCbs = null;
 let postFlushIndex = 0;
 const resolvedPromise = /*#__PURE__*/ Promise.resolve();
 let currentFlushPromise = null;
+let currentPreFlushParentJob = null;
 const RECURSION_LIMIT = 100;
 function nextTick(fn) {
     const p = currentFlushPromise || resolvedPromise;
@@ -7398,8 +7592,9 @@ function queueJob(job) {
     // if the job is a watch() callback, the search will start with a +1 index to
     // allow it recursively trigger itself - it is the user's responsibility to
     // ensure it doesn't end up in an infinite loop.
-    if (!queue.length ||
-        !queue.includes(job, isFlushing && job.allowRecurse ? flushIndex + 1 : flushIndex)) {
+    if ((!queue.length ||
+        !queue.includes(job, isFlushing && job.allowRecurse ? flushIndex + 1 : flushIndex)) &&
+        job !== currentPreFlushParentJob) {
         if (job.id == null) {
             queue.push(job);
         }
@@ -7421,40 +7616,52 @@ function invalidateJob(job) {
         queue.splice(i, 1);
     }
 }
-function queuePostFlushCb(cb) {
+function queueCb(cb, activeQueue, pendingQueue, index) {
     if (!(0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isArray)(cb)) {
-        if (!activePostFlushCbs ||
-            !activePostFlushCbs.includes(cb, cb.allowRecurse ? postFlushIndex + 1 : postFlushIndex)) {
-            pendingPostFlushCbs.push(cb);
+        if (!activeQueue ||
+            !activeQueue.includes(cb, cb.allowRecurse ? index + 1 : index)) {
+            pendingQueue.push(cb);
         }
     }
     else {
         // if cb is an array, it is a component lifecycle hook which can only be
         // triggered by a job, which is already deduped in the main queue, so
         // we can skip duplicate check here to improve perf
-        pendingPostFlushCbs.push(...cb);
+        pendingQueue.push(...cb);
     }
     queueFlush();
 }
-function flushPreFlushCbs(seen, 
-// if currently flushing, skip the current job itself
-i = isFlushing ? flushIndex + 1 : 0) {
-    if ((true)) {
-        seen = seen || new Map();
-    }
-    for (; i < queue.length; i++) {
-        const cb = queue[i];
-        if (cb && cb.pre) {
-            if (( true) && checkRecursiveUpdates(seen, cb)) {
+function queuePreFlushCb(cb) {
+    queueCb(cb, activePreFlushCbs, pendingPreFlushCbs, preFlushIndex);
+}
+function queuePostFlushCb(cb) {
+    queueCb(cb, activePostFlushCbs, pendingPostFlushCbs, postFlushIndex);
+}
+function flushPreFlushCbs(seen, parentJob = null) {
+    if (pendingPreFlushCbs.length) {
+        currentPreFlushParentJob = parentJob;
+        activePreFlushCbs = [...new Set(pendingPreFlushCbs)];
+        pendingPreFlushCbs.length = 0;
+        if ((true)) {
+            seen = seen || new Map();
+        }
+        for (preFlushIndex = 0; preFlushIndex < activePreFlushCbs.length; preFlushIndex++) {
+            if (( true) &&
+                checkRecursiveUpdates(seen, activePreFlushCbs[preFlushIndex])) {
                 continue;
             }
-            queue.splice(i, 1);
-            i--;
-            cb();
+            activePreFlushCbs[preFlushIndex]();
         }
+        activePreFlushCbs = null;
+        preFlushIndex = 0;
+        currentPreFlushParentJob = null;
+        // recursively flush until it drains
+        flushPreFlushCbs(seen, parentJob);
     }
 }
 function flushPostFlushCbs(seen) {
+    // flush any pre cbs queued during the flush (e.g. pre watchers)
+    flushPreFlushCbs();
     if (pendingPostFlushCbs.length) {
         const deduped = [...new Set(pendingPostFlushCbs)];
         pendingPostFlushCbs.length = 0;
@@ -7480,22 +7687,13 @@ function flushPostFlushCbs(seen) {
     }
 }
 const getId = (job) => job.id == null ? Infinity : job.id;
-const comparator = (a, b) => {
-    const diff = getId(a) - getId(b);
-    if (diff === 0) {
-        if (a.pre && !b.pre)
-            return -1;
-        if (b.pre && !a.pre)
-            return 1;
-    }
-    return diff;
-};
 function flushJobs(seen) {
     isFlushPending = false;
     isFlushing = true;
     if ((true)) {
         seen = seen || new Map();
     }
+    flushPreFlushCbs(seen);
     // Sort queue before flush.
     // This ensures that:
     // 1. Components are updated from parent to child. (because parent is always
@@ -7503,7 +7701,7 @@ function flushJobs(seen) {
     //    priority number)
     // 2. If a component is unmounted during a parent component's update,
     //    its update can be skipped.
-    queue.sort(comparator);
+    queue.sort((a, b) => getId(a) - getId(b));
     // conditional usage of checkRecursiveUpdate must be determined out of
     // try ... catch block since Rollup by default de-optimizes treeshaking
     // inside try-catch. This can leave all warning code unshaked. Although
@@ -7520,7 +7718,7 @@ function flushJobs(seen) {
                     continue;
                 }
                 // console.log(`running:`, job.id)
-                callWithErrorHandling(job, null, 14 /* ErrorCodes.SCHEDULER */);
+                callWithErrorHandling(job, null, 14 /* SCHEDULER */);
             }
         }
     }
@@ -7532,7 +7730,9 @@ function flushJobs(seen) {
         currentFlushPromise = null;
         // some postFlushCb queued jobs!
         // keep flushing until it drains.
-        if (queue.length || pendingPostFlushCbs.length) {
+        if (queue.length ||
+            pendingPreFlushCbs.length ||
+            pendingPostFlushCbs.length) {
             flushJobs(seen);
         }
     }
@@ -7653,6 +7853,12 @@ function reload(id, newComp) {
             // components to be unmounted and re-mounted. Queue the update so that we
             // don't end up forcing the same parent to re-render multiple times.
             queueJob(instance.parent.update);
+            // instance is the inner component of an async custom element
+            // invoke to reset styles
+            if (instance.parent.type.__asyncLoader &&
+                instance.parent.ceReload) {
+                instance.parent.ceReload(newComp.styles);
+            }
         }
         else if (instance.appContext.reload) {
             // root instance mounted via createApp() has a reload method
@@ -7744,7 +7950,7 @@ function setDevtoolsHook(hook, target) {
     }
 }
 function devtoolsInitApp(app, version) {
-    emit("app:init" /* DevtoolsHooks.APP_INIT */, app, version, {
+    emit("app:init" /* APP_INIT */, app, version, {
         Fragment,
         Text,
         Comment,
@@ -7752,34 +7958,27 @@ function devtoolsInitApp(app, version) {
     });
 }
 function devtoolsUnmountApp(app) {
-    emit("app:unmount" /* DevtoolsHooks.APP_UNMOUNT */, app);
+    emit("app:unmount" /* APP_UNMOUNT */, app);
 }
-const devtoolsComponentAdded = /*#__PURE__*/ createDevtoolsComponentHook("component:added" /* DevtoolsHooks.COMPONENT_ADDED */);
+const devtoolsComponentAdded = /*#__PURE__*/ createDevtoolsComponentHook("component:added" /* COMPONENT_ADDED */);
 const devtoolsComponentUpdated = 
-/*#__PURE__*/ createDevtoolsComponentHook("component:updated" /* DevtoolsHooks.COMPONENT_UPDATED */);
-const _devtoolsComponentRemoved = /*#__PURE__*/ createDevtoolsComponentHook("component:removed" /* DevtoolsHooks.COMPONENT_REMOVED */);
-const devtoolsComponentRemoved = (component) => {
-    if (devtools &&
-        typeof devtools.cleanupBuffer === 'function' &&
-        // remove the component if it wasn't buffered
-        !devtools.cleanupBuffer(component)) {
-        _devtoolsComponentRemoved(component);
-    }
-};
+/*#__PURE__*/ createDevtoolsComponentHook("component:updated" /* COMPONENT_UPDATED */);
+const devtoolsComponentRemoved = 
+/*#__PURE__*/ createDevtoolsComponentHook("component:removed" /* COMPONENT_REMOVED */);
 function createDevtoolsComponentHook(hook) {
     return (component) => {
         emit(hook, component.appContext.app, component.uid, component.parent ? component.parent.uid : undefined, component);
     };
 }
-const devtoolsPerfStart = /*#__PURE__*/ createDevtoolsPerformanceHook("perf:start" /* DevtoolsHooks.PERFORMANCE_START */);
-const devtoolsPerfEnd = /*#__PURE__*/ createDevtoolsPerformanceHook("perf:end" /* DevtoolsHooks.PERFORMANCE_END */);
+const devtoolsPerfStart = /*#__PURE__*/ createDevtoolsPerformanceHook("perf:start" /* PERFORMANCE_START */);
+const devtoolsPerfEnd = /*#__PURE__*/ createDevtoolsPerformanceHook("perf:end" /* PERFORMANCE_END */);
 function createDevtoolsPerformanceHook(hook) {
     return (component, type, time) => {
         emit(hook, component.appContext.app, component.uid, component, type, time);
     };
 }
 function devtoolsComponentEmit(component, event, params) {
-    emit("component:emit" /* DevtoolsHooks.COMPONENT_EMIT */, component.appContext.app, component, event, params);
+    emit("component:emit" /* COMPONENT_EMIT */, component.appContext.app, component, event, params);
 }
 
 function emit$1(instance, event, ...rawArgs) {
@@ -7815,7 +8014,7 @@ function emit$1(instance, event, ...rawArgs) {
         const modifiersKey = `${modelArg === 'modelValue' ? 'model' : modelArg}Modifiers`;
         const { number, trim } = props[modifiersKey] || _vue_shared__WEBPACK_IMPORTED_MODULE_1__.EMPTY_OBJ;
         if (trim) {
-            args = rawArgs.map(a => ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isString)(a) ? a.trim() : a));
+            args = rawArgs.map(a => a.trim());
         }
         if (number) {
             args = rawArgs.map(_vue_shared__WEBPACK_IMPORTED_MODULE_1__.toNumber);
@@ -7844,7 +8043,7 @@ function emit$1(instance, event, ...rawArgs) {
         handler = props[(handlerName = (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.toHandlerKey)((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hyphenate)(event)))];
     }
     if (handler) {
-        callWithAsyncErrorHandling(handler, instance, 6 /* ErrorCodes.COMPONENT_EVENT_HANDLER */, args);
+        callWithAsyncErrorHandling(handler, instance, 6 /* COMPONENT_EVENT_HANDLER */, args);
     }
     const onceHandler = props[handlerName + `Once`];
     if (onceHandler) {
@@ -7855,7 +8054,7 @@ function emit$1(instance, event, ...rawArgs) {
             return;
         }
         instance.emitted[handlerName] = true;
-        callWithAsyncErrorHandling(onceHandler, instance, 6 /* ErrorCodes.COMPONENT_EVENT_HANDLER */, args);
+        callWithAsyncErrorHandling(onceHandler, instance, 6 /* COMPONENT_EVENT_HANDLER */, args);
     }
 }
 function normalizeEmitsOptions(comp, appContext, asMixin = false) {
@@ -7868,7 +8067,7 @@ function normalizeEmitsOptions(comp, appContext, asMixin = false) {
     let normalized = {};
     // apply mixin/extends props
     let hasExtends = false;
-    if (__VUE_OPTIONS_API__ && !(0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isFunction)(comp)) {
+    if ( true && !(0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isFunction)(comp)) {
         const extendEmits = (raw) => {
             const normalizedFromExtend = normalizeEmitsOptions(raw, appContext, true);
             if (normalizedFromExtend) {
@@ -7887,9 +8086,7 @@ function normalizeEmitsOptions(comp, appContext, asMixin = false) {
         }
     }
     if (!raw && !hasExtends) {
-        if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isObject)(comp)) {
-            cache.set(comp, null);
-        }
+        cache.set(comp, null);
         return null;
     }
     if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isArray)(raw)) {
@@ -7898,9 +8095,7 @@ function normalizeEmitsOptions(comp, appContext, asMixin = false) {
     else {
         (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.extend)(normalized, raw);
     }
-    if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isObject)(comp)) {
-        cache.set(comp, normalized);
-    }
+    cache.set(comp, normalized);
     return normalized;
 }
 // Check if an incoming prop key is a declared emit event listener.
@@ -7980,15 +8175,10 @@ function withCtx(fn, ctx = currentRenderingInstance, isNonScopedSlot // false on
             setBlockTracking(-1);
         }
         const prevInstance = setCurrentRenderingInstance(ctx);
-        let res;
-        try {
-            res = fn(...args);
-        }
-        finally {
-            setCurrentRenderingInstance(prevInstance);
-            if (renderFnWithContext._d) {
-                setBlockTracking(1);
-            }
+        const res = fn(...args);
+        setCurrentRenderingInstance(prevInstance);
+        if (renderFnWithContext._d) {
+            setBlockTracking(1);
         }
         if (true) {
             devtoolsComponentUpdated(ctx);
@@ -8024,7 +8214,7 @@ function renderComponentRoot(instance) {
         accessedAttrs = false;
     }
     try {
-        if (vnode.shapeFlag & 4 /* ShapeFlags.STATEFUL_COMPONENT */) {
+        if (vnode.shapeFlag & 4 /* STATEFUL_COMPONENT */) {
             // withProxy is a proxy with a different `has` trap only for
             // runtime-compiled render functions using `with` block.
             const proxyToUse = withProxy || proxy;
@@ -8057,7 +8247,7 @@ function renderComponentRoot(instance) {
     }
     catch (err) {
         blockStack.length = 0;
-        handleError(err, instance, 1 /* ErrorCodes.RENDER_FUNCTION */);
+        handleError(err, instance, 1 /* RENDER_FUNCTION */);
         result = createVNode(Comment);
     }
     // attr merging
@@ -8067,14 +8257,14 @@ function renderComponentRoot(instance) {
     let setRoot = undefined;
     if (( true) &&
         result.patchFlag > 0 &&
-        result.patchFlag & 2048 /* PatchFlags.DEV_ROOT_FRAGMENT */) {
+        result.patchFlag & 2048 /* DEV_ROOT_FRAGMENT */) {
         [root, setRoot] = getChildRoot(result);
     }
     if (fallthroughAttrs && inheritAttrs !== false) {
         const keys = Object.keys(fallthroughAttrs);
         const { shapeFlag } = root;
         if (keys.length) {
-            if (shapeFlag & (1 /* ShapeFlags.ELEMENT */ | 6 /* ShapeFlags.COMPONENT */)) {
+            if (shapeFlag & (1 /* ELEMENT */ | 6 /* COMPONENT */)) {
                 if (propsOptions && keys.some(_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isModelListener)) {
                     // If a v-model listener (onUpdate:xxx) has a corresponding declared
                     // prop, it indicates this component expects to handle v-model and
@@ -8215,7 +8405,7 @@ const filterModelListeners = (attrs, props) => {
     return res;
 };
 const isElementRoot = (vnode) => {
-    return (vnode.shapeFlag & (6 /* ShapeFlags.COMPONENT */ | 1 /* ShapeFlags.ELEMENT */) ||
+    return (vnode.shapeFlag & (6 /* COMPONENT */ | 1 /* ELEMENT */) ||
         vnode.type === Comment // potential v-if branch switch
     );
 };
@@ -8234,19 +8424,19 @@ function shouldUpdateComponent(prevVNode, nextVNode, optimized) {
         return true;
     }
     if (optimized && patchFlag >= 0) {
-        if (patchFlag & 1024 /* PatchFlags.DYNAMIC_SLOTS */) {
+        if (patchFlag & 1024 /* DYNAMIC_SLOTS */) {
             // slot content that references values that might have changed,
             // e.g. in a v-for
             return true;
         }
-        if (patchFlag & 16 /* PatchFlags.FULL_PROPS */) {
+        if (patchFlag & 16 /* FULL_PROPS */) {
             if (!prevProps) {
                 return !!nextProps;
             }
             // presence of this flag indicates props are always non-null
             return hasPropsChanged(prevProps, nextProps, emits);
         }
-        else if (patchFlag & 8 /* PatchFlags.PROPS */) {
+        else if (patchFlag & 8 /* PROPS */) {
             const dynamicProps = nextVNode.dynamicProps;
             for (let i = 0; i < dynamicProps.length; i++) {
                 const key = dynamicProps[i];
@@ -8326,8 +8516,7 @@ const SuspenseImpl = {
     normalize: normalizeSuspenseChildren
 };
 // Force-casted public typing for h and TSX props inference
-const Suspense = (SuspenseImpl
-    );
+const Suspense = (SuspenseImpl );
 function triggerEvent(vnode, name) {
     const eventListener = vnode.props && vnode.props[name];
     if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isFunction)(eventListener)) {
@@ -8505,7 +8694,7 @@ function createSuspenseBoundary(vnode, parent, parentComponent, container, hidde
                 if (delayEnter) {
                     activeBranch.transition.afterLeave = () => {
                         if (pendingId === suspense.pendingId) {
-                            move(pendingBranch, container, anchor, 0 /* MoveType.ENTER */);
+                            move(pendingBranch, container, anchor, 0 /* ENTER */);
                         }
                     };
                 }
@@ -8520,7 +8709,7 @@ function createSuspenseBoundary(vnode, parent, parentComponent, container, hidde
                 }
                 if (!delayEnter) {
                     // move content from off-dom container to actual container
-                    move(pendingBranch, container, anchor, 0 /* MoveType.ENTER */);
+                    move(pendingBranch, container, anchor, 0 /* ENTER */);
                 }
             }
             setActiveBranch(suspense, pendingBranch);
@@ -8594,7 +8783,7 @@ function createSuspenseBoundary(vnode, parent, parentComponent, container, hidde
             const hydratedEl = instance.vnode.el;
             instance
                 .asyncDep.catch(err => {
-                handleError(err, instance, 0 /* ErrorCodes.SETUP_FUNCTION */);
+                handleError(err, instance, 0 /* SETUP_FUNCTION */);
             })
                 .then(asyncSetupResult => {
                 // retry when the setup() promise resolves.
@@ -8668,7 +8857,7 @@ function hydrateSuspense(node, vnode, parentComponent, parentSuspense, isSVG, sl
 }
 function normalizeSuspenseChildren(vnode) {
     const { shapeFlag, children } = vnode;
-    const isSlotChildren = shapeFlag & 32 /* ShapeFlags.SLOTS_CHILDREN */;
+    const isSlotChildren = shapeFlag & 32 /* SLOTS_CHILDREN */;
     vnode.ssContent = normalizeSuspenseSlot(isSlotChildren ? children.default : children);
     vnode.ssFallback = isSlotChildren
         ? normalizeSuspenseSlot(children.fallback)
@@ -8841,7 +9030,7 @@ function doWatch(source, cb, { immediate, deep, flush, onTrack, onTrigger } = _v
                 return traverse(s);
             }
             else if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isFunction)(s)) {
-                return callWithErrorHandling(s, instance, 2 /* ErrorCodes.WATCH_GETTER */);
+                return callWithErrorHandling(s, instance, 2 /* WATCH_GETTER */);
             }
             else {
                 ( true) && warnInvalidSource(s);
@@ -8851,7 +9040,7 @@ function doWatch(source, cb, { immediate, deep, flush, onTrack, onTrigger } = _v
     else if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isFunction)(source)) {
         if (cb) {
             // getter with cb
-            getter = () => callWithErrorHandling(source, instance, 2 /* ErrorCodes.WATCH_GETTER */);
+            getter = () => callWithErrorHandling(source, instance, 2 /* WATCH_GETTER */);
         }
         else {
             // no cb -> simple effect
@@ -8862,7 +9051,7 @@ function doWatch(source, cb, { immediate, deep, flush, onTrack, onTrigger } = _v
                 if (cleanup) {
                     cleanup();
                 }
-                return callWithAsyncErrorHandling(source, instance, 3 /* ErrorCodes.WATCH_CALLBACK */, [onCleanup]);
+                return callWithAsyncErrorHandling(source, instance, 3 /* WATCH_CALLBACK */, [onCleanup]);
             };
         }
     }
@@ -8877,12 +9066,11 @@ function doWatch(source, cb, { immediate, deep, flush, onTrack, onTrigger } = _v
     let cleanup;
     let onCleanup = (fn) => {
         cleanup = effect.onStop = () => {
-            callWithErrorHandling(fn, instance, 4 /* ErrorCodes.WATCH_CLEANUP */);
+            callWithErrorHandling(fn, instance, 4 /* WATCH_CLEANUP */);
         };
     };
     // in SSR there is no need to setup an actual effect, and it should be noop
-    // unless it's eager or sync flush
-    let ssrCleanup;
+    // unless it's eager
     if (isInSSRComponentSetup) {
         // we will also not call the invalidate callback (+ runner is not set up)
         onCleanup = _vue_shared__WEBPACK_IMPORTED_MODULE_1__.NOOP;
@@ -8890,23 +9078,15 @@ function doWatch(source, cb, { immediate, deep, flush, onTrack, onTrigger } = _v
             getter();
         }
         else if (immediate) {
-            callWithAsyncErrorHandling(cb, instance, 3 /* ErrorCodes.WATCH_CALLBACK */, [
+            callWithAsyncErrorHandling(cb, instance, 3 /* WATCH_CALLBACK */, [
                 getter(),
                 isMultiSource ? [] : undefined,
                 onCleanup
             ]);
         }
-        if (flush === 'sync') {
-            const ctx = useSSRContext();
-            ssrCleanup = ctx.__watcherHandles || (ctx.__watcherHandles = []);
-        }
-        else {
-            return _vue_shared__WEBPACK_IMPORTED_MODULE_1__.NOOP;
-        }
+        return _vue_shared__WEBPACK_IMPORTED_MODULE_1__.NOOP;
     }
-    let oldValue = isMultiSource
-        ? new Array(source.length).fill(INITIAL_WATCHER_VALUE)
-        : INITIAL_WATCHER_VALUE;
+    let oldValue = isMultiSource ? [] : INITIAL_WATCHER_VALUE;
     const job = () => {
         if (!effect.active) {
             return;
@@ -8924,14 +9104,10 @@ function doWatch(source, cb, { immediate, deep, flush, onTrack, onTrigger } = _v
                 if (cleanup) {
                     cleanup();
                 }
-                callWithAsyncErrorHandling(cb, instance, 3 /* ErrorCodes.WATCH_CALLBACK */, [
+                callWithAsyncErrorHandling(cb, instance, 3 /* WATCH_CALLBACK */, [
                     newValue,
                     // pass undefined as the old value when it's changed for the first time
-                    oldValue === INITIAL_WATCHER_VALUE
-                        ? undefined
-                        : (isMultiSource && oldValue[0] === INITIAL_WATCHER_VALUE)
-                            ? []
-                            : oldValue,
+                    oldValue === INITIAL_WATCHER_VALUE ? undefined : oldValue,
                     onCleanup
                 ]);
                 oldValue = newValue;
@@ -8954,10 +9130,7 @@ function doWatch(source, cb, { immediate, deep, flush, onTrack, onTrigger } = _v
     }
     else {
         // default: 'pre'
-        job.pre = true;
-        if (instance)
-            job.id = instance.uid;
-        scheduler = () => queueJob(job);
+        scheduler = () => queuePreFlushCb(job);
     }
     const effect = new _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.ReactiveEffect(getter, scheduler);
     if ((true)) {
@@ -8979,15 +9152,12 @@ function doWatch(source, cb, { immediate, deep, flush, onTrack, onTrigger } = _v
     else {
         effect.run();
     }
-    const unwatch = () => {
+    return () => {
         effect.stop();
         if (instance && instance.scope) {
             (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.remove)(instance.scope.effects, effect);
         }
     };
-    if (ssrCleanup)
-        ssrCleanup.push(unwatch);
-    return unwatch;
 }
 // this.$watch
 function instanceWatch(source, value, options) {
@@ -9027,7 +9197,7 @@ function createPathGetter(ctx, path) {
     };
 }
 function traverse(value, seen) {
-    if (!(0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isObject)(value) || value["__v_skip" /* ReactiveFlags.SKIP */]) {
+    if (!(0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isObject)(value) || value["__v_skip" /* SKIP */]) {
         return value;
     }
     seen = seen || new Set();
@@ -9172,11 +9342,7 @@ const BaseTransitionImpl = {
                     // return placeholder node and queue update when leave finishes
                     leavingHooks.afterLeave = () => {
                         state.isLeaving = false;
-                        // #6835
-                        // it also needs to be updated when active is undefined
-                        if (instance.update.active !== false) {
-                            instance.update();
-                        }
+                        instance.update();
                     };
                     return emptyPlaceholder(child);
                 }
@@ -9218,7 +9384,7 @@ function resolveTransitionHooks(vnode, props, state, instance) {
     const leavingVNodesCache = getLeavingNodesForType(state, vnode);
     const callHook = (hook, args) => {
         hook &&
-            callWithAsyncErrorHandling(hook, instance, 9 /* ErrorCodes.TRANSITION_HOOK */, args);
+            callWithAsyncErrorHandling(hook, instance, 9 /* TRANSITION_HOOK */, args);
     };
     const callAsyncHook = (hook, args) => {
         const done = args[1];
@@ -9354,10 +9520,10 @@ function getKeepAliveChild(vnode) {
         : vnode;
 }
 function setTransitionHooks(vnode, hooks) {
-    if (vnode.shapeFlag & 6 /* ShapeFlags.COMPONENT */ && vnode.component) {
+    if (vnode.shapeFlag & 6 /* COMPONENT */ && vnode.component) {
         setTransitionHooks(vnode.component.subTree, hooks);
     }
-    else if (vnode.shapeFlag & 128 /* ShapeFlags.SUSPENSE */) {
+    else if (vnode.shapeFlag & 128 /* SUSPENSE */) {
         vnode.ssContent.transition = hooks.clone(vnode.ssContent);
         vnode.ssFallback.transition = hooks.clone(vnode.ssFallback);
     }
@@ -9376,7 +9542,7 @@ function getTransitionRawChildren(children, keepComment = false, parentKey) {
             : String(parentKey) + String(child.key != null ? child.key : i);
         // handle fragment children case, e.g. v-for
         if (child.type === Fragment) {
-            if (child.patchFlag & 128 /* PatchFlags.KEYED_FRAGMENT */)
+            if (child.patchFlag & 128 /* KEYED_FRAGMENT */)
                 keyedFragmentCount++;
             ret = ret.concat(getTransitionRawChildren(child.children, keepComment, key));
         }
@@ -9391,7 +9557,7 @@ function getTransitionRawChildren(children, keepComment = false, parentKey) {
     // these children to force full diffs to ensure correct behavior.
     if (keyedFragmentCount > 1) {
         for (let i = 0; i < ret.length; i++) {
-            ret[i].patchFlag = -2 /* PatchFlags.BAIL */;
+            ret[i].patchFlag = -2 /* BAIL */;
         }
     }
     return ret;
@@ -9469,7 +9635,7 @@ function defineAsyncComponent(source) {
             }
             const onError = (err) => {
                 pendingRequest = null;
-                handleError(err, instance, 13 /* ErrorCodes.ASYNC_COMPONENT_LOADER */, !errorComponent /* do not throw in dev if user provided error component */);
+                handleError(err, instance, 13 /* ASYNC_COMPONENT_LOADER */, !errorComponent /* do not throw in dev if user provided error component */);
             };
             // suspense-controlled or SSR.
             if ((suspensible && instance.suspense) ||
@@ -9533,15 +9699,10 @@ function defineAsyncComponent(source) {
         }
     });
 }
-function createInnerComp(comp, parent) {
-    const { ref, props, children, ce } = parent.vnode;
+function createInnerComp(comp, { vnode: { ref, props, children, shapeFlag }, parent }) {
     const vnode = createVNode(comp, props, children);
     // ensure inner component inherits the async wrapper's ref owner
     vnode.ref = ref;
-    // pass the custom element callback on to the inner comp
-    // and remove it from the async wrapper
-    vnode.ce = ce;
-    delete parent.vnode.ce;
     return vnode;
 }
 
@@ -9584,7 +9745,7 @@ const KeepAliveImpl = {
         const storageContainer = createElement('div');
         sharedContext.activate = (vnode, container, anchor, isSVG, optimized) => {
             const instance = vnode.component;
-            move(vnode, container, anchor, 0 /* MoveType.ENTER */, parentSuspense);
+            move(vnode, container, anchor, 0 /* ENTER */, parentSuspense);
             // in case props have changed
             patch(instance.vnode, vnode, container, anchor, instance, parentSuspense, isSVG, vnode.slotScopeIds, optimized);
             queuePostRenderEffect(() => {
@@ -9604,7 +9765,7 @@ const KeepAliveImpl = {
         };
         sharedContext.deactivate = (vnode) => {
             const instance = vnode.component;
-            move(vnode, storageContainer, null, 1 /* MoveType.LEAVE */, parentSuspense);
+            move(vnode, storageContainer, null, 1 /* LEAVE */, parentSuspense);
             queuePostRenderEffect(() => {
                 if (instance.da) {
                     (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.invokeArrayFns)(instance.da);
@@ -9693,8 +9854,8 @@ const KeepAliveImpl = {
                 return children;
             }
             else if (!isVNode(rawVNode) ||
-                (!(rawVNode.shapeFlag & 4 /* ShapeFlags.STATEFUL_COMPONENT */) &&
-                    !(rawVNode.shapeFlag & 128 /* ShapeFlags.SUSPENSE */))) {
+                (!(rawVNode.shapeFlag & 4 /* STATEFUL_COMPONENT */) &&
+                    !(rawVNode.shapeFlag & 128 /* SUSPENSE */))) {
                 current = null;
                 return rawVNode;
             }
@@ -9716,7 +9877,7 @@ const KeepAliveImpl = {
             // clone vnode if it's reused because we are going to mutate it
             if (vnode.el) {
                 vnode = cloneVNode(vnode);
-                if (rawVNode.shapeFlag & 128 /* ShapeFlags.SUSPENSE */) {
+                if (rawVNode.shapeFlag & 128 /* SUSPENSE */) {
                     rawVNode.ssContent = vnode;
                 }
             }
@@ -9735,7 +9896,7 @@ const KeepAliveImpl = {
                     setTransitionHooks(vnode, vnode.transition);
                 }
                 // avoid vnode being mounted as fresh
-                vnode.shapeFlag |= 512 /* ShapeFlags.COMPONENT_KEPT_ALIVE */;
+                vnode.shapeFlag |= 512 /* COMPONENT_KEPT_ALIVE */;
                 // make this key the freshest
                 keys.delete(key);
                 keys.add(key);
@@ -9748,7 +9909,7 @@ const KeepAliveImpl = {
                 }
             }
             // avoid vnode being unmounted
-            vnode.shapeFlag |= 256 /* ShapeFlags.COMPONENT_SHOULD_KEEP_ALIVE */;
+            vnode.shapeFlag |= 256 /* COMPONENT_SHOULD_KEEP_ALIVE */;
             current = vnode;
             return isSuspense(rawVNode.type) ? rawVNode : vnode;
         };
@@ -9771,10 +9932,10 @@ function matches(pattern, name) {
     return false;
 }
 function onActivated(hook, target) {
-    registerKeepAliveHook(hook, "a" /* LifecycleHooks.ACTIVATED */, target);
+    registerKeepAliveHook(hook, "a" /* ACTIVATED */, target);
 }
 function onDeactivated(hook, target) {
-    registerKeepAliveHook(hook, "da" /* LifecycleHooks.DEACTIVATED */, target);
+    registerKeepAliveHook(hook, "da" /* DEACTIVATED */, target);
 }
 function registerKeepAliveHook(hook, type, target = currentInstance) {
     // cache the deactivate branch check wrapper for injected hooks so the same
@@ -9817,12 +9978,17 @@ function injectToKeepAliveRoot(hook, type, target, keepAliveRoot) {
     }, target);
 }
 function resetShapeFlag(vnode) {
-    // bitwise operations to remove keep alive flags
-    vnode.shapeFlag &= ~256 /* ShapeFlags.COMPONENT_SHOULD_KEEP_ALIVE */;
-    vnode.shapeFlag &= ~512 /* ShapeFlags.COMPONENT_KEPT_ALIVE */;
+    let shapeFlag = vnode.shapeFlag;
+    if (shapeFlag & 256 /* COMPONENT_SHOULD_KEEP_ALIVE */) {
+        shapeFlag -= 256 /* COMPONENT_SHOULD_KEEP_ALIVE */;
+    }
+    if (shapeFlag & 512 /* COMPONENT_KEPT_ALIVE */) {
+        shapeFlag -= 512 /* COMPONENT_KEPT_ALIVE */;
+    }
+    vnode.shapeFlag = shapeFlag;
 }
 function getInnerChild(vnode) {
-    return vnode.shapeFlag & 128 /* ShapeFlags.SUSPENSE */ ? vnode.ssContent : vnode;
+    return vnode.shapeFlag & 128 /* SUSPENSE */ ? vnode.ssContent : vnode;
 }
 
 function injectHook(type, hook, target = currentInstance, prepend = false) {
@@ -9868,19 +10034,19 @@ function injectHook(type, hook, target = currentInstance, prepend = false) {
 }
 const createHook = (lifecycle) => (hook, target = currentInstance) => 
 // post-create lifecycle registrations are noops during SSR (except for serverPrefetch)
-(!isInSSRComponentSetup || lifecycle === "sp" /* LifecycleHooks.SERVER_PREFETCH */) &&
-    injectHook(lifecycle, (...args) => hook(...args), target);
-const onBeforeMount = createHook("bm" /* LifecycleHooks.BEFORE_MOUNT */);
-const onMounted = createHook("m" /* LifecycleHooks.MOUNTED */);
-const onBeforeUpdate = createHook("bu" /* LifecycleHooks.BEFORE_UPDATE */);
-const onUpdated = createHook("u" /* LifecycleHooks.UPDATED */);
-const onBeforeUnmount = createHook("bum" /* LifecycleHooks.BEFORE_UNMOUNT */);
-const onUnmounted = createHook("um" /* LifecycleHooks.UNMOUNTED */);
-const onServerPrefetch = createHook("sp" /* LifecycleHooks.SERVER_PREFETCH */);
-const onRenderTriggered = createHook("rtg" /* LifecycleHooks.RENDER_TRIGGERED */);
-const onRenderTracked = createHook("rtc" /* LifecycleHooks.RENDER_TRACKED */);
+(!isInSSRComponentSetup || lifecycle === "sp" /* SERVER_PREFETCH */) &&
+    injectHook(lifecycle, hook, target);
+const onBeforeMount = createHook("bm" /* BEFORE_MOUNT */);
+const onMounted = createHook("m" /* MOUNTED */);
+const onBeforeUpdate = createHook("bu" /* BEFORE_UPDATE */);
+const onUpdated = createHook("u" /* UPDATED */);
+const onBeforeUnmount = createHook("bum" /* BEFORE_UNMOUNT */);
+const onUnmounted = createHook("um" /* UNMOUNTED */);
+const onServerPrefetch = createHook("sp" /* SERVER_PREFETCH */);
+const onRenderTriggered = createHook("rtg" /* RENDER_TRIGGERED */);
+const onRenderTracked = createHook("rtc" /* RENDER_TRACKED */);
 function onErrorCaptured(hook, target = currentInstance) {
-    injectHook("ec" /* LifecycleHooks.ERROR_CAPTURED */, hook, target);
+    injectHook("ec" /* ERROR_CAPTURED */, hook, target);
 }
 
 /**
@@ -9914,25 +10080,23 @@ function withDirectives(vnode, directives) {
     const bindings = vnode.dirs || (vnode.dirs = []);
     for (let i = 0; i < directives.length; i++) {
         let [dir, value, arg, modifiers = _vue_shared__WEBPACK_IMPORTED_MODULE_1__.EMPTY_OBJ] = directives[i];
-        if (dir) {
-            if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isFunction)(dir)) {
-                dir = {
-                    mounted: dir,
-                    updated: dir
-                };
-            }
-            if (dir.deep) {
-                traverse(value);
-            }
-            bindings.push({
-                dir,
-                instance,
-                value,
-                oldValue: void 0,
-                arg,
-                modifiers
-            });
+        if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isFunction)(dir)) {
+            dir = {
+                mounted: dir,
+                updated: dir
+            };
         }
+        if (dir.deep) {
+            traverse(value);
+        }
+        bindings.push({
+            dir,
+            instance,
+            value,
+            oldValue: void 0,
+            arg,
+            modifiers
+        });
     }
     return vnode;
 }
@@ -9949,7 +10113,7 @@ function invokeDirectiveHook(vnode, prevVNode, instance, name) {
             // disable tracking inside all lifecycle hooks
             // since they can potentially be called inside effects.
             (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.pauseTracking)();
-            callWithAsyncErrorHandling(hook, instance, 8 /* ErrorCodes.DIRECTIVE_HOOK */, [
+            callWithAsyncErrorHandling(hook, instance, 8 /* DIRECTIVE_HOOK */, [
                 vnode.el,
                 binding,
                 vnode,
@@ -9994,7 +10158,7 @@ function resolveAsset(type, name, warnMissing = true, maybeSelfReference = false
         const Component = instance.type;
         // explicit self name has highest priority
         if (type === COMPONENTS) {
-            const selfName = getComponentName(Component, false /* do not include inferred name to avoid breaking existing code */);
+            const selfName = getComponentName(Component);
             if (selfName &&
                 (selfName === name ||
                     selfName === (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.camelize)(name) ||
@@ -10091,16 +10255,7 @@ function createSlots(slots, dynamicSlots) {
         }
         else if (slot) {
             // conditional single slot generated by <template v-if="..." #foo>
-            slots[slot.name] = slot.key
-                ? (...args) => {
-                    const res = slot.fn(...args);
-                    // attach branch key so each conditional branch is considered a
-                    // different fragment
-                    if (res)
-                        res.key = slot.key;
-                    return res;
-                }
-                : slot.fn;
+            slots[slot.name] = slot.fn;
         }
     }
     return slots;
@@ -10118,9 +10273,7 @@ fallback, noSlotted) {
         (currentRenderingInstance.parent &&
             isAsyncWrapper(currentRenderingInstance.parent) &&
             currentRenderingInstance.parent.isCE)) {
-        if (name !== 'default')
-            props.name = name;
-        return createVNode('slot', props, fallback && fallback());
+        return createVNode('slot', name === 'default' ? null : { name }, fallback && fallback());
     }
     let slot = slots[name];
     if (( true) && slot && slot.length > 1) {
@@ -10138,15 +10291,9 @@ fallback, noSlotted) {
     }
     openBlock();
     const validSlotContent = slot && ensureValidVNode(slot(props));
-    const rendered = createBlock(Fragment, {
-        key: props.key ||
-            // slot content array of a dynamic conditional slot may have a branch
-            // key attached in the `createSlots` helper, respect that
-            (validSlotContent && validSlotContent.key) ||
-            `_${name}`
-    }, validSlotContent || (fallback ? fallback() : []), validSlotContent && slots._ === 1 /* SlotFlags.STABLE */
-        ? 64 /* PatchFlags.STABLE_FRAGMENT */
-        : -2 /* PatchFlags.BAIL */);
+    const rendered = createBlock(Fragment, { key: props.key || `_${name}` }, validSlotContent || (fallback ? fallback() : []), validSlotContent && slots._ === 1 /* STABLE */
+        ? 64 /* STABLE_FRAGMENT */
+        : -2 /* BAIL */);
     if (!noSlotted && rendered.scopeId) {
         rendered.slotScopeIds = [rendered.scopeId + '-s'];
     }
@@ -10174,16 +10321,14 @@ function ensureValidVNode(vnodes) {
  * For prefixing keys in v-on="obj" with "on"
  * @private
  */
-function toHandlers(obj, preserveCaseIfNecessary) {
+function toHandlers(obj) {
     const ret = {};
     if (( true) && !(0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isObject)(obj)) {
         warn(`v-on with no argument expects an object value.`);
         return ret;
     }
     for (const key in obj) {
-        ret[preserveCaseIfNecessary && /[A-Z]/.test(key)
-            ? `on:${key}`
-            : (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.toHandlerKey)(key)] = obj[key];
+        ret[(0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.toHandlerKey)(key)] = obj[key];
     }
     return ret;
 }
@@ -10214,19 +10359,28 @@ const publicPropertiesMap =
     $parent: i => getPublicInstance(i.parent),
     $root: i => getPublicInstance(i.root),
     $emit: i => i.emit,
-    $options: i => (__VUE_OPTIONS_API__ ? resolveMergedOptions(i) : i.type),
+    $options: i => ( true ? resolveMergedOptions(i) : 0),
     $forceUpdate: i => i.f || (i.f = () => queueJob(i.update)),
     $nextTick: i => i.n || (i.n = nextTick.bind(i.proxy)),
-    $watch: i => (__VUE_OPTIONS_API__ ? instanceWatch.bind(i) : _vue_shared__WEBPACK_IMPORTED_MODULE_1__.NOOP)
+    $watch: i => ( true ? instanceWatch.bind(i) : 0)
 });
 const isReservedPrefix = (key) => key === '_' || key === '$';
-const hasSetupBinding = (state, key) => state !== _vue_shared__WEBPACK_IMPORTED_MODULE_1__.EMPTY_OBJ && !state.__isScriptSetup && (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hasOwn)(state, key);
 const PublicInstanceProxyHandlers = {
     get({ _: instance }, key) {
         const { ctx, setupState, data, props, accessCache, type, appContext } = instance;
         // for internal formatters to know that this is a Vue instance
         if (( true) && key === '__isVue') {
             return true;
+        }
+        // prioritize <script setup> bindings during dev.
+        // this allows even properties that start with _ or $ to be used - so that
+        // it aligns with the production behavior where the render fn is inlined and
+        // indeed has access to all declared variables.
+        if (( true) &&
+            setupState !== _vue_shared__WEBPACK_IMPORTED_MODULE_1__.EMPTY_OBJ &&
+            setupState.__isScriptSetup &&
+            (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hasOwn)(setupState, key)) {
+            return setupState[key];
         }
         // data / props / ctx
         // This getter gets called for every property access on the render context
@@ -10239,23 +10393,23 @@ const PublicInstanceProxyHandlers = {
             const n = accessCache[key];
             if (n !== undefined) {
                 switch (n) {
-                    case 1 /* AccessTypes.SETUP */:
+                    case 1 /* SETUP */:
                         return setupState[key];
-                    case 2 /* AccessTypes.DATA */:
+                    case 2 /* DATA */:
                         return data[key];
-                    case 4 /* AccessTypes.CONTEXT */:
+                    case 4 /* CONTEXT */:
                         return ctx[key];
-                    case 3 /* AccessTypes.PROPS */:
+                    case 3 /* PROPS */:
                         return props[key];
                     // default: just fallthrough
                 }
             }
-            else if (hasSetupBinding(setupState, key)) {
-                accessCache[key] = 1 /* AccessTypes.SETUP */;
+            else if (setupState !== _vue_shared__WEBPACK_IMPORTED_MODULE_1__.EMPTY_OBJ && (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hasOwn)(setupState, key)) {
+                accessCache[key] = 1 /* SETUP */;
                 return setupState[key];
             }
             else if (data !== _vue_shared__WEBPACK_IMPORTED_MODULE_1__.EMPTY_OBJ && (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hasOwn)(data, key)) {
-                accessCache[key] = 2 /* AccessTypes.DATA */;
+                accessCache[key] = 2 /* DATA */;
                 return data[key];
             }
             else if (
@@ -10263,15 +10417,15 @@ const PublicInstanceProxyHandlers = {
             // props
             (normalizedProps = instance.propsOptions[0]) &&
                 (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hasOwn)(normalizedProps, key)) {
-                accessCache[key] = 3 /* AccessTypes.PROPS */;
+                accessCache[key] = 3 /* PROPS */;
                 return props[key];
             }
             else if (ctx !== _vue_shared__WEBPACK_IMPORTED_MODULE_1__.EMPTY_OBJ && (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hasOwn)(ctx, key)) {
-                accessCache[key] = 4 /* AccessTypes.CONTEXT */;
+                accessCache[key] = 4 /* CONTEXT */;
                 return ctx[key];
             }
-            else if (!__VUE_OPTIONS_API__ || shouldCacheAccess) {
-                accessCache[key] = 0 /* AccessTypes.OTHER */;
+            else if ( false || shouldCacheAccess) {
+                accessCache[key] = 0 /* OTHER */;
             }
         }
         const publicGetter = publicPropertiesMap[key];
@@ -10279,7 +10433,7 @@ const PublicInstanceProxyHandlers = {
         // public $xxx properties
         if (publicGetter) {
             if (key === '$attrs') {
-                (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.track)(instance, "get" /* TrackOpTypes.GET */, key);
+                (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.track)(instance, "get" /* GET */, key);
                 ( true) && markAttrsAccessed();
             }
             return publicGetter(instance);
@@ -10292,7 +10446,7 @@ const PublicInstanceProxyHandlers = {
         }
         else if (ctx !== _vue_shared__WEBPACK_IMPORTED_MODULE_1__.EMPTY_OBJ && (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hasOwn)(ctx, key)) {
             // user may set custom properties to `this` that start with `$`
-            accessCache[key] = 4 /* AccessTypes.CONTEXT */;
+            accessCache[key] = 4 /* CONTEXT */;
             return ctx[key];
         }
         else if (
@@ -10321,28 +10475,23 @@ const PublicInstanceProxyHandlers = {
     },
     set({ _: instance }, key, value) {
         const { data, setupState, ctx } = instance;
-        if (hasSetupBinding(setupState, key)) {
+        if (setupState !== _vue_shared__WEBPACK_IMPORTED_MODULE_1__.EMPTY_OBJ && (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hasOwn)(setupState, key)) {
             setupState[key] = value;
             return true;
-        }
-        else if (( true) &&
-            setupState.__isScriptSetup &&
-            (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hasOwn)(setupState, key)) {
-            warn(`Cannot mutate <script setup> binding "${key}" from Options API.`);
-            return false;
         }
         else if (data !== _vue_shared__WEBPACK_IMPORTED_MODULE_1__.EMPTY_OBJ && (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hasOwn)(data, key)) {
             data[key] = value;
             return true;
         }
         else if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hasOwn)(instance.props, key)) {
-            ( true) && warn(`Attempting to mutate prop "${key}". Props are readonly.`);
+            ( true) &&
+                warn(`Attempting to mutate prop "${key}". Props are readonly.`, instance);
             return false;
         }
         if (key[0] === '$' && key.slice(1) in instance) {
             ( true) &&
                 warn(`Attempting to mutate public property "${key}". ` +
-                    `Properties starting with $ are reserved and readonly.`);
+                    `Properties starting with $ are reserved and readonly.`, instance);
             return false;
         }
         else {
@@ -10363,7 +10512,7 @@ const PublicInstanceProxyHandlers = {
         let normalizedProps;
         return (!!accessCache[key] ||
             (data !== _vue_shared__WEBPACK_IMPORTED_MODULE_1__.EMPTY_OBJ && (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hasOwn)(data, key)) ||
-            hasSetupBinding(setupState, key) ||
+            (setupState !== _vue_shared__WEBPACK_IMPORTED_MODULE_1__.EMPTY_OBJ && (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hasOwn)(setupState, key)) ||
             ((normalizedProps = propsOptions[0]) && (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hasOwn)(normalizedProps, key)) ||
             (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hasOwn)(ctx, key) ||
             (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hasOwn)(publicPropertiesMap, key) ||
@@ -10483,7 +10632,7 @@ function applyOptions(instance) {
     // call beforeCreate first before accessing other options since
     // the hook may mutate resolved options (#2791)
     if (options.beforeCreate) {
-        callHook(options.beforeCreate, instance, "bc" /* LifecycleHooks.BEFORE_CREATE */);
+        callHook(options.beforeCreate, instance, "bc" /* BEFORE_CREATE */);
     }
     const { 
     // state
@@ -10499,7 +10648,7 @@ function applyOptions(instance) {
         const [propsOptions] = instance.propsOptions;
         if (propsOptions) {
             for (const key in propsOptions) {
-                checkDuplicateProperties("Props" /* OptionTypes.PROPS */, key);
+                checkDuplicateProperties("Props" /* PROPS */, key);
             }
         }
     }
@@ -10530,7 +10679,7 @@ function applyOptions(instance) {
                 }
                 else {}
                 if ((true)) {
-                    checkDuplicateProperties("Methods" /* OptionTypes.METHODS */, key);
+                    checkDuplicateProperties("Methods" /* METHODS */, key);
                 }
             }
             else if ((true)) {
@@ -10557,7 +10706,7 @@ function applyOptions(instance) {
             instance.data = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.reactive)(data);
             if ((true)) {
                 for (const key in data) {
-                    checkDuplicateProperties("Data" /* OptionTypes.DATA */, key);
+                    checkDuplicateProperties("Data" /* DATA */, key);
                     // expose data on ctx during dev
                     if (!isReservedPrefix(key[0])) {
                         Object.defineProperty(ctx, key, {
@@ -10602,7 +10751,7 @@ function applyOptions(instance) {
                 set: v => (c.value = v)
             });
             if ((true)) {
-                checkDuplicateProperties("Computed" /* OptionTypes.COMPUTED */, key);
+                checkDuplicateProperties("Computed" /* COMPUTED */, key);
             }
         }
     }
@@ -10620,7 +10769,7 @@ function applyOptions(instance) {
         });
     }
     if (created) {
-        callHook(created, instance, "c" /* LifecycleHooks.CREATED */);
+        callHook(created, instance, "c" /* CREATED */);
     }
     function registerLifecycleHook(register, hook) {
         if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isArray)(hook)) {
@@ -10713,7 +10862,7 @@ function resolveInjections(injectOptions, ctx, checkDuplicateProperties = _vue_s
             ctx[key] = injected;
         }
         if ((true)) {
-            checkDuplicateProperties("Inject" /* OptionTypes.INJECT */, key);
+            checkDuplicateProperties("Inject" /* INJECT */, key);
         }
     }
 }
@@ -10784,9 +10933,7 @@ function resolveMergedOptions(instance) {
         }
         mergeOptions(resolved, base, optionMergeStrategies);
     }
-    if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isObject)(base)) {
-        cache.set(base, resolved);
-    }
+    cache.set(base, resolved);
     return resolved;
 }
 function mergeOptions(to, from, strats, asMixin = false) {
@@ -10916,13 +11063,6 @@ isSSR = false) {
     }
     instance.attrs = attrs;
 }
-function isInHmrContext(instance) {
-    while (instance) {
-        if (instance.type.__hmrId)
-            return true;
-        instance = instance.parent;
-    }
-}
 function updateProps(instance, rawProps, rawPrevProps, optimized) {
     const { props, attrs, vnode: { patchFlag } } = instance;
     const rawCurrentProps = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.toRaw)(props);
@@ -10932,10 +11072,12 @@ function updateProps(instance, rawProps, rawPrevProps, optimized) {
     // always force full diff in dev
     // - #1942 if hmr is enabled with sfc component
     // - vite#872 non-sfc component used by sfc component
-    !(( true) && isInHmrContext(instance)) &&
+    !(( true) &&
+        (instance.type.__hmrId ||
+            (instance.parent && instance.parent.type.__hmrId))) &&
         (optimized || patchFlag > 0) &&
-        !(patchFlag & 16 /* PatchFlags.FULL_PROPS */)) {
-        if (patchFlag & 8 /* PatchFlags.PROPS */) {
+        !(patchFlag & 16 /* FULL_PROPS */)) {
+        if (patchFlag & 8 /* PROPS */) {
             // Compiler-generated props & no keys change, just set the updated
             // the props.
             const propsToUpdate = instance.vnode.dynamicProps;
@@ -11014,7 +11156,7 @@ function updateProps(instance, rawProps, rawPrevProps, optimized) {
     }
     // trigger updates for $attrs in case it's used in component slots
     if (hasAttrsChanged) {
-        (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.trigger)(instance, "set" /* TriggerOpTypes.SET */, '$attrs');
+        (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.trigger)(instance, "set" /* SET */, '$attrs');
     }
     if ((true)) {
         validateProps(rawProps || {}, props, instance);
@@ -11083,11 +11225,11 @@ function resolvePropValue(options, props, key, value, instance, isAbsent) {
             }
         }
         // boolean casting
-        if (opt[0 /* BooleanFlags.shouldCast */]) {
+        if (opt[0 /* shouldCast */]) {
             if (isAbsent && !hasDefault) {
                 value = false;
             }
-            else if (opt[1 /* BooleanFlags.shouldCastTrue */] &&
+            else if (opt[1 /* shouldCastTrue */] &&
                 (value === '' || value === (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hyphenate)(key))) {
                 value = true;
             }
@@ -11106,7 +11248,7 @@ function normalizePropsOptions(comp, appContext, asMixin = false) {
     const needCastKeys = [];
     // apply mixin/extends props
     let hasExtends = false;
-    if (__VUE_OPTIONS_API__ && !(0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isFunction)(comp)) {
+    if ( true && !(0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isFunction)(comp)) {
         const extendProps = (raw) => {
             hasExtends = true;
             const [props, keys] = normalizePropsOptions(raw, appContext, true);
@@ -11125,9 +11267,7 @@ function normalizePropsOptions(comp, appContext, asMixin = false) {
         }
     }
     if (!raw && !hasExtends) {
-        if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isObject)(comp)) {
-            cache.set(comp, _vue_shared__WEBPACK_IMPORTED_MODULE_1__.EMPTY_ARR);
-        }
+        cache.set(comp, _vue_shared__WEBPACK_IMPORTED_MODULE_1__.EMPTY_ARR);
         return _vue_shared__WEBPACK_IMPORTED_MODULE_1__.EMPTY_ARR;
     }
     if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isArray)(raw)) {
@@ -11150,12 +11290,12 @@ function normalizePropsOptions(comp, appContext, asMixin = false) {
             if (validatePropName(normalizedKey)) {
                 const opt = raw[key];
                 const prop = (normalized[normalizedKey] =
-                    (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isArray)(opt) || (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isFunction)(opt) ? { type: opt } : Object.assign({}, opt));
+                    (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isArray)(opt) || (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isFunction)(opt) ? { type: opt } : opt);
                 if (prop) {
                     const booleanIndex = getTypeIndex(Boolean, prop.type);
                     const stringIndex = getTypeIndex(String, prop.type);
-                    prop[0 /* BooleanFlags.shouldCast */] = booleanIndex > -1;
-                    prop[1 /* BooleanFlags.shouldCastTrue */] =
+                    prop[0 /* shouldCast */] = booleanIndex > -1;
+                    prop[1 /* shouldCastTrue */] =
                         stringIndex < 0 || booleanIndex < stringIndex;
                     // if the prop needs boolean casting or default value
                     if (booleanIndex > -1 || (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hasOwn)(prop, 'default')) {
@@ -11166,9 +11306,7 @@ function normalizePropsOptions(comp, appContext, asMixin = false) {
         }
     }
     const res = [normalized, needCastKeys];
-    if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isObject)(comp)) {
-        cache.set(comp, res);
-    }
+    cache.set(comp, res);
     return res;
 }
 function validatePropName(key) {
@@ -11379,7 +11517,7 @@ const normalizeVNodeSlots = (instance, children) => {
     instance.slots.default = () => normalized;
 };
 const initSlots = (instance, children) => {
-    if (instance.vnode.shapeFlag & 32 /* ShapeFlags.SLOTS_CHILDREN */) {
+    if (instance.vnode.shapeFlag & 32 /* SLOTS_CHILDREN */) {
         const type = children._;
         if (type) {
             // users can get the shallow readonly version of the slots object through `this.$slots`,
@@ -11404,7 +11542,7 @@ const updateSlots = (instance, children, optimized) => {
     const { vnode, slots } = instance;
     let needDeletionCheck = true;
     let deletionComparisonTarget = _vue_shared__WEBPACK_IMPORTED_MODULE_1__.EMPTY_OBJ;
-    if (vnode.shapeFlag & 32 /* ShapeFlags.SLOTS_CHILDREN */) {
+    if (vnode.shapeFlag & 32 /* SLOTS_CHILDREN */) {
         const type = children._;
         if (type) {
             // compiled slots.
@@ -11413,7 +11551,7 @@ const updateSlots = (instance, children, optimized) => {
                 // force update slots and mark instance for hmr as well
                 (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.extend)(slots, children);
             }
-            else if (optimized && type === 1 /* SlotFlags.STABLE */) {
+            else if (optimized && type === 1 /* STABLE */) {
                 // compiled AND stable.
                 // no need to update, and skip stale slots removal.
                 needDeletionCheck = false;
@@ -11426,7 +11564,7 @@ const updateSlots = (instance, children, optimized) => {
                 // when rendering the optimized slots by manually written render function,
                 // we need to delete the `slots._` flag if necessary to make subsequent updates reliable,
                 // i.e. let the `renderSlot` create the bailed Fragment
-                if (!optimized && type === 1 /* SlotFlags.STABLE */) {
+                if (!optimized && type === 1 /* STABLE */) {
                     delete slots._;
                 }
             }
@@ -11521,7 +11659,7 @@ function createAppAPI(render, hydrate) {
                 return app;
             },
             mixin(mixin) {
-                if (__VUE_OPTIONS_API__) {
+                if (true) {
                     if (!context.mixins.includes(mixin)) {
                         context.mixins.push(mixin);
                     }
@@ -11530,9 +11668,7 @@ function createAppAPI(render, hydrate) {
                             (mixin.name ? `: ${mixin.name}` : ''));
                     }
                 }
-                else if ((true)) {
-                    warn('Mixins are only available in builds supporting Options API');
-                }
+                else {}
                 return app;
             },
             component(name, component) {
@@ -11640,7 +11776,7 @@ function setRef(rawRef, oldRawRef, parentSuspense, vnode, isUnmount = false) {
         // because the template ref is forwarded to inner component
         return;
     }
-    const refValue = vnode.shapeFlag & 4 /* ShapeFlags.STATEFUL_COMPONENT */
+    const refValue = vnode.shapeFlag & 4 /* STATEFUL_COMPONENT */
         ? getExposeProxy(vnode.component) || vnode.component.proxy
         : vnode.el;
     const value = isUnmount ? null : refValue;
@@ -11666,7 +11802,7 @@ function setRef(rawRef, oldRawRef, parentSuspense, vnode, isUnmount = false) {
         }
     }
     if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isFunction)(ref)) {
-        callWithErrorHandling(ref, owner, 12 /* ErrorCodes.FUNCTION_REF */, [value, refs]);
+        callWithErrorHandling(ref, owner, 12 /* FUNCTION_REF */, [value, refs]);
     }
     else {
         const _isString = (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isString)(ref);
@@ -11674,11 +11810,7 @@ function setRef(rawRef, oldRawRef, parentSuspense, vnode, isUnmount = false) {
         if (_isString || _isRef) {
             const doSet = () => {
                 if (rawRef.f) {
-                    const existing = _isString
-                        ? (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hasOwn)(setupState, ref)
-                            ? setupState[ref]
-                            : refs[ref]
-                        : ref.value;
+                    const existing = _isString ? refs[ref] : ref.value;
                     if (isUnmount) {
                         (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isArray)(existing) && (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.remove)(existing, refValue);
                     }
@@ -11707,7 +11839,7 @@ function setRef(rawRef, oldRawRef, parentSuspense, vnode, isUnmount = false) {
                         setupState[ref] = value;
                     }
                 }
-                else if (_isRef) {
+                else if ((0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.isRef)(ref)) {
                     ref.value = value;
                     if (rawRef.k)
                         refs[rawRef.k] = value;
@@ -11732,7 +11864,7 @@ function setRef(rawRef, oldRawRef, parentSuspense, vnode, isUnmount = false) {
 
 let hasMismatch = false;
 const isSVGContainer = (container) => /svg/.test(container.namespaceURI) && container.tagName !== 'foreignObject';
-const isComment = (node) => node.nodeType === 8 /* DOMNodeTypes.COMMENT */;
+const isComment = (node) => node.nodeType === 8 /* COMMENT */;
 // Note: hydration is DOM-specific
 // But we have to place it in core due to tight coupling with core - splitting
 // it out creates a ton of unnecessary complexity.
@@ -11747,13 +11879,11 @@ function createHydrationFunctions(rendererInternals) {
                     `Performing full mount instead.`);
             patch(null, vnode, container);
             flushPostFlushCbs();
-            container._vnode = vnode;
             return;
         }
         hasMismatch = false;
         hydrateNode(container.firstChild, vnode, null, null, null);
         flushPostFlushCbs();
-        container._vnode = vnode;
         if (hasMismatch && !false) {
             // this error should show up in production
             console.error(`Hydration completed but contains mismatches.`);
@@ -11763,16 +11893,16 @@ function createHydrationFunctions(rendererInternals) {
         const isFragmentStart = isComment(node) && node.data === '[';
         const onMismatch = () => handleMismatch(node, vnode, parentComponent, parentSuspense, slotScopeIds, isFragmentStart);
         const { type, ref, shapeFlag, patchFlag } = vnode;
-        let domType = node.nodeType;
+        const domType = node.nodeType;
         vnode.el = node;
-        if (patchFlag === -2 /* PatchFlags.BAIL */) {
+        if (patchFlag === -2 /* BAIL */) {
             optimized = false;
             vnode.dynamicChildren = null;
         }
         let nextNode = null;
         switch (type) {
             case Text:
-                if (domType !== 3 /* DOMNodeTypes.TEXT */) {
+                if (domType !== 3 /* TEXT */) {
                     // #5728 empty text node inside a slot can cause hydration failure
                     // because the server rendered HTML won't contain a text node
                     if (vnode.children === '') {
@@ -11796,7 +11926,7 @@ function createHydrationFunctions(rendererInternals) {
                 }
                 break;
             case Comment:
-                if (domType !== 8 /* DOMNodeTypes.COMMENT */ || isFragmentStart) {
+                if (domType !== 8 /* COMMENT */ || isFragmentStart) {
                     nextNode = onMismatch();
                 }
                 else {
@@ -11804,12 +11934,10 @@ function createHydrationFunctions(rendererInternals) {
                 }
                 break;
             case Static:
-                if (isFragmentStart) {
-                    // entire template is static but SSRed as a fragment
-                    node = nextSibling(node);
-                    domType = node.nodeType;
+                if (domType !== 1 /* ELEMENT */) {
+                    nextNode = onMismatch();
                 }
-                if (domType === 1 /* DOMNodeTypes.ELEMENT */ || domType === 3 /* DOMNodeTypes.TEXT */) {
+                else {
                     // determine anchor, adopt content
                     nextNode = node;
                     // if the static vnode has its content stripped during build,
@@ -11817,19 +11945,13 @@ function createHydrationFunctions(rendererInternals) {
                     const needToAdoptContent = !vnode.children.length;
                     for (let i = 0; i < vnode.staticCount; i++) {
                         if (needToAdoptContent)
-                            vnode.children +=
-                                nextNode.nodeType === 1 /* DOMNodeTypes.ELEMENT */
-                                    ? nextNode.outerHTML
-                                    : nextNode.data;
+                            vnode.children += nextNode.outerHTML;
                         if (i === vnode.staticCount - 1) {
                             vnode.anchor = nextNode;
                         }
                         nextNode = nextSibling(nextNode);
                     }
-                    return isFragmentStart ? nextSibling(nextNode) : nextNode;
-                }
-                else {
-                    onMismatch();
+                    return nextNode;
                 }
                 break;
             case Fragment:
@@ -11841,8 +11963,8 @@ function createHydrationFunctions(rendererInternals) {
                 }
                 break;
             default:
-                if (shapeFlag & 1 /* ShapeFlags.ELEMENT */) {
-                    if (domType !== 1 /* DOMNodeTypes.ELEMENT */ ||
+                if (shapeFlag & 1 /* ELEMENT */) {
+                    if (domType !== 1 /* ELEMENT */ ||
                         vnode.type.toLowerCase() !==
                             node.tagName.toLowerCase()) {
                         nextNode = onMismatch();
@@ -11851,7 +11973,7 @@ function createHydrationFunctions(rendererInternals) {
                         nextNode = hydrateElement(node, vnode, parentComponent, parentSuspense, slotScopeIds, optimized);
                     }
                 }
-                else if (shapeFlag & 6 /* ShapeFlags.COMPONENT */) {
+                else if (shapeFlag & 6 /* COMPONENT */) {
                     // when setting up the render effect, if the initial vnode already
                     // has .el set, the component will perform hydration instead of mount
                     // on its sub-tree.
@@ -11890,15 +12012,15 @@ function createHydrationFunctions(rendererInternals) {
                         vnode.component.subTree = subTree;
                     }
                 }
-                else if (shapeFlag & 64 /* ShapeFlags.TELEPORT */) {
-                    if (domType !== 8 /* DOMNodeTypes.COMMENT */) {
+                else if (shapeFlag & 64 /* TELEPORT */) {
+                    if (domType !== 8 /* COMMENT */) {
                         nextNode = onMismatch();
                     }
                     else {
                         nextNode = vnode.type.hydrate(node, vnode, parentComponent, parentSuspense, slotScopeIds, optimized, rendererInternals, hydrateChildren);
                     }
                 }
-                else if (shapeFlag & 128 /* ShapeFlags.SUSPENSE */) {
+                else if (shapeFlag & 128 /* SUSPENSE */) {
                     nextNode = vnode.type.hydrate(node, vnode, parentComponent, parentSuspense, isSVGContainer(parentNode(node)), slotScopeIds, optimized, rendererInternals, hydrateNode);
                 }
                 else if ((true)) {
@@ -11918,7 +12040,7 @@ function createHydrationFunctions(rendererInternals) {
         const forcePatchValue = (type === 'input' && dirs) || type === 'option';
         // skip props & children if this is hoisted static nodes
         // #5405 in dev, always hydrate children for HMR
-        if (true /* PatchFlags.HOISTED */) {
+        if (true /* HOISTED */) {
             if (dirs) {
                 invokeDirectiveHook(vnode, null, parentComponent, 'created');
             }
@@ -11926,7 +12048,7 @@ function createHydrationFunctions(rendererInternals) {
             if (props) {
                 if (forcePatchValue ||
                     !optimized ||
-                    patchFlag & (16 /* PatchFlags.FULL_PROPS */ | 32 /* PatchFlags.HYDRATE_EVENTS */)) {
+                    patchFlag & (16 /* FULL_PROPS */ | 32 /* HYDRATE_EVENTS */)) {
                     for (const key in props) {
                         if ((forcePatchValue && key.endsWith('value')) ||
                             ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isOn)(key) && !(0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isReservedProp)(key))) {
@@ -11955,7 +12077,7 @@ function createHydrationFunctions(rendererInternals) {
                 }, parentSuspense);
             }
             // children
-            if (shapeFlag & 16 /* ShapeFlags.ARRAY_CHILDREN */ &&
+            if (shapeFlag & 16 /* ARRAY_CHILDREN */ &&
                 // skip if element has innerHTML / textContent
                 !(props && (props.innerHTML || props.textContent))) {
                 let next = hydrateChildren(el.firstChild, vnode, el, parentComponent, parentSuspense, slotScopeIds, optimized);
@@ -11973,7 +12095,7 @@ function createHydrationFunctions(rendererInternals) {
                     remove(cur);
                 }
             }
-            else if (shapeFlag & 8 /* ShapeFlags.TEXT_CHILDREN */) {
+            else if (shapeFlag & 8 /* TEXT_CHILDREN */) {
                 if (el.textContent !== vnode.children) {
                     hasMismatch = true;
                     ( true) &&
@@ -12038,7 +12160,7 @@ function createHydrationFunctions(rendererInternals) {
     const handleMismatch = (node, vnode, parentComponent, parentSuspense, slotScopeIds, isFragment) => {
         hasMismatch = true;
         ( true) &&
-            warn(`Hydration node mismatch:\n- Client vnode:`, vnode.type, `\n- Server rendered DOM:`, node, node.nodeType === 3 /* DOMNodeTypes.TEXT */
+            warn(`Hydration node mismatch:\n- Client vnode:`, vnode.type, `\n- Server rendered DOM:`, node, node.nodeType === 3 /* TEXT */
                 ? `(text)`
                 : isComment(node) && node.data === '['
                     ? `(start of fragment)`
@@ -12132,14 +12254,8 @@ function isSupported() {
  */
 function initFeatureFlags() {
     const needWarn = [];
-    if (typeof __VUE_OPTIONS_API__ !== 'boolean') {
-        ( true) && needWarn.push(`__VUE_OPTIONS_API__`);
-        (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.getGlobalThis)().__VUE_OPTIONS_API__ = true;
-    }
-    if (typeof __VUE_PROD_DEVTOOLS__ !== 'boolean') {
-        ( true) && needWarn.push(`__VUE_PROD_DEVTOOLS__`);
-        (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.getGlobalThis)().__VUE_PROD_DEVTOOLS__ = false;
-    }
+    if (false) {}
+    if (false) {}
     if (( true) && needWarn.length) {
         const multi = needWarn.length > 1;
         console.warn(`Feature flag${multi ? `s` : ``} ${needWarn.join(', ')} ${multi ? `are` : `is`} not explicitly defined. You are running the esm-bundler build of Vue, ` +
@@ -12187,7 +12303,7 @@ function baseCreateRenderer(options, createHydrationFns) {
     if (true) {
         setDevtoolsHook(target.__VUE_DEVTOOLS_GLOBAL_HOOK__, target);
     }
-    const { insert: hostInsert, remove: hostRemove, patchProp: hostPatchProp, createElement: hostCreateElement, createText: hostCreateText, createComment: hostCreateComment, setText: hostSetText, setElementText: hostSetElementText, parentNode: hostParentNode, nextSibling: hostNextSibling, setScopeId: hostSetScopeId = _vue_shared__WEBPACK_IMPORTED_MODULE_1__.NOOP, insertStaticContent: hostInsertStaticContent } = options;
+    const { insert: hostInsert, remove: hostRemove, patchProp: hostPatchProp, createElement: hostCreateElement, createText: hostCreateText, createComment: hostCreateComment, setText: hostSetText, setElementText: hostSetElementText, parentNode: hostParentNode, nextSibling: hostNextSibling, setScopeId: hostSetScopeId = _vue_shared__WEBPACK_IMPORTED_MODULE_1__.NOOP, cloneNode: hostCloneNode, insertStaticContent: hostInsertStaticContent } = options;
     // Note: functions inside this closure should use `const xxx = () => {}`
     // style in order to prevent being inlined by minifiers.
     const patch = (n1, n2, container, anchor = null, parentComponent = null, parentSuspense = null, isSVG = false, slotScopeIds = null, optimized = ( true) && isHmrUpdating ? false : !!n2.dynamicChildren) => {
@@ -12200,7 +12316,7 @@ function baseCreateRenderer(options, createHydrationFns) {
             unmount(n1, parentComponent, parentSuspense, true);
             n1 = null;
         }
-        if (n2.patchFlag === -2 /* PatchFlags.BAIL */) {
+        if (n2.patchFlag === -2 /* BAIL */) {
             optimized = false;
             n2.dynamicChildren = null;
         }
@@ -12224,16 +12340,16 @@ function baseCreateRenderer(options, createHydrationFns) {
                 processFragment(n1, n2, container, anchor, parentComponent, parentSuspense, isSVG, slotScopeIds, optimized);
                 break;
             default:
-                if (shapeFlag & 1 /* ShapeFlags.ELEMENT */) {
+                if (shapeFlag & 1 /* ELEMENT */) {
                     processElement(n1, n2, container, anchor, parentComponent, parentSuspense, isSVG, slotScopeIds, optimized);
                 }
-                else if (shapeFlag & 6 /* ShapeFlags.COMPONENT */) {
+                else if (shapeFlag & 6 /* COMPONENT */) {
                     processComponent(n1, n2, container, anchor, parentComponent, parentSuspense, isSVG, slotScopeIds, optimized);
                 }
-                else if (shapeFlag & 64 /* ShapeFlags.TELEPORT */) {
+                else if (shapeFlag & 64 /* TELEPORT */) {
                     type.process(n1, n2, container, anchor, parentComponent, parentSuspense, isSVG, slotScopeIds, optimized, internals);
                 }
-                else if (shapeFlag & 128 /* ShapeFlags.SUSPENSE */) {
+                else if (shapeFlag & 128 /* SUSPENSE */) {
                     type.process(n1, n2, container, anchor, parentComponent, parentSuspense, isSVG, slotScopeIds, optimized, internals);
                 }
                 else if ((true)) {
@@ -12314,44 +12430,47 @@ function baseCreateRenderer(options, createHydrationFns) {
     const mountElement = (vnode, container, anchor, parentComponent, parentSuspense, isSVG, slotScopeIds, optimized) => {
         let el;
         let vnodeHook;
-        const { type, props, shapeFlag, transition, dirs } = vnode;
-        el = vnode.el = hostCreateElement(vnode.type, isSVG, props && props.is, props);
-        // mount children first, since some props may rely on child content
-        // being already rendered, e.g. `<select value>`
-        if (shapeFlag & 8 /* ShapeFlags.TEXT_CHILDREN */) {
-            hostSetElementText(el, vnode.children);
-        }
-        else if (shapeFlag & 16 /* ShapeFlags.ARRAY_CHILDREN */) {
-            mountChildren(vnode.children, el, null, parentComponent, parentSuspense, isSVG && type !== 'foreignObject', slotScopeIds, optimized);
-        }
-        if (dirs) {
-            invokeDirectiveHook(vnode, null, parentComponent, 'created');
-        }
-        // props
-        if (props) {
-            for (const key in props) {
-                if (key !== 'value' && !(0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isReservedProp)(key)) {
-                    hostPatchProp(el, key, null, props[key], isSVG, vnode.children, parentComponent, parentSuspense, unmountChildren);
+        const { type, props, shapeFlag, transition, patchFlag, dirs } = vnode;
+        if (false /* HOISTED */) {}
+        else {
+            el = vnode.el = hostCreateElement(vnode.type, isSVG, props && props.is, props);
+            // mount children first, since some props may rely on child content
+            // being already rendered, e.g. `<select value>`
+            if (shapeFlag & 8 /* TEXT_CHILDREN */) {
+                hostSetElementText(el, vnode.children);
+            }
+            else if (shapeFlag & 16 /* ARRAY_CHILDREN */) {
+                mountChildren(vnode.children, el, null, parentComponent, parentSuspense, isSVG && type !== 'foreignObject', slotScopeIds, optimized);
+            }
+            if (dirs) {
+                invokeDirectiveHook(vnode, null, parentComponent, 'created');
+            }
+            // props
+            if (props) {
+                for (const key in props) {
+                    if (key !== 'value' && !(0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isReservedProp)(key)) {
+                        hostPatchProp(el, key, null, props[key], isSVG, vnode.children, parentComponent, parentSuspense, unmountChildren);
+                    }
+                }
+                /**
+                 * Special case for setting value on DOM elements:
+                 * - it can be order-sensitive (e.g. should be set *after* min/max, #2325, #4024)
+                 * - it needs to be forced (#1471)
+                 * #2353 proposes adding another renderer option to configure this, but
+                 * the properties affects are so finite it is worth special casing it
+                 * here to reduce the complexity. (Special casing it also should not
+                 * affect non-DOM renderers)
+                 */
+                if ('value' in props) {
+                    hostPatchProp(el, 'value', null, props.value);
+                }
+                if ((vnodeHook = props.onVnodeBeforeMount)) {
+                    invokeVNodeHook(vnodeHook, parentComponent, vnode);
                 }
             }
-            /**
-             * Special case for setting value on DOM elements:
-             * - it can be order-sensitive (e.g. should be set *after* min/max, #2325, #4024)
-             * - it needs to be forced (#1471)
-             * #2353 proposes adding another renderer option to configure this, but
-             * the properties affects are so finite it is worth special casing it
-             * here to reduce the complexity. (Special casing it also should not
-             * affect non-DOM renderers)
-             */
-            if ('value' in props) {
-                hostPatchProp(el, 'value', null, props.value);
-            }
-            if ((vnodeHook = props.onVnodeBeforeMount)) {
-                invokeVNodeHook(vnodeHook, parentComponent, vnode);
-            }
+            // scopeId
+            setScopeId(el, vnode, vnode.scopeId, slotScopeIds, parentComponent);
         }
-        // scopeId
-        setScopeId(el, vnode, vnode.scopeId, slotScopeIds, parentComponent);
         if (true) {
             Object.defineProperty(el, '__vnode', {
                 value: vnode,
@@ -12397,7 +12516,7 @@ function baseCreateRenderer(options, createHydrationFns) {
             let subTree = parentComponent.subTree;
             if (( true) &&
                 subTree.patchFlag > 0 &&
-                subTree.patchFlag & 2048 /* PatchFlags.DEV_ROOT_FRAGMENT */) {
+                subTree.patchFlag & 2048 /* DEV_ROOT_FRAGMENT */) {
                 subTree =
                     filterSingleRoot(subTree.children) || subTree;
             }
@@ -12420,7 +12539,7 @@ function baseCreateRenderer(options, createHydrationFns) {
         let { patchFlag, dynamicChildren, dirs } = n2;
         // #1426 take the old vnode's patch flag into account since user may clone a
         // compiler-generated vnode, which de-opts to FULL_PROPS
-        patchFlag |= n1.patchFlag & 16 /* PatchFlags.FULL_PROPS */;
+        patchFlag |= n1.patchFlag & 16 /* FULL_PROPS */;
         const oldProps = n1.props || _vue_shared__WEBPACK_IMPORTED_MODULE_1__.EMPTY_OBJ;
         const newProps = n2.props || _vue_shared__WEBPACK_IMPORTED_MODULE_1__.EMPTY_OBJ;
         let vnodeHook;
@@ -12455,21 +12574,21 @@ function baseCreateRenderer(options, createHydrationFns) {
             // generated by the compiler and can take the fast path.
             // in this path old node and new node are guaranteed to have the same shape
             // (i.e. at the exact same position in the source template)
-            if (patchFlag & 16 /* PatchFlags.FULL_PROPS */) {
+            if (patchFlag & 16 /* FULL_PROPS */) {
                 // element props contain dynamic keys, full diff needed
                 patchProps(el, n2, oldProps, newProps, parentComponent, parentSuspense, isSVG);
             }
             else {
                 // class
                 // this flag is matched when the element has dynamic class bindings.
-                if (patchFlag & 2 /* PatchFlags.CLASS */) {
+                if (patchFlag & 2 /* CLASS */) {
                     if (oldProps.class !== newProps.class) {
                         hostPatchProp(el, 'class', null, newProps.class, isSVG);
                     }
                 }
                 // style
                 // this flag is matched when the element has dynamic style bindings
-                if (patchFlag & 4 /* PatchFlags.STYLE */) {
+                if (patchFlag & 4 /* STYLE */) {
                     hostPatchProp(el, 'style', oldProps.style, newProps.style, isSVG);
                 }
                 // props
@@ -12478,7 +12597,7 @@ function baseCreateRenderer(options, createHydrationFns) {
                 // faster iteration.
                 // Note dynamic keys like :[foo]="bar" will cause this optimization to
                 // bail out and go through a full diff because we need to unset the old key
-                if (patchFlag & 8 /* PatchFlags.PROPS */) {
+                if (patchFlag & 8 /* PROPS */) {
                     // if the flag is present then dynamicProps must be non-null
                     const propsToUpdate = n2.dynamicProps;
                     for (let i = 0; i < propsToUpdate.length; i++) {
@@ -12494,7 +12613,7 @@ function baseCreateRenderer(options, createHydrationFns) {
             }
             // text
             // This flag is matched when the element has only dynamic text children.
-            if (patchFlag & 1 /* PatchFlags.TEXT */) {
+            if (patchFlag & 1 /* TEXT */) {
                 if (n1.children !== n2.children) {
                     hostSetElementText(el, n2.children);
                 }
@@ -12528,7 +12647,7 @@ function baseCreateRenderer(options, createHydrationFns) {
                     // which also requires the correct parent container
                     !isSameVNodeType(oldVNode, newVNode) ||
                     // - In the case of a component, it could contain anything.
-                    oldVNode.shapeFlag & (6 /* ShapeFlags.COMPONENT */ | 64 /* ShapeFlags.TELEPORT */))
+                    oldVNode.shapeFlag & (6 /* COMPONENT */ | 64 /* TELEPORT */))
                 ? hostParentNode(oldVNode.el)
                 : // In other cases, the parent container is not actually used so we
                     // just pass the block element here to avoid a DOM parentNode call.
@@ -12538,13 +12657,6 @@ function baseCreateRenderer(options, createHydrationFns) {
     };
     const patchProps = (el, vnode, oldProps, newProps, parentComponent, parentSuspense, isSVG) => {
         if (oldProps !== newProps) {
-            if (oldProps !== _vue_shared__WEBPACK_IMPORTED_MODULE_1__.EMPTY_OBJ) {
-                for (const key in oldProps) {
-                    if (!(0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isReservedProp)(key) && !(key in newProps)) {
-                        hostPatchProp(el, key, oldProps[key], null, isSVG, vnode.children, parentComponent, parentSuspense, unmountChildren);
-                    }
-                }
-            }
             for (const key in newProps) {
                 // empty string is not valid prop
                 if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isReservedProp)(key))
@@ -12554,6 +12666,13 @@ function baseCreateRenderer(options, createHydrationFns) {
                 // defer patching value
                 if (next !== prev && key !== 'value') {
                     hostPatchProp(el, key, prev, next, isSVG, vnode.children, parentComponent, parentSuspense, unmountChildren);
+                }
+            }
+            if (oldProps !== _vue_shared__WEBPACK_IMPORTED_MODULE_1__.EMPTY_OBJ) {
+                for (const key in oldProps) {
+                    if (!(0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isReservedProp)(key) && !(key in newProps)) {
+                        hostPatchProp(el, key, oldProps[key], null, isSVG, vnode.children, parentComponent, parentSuspense, unmountChildren);
+                    }
                 }
             }
             if ('value' in newProps) {
@@ -12567,7 +12686,7 @@ function baseCreateRenderer(options, createHydrationFns) {
         let { patchFlag, dynamicChildren, slotScopeIds: fragmentSlotScopeIds } = n2;
         if (( true) &&
             // #5523 dev root fragment may inherit directives
-            (isHmrUpdating || patchFlag & 2048 /* PatchFlags.DEV_ROOT_FRAGMENT */)) {
+            (isHmrUpdating || patchFlag & 2048 /* DEV_ROOT_FRAGMENT */)) {
             // HMR updated / Dev root fragment (w/ comments), force full diff
             patchFlag = 0;
             optimized = false;
@@ -12589,7 +12708,7 @@ function baseCreateRenderer(options, createHydrationFns) {
         }
         else {
             if (patchFlag > 0 &&
-                patchFlag & 64 /* PatchFlags.STABLE_FRAGMENT */ &&
+                patchFlag & 64 /* STABLE_FRAGMENT */ &&
                 dynamicChildren &&
                 // #2715 the previous fragment could've been a BAILed one as a result
                 // of renderSlot() with no valid children
@@ -12622,7 +12741,7 @@ function baseCreateRenderer(options, createHydrationFns) {
     const processComponent = (n1, n2, container, anchor, parentComponent, parentSuspense, isSVG, slotScopeIds, optimized) => {
         n2.slotScopeIds = slotScopeIds;
         if (n1 == null) {
-            if (n2.shapeFlag & 512 /* ShapeFlags.COMPONENT_KEPT_ALIVE */) {
+            if (n2.shapeFlag & 512 /* COMPONENT_KEPT_ALIVE */) {
                 parentComponent.ctx.activate(n2, container, anchor, isSVG, optimized);
             }
             else {
@@ -12784,10 +12903,10 @@ function baseCreateRenderer(options, createHydrationFns) {
                 // activated hook for keep-alive roots.
                 // #1742 activated hook must be accessed after first render
                 // since the hook may be injected by a child keep-alive
-                if (initialVNode.shapeFlag & 256 /* ShapeFlags.COMPONENT_SHOULD_KEEP_ALIVE */ ||
+                if (initialVNode.shapeFlag & 256 /* COMPONENT_SHOULD_KEEP_ALIVE */ ||
                     (parent &&
                         isAsyncWrapper(parent.vnode) &&
-                        parent.vnode.shapeFlag & 256 /* ShapeFlags.COMPONENT_SHOULD_KEEP_ALIVE */)) {
+                        parent.vnode.shapeFlag & 256 /* COMPONENT_SHOULD_KEEP_ALIVE */)) {
                     instance.a && queuePostRenderEffect(instance.a, parentSuspense);
                 }
                 instance.isMounted = true;
@@ -12898,7 +13017,7 @@ function baseCreateRenderer(options, createHydrationFns) {
         (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.pauseTracking)();
         // props update may have triggered pre-flush watchers.
         // flush them before the render update.
-        flushPreFlushCbs();
+        flushPreFlushCbs(undefined, instance.update);
         (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.resetTracking)();
     };
     const patchChildren = (n1, n2, container, anchor, parentComponent, parentSuspense, isSVG, slotScopeIds, optimized = false) => {
@@ -12908,22 +13027,22 @@ function baseCreateRenderer(options, createHydrationFns) {
         const { patchFlag, shapeFlag } = n2;
         // fast path
         if (patchFlag > 0) {
-            if (patchFlag & 128 /* PatchFlags.KEYED_FRAGMENT */) {
+            if (patchFlag & 128 /* KEYED_FRAGMENT */) {
                 // this could be either fully-keyed or mixed (some keyed some not)
                 // presence of patchFlag means children are guaranteed to be arrays
                 patchKeyedChildren(c1, c2, container, anchor, parentComponent, parentSuspense, isSVG, slotScopeIds, optimized);
                 return;
             }
-            else if (patchFlag & 256 /* PatchFlags.UNKEYED_FRAGMENT */) {
+            else if (patchFlag & 256 /* UNKEYED_FRAGMENT */) {
                 // unkeyed
                 patchUnkeyedChildren(c1, c2, container, anchor, parentComponent, parentSuspense, isSVG, slotScopeIds, optimized);
                 return;
             }
         }
         // children has 3 possibilities: text, array or no children.
-        if (shapeFlag & 8 /* ShapeFlags.TEXT_CHILDREN */) {
+        if (shapeFlag & 8 /* TEXT_CHILDREN */) {
             // text children fast path
-            if (prevShapeFlag & 16 /* ShapeFlags.ARRAY_CHILDREN */) {
+            if (prevShapeFlag & 16 /* ARRAY_CHILDREN */) {
                 unmountChildren(c1, parentComponent, parentSuspense);
             }
             if (c2 !== c1) {
@@ -12931,9 +13050,9 @@ function baseCreateRenderer(options, createHydrationFns) {
             }
         }
         else {
-            if (prevShapeFlag & 16 /* ShapeFlags.ARRAY_CHILDREN */) {
+            if (prevShapeFlag & 16 /* ARRAY_CHILDREN */) {
                 // prev children was array
-                if (shapeFlag & 16 /* ShapeFlags.ARRAY_CHILDREN */) {
+                if (shapeFlag & 16 /* ARRAY_CHILDREN */) {
                     // two arrays, cannot assume anything, do full diff
                     patchKeyedChildren(c1, c2, container, anchor, parentComponent, parentSuspense, isSVG, slotScopeIds, optimized);
                 }
@@ -12945,11 +13064,11 @@ function baseCreateRenderer(options, createHydrationFns) {
             else {
                 // prev children was text OR null
                 // new children is array OR null
-                if (prevShapeFlag & 8 /* ShapeFlags.TEXT_CHILDREN */) {
+                if (prevShapeFlag & 8 /* TEXT_CHILDREN */) {
                     hostSetElementText(container, '');
                 }
                 // mount new if array
-                if (shapeFlag & 16 /* ShapeFlags.ARRAY_CHILDREN */) {
+                if (shapeFlag & 16 /* ARRAY_CHILDREN */) {
                     mountChildren(c2, container, anchor, parentComponent, parentSuspense, isSVG, slotScopeIds, optimized);
                 }
             }
@@ -13140,7 +13259,7 @@ function baseCreateRenderer(options, createHydrationFns) {
                     // There is no stable subsequence (e.g. a reverse)
                     // OR current node is not among the stable sequence
                     if (j < 0 || i !== increasingNewIndexSequence[j]) {
-                        move(nextChild, container, anchor, 2 /* MoveType.REORDER */);
+                        move(nextChild, container, anchor, 2 /* REORDER */);
                     }
                     else {
                         j--;
@@ -13151,15 +13270,15 @@ function baseCreateRenderer(options, createHydrationFns) {
     };
     const move = (vnode, container, anchor, moveType, parentSuspense = null) => {
         const { el, type, transition, children, shapeFlag } = vnode;
-        if (shapeFlag & 6 /* ShapeFlags.COMPONENT */) {
+        if (shapeFlag & 6 /* COMPONENT */) {
             move(vnode.component.subTree, container, anchor, moveType);
             return;
         }
-        if (shapeFlag & 128 /* ShapeFlags.SUSPENSE */) {
+        if (shapeFlag & 128 /* SUSPENSE */) {
             vnode.suspense.move(container, anchor, moveType);
             return;
         }
-        if (shapeFlag & 64 /* ShapeFlags.TELEPORT */) {
+        if (shapeFlag & 64 /* TELEPORT */) {
             type.move(vnode, container, anchor, internals);
             return;
         }
@@ -13176,11 +13295,11 @@ function baseCreateRenderer(options, createHydrationFns) {
             return;
         }
         // single nodes
-        const needTransition = moveType !== 2 /* MoveType.REORDER */ &&
-            shapeFlag & 1 /* ShapeFlags.ELEMENT */ &&
+        const needTransition = moveType !== 2 /* REORDER */ &&
+            shapeFlag & 1 /* ELEMENT */ &&
             transition;
         if (needTransition) {
-            if (moveType === 0 /* MoveType.ENTER */) {
+            if (moveType === 0 /* ENTER */) {
                 transition.beforeEnter(el);
                 hostInsert(el, container, anchor);
                 queuePostRenderEffect(() => transition.enter(el), parentSuspense);
@@ -13212,42 +13331,42 @@ function baseCreateRenderer(options, createHydrationFns) {
         if (ref != null) {
             setRef(ref, null, parentSuspense, vnode, true);
         }
-        if (shapeFlag & 256 /* ShapeFlags.COMPONENT_SHOULD_KEEP_ALIVE */) {
+        if (shapeFlag & 256 /* COMPONENT_SHOULD_KEEP_ALIVE */) {
             parentComponent.ctx.deactivate(vnode);
             return;
         }
-        const shouldInvokeDirs = shapeFlag & 1 /* ShapeFlags.ELEMENT */ && dirs;
+        const shouldInvokeDirs = shapeFlag & 1 /* ELEMENT */ && dirs;
         const shouldInvokeVnodeHook = !isAsyncWrapper(vnode);
         let vnodeHook;
         if (shouldInvokeVnodeHook &&
             (vnodeHook = props && props.onVnodeBeforeUnmount)) {
             invokeVNodeHook(vnodeHook, parentComponent, vnode);
         }
-        if (shapeFlag & 6 /* ShapeFlags.COMPONENT */) {
+        if (shapeFlag & 6 /* COMPONENT */) {
             unmountComponent(vnode.component, parentSuspense, doRemove);
         }
         else {
-            if (shapeFlag & 128 /* ShapeFlags.SUSPENSE */) {
+            if (shapeFlag & 128 /* SUSPENSE */) {
                 vnode.suspense.unmount(parentSuspense, doRemove);
                 return;
             }
             if (shouldInvokeDirs) {
                 invokeDirectiveHook(vnode, null, parentComponent, 'beforeUnmount');
             }
-            if (shapeFlag & 64 /* ShapeFlags.TELEPORT */) {
+            if (shapeFlag & 64 /* TELEPORT */) {
                 vnode.type.remove(vnode, parentComponent, parentSuspense, optimized, internals, doRemove);
             }
             else if (dynamicChildren &&
                 // #1153: fast path should not be taken for non-stable (v-for) fragments
                 (type !== Fragment ||
-                    (patchFlag > 0 && patchFlag & 64 /* PatchFlags.STABLE_FRAGMENT */))) {
+                    (patchFlag > 0 && patchFlag & 64 /* STABLE_FRAGMENT */))) {
                 // fast path for block nodes: only need to unmount dynamic children.
                 unmountChildren(dynamicChildren, parentComponent, parentSuspense, false, true);
             }
             else if ((type === Fragment &&
                 patchFlag &
-                    (128 /* PatchFlags.KEYED_FRAGMENT */ | 256 /* PatchFlags.UNKEYED_FRAGMENT */)) ||
-                (!optimized && shapeFlag & 16 /* ShapeFlags.ARRAY_CHILDREN */)) {
+                    (128 /* KEYED_FRAGMENT */ | 256 /* UNKEYED_FRAGMENT */)) ||
+                (!optimized && shapeFlag & 16 /* ARRAY_CHILDREN */)) {
                 unmountChildren(children, parentComponent, parentSuspense);
             }
             if (doRemove) {
@@ -13269,7 +13388,7 @@ function baseCreateRenderer(options, createHydrationFns) {
         if (type === Fragment) {
             if (( true) &&
                 vnode.patchFlag > 0 &&
-                vnode.patchFlag & 2048 /* PatchFlags.DEV_ROOT_FRAGMENT */ &&
+                vnode.patchFlag & 2048 /* DEV_ROOT_FRAGMENT */ &&
                 transition &&
                 !transition.persisted) {
                 vnode.children.forEach(child => {
@@ -13296,7 +13415,7 @@ function baseCreateRenderer(options, createHydrationFns) {
                 transition.afterLeave();
             }
         };
-        if (vnode.shapeFlag & 1 /* ShapeFlags.ELEMENT */ &&
+        if (vnode.shapeFlag & 1 /* ELEMENT */ &&
             transition &&
             !transition.persisted) {
             const { leave, delayLeave } = transition;
@@ -13372,10 +13491,10 @@ function baseCreateRenderer(options, createHydrationFns) {
         }
     };
     const getNextHostNode = vnode => {
-        if (vnode.shapeFlag & 6 /* ShapeFlags.COMPONENT */) {
+        if (vnode.shapeFlag & 6 /* COMPONENT */) {
             return getNextHostNode(vnode.component.subTree);
         }
-        if (vnode.shapeFlag & 128 /* ShapeFlags.SUSPENSE */) {
+        if (vnode.shapeFlag & 128 /* SUSPENSE */) {
             return vnode.suspense.next();
         }
         return hostNextSibling((vnode.anchor || vnode.el));
@@ -13389,7 +13508,6 @@ function baseCreateRenderer(options, createHydrationFns) {
         else {
             patch(container._vnode || null, vnode, container, null, null, null, isSVG);
         }
-        flushPreFlushCbs();
         flushPostFlushCbs();
         container._vnode = vnode;
     };
@@ -13439,17 +13557,13 @@ function traverseStaticChildren(n1, n2, shallow = false) {
             // guaranteed to be vnodes
             const c1 = ch1[i];
             let c2 = ch2[i];
-            if (c2.shapeFlag & 1 /* ShapeFlags.ELEMENT */ && !c2.dynamicChildren) {
-                if (c2.patchFlag <= 0 || c2.patchFlag === 32 /* PatchFlags.HYDRATE_EVENTS */) {
+            if (c2.shapeFlag & 1 /* ELEMENT */ && !c2.dynamicChildren) {
+                if (c2.patchFlag <= 0 || c2.patchFlag === 32 /* HYDRATE_EVENTS */) {
                     c2 = ch2[i] = cloneIfMounted(ch2[i]);
                     c2.el = c1.el;
                 }
                 if (!shallow)
                     traverseStaticChildren(c1, c2);
-            }
-            // #6852 also inherit for text nodes
-            if (c2.type === Text) {
-                c2.el = c1.el;
             }
             // also inherit for comment nodes, but not placeholders (e.g. v-if which
             // would have received .el during block patch)
@@ -13568,7 +13682,7 @@ const TeleportImpl = {
             const mount = (container, anchor) => {
                 // Teleport *always* has Array children. This is enforced in both the
                 // compiler and vnode children normalization.
-                if (shapeFlag & 16 /* ShapeFlags.ARRAY_CHILDREN */) {
+                if (shapeFlag & 16 /* ARRAY_CHILDREN */) {
                     mountChildren(children, container, anchor, parentComponent, parentSuspense, isSVG, slotScopeIds, optimized);
                 }
             };
@@ -13604,7 +13718,7 @@ const TeleportImpl = {
                 if (!wasDisabled) {
                     // enabled -> disabled
                     // move into main container
-                    moveTeleport(n2, container, mainAnchor, internals, 1 /* TeleportMoveTypes.TOGGLE */);
+                    moveTeleport(n2, container, mainAnchor, internals, 1 /* TOGGLE */);
                 }
             }
             else {
@@ -13612,7 +13726,7 @@ const TeleportImpl = {
                 if ((n2.props && n2.props.to) !== (n1.props && n1.props.to)) {
                     const nextTarget = (n2.target = resolveTarget(n2.props, querySelector));
                     if (nextTarget) {
-                        moveTeleport(n2, nextTarget, null, internals, 0 /* TeleportMoveTypes.TARGET_CHANGE */);
+                        moveTeleport(n2, nextTarget, null, internals, 0 /* TARGET_CHANGE */);
                     }
                     else if ((true)) {
                         warn('Invalid Teleport target on update:', target, `(${typeof target})`);
@@ -13621,11 +13735,10 @@ const TeleportImpl = {
                 else if (wasDisabled) {
                     // disabled -> enabled
                     // move into teleport target
-                    moveTeleport(n2, target, targetAnchor, internals, 1 /* TeleportMoveTypes.TOGGLE */);
+                    moveTeleport(n2, target, targetAnchor, internals, 1 /* TOGGLE */);
                 }
             }
         }
-        updateCssVars(n2);
     },
     remove(vnode, parentComponent, parentSuspense, optimized, { um: unmount, o: { remove: hostRemove } }, doRemove) {
         const { shapeFlag, children, anchor, targetAnchor, target, props } = vnode;
@@ -13635,7 +13748,7 @@ const TeleportImpl = {
         // an unmounted teleport should always remove its children if not disabled
         if (doRemove || !isTeleportDisabled(props)) {
             hostRemove(anchor);
-            if (shapeFlag & 16 /* ShapeFlags.ARRAY_CHILDREN */) {
+            if (shapeFlag & 16 /* ARRAY_CHILDREN */) {
                 for (let i = 0; i < children.length; i++) {
                     const child = children[i];
                     unmount(child, parentComponent, parentSuspense, true, !!child.dynamicChildren);
@@ -13646,13 +13759,13 @@ const TeleportImpl = {
     move: moveTeleport,
     hydrate: hydrateTeleport
 };
-function moveTeleport(vnode, container, parentAnchor, { o: { insert }, m: move }, moveType = 2 /* TeleportMoveTypes.REORDER */) {
+function moveTeleport(vnode, container, parentAnchor, { o: { insert }, m: move }, moveType = 2 /* REORDER */) {
     // move target anchor if this is a target change.
-    if (moveType === 0 /* TeleportMoveTypes.TARGET_CHANGE */) {
+    if (moveType === 0 /* TARGET_CHANGE */) {
         insert(vnode.targetAnchor, container, parentAnchor);
     }
     const { el, anchor, shapeFlag, children, props } = vnode;
-    const isReorder = moveType === 2 /* TeleportMoveTypes.REORDER */;
+    const isReorder = moveType === 2 /* REORDER */;
     // move main view anchor if this is a re-order.
     if (isReorder) {
         insert(el, container, parentAnchor);
@@ -13662,9 +13775,9 @@ function moveTeleport(vnode, container, parentAnchor, { o: { insert }, m: move }
     // is not a reorder, or the teleport is disabled
     if (!isReorder || isTeleportDisabled(props)) {
         // Teleport has either Array children or no children.
-        if (shapeFlag & 16 /* ShapeFlags.ARRAY_CHILDREN */) {
+        if (shapeFlag & 16 /* ARRAY_CHILDREN */) {
             for (let i = 0; i < children.length; i++) {
-                move(children[i], container, parentAnchor, 2 /* MoveType.REORDER */);
+                move(children[i], container, parentAnchor, 2 /* REORDER */);
             }
         }
     }
@@ -13679,7 +13792,7 @@ function hydrateTeleport(node, vnode, parentComponent, parentSuspense, slotScope
         // if multiple teleports rendered to the same target element, we need to
         // pick up from where the last teleport finished instead of the first node
         const targetNode = target._lpa || target.firstChild;
-        if (vnode.shapeFlag & 16 /* ShapeFlags.ARRAY_CHILDREN */) {
+        if (vnode.shapeFlag & 16 /* ARRAY_CHILDREN */) {
             if (isTeleportDisabled(vnode.props)) {
                 vnode.anchor = hydrateChildren(nextSibling(node), vnode, parentNode(node), parentComponent, parentSuspense, slotScopeIds, optimized);
                 vnode.targetAnchor = targetNode;
@@ -13704,26 +13817,11 @@ function hydrateTeleport(node, vnode, parentComponent, parentSuspense, slotScope
                 hydrateChildren(targetNode, vnode, target, parentComponent, parentSuspense, slotScopeIds, optimized);
             }
         }
-        updateCssVars(vnode);
     }
     return vnode.anchor && nextSibling(vnode.anchor);
 }
 // Force-casted public typing for h and TSX props inference
 const Teleport = TeleportImpl;
-function updateCssVars(vnode) {
-    // presence of .ut method indicates owner component uses css vars.
-    // code path here can assume browser environment.
-    const ctx = vnode.ctx;
-    if (ctx && ctx.ut) {
-        let node = vnode.children[0].el;
-        while (node !== vnode.targetAnchor) {
-            if (node.nodeType === 1)
-                node.setAttribute('data-v-owner', ctx.uid);
-            node = node.nextSibling;
-        }
-        ctx.ut();
-    }
-}
 
 const Fragment = Symbol(( true) ? 'Fragment' : 0);
 const Text = Symbol(( true) ? 'Text' : 0);
@@ -13817,12 +13915,8 @@ function isVNode(value) {
 }
 function isSameVNodeType(n1, n2) {
     if (( true) &&
-        n2.shapeFlag & 6 /* ShapeFlags.COMPONENT */ &&
+        n2.shapeFlag & 6 /* COMPONENT */ &&
         hmrDirtyComponents.has(n2.type)) {
-        // #7042, ensure the vnode being unmounted during HMR
-        // bitwise operations to remove keep alive flags
-        n1.shapeFlag &= ~256 /* ShapeFlags.COMPONENT_SHOULD_KEEP_ALIVE */;
-        n2.shapeFlag &= ~512 /* ShapeFlags.COMPONENT_KEPT_ALIVE */;
         // HMR only: if the component has been hot-updated, force a reload.
         return false;
     }
@@ -13852,7 +13946,7 @@ const normalizeRef = ({ ref, ref_key, ref_for }) => {
             : ref
         : null);
 };
-function createBaseVNode(type, props = null, children = null, patchFlag = 0, dynamicProps = null, shapeFlag = type === Fragment ? 0 : 1 /* ShapeFlags.ELEMENT */, isBlockNode = false, needFullChildrenNormalization = false) {
+function createBaseVNode(type, props = null, children = null, patchFlag = 0, dynamicProps = null, shapeFlag = type === Fragment ? 0 : 1 /* ELEMENT */, isBlockNode = false, needFullChildrenNormalization = false) {
     const vnode = {
         __v_isVNode: true,
         __v_skip: true,
@@ -13878,13 +13972,12 @@ function createBaseVNode(type, props = null, children = null, patchFlag = 0, dyn
         patchFlag,
         dynamicProps,
         dynamicChildren: null,
-        appContext: null,
-        ctx: currentRenderingInstance
+        appContext: null
     };
     if (needFullChildrenNormalization) {
         normalizeChildren(vnode, children);
         // normalize suspense children
-        if (shapeFlag & 128 /* ShapeFlags.SUSPENSE */) {
+        if (shapeFlag & 128 /* SUSPENSE */) {
             type.normalize(vnode);
         }
     }
@@ -13892,8 +13985,8 @@ function createBaseVNode(type, props = null, children = null, patchFlag = 0, dyn
         // compiled element vnode - if children is passed, only possible types are
         // string or Array.
         vnode.shapeFlag |= (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isString)(children)
-            ? 8 /* ShapeFlags.TEXT_CHILDREN */
-            : 16 /* ShapeFlags.ARRAY_CHILDREN */;
+            ? 8 /* TEXT_CHILDREN */
+            : 16 /* ARRAY_CHILDREN */;
     }
     // validate key
     if (( true) && vnode.key !== vnode.key) {
@@ -13909,10 +14002,10 @@ function createBaseVNode(type, props = null, children = null, patchFlag = 0, dyn
         // component nodes also should always be patched, because even if the
         // component doesn't need to update, it needs to persist the instance on to
         // the next vnode so that it can be properly unmounted later.
-        (vnode.patchFlag > 0 || shapeFlag & 6 /* ShapeFlags.COMPONENT */) &&
+        (vnode.patchFlag > 0 || shapeFlag & 6 /* COMPONENT */) &&
         // the EVENTS flag is only for hydration and if it is the only flag, the
         // vnode should not be considered dynamic due to handler caching.
-        vnode.patchFlag !== 32 /* PatchFlags.HYDRATE_EVENTS */) {
+        vnode.patchFlag !== 32 /* HYDRATE_EVENTS */) {
         currentBlock.push(vnode);
     }
     return vnode;
@@ -13934,14 +14027,14 @@ function _createVNode(type, props = null, children = null, patchFlag = 0, dynami
             normalizeChildren(cloned, children);
         }
         if (isBlockTreeEnabled > 0 && !isBlockNode && currentBlock) {
-            if (cloned.shapeFlag & 6 /* ShapeFlags.COMPONENT */) {
+            if (cloned.shapeFlag & 6 /* COMPONENT */) {
                 currentBlock[currentBlock.indexOf(type)] = cloned;
             }
             else {
                 currentBlock.push(cloned);
             }
         }
-        cloned.patchFlag |= -2 /* PatchFlags.BAIL */;
+        cloned.patchFlag |= -2 /* BAIL */;
         return cloned;
     }
     // class component normalization.
@@ -13967,17 +14060,17 @@ function _createVNode(type, props = null, children = null, patchFlag = 0, dynami
     }
     // encode the vnode type information into a bitmap
     const shapeFlag = (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isString)(type)
-        ? 1 /* ShapeFlags.ELEMENT */
+        ? 1 /* ELEMENT */
         : isSuspense(type)
-            ? 128 /* ShapeFlags.SUSPENSE */
+            ? 128 /* SUSPENSE */
             : isTeleport(type)
-                ? 64 /* ShapeFlags.TELEPORT */
+                ? 64 /* TELEPORT */
                 : (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isObject)(type)
-                    ? 4 /* ShapeFlags.STATEFUL_COMPONENT */
+                    ? 4 /* STATEFUL_COMPONENT */
                     : (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isFunction)(type)
-                        ? 2 /* ShapeFlags.FUNCTIONAL_COMPONENT */
+                        ? 2 /* FUNCTIONAL_COMPONENT */
                         : 0;
-    if (( true) && shapeFlag & 4 /* ShapeFlags.STATEFUL_COMPONENT */ && (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.isProxy)(type)) {
+    if (( true) && shapeFlag & 4 /* STATEFUL_COMPONENT */ && (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.isProxy)(type)) {
         type = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.toRaw)(type);
         warn(`Vue received a Component which was made a reactive object. This can ` +
             `lead to unnecessary performance overhead, and should be avoided by ` +
@@ -14016,7 +14109,7 @@ function cloneVNode(vnode, extraProps, mergeRef = false) {
             : ref,
         scopeId: vnode.scopeId,
         slotScopeIds: vnode.slotScopeIds,
-        children: ( true) && patchFlag === -1 /* PatchFlags.HOISTED */ && (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isArray)(children)
+        children: ( true) && patchFlag === -1 /* HOISTED */ && (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isArray)(children)
             ? children.map(deepCloneVNode)
             : children,
         target: vnode.target,
@@ -14029,8 +14122,8 @@ function cloneVNode(vnode, extraProps, mergeRef = false) {
         // fast paths only.
         patchFlag: extraProps && vnode.type !== Fragment
             ? patchFlag === -1 // hoisted node
-                ? 16 /* PatchFlags.FULL_PROPS */
-                : patchFlag | 16 /* PatchFlags.FULL_PROPS */
+                ? 16 /* FULL_PROPS */
+                : patchFlag | 16 /* FULL_PROPS */
             : patchFlag,
         dynamicProps: vnode.dynamicProps,
         dynamicChildren: vnode.dynamicChildren,
@@ -14046,8 +14139,7 @@ function cloneVNode(vnode, extraProps, mergeRef = false) {
         ssContent: vnode.ssContent && cloneVNode(vnode.ssContent),
         ssFallback: vnode.ssFallback && cloneVNode(vnode.ssFallback),
         el: vnode.el,
-        anchor: vnode.anchor,
-        ctx: vnode.ctx
+        anchor: vnode.anchor
     };
     return cloned;
 }
@@ -14112,10 +14204,7 @@ function normalizeVNode(child) {
 }
 // optimized normalization for template-compiled render fns
 function cloneIfMounted(child) {
-    return (child.el === null && child.patchFlag !== -1 /* PatchFlags.HOISTED */) ||
-        child.memo
-        ? child
-        : cloneVNode(child);
+    return child.el === null || child.memo ? child : cloneVNode(child);
 }
 function normalizeChildren(vnode, children) {
     let type = 0;
@@ -14124,10 +14213,10 @@ function normalizeChildren(vnode, children) {
         children = null;
     }
     else if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isArray)(children)) {
-        type = 16 /* ShapeFlags.ARRAY_CHILDREN */;
+        type = 16 /* ARRAY_CHILDREN */;
     }
     else if (typeof children === 'object') {
-        if (shapeFlag & (1 /* ShapeFlags.ELEMENT */ | 64 /* ShapeFlags.TELEPORT */)) {
+        if (shapeFlag & (1 /* ELEMENT */ | 64 /* TELEPORT */)) {
             // Normalize slot to plain children for plain element and Teleport
             const slot = children.default;
             if (slot) {
@@ -14139,37 +14228,37 @@ function normalizeChildren(vnode, children) {
             return;
         }
         else {
-            type = 32 /* ShapeFlags.SLOTS_CHILDREN */;
+            type = 32 /* SLOTS_CHILDREN */;
             const slotFlag = children._;
             if (!slotFlag && !(InternalObjectKey in children)) {
                 children._ctx = currentRenderingInstance;
             }
-            else if (slotFlag === 3 /* SlotFlags.FORWARDED */ && currentRenderingInstance) {
+            else if (slotFlag === 3 /* FORWARDED */ && currentRenderingInstance) {
                 // a child component receives forwarded slots from the parent.
                 // its slot type is determined by its parent's slot type.
-                if (currentRenderingInstance.slots._ === 1 /* SlotFlags.STABLE */) {
-                    children._ = 1 /* SlotFlags.STABLE */;
+                if (currentRenderingInstance.slots._ === 1 /* STABLE */) {
+                    children._ = 1 /* STABLE */;
                 }
                 else {
-                    children._ = 2 /* SlotFlags.DYNAMIC */;
-                    vnode.patchFlag |= 1024 /* PatchFlags.DYNAMIC_SLOTS */;
+                    children._ = 2 /* DYNAMIC */;
+                    vnode.patchFlag |= 1024 /* DYNAMIC_SLOTS */;
                 }
             }
         }
     }
     else if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isFunction)(children)) {
         children = { default: children, _ctx: currentRenderingInstance };
-        type = 32 /* ShapeFlags.SLOTS_CHILDREN */;
+        type = 32 /* SLOTS_CHILDREN */;
     }
     else {
         children = String(children);
         // force teleport children to array so it can be moved around
-        if (shapeFlag & 64 /* ShapeFlags.TELEPORT */) {
-            type = 16 /* ShapeFlags.ARRAY_CHILDREN */;
+        if (shapeFlag & 64 /* TELEPORT */) {
+            type = 16 /* ARRAY_CHILDREN */;
             children = [createTextVNode(children)];
         }
         else {
-            type = 8 /* ShapeFlags.TEXT_CHILDREN */;
+            type = 8 /* TEXT_CHILDREN */;
         }
     }
     vnode.children = children;
@@ -14207,7 +14296,7 @@ function mergeProps(...args) {
     return ret;
 }
 function invokeVNodeHook(hook, instance, vnode, prevVNode = null) {
-    callWithAsyncErrorHandling(hook, instance, 7 /* ErrorCodes.VNODE_HOOK */, [
+    callWithAsyncErrorHandling(hook, instance, 7 /* VNODE_HOOK */, [
         vnode,
         prevVNode
     ]);
@@ -14316,7 +14405,7 @@ function validateComponentName(name, config) {
     }
 }
 function isStatefulComponent(instance) {
-    return instance.vnode.shapeFlag & 4 /* ShapeFlags.STATEFUL_COMPONENT */;
+    return instance.vnode.shapeFlag & 4 /* STATEFUL_COMPONENT */;
 }
 let isInSSRComponentSetup = false;
 function setupComponent(instance, isSSR = false) {
@@ -14371,7 +14460,7 @@ function setupStatefulComponent(instance, isSSR) {
             setup.length > 1 ? createSetupContext(instance) : null);
         setCurrentInstance(instance);
         (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.pauseTracking)();
-        const setupResult = callWithErrorHandling(setup, instance, 0 /* ErrorCodes.SETUP_FUNCTION */, [( true) ? (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.shallowReadonly)(instance.props) : 0, setupContext]);
+        const setupResult = callWithErrorHandling(setup, instance, 0 /* SETUP_FUNCTION */, [( true) ? (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.shallowReadonly)(instance.props) : 0, setupContext]);
         (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.resetTracking)();
         unsetCurrentInstance();
         if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isPromise)(setupResult)) {
@@ -14383,7 +14472,7 @@ function setupStatefulComponent(instance, isSSR) {
                     handleSetupResult(instance, resolvedResult, isSSR);
                 })
                     .catch(e => {
-                    handleError(e, instance, 0 /* ErrorCodes.SETUP_FUNCTION */);
+                    handleError(e, instance, 0 /* SETUP_FUNCTION */);
                 });
             }
             else {
@@ -14463,8 +14552,7 @@ function finishComponentSetup(instance, isSSR, skipOptions) {
         // only do on-the-fly compile if not in SSR - SSR on-the-fly compilation
         // is done by server-renderer
         if (!isSSR && compile && !Component.render) {
-            const template = Component.template ||
-                resolveMergedOptions(instance).template;
+            const template = Component.template;
             if (template) {
                 if ((true)) {
                     startMeasure(instance, `compile`);
@@ -14490,7 +14578,7 @@ function finishComponentSetup(instance, isSSR, skipOptions) {
         }
     }
     // support for 2.x options
-    if (__VUE_OPTIONS_API__ && !(false )) {
+    if (true) {
         setCurrentInstance(instance);
         (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.pauseTracking)();
         applyOptions(instance);
@@ -14517,7 +14605,7 @@ function createAttrsProxy(instance) {
         ? {
             get(target, key) {
                 markAttrsAccessed();
-                (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.track)(instance, "get" /* TrackOpTypes.GET */, '$attrs');
+                (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.track)(instance, "get" /* GET */, '$attrs');
                 return target[key];
             },
             set() {
@@ -14568,19 +14656,16 @@ function getExposeProxy(instance) {
                     else if (key in publicPropertiesMap) {
                         return publicPropertiesMap[key](instance);
                     }
-                },
-                has(target, key) {
-                    return key in target || key in publicPropertiesMap;
                 }
             })));
     }
 }
 const classifyRE = /(?:^|[-_])(\w)/g;
 const classify = (str) => str.replace(classifyRE, c => c.toUpperCase()).replace(/[-_]/g, '');
-function getComponentName(Component, includeInferred = true) {
+function getComponentName(Component) {
     return (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isFunction)(Component)
         ? Component.displayName || Component.name
-        : Component.name || (includeInferred && Component.__name);
+        : Component.name;
 }
 /* istanbul ignore next */
 function formatComponentName(instance, Component, isRoot = false) {
@@ -14800,16 +14885,15 @@ const useSSRContext = () => {
     {
         const ctx = inject(ssrContextKey);
         if (!ctx) {
-            ( true) &&
-                warn(`Server rendering context not provided. Make sure to only call ` +
-                    `useSSRContext() conditionally in the server build.`);
+            warn(`Server rendering context not provided. Make sure to only call ` +
+                `useSSRContext() conditionally in the server build.`);
         }
         return ctx;
     }
 };
 
 function isShallow(value) {
-    return !!(value && value["__v_isShallow" /* ReactiveFlags.IS_SHALLOW */]);
+    return !!(value && value["__v_isShallow" /* IS_SHALLOW */]);
 }
 
 function initCustomFormatter() {
@@ -15029,7 +15113,7 @@ function isMemoSame(cached, memo) {
 }
 
 // Core API ------------------------------------------------------------------
-const version = "3.2.45";
+const version = "3.2.36";
 const _ssrUtils = {
     createComponentInstance,
     setupComponent,
@@ -15039,7 +15123,7 @@ const _ssrUtils = {
     normalizeVNode
 };
 /**
- * SSR utils for \@vue/server-renderer. Only exposed in ssr-possible builds.
+ * SSR utils for \@vue/server-renderer. Only exposed in cjs builds.
  * @internal
  */
 const ssrUtils = (_ssrUtils );
@@ -15211,8 +15295,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "withModifiers": () => (/* binding */ withModifiers),
 /* harmony export */   "withScopeId": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.withScopeId)
 /* harmony export */ });
-/* harmony import */ var _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @vue/runtime-core */ "./node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js");
 /* harmony import */ var _vue_shared__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @vue/shared */ "./node_modules/@vue/shared/dist/shared.esm-bundler.js");
+/* harmony import */ var _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @vue/runtime-core */ "./node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js");
 /* harmony import */ var _vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @vue/runtime-core */ "./node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js");
 
 
@@ -15253,6 +15337,22 @@ const nodeOps = {
     querySelector: selector => doc.querySelector(selector),
     setScopeId(el, id) {
         el.setAttribute(id, '');
+    },
+    cloneNode(el) {
+        const cloned = el.cloneNode(true);
+        // #3072
+        // - in `patchDOMProp`, we store the actual value in the `el._value` property.
+        // - normally, elements using `:value` bindings will not be hoisted, but if
+        //   the bound value is a constant, e.g. `:value="true"` - they do get
+        //   hoisted.
+        // - in production, hoisted nodes are cloned when subsequent inserts, but
+        //   cloneNode() does not copy the custom property we attached.
+        // - This may need to account for other custom DOM properties we attach to
+        //   elements in addition to `_value` in the future.
+        if (`_value` in el) {
+            cloned._value = el._value;
+        }
+        return cloned;
     },
     // __UNSAFE__
     // Reason: innerHTML.
@@ -15349,7 +15449,6 @@ function patchStyle(el, prev, next) {
         }
     }
 }
-const semicolonRE = /[^\\];\s*$/;
 const importantRE = /\s*!important$/;
 function setStyle(style, name, val) {
     if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isArray)(val)) {
@@ -15358,11 +15457,6 @@ function setStyle(style, name, val) {
     else {
         if (val == null)
             val = '';
-        if ((true)) {
-            if (semicolonRE.test(val)) {
-                (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.warn)(`Unexpected semicolon at the end of '${name}' style value: '${val}'`);
-            }
-        }
         if (name.startsWith('--')) {
             // custom property definition
             style.setProperty(name, val);
@@ -15471,6 +15565,7 @@ prevChildren, parentComponent, parentSuspense, unmountChildren) {
         }
         else if (type === 'number') {
             // e.g. <img :width="null">
+            // the value of some IDL attr must be greater than 0, e.g. input.size = 0 -> error
             value = 0;
             needRemove = true;
         }
@@ -15482,8 +15577,7 @@ prevChildren, parentComponent, parentSuspense, unmountChildren) {
         el[key] = value;
     }
     catch (e) {
-        // do not warn if value is auto-coerced from nullish values
-        if (( true) && !needRemove) {
+        if ((true)) {
             (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.warn)(`Failed setting prop "${key}" on <${el.tagName.toLowerCase()}>: ` +
                 `value ${value} is invalid.`, e);
         }
@@ -15491,6 +15585,36 @@ prevChildren, parentComponent, parentSuspense, unmountChildren) {
     needRemove && el.removeAttribute(key);
 }
 
+// Async edge case fix requires storing an event listener's attach timestamp.
+const [_getNow, skipTimestampCheck] = /*#__PURE__*/ (() => {
+    let _getNow = Date.now;
+    let skipTimestampCheck = false;
+    if (typeof window !== 'undefined') {
+        // Determine what event timestamp the browser is using. Annoyingly, the
+        // timestamp can either be hi-res (relative to page load) or low-res
+        // (relative to UNIX epoch), so in order to compare time we have to use the
+        // same timestamp type when saving the flush timestamp.
+        if (Date.now() > document.createEvent('Event').timeStamp) {
+            // if the low-res timestamp which is bigger than the event timestamp
+            // (which is evaluated AFTER) it means the event is using a hi-res timestamp,
+            // and we need to use the hi-res version for event listeners as well.
+            _getNow = performance.now.bind(performance);
+        }
+        // #3485: Firefox <= 53 has incorrect Event.timeStamp implementation
+        // and does not fire microtasks in between event propagation, so safe to exclude.
+        const ffMatch = navigator.userAgent.match(/firefox\/(\d+)/i);
+        skipTimestampCheck = !!(ffMatch && Number(ffMatch[1]) <= 53);
+    }
+    return [_getNow, skipTimestampCheck];
+})();
+// To avoid the overhead of repeatedly calling performance.now(), we cache
+// and use the same timestamp for all event listeners attached in the same tick.
+let cachedNow = 0;
+const p = /*#__PURE__*/ Promise.resolve();
+const reset = () => {
+    cachedNow = 0;
+};
+const getNow = () => cachedNow || (p.then(reset), (cachedNow = _getNow()));
 function addEventListener(el, event, handler, options) {
     el.addEventListener(event, handler, options);
 }
@@ -15530,35 +15654,20 @@ function parseName(name) {
             options[m[0].toLowerCase()] = true;
         }
     }
-    const event = name[2] === ':' ? name.slice(3) : (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hyphenate)(name.slice(2));
-    return [event, options];
+    return [(0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hyphenate)(name.slice(2)), options];
 }
-// To avoid the overhead of repeatedly calling Date.now(), we cache
-// and use the same timestamp for all event listeners attached in the same tick.
-let cachedNow = 0;
-const p = /*#__PURE__*/ Promise.resolve();
-const getNow = () => cachedNow || (p.then(() => (cachedNow = 0)), (cachedNow = Date.now()));
 function createInvoker(initialValue, instance) {
     const invoker = (e) => {
-        // async edge case vuejs/vue#6566
-        // inner click event triggers patch, event handler
+        // async edge case #6566: inner click event triggers patch, event handler
         // attached to outer element during patch, and triggered again. This
         // happens because browsers fire microtask ticks between event propagation.
-        // this no longer happens for templates in Vue 3, but could still be
-        // theoretically possible for hand-written render functions.
-        // the solution: we save the timestamp when a handler is attached,
-        // and also attach the timestamp to any event that was handled by vue
-        // for the first time (to avoid inconsistent event timestamp implementations
-        // or events fired from iframes, e.g. #2513)
-        // The handler would only fire if the event passed to it was fired
+        // the solution is simple: we save the timestamp when a handler is attached,
+        // and the handler would only fire if the event passed to it was fired
         // AFTER it was attached.
-        if (!e._vts) {
-            e._vts = Date.now();
+        const timeStamp = e.timeStamp || _getNow();
+        if (skipTimestampCheck || timeStamp >= invoker.attached - 1) {
+            (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.callWithAsyncErrorHandling)(patchStopImmediatePropagation(e, invoker.value), instance, 5 /* NATIVE_EVENT_HANDLER */, [e]);
         }
-        else if (e._vts <= invoker.attached) {
-            return;
-        }
-        (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.callWithAsyncErrorHandling)(patchStopImmediatePropagation(e, invoker.value), instance, 5 /* ErrorCodes.NATIVE_EVENT_HANDLER */, [e]);
     };
     invoker.value = initialValue;
     invoker.attached = getNow();
@@ -15692,21 +15801,12 @@ class VueElement extends BaseClass {
                     `defined as hydratable. Use \`defineSSRCustomElement\`.`);
             }
             this.attachShadow({ mode: 'open' });
-            if (!this._def.__asyncLoader) {
-                // for sync component defs we can immediately resolve props
-                this._resolveProps(this._def);
-            }
         }
     }
     connectedCallback() {
         this._connected = true;
         if (!this._instance) {
-            if (this._resolved) {
-                this._update();
-            }
-            else {
-                this._resolveDef();
-            }
+            this._resolveDef();
         }
     }
     disconnectedCallback() {
@@ -15722,6 +15822,9 @@ class VueElement extends BaseClass {
      * resolve inner component definition (handle possible async component)
      */
     _resolveDef() {
+        if (this._resolved) {
+            return;
+        }
         this._resolved = true;
         // set initial attrs
         for (let i = 0; i < this.attributes.length; i++) {
@@ -15733,26 +15836,38 @@ class VueElement extends BaseClass {
                 this._setAttr(m.attributeName);
             }
         }).observe(this, { attributes: true });
-        const resolve = (def, isAsync = false) => {
+        const resolve = (def) => {
             const { props, styles } = def;
+            const hasOptions = !(0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isArray)(props);
+            const rawKeys = props ? (hasOptions ? Object.keys(props) : props) : [];
             // cast Number-type props set before resolve
             let numberProps;
-            if (props && !(0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isArray)(props)) {
-                for (const key in props) {
+            if (hasOptions) {
+                for (const key in this._props) {
                     const opt = props[key];
                     if (opt === Number || (opt && opt.type === Number)) {
-                        if (key in this._props) {
-                            this._props[key] = (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.toNumber)(this._props[key]);
-                        }
-                        (numberProps || (numberProps = Object.create(null)))[(0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.camelize)(key)] = true;
+                        this._props[key] = (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.toNumber)(this._props[key]);
+                        (numberProps || (numberProps = Object.create(null)))[key] = true;
                     }
                 }
             }
             this._numberProps = numberProps;
-            if (isAsync) {
-                // defining getter/setters on prototype
-                // for sync defs, this already happened in the constructor
-                this._resolveProps(def);
+            // check if there are props set pre-upgrade or connect
+            for (const key of Object.keys(this)) {
+                if (key[0] !== '_') {
+                    this._setProp(key, this[key], true, false);
+                }
+            }
+            // defining getter/setters on prototype
+            for (const key of rawKeys.map(_vue_shared__WEBPACK_IMPORTED_MODULE_1__.camelize)) {
+                Object.defineProperty(this, key, {
+                    get() {
+                        return this._getProp(key);
+                    },
+                    set(val) {
+                        this._setProp(key, val);
+                    }
+                });
             }
             // apply CSS
             this._applyStyles(styles);
@@ -15761,40 +15876,18 @@ class VueElement extends BaseClass {
         };
         const asyncDef = this._def.__asyncLoader;
         if (asyncDef) {
-            asyncDef().then(def => resolve(def, true));
+            asyncDef().then(resolve);
         }
         else {
             resolve(this._def);
         }
     }
-    _resolveProps(def) {
-        const { props } = def;
-        const declaredPropKeys = (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isArray)(props) ? props : Object.keys(props || {});
-        // check if there are props set pre-upgrade or connect
-        for (const key of Object.keys(this)) {
-            if (key[0] !== '_' && declaredPropKeys.includes(key)) {
-                this._setProp(key, this[key], true, false);
-            }
-        }
-        // defining getter/setters on prototype
-        for (const key of declaredPropKeys.map(_vue_shared__WEBPACK_IMPORTED_MODULE_1__.camelize)) {
-            Object.defineProperty(this, key, {
-                get() {
-                    return this._getProp(key);
-                },
-                set(val) {
-                    this._setProp(key, val);
-                }
-            });
-        }
-    }
     _setAttr(key) {
         let value = this.getAttribute(key);
-        const camelKey = (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.camelize)(key);
-        if (this._numberProps && this._numberProps[camelKey]) {
+        if (this._numberProps && this._numberProps[key]) {
             value = (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.toNumber)(value);
         }
-        this._setProp(camelKey, value, false);
+        this._setProp((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.camelize)(key), value, false);
     }
     /**
      * @internal
@@ -15843,23 +15936,20 @@ class VueElement extends BaseClass {
                             this._styles.length = 0;
                         }
                         this._applyStyles(newStyles);
-                        this._instance = null;
-                        this._update();
+                        // if this is an async component, ceReload is called from the inner
+                        // component so no need to reload the async wrapper
+                        if (!this._def.__asyncLoader) {
+                            // reload
+                            this._instance = null;
+                            this._update();
+                        }
                     };
                 }
-                const dispatch = (event, args) => {
+                // intercept emit
+                instance.emit = (event, ...args) => {
                     this.dispatchEvent(new CustomEvent(event, {
                         detail: args
                     }));
-                };
-                // intercept emit
-                instance.emit = (event, ...args) => {
-                    // dispatch both the raw and hyphenated versions of an event
-                    // to match Vue behavior
-                    dispatch(event, args);
-                    if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hyphenate)(event) !== event) {
-                        dispatch((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hyphenate)(event), args);
-                    }
                 };
                 // locate nearest Vue custom element parent for provide/inject
                 let parent = this;
@@ -15867,7 +15957,6 @@ class VueElement extends BaseClass {
                     parent && (parent.parentNode || parent.host))) {
                     if (parent instanceof VueElement) {
                         instance.parent = parent._instance;
-                        instance.provides = parent._instance.provides;
                         break;
                     }
                 }
@@ -15925,14 +16014,7 @@ function useCssVars(getter) {
             (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.warn)(`useCssVars is called without current active component instance.`);
         return;
     }
-    const updateTeleports = (instance.ut = (vars = getter(instance.proxy)) => {
-        Array.from(document.querySelectorAll(`[data-v-owner="${instance.uid}"]`)).forEach(node => setVarsOnNode(node, vars));
-    });
-    const setVars = () => {
-        const vars = getter(instance.proxy);
-        setVarsOnVNode(instance.subTree, vars);
-        updateTeleports(vars);
-    };
+    const setVars = () => setVarsOnVNode(instance.subTree, getter(instance.proxy));
     (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.watchPostEffect)(setVars);
     (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onMounted)(() => {
         const ob = new MutationObserver(setVars);
@@ -15941,7 +16023,7 @@ function useCssVars(getter) {
     });
 }
 function setVarsOnVNode(vnode, vars) {
-    if (vnode.shapeFlag & 128 /* ShapeFlags.SUSPENSE */) {
+    if (vnode.shapeFlag & 128 /* SUSPENSE */) {
         const suspense = vnode.suspense;
         vnode = suspense.activeBranch;
         if (suspense.pendingBranch && !suspense.isHydrating) {
@@ -15954,7 +16036,7 @@ function setVarsOnVNode(vnode, vars) {
     while (vnode.component) {
         vnode = vnode.component.subTree;
     }
-    if (vnode.shapeFlag & 1 /* ShapeFlags.ELEMENT */ && vnode.el) {
+    if (vnode.shapeFlag & 1 /* ELEMENT */ && vnode.el) {
         setVarsOnNode(vnode.el, vars);
     }
     else if (vnode.type === _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.Fragment) {
@@ -16201,11 +16283,11 @@ function getTransitionInfo(el, expectedType) {
     const styles = window.getComputedStyle(el);
     // JSDOM may return undefined for transition properties
     const getStyleProperties = (key) => (styles[key] || '').split(', ');
-    const transitionDelays = getStyleProperties(`${TRANSITION}Delay`);
-    const transitionDurations = getStyleProperties(`${TRANSITION}Duration`);
+    const transitionDelays = getStyleProperties(TRANSITION + 'Delay');
+    const transitionDurations = getStyleProperties(TRANSITION + 'Duration');
     const transitionTimeout = getTimeout(transitionDelays, transitionDurations);
-    const animationDelays = getStyleProperties(`${ANIMATION}Delay`);
-    const animationDurations = getStyleProperties(`${ANIMATION}Duration`);
+    const animationDelays = getStyleProperties(ANIMATION + 'Delay');
+    const animationDurations = getStyleProperties(ANIMATION + 'Duration');
     const animationTimeout = getTimeout(animationDelays, animationDurations);
     let type = null;
     let timeout = 0;
@@ -16240,7 +16322,7 @@ function getTransitionInfo(el, expectedType) {
             : 0;
     }
     const hasTransform = type === TRANSITION &&
-        /\b(transform|all)(,|$)/.test(getStyleProperties(`${TRANSITION}Property`).toString());
+        /\b(transform|all)(,|$)/.test(styles[TRANSITION + 'Property']);
     return {
         type,
         timeout,
@@ -16958,6 +17040,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "isKnownSvgAttr": () => (/* binding */ isKnownSvgAttr),
 /* harmony export */   "isMap": () => (/* binding */ isMap),
 /* harmony export */   "isModelListener": () => (/* binding */ isModelListener),
+/* harmony export */   "isNoUnitNumericStyleProp": () => (/* binding */ isNoUnitNumericStyleProp),
 /* harmony export */   "isObject": () => (/* binding */ isObject),
 /* harmony export */   "isOn": () => (/* binding */ isOn),
 /* harmony export */   "isPlainObject": () => (/* binding */ isPlainObject),
@@ -17008,29 +17091,29 @@ function makeMap(str, expectsLowerCase) {
  * dev only flag -> name mapping
  */
 const PatchFlagNames = {
-    [1 /* PatchFlags.TEXT */]: `TEXT`,
-    [2 /* PatchFlags.CLASS */]: `CLASS`,
-    [4 /* PatchFlags.STYLE */]: `STYLE`,
-    [8 /* PatchFlags.PROPS */]: `PROPS`,
-    [16 /* PatchFlags.FULL_PROPS */]: `FULL_PROPS`,
-    [32 /* PatchFlags.HYDRATE_EVENTS */]: `HYDRATE_EVENTS`,
-    [64 /* PatchFlags.STABLE_FRAGMENT */]: `STABLE_FRAGMENT`,
-    [128 /* PatchFlags.KEYED_FRAGMENT */]: `KEYED_FRAGMENT`,
-    [256 /* PatchFlags.UNKEYED_FRAGMENT */]: `UNKEYED_FRAGMENT`,
-    [512 /* PatchFlags.NEED_PATCH */]: `NEED_PATCH`,
-    [1024 /* PatchFlags.DYNAMIC_SLOTS */]: `DYNAMIC_SLOTS`,
-    [2048 /* PatchFlags.DEV_ROOT_FRAGMENT */]: `DEV_ROOT_FRAGMENT`,
-    [-1 /* PatchFlags.HOISTED */]: `HOISTED`,
-    [-2 /* PatchFlags.BAIL */]: `BAIL`
+    [1 /* TEXT */]: `TEXT`,
+    [2 /* CLASS */]: `CLASS`,
+    [4 /* STYLE */]: `STYLE`,
+    [8 /* PROPS */]: `PROPS`,
+    [16 /* FULL_PROPS */]: `FULL_PROPS`,
+    [32 /* HYDRATE_EVENTS */]: `HYDRATE_EVENTS`,
+    [64 /* STABLE_FRAGMENT */]: `STABLE_FRAGMENT`,
+    [128 /* KEYED_FRAGMENT */]: `KEYED_FRAGMENT`,
+    [256 /* UNKEYED_FRAGMENT */]: `UNKEYED_FRAGMENT`,
+    [512 /* NEED_PATCH */]: `NEED_PATCH`,
+    [1024 /* DYNAMIC_SLOTS */]: `DYNAMIC_SLOTS`,
+    [2048 /* DEV_ROOT_FRAGMENT */]: `DEV_ROOT_FRAGMENT`,
+    [-1 /* HOISTED */]: `HOISTED`,
+    [-2 /* BAIL */]: `BAIL`
 };
 
 /**
  * Dev only
  */
 const slotFlagsText = {
-    [1 /* SlotFlags.STABLE */]: 'STABLE',
-    [2 /* SlotFlags.DYNAMIC */]: 'DYNAMIC',
-    [3 /* SlotFlags.FORWARDED */]: 'FORWARDED'
+    [1 /* STABLE */]: 'STABLE',
+    [2 /* DYNAMIC */]: 'DYNAMIC',
+    [3 /* FORWARDED */]: 'FORWARDED'
 };
 
 const GLOBALS_WHITE_LISTED = 'Infinity,undefined,NaN,isFinite,isNaN,parseFloat,parseInt,decodeURI,' +
@@ -17082,6 +17165,127 @@ function generateCodeFrame(source, start = 0, end = source.length) {
     return res.join('\n');
 }
 
+/**
+ * On the client we only need to offer special cases for boolean attributes that
+ * have different names from their corresponding dom properties:
+ * - itemscope -> N/A
+ * - allowfullscreen -> allowFullscreen
+ * - formnovalidate -> formNoValidate
+ * - ismap -> isMap
+ * - nomodule -> noModule
+ * - novalidate -> noValidate
+ * - readonly -> readOnly
+ */
+const specialBooleanAttrs = `itemscope,allowfullscreen,formnovalidate,ismap,nomodule,novalidate,readonly`;
+const isSpecialBooleanAttr = /*#__PURE__*/ makeMap(specialBooleanAttrs);
+/**
+ * The full list is needed during SSR to produce the correct initial markup.
+ */
+const isBooleanAttr = /*#__PURE__*/ makeMap(specialBooleanAttrs +
+    `,async,autofocus,autoplay,controls,default,defer,disabled,hidden,` +
+    `loop,open,required,reversed,scoped,seamless,` +
+    `checked,muted,multiple,selected`);
+/**
+ * Boolean attributes should be included if the value is truthy or ''.
+ * e.g. `<select multiple>` compiles to `{ multiple: '' }`
+ */
+function includeBooleanAttr(value) {
+    return !!value || value === '';
+}
+const unsafeAttrCharRE = /[>/="'\u0009\u000a\u000c\u0020]/;
+const attrValidationCache = {};
+function isSSRSafeAttrName(name) {
+    if (attrValidationCache.hasOwnProperty(name)) {
+        return attrValidationCache[name];
+    }
+    const isUnsafe = unsafeAttrCharRE.test(name);
+    if (isUnsafe) {
+        console.error(`unsafe attribute name: ${name}`);
+    }
+    return (attrValidationCache[name] = !isUnsafe);
+}
+const propsToAttrMap = {
+    acceptCharset: 'accept-charset',
+    className: 'class',
+    htmlFor: 'for',
+    httpEquiv: 'http-equiv'
+};
+/**
+ * CSS properties that accept plain numbers
+ */
+const isNoUnitNumericStyleProp = /*#__PURE__*/ makeMap(`animation-iteration-count,border-image-outset,border-image-slice,` +
+    `border-image-width,box-flex,box-flex-group,box-ordinal-group,column-count,` +
+    `columns,flex,flex-grow,flex-positive,flex-shrink,flex-negative,flex-order,` +
+    `grid-row,grid-row-end,grid-row-span,grid-row-start,grid-column,` +
+    `grid-column-end,grid-column-span,grid-column-start,font-weight,line-clamp,` +
+    `line-height,opacity,order,orphans,tab-size,widows,z-index,zoom,` +
+    // SVG
+    `fill-opacity,flood-opacity,stop-opacity,stroke-dasharray,stroke-dashoffset,` +
+    `stroke-miterlimit,stroke-opacity,stroke-width`);
+/**
+ * Known attributes, this is used for stringification of runtime static nodes
+ * so that we don't stringify bindings that cannot be set from HTML.
+ * Don't also forget to allow `data-*` and `aria-*`!
+ * Generated from https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
+ */
+const isKnownHtmlAttr = /*#__PURE__*/ makeMap(`accept,accept-charset,accesskey,action,align,allow,alt,async,` +
+    `autocapitalize,autocomplete,autofocus,autoplay,background,bgcolor,` +
+    `border,buffered,capture,challenge,charset,checked,cite,class,code,` +
+    `codebase,color,cols,colspan,content,contenteditable,contextmenu,controls,` +
+    `coords,crossorigin,csp,data,datetime,decoding,default,defer,dir,dirname,` +
+    `disabled,download,draggable,dropzone,enctype,enterkeyhint,for,form,` +
+    `formaction,formenctype,formmethod,formnovalidate,formtarget,headers,` +
+    `height,hidden,high,href,hreflang,http-equiv,icon,id,importance,integrity,` +
+    `ismap,itemprop,keytype,kind,label,lang,language,loading,list,loop,low,` +
+    `manifest,max,maxlength,minlength,media,min,multiple,muted,name,novalidate,` +
+    `open,optimum,pattern,ping,placeholder,poster,preload,radiogroup,readonly,` +
+    `referrerpolicy,rel,required,reversed,rows,rowspan,sandbox,scope,scoped,` +
+    `selected,shape,size,sizes,slot,span,spellcheck,src,srcdoc,srclang,srcset,` +
+    `start,step,style,summary,tabindex,target,title,translate,type,usemap,` +
+    `value,width,wrap`);
+/**
+ * Generated from https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute
+ */
+const isKnownSvgAttr = /*#__PURE__*/ makeMap(`xmlns,accent-height,accumulate,additive,alignment-baseline,alphabetic,amplitude,` +
+    `arabic-form,ascent,attributeName,attributeType,azimuth,baseFrequency,` +
+    `baseline-shift,baseProfile,bbox,begin,bias,by,calcMode,cap-height,class,` +
+    `clip,clipPathUnits,clip-path,clip-rule,color,color-interpolation,` +
+    `color-interpolation-filters,color-profile,color-rendering,` +
+    `contentScriptType,contentStyleType,crossorigin,cursor,cx,cy,d,decelerate,` +
+    `descent,diffuseConstant,direction,display,divisor,dominant-baseline,dur,dx,` +
+    `dy,edgeMode,elevation,enable-background,end,exponent,fill,fill-opacity,` +
+    `fill-rule,filter,filterRes,filterUnits,flood-color,flood-opacity,` +
+    `font-family,font-size,font-size-adjust,font-stretch,font-style,` +
+    `font-variant,font-weight,format,from,fr,fx,fy,g1,g2,glyph-name,` +
+    `glyph-orientation-horizontal,glyph-orientation-vertical,glyphRef,` +
+    `gradientTransform,gradientUnits,hanging,height,href,hreflang,horiz-adv-x,` +
+    `horiz-origin-x,id,ideographic,image-rendering,in,in2,intercept,k,k1,k2,k3,` +
+    `k4,kernelMatrix,kernelUnitLength,kerning,keyPoints,keySplines,keyTimes,` +
+    `lang,lengthAdjust,letter-spacing,lighting-color,limitingConeAngle,local,` +
+    `marker-end,marker-mid,marker-start,markerHeight,markerUnits,markerWidth,` +
+    `mask,maskContentUnits,maskUnits,mathematical,max,media,method,min,mode,` +
+    `name,numOctaves,offset,opacity,operator,order,orient,orientation,origin,` +
+    `overflow,overline-position,overline-thickness,panose-1,paint-order,path,` +
+    `pathLength,patternContentUnits,patternTransform,patternUnits,ping,` +
+    `pointer-events,points,pointsAtX,pointsAtY,pointsAtZ,preserveAlpha,` +
+    `preserveAspectRatio,primitiveUnits,r,radius,referrerPolicy,refX,refY,rel,` +
+    `rendering-intent,repeatCount,repeatDur,requiredExtensions,requiredFeatures,` +
+    `restart,result,rotate,rx,ry,scale,seed,shape-rendering,slope,spacing,` +
+    `specularConstant,specularExponent,speed,spreadMethod,startOffset,` +
+    `stdDeviation,stemh,stemv,stitchTiles,stop-color,stop-opacity,` +
+    `strikethrough-position,strikethrough-thickness,string,stroke,` +
+    `stroke-dasharray,stroke-dashoffset,stroke-linecap,stroke-linejoin,` +
+    `stroke-miterlimit,stroke-opacity,stroke-width,style,surfaceScale,` +
+    `systemLanguage,tabindex,tableValues,target,targetX,targetY,text-anchor,` +
+    `text-decoration,text-rendering,textLength,to,transform,transform-origin,` +
+    `type,u1,u2,underline-position,underline-thickness,unicode,unicode-bidi,` +
+    `unicode-range,units-per-em,v-alphabetic,v-hanging,v-ideographic,` +
+    `v-mathematical,values,vector-effect,version,vert-adv-y,vert-origin-x,` +
+    `vert-origin-y,viewBox,viewTarget,visibility,width,widths,word-spacing,` +
+    `writing-mode,x,x-height,x1,x2,xChannelSelector,xlink:actuate,xlink:arcrole,` +
+    `xlink:href,xlink:role,xlink:show,xlink:title,xlink:type,xml:base,xml:lang,` +
+    `xml:space,y,y1,y2,yChannelSelector,z,zoomAndPan`);
+
 function normalizeStyle(value) {
     if (isArray(value)) {
         const res = {};
@@ -17106,14 +17310,10 @@ function normalizeStyle(value) {
     }
 }
 const listDelimiterRE = /;(?![^(]*\))/g;
-const propertyDelimiterRE = /:([^]+)/;
-const styleCommentRE = /\/\*.*?\*\//gs;
+const propertyDelimiterRE = /:(.+)/;
 function parseStringStyle(cssText) {
     const ret = {};
-    cssText
-        .replace(styleCommentRE, '')
-        .split(listDelimiterRE)
-        .forEach(item => {
+    cssText.split(listDelimiterRE).forEach(item => {
         if (item) {
             const tmp = item.split(propertyDelimiterRE);
             tmp.length > 1 && (ret[tmp[0].trim()] = tmp[1].trim());
@@ -17129,7 +17329,8 @@ function stringifyStyle(styles) {
     for (const key in styles) {
         const value = styles[key];
         const normalizedKey = key.startsWith(`--`) ? key : hyphenate(key);
-        if (isString(value) || typeof value === 'number') {
+        if (isString(value) ||
+            (typeof value === 'number' && isNoUnitNumericStyleProp(normalizedKey))) {
             // only render valid values
             ret += `${normalizedKey}:${value};`;
         }
@@ -17209,115 +17410,6 @@ const isSVGTag = /*#__PURE__*/ makeMap(SVG_TAGS);
  * Do NOT use in runtime code paths unless behind `(process.env.NODE_ENV !== 'production')` flag.
  */
 const isVoidTag = /*#__PURE__*/ makeMap(VOID_TAGS);
-
-/**
- * On the client we only need to offer special cases for boolean attributes that
- * have different names from their corresponding dom properties:
- * - itemscope -> N/A
- * - allowfullscreen -> allowFullscreen
- * - formnovalidate -> formNoValidate
- * - ismap -> isMap
- * - nomodule -> noModule
- * - novalidate -> noValidate
- * - readonly -> readOnly
- */
-const specialBooleanAttrs = `itemscope,allowfullscreen,formnovalidate,ismap,nomodule,novalidate,readonly`;
-const isSpecialBooleanAttr = /*#__PURE__*/ makeMap(specialBooleanAttrs);
-/**
- * The full list is needed during SSR to produce the correct initial markup.
- */
-const isBooleanAttr = /*#__PURE__*/ makeMap(specialBooleanAttrs +
-    `,async,autofocus,autoplay,controls,default,defer,disabled,hidden,` +
-    `loop,open,required,reversed,scoped,seamless,` +
-    `checked,muted,multiple,selected`);
-/**
- * Boolean attributes should be included if the value is truthy or ''.
- * e.g. `<select multiple>` compiles to `{ multiple: '' }`
- */
-function includeBooleanAttr(value) {
-    return !!value || value === '';
-}
-const unsafeAttrCharRE = /[>/="'\u0009\u000a\u000c\u0020]/;
-const attrValidationCache = {};
-function isSSRSafeAttrName(name) {
-    if (attrValidationCache.hasOwnProperty(name)) {
-        return attrValidationCache[name];
-    }
-    const isUnsafe = unsafeAttrCharRE.test(name);
-    if (isUnsafe) {
-        console.error(`unsafe attribute name: ${name}`);
-    }
-    return (attrValidationCache[name] = !isUnsafe);
-}
-const propsToAttrMap = {
-    acceptCharset: 'accept-charset',
-    className: 'class',
-    htmlFor: 'for',
-    httpEquiv: 'http-equiv'
-};
-/**
- * Known attributes, this is used for stringification of runtime static nodes
- * so that we don't stringify bindings that cannot be set from HTML.
- * Don't also forget to allow `data-*` and `aria-*`!
- * Generated from https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
- */
-const isKnownHtmlAttr = /*#__PURE__*/ makeMap(`accept,accept-charset,accesskey,action,align,allow,alt,async,` +
-    `autocapitalize,autocomplete,autofocus,autoplay,background,bgcolor,` +
-    `border,buffered,capture,challenge,charset,checked,cite,class,code,` +
-    `codebase,color,cols,colspan,content,contenteditable,contextmenu,controls,` +
-    `coords,crossorigin,csp,data,datetime,decoding,default,defer,dir,dirname,` +
-    `disabled,download,draggable,dropzone,enctype,enterkeyhint,for,form,` +
-    `formaction,formenctype,formmethod,formnovalidate,formtarget,headers,` +
-    `height,hidden,high,href,hreflang,http-equiv,icon,id,importance,integrity,` +
-    `ismap,itemprop,keytype,kind,label,lang,language,loading,list,loop,low,` +
-    `manifest,max,maxlength,minlength,media,min,multiple,muted,name,novalidate,` +
-    `open,optimum,pattern,ping,placeholder,poster,preload,radiogroup,readonly,` +
-    `referrerpolicy,rel,required,reversed,rows,rowspan,sandbox,scope,scoped,` +
-    `selected,shape,size,sizes,slot,span,spellcheck,src,srcdoc,srclang,srcset,` +
-    `start,step,style,summary,tabindex,target,title,translate,type,usemap,` +
-    `value,width,wrap`);
-/**
- * Generated from https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute
- */
-const isKnownSvgAttr = /*#__PURE__*/ makeMap(`xmlns,accent-height,accumulate,additive,alignment-baseline,alphabetic,amplitude,` +
-    `arabic-form,ascent,attributeName,attributeType,azimuth,baseFrequency,` +
-    `baseline-shift,baseProfile,bbox,begin,bias,by,calcMode,cap-height,class,` +
-    `clip,clipPathUnits,clip-path,clip-rule,color,color-interpolation,` +
-    `color-interpolation-filters,color-profile,color-rendering,` +
-    `contentScriptType,contentStyleType,crossorigin,cursor,cx,cy,d,decelerate,` +
-    `descent,diffuseConstant,direction,display,divisor,dominant-baseline,dur,dx,` +
-    `dy,edgeMode,elevation,enable-background,end,exponent,fill,fill-opacity,` +
-    `fill-rule,filter,filterRes,filterUnits,flood-color,flood-opacity,` +
-    `font-family,font-size,font-size-adjust,font-stretch,font-style,` +
-    `font-variant,font-weight,format,from,fr,fx,fy,g1,g2,glyph-name,` +
-    `glyph-orientation-horizontal,glyph-orientation-vertical,glyphRef,` +
-    `gradientTransform,gradientUnits,hanging,height,href,hreflang,horiz-adv-x,` +
-    `horiz-origin-x,id,ideographic,image-rendering,in,in2,intercept,k,k1,k2,k3,` +
-    `k4,kernelMatrix,kernelUnitLength,kerning,keyPoints,keySplines,keyTimes,` +
-    `lang,lengthAdjust,letter-spacing,lighting-color,limitingConeAngle,local,` +
-    `marker-end,marker-mid,marker-start,markerHeight,markerUnits,markerWidth,` +
-    `mask,maskContentUnits,maskUnits,mathematical,max,media,method,min,mode,` +
-    `name,numOctaves,offset,opacity,operator,order,orient,orientation,origin,` +
-    `overflow,overline-position,overline-thickness,panose-1,paint-order,path,` +
-    `pathLength,patternContentUnits,patternTransform,patternUnits,ping,` +
-    `pointer-events,points,pointsAtX,pointsAtY,pointsAtZ,preserveAlpha,` +
-    `preserveAspectRatio,primitiveUnits,r,radius,referrerPolicy,refX,refY,rel,` +
-    `rendering-intent,repeatCount,repeatDur,requiredExtensions,requiredFeatures,` +
-    `restart,result,rotate,rx,ry,scale,seed,shape-rendering,slope,spacing,` +
-    `specularConstant,specularExponent,speed,spreadMethod,startOffset,` +
-    `stdDeviation,stemh,stemv,stitchTiles,stop-color,stop-opacity,` +
-    `strikethrough-position,strikethrough-thickness,string,stroke,` +
-    `stroke-dasharray,stroke-dashoffset,stroke-linecap,stroke-linejoin,` +
-    `stroke-miterlimit,stroke-opacity,stroke-width,style,surfaceScale,` +
-    `systemLanguage,tabindex,tableValues,target,targetX,targetY,text-anchor,` +
-    `text-decoration,text-rendering,textLength,to,transform,transform-origin,` +
-    `type,u1,u2,underline-position,underline-thickness,unicode,unicode-bidi,` +
-    `unicode-range,units-per-em,v-alphabetic,v-hanging,v-ideographic,` +
-    `v-mathematical,values,vector-effect,version,vert-adv-y,vert-origin-x,` +
-    `vert-origin-y,viewBox,viewTarget,visibility,width,widths,word-spacing,` +
-    `writing-mode,x,x-height,x1,x2,xChannelSelector,xlink:actuate,xlink:arcrole,` +
-    `xlink:href,xlink:role,xlink:show,xlink:title,xlink:type,xml:base,xml:lang,` +
-    `xml:space,y,y1,y2,yChannelSelector,z,zoomAndPan`);
 
 const escapeRE = /["'&<>]/;
 function escapeHtml(string) {
@@ -19632,6 +19724,3589 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Builders.vue?vue&type=script&lang=js":
+/*!**************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Builders.vue?vue&type=script&lang=js ***!
+  \**************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      bundles: []
+    };
+  },
+  created: function created() {
+    var self = this;
+    setTimeout(function () {
+      self.getBuilders();
+    }, 2000);
+  },
+  methods: {
+    getBuilders: function getBuilders() {
+      var _this = this;
+      axios.get("/api/bundle").then(function (res) {
+        _this.bundles = res.data;
+        console.log('bundles', _this.bundles);
+      });
+    },
+    editBundle: function editBundle(id) {
+      console.log('edit bundle---', id);
+      this.$router.push({
+        path: "/bundle/".concat(id, "/edit")
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/CreateBuilder.vue?vue&type=script&lang=js":
+/*!*******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/CreateBuilder.vue?vue&type=script&lang=js ***!
+  \*******************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _TabNav_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TabNav.vue */ "./resources/js/components/TabNav.vue");
+/* harmony import */ var _Tab_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Tab.vue */ "./resources/js/components/Tab.vue");
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    TabNav: _TabNav_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Tab: _Tab_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      step: 1,
+      bundle: {
+        bundle_name: '',
+        product_name: '',
+        bundle_type: 'Multiple sections',
+        discount_type: 'Flat discount',
+        type_off: 'Percentage discount',
+        discount_value: '',
+        sections: [],
+        settings: {
+          product_image: '',
+          header_image: '',
+          add_note_field: false,
+          show_bundle_desc: false,
+          show_product_desc: false
+        }
+      },
+      selected: 'Setup',
+      isPickerOpen: false,
+      showCreateSection: false,
+      section: {
+        title: '',
+        desc: '',
+        items: []
+      }
+    };
+  },
+  watch: {
+    isPickerOpen: function isPickerOpen(newValue) {
+      console.log('qwerty=', newValue);
+    }
+  },
+  computed: {
+    computedMethod: function computedMethod() {
+      return this.selected.toUpperCase();
+    }
+  },
+  methods: {
+    next: function next() {
+      this.step++;
+    },
+    setSelected: function setSelected(tab) {
+      this.selected = tab;
+    },
+    openProductPicker: function openProductPicker() {
+      this.isPickerOpen = true;
+      productPicker.dispatch(ResourcePicker.Action.OPEN);
+    },
+    removeItem: function removeItem(i) {
+      var items = this.section.items;
+      items.splice(i, 1);
+      this.section.items = items;
+    },
+    addNewSection: function addNewSection() {
+      this.section = {
+        title: '',
+        desc: '',
+        items: []
+      };
+      this.showCreateSection = !this.showCreateSection;
+    },
+    saveSection: function saveSection() {
+      this.section.items = window.products;
+      this.bundle.sections.push(this.section);
+      this.section = {
+        title: '',
+        desc: '',
+        items: []
+      };
+      this.showCreateSection = false;
+    },
+    editSection: function editSection(sec) {
+      this.section = {
+        title: sec.title,
+        desc: sec.desc,
+        items: sec.items
+      };
+      this.showCreateSection = true;
+    },
+    removeSection: function removeSection(i) {
+      var sections = this.sections;
+      sections.splice(i, 1);
+      this.sections = sections;
+    },
+    saveBundle: function saveBundle() {
+      var _this = this;
+      axios.post('/api/bundle', this.bundle).then(function (response) {
+        // this.orders = response.data.orders;
+        _this.$router.push({
+          name: 'home'
+        });
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EditBuilder.vue?vue&type=script&lang=js":
+/*!*****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EditBuilder.vue?vue&type=script&lang=js ***!
+  \*****************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _TabNav_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TabNav.vue */ "./resources/js/components/TabNav.vue");
+/* harmony import */ var _Tab_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Tab.vue */ "./resources/js/components/Tab.vue");
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    TabNav: _TabNav_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Tab: _Tab_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      step: 1,
+      bundle: {},
+      selected: 'Setup',
+      isPickerOpen: false,
+      showCreateSection: false,
+      section: {
+        title: '',
+        desc: '',
+        items: []
+      }
+    };
+  },
+  watch: {
+    isPickerOpen: function isPickerOpen(newValue) {
+      console.log('qwerty=', newValue);
+    }
+  },
+  created: function created() {
+    var _this = this;
+    axios.get("/api/bundle/".concat(this.$route.params.id, "/edit")).then(function (response) {
+      console.log('+++', response);
+      _this.bundle = response.data;
+    });
+    console.log('edit builder', this.bundle);
+  },
+  methods: {
+    next: function next() {
+      this.step++;
+    },
+    setSelected: function setSelected(tab) {
+      this.selected = tab;
+    },
+    openProductPicker: function openProductPicker() {
+      this.isPickerOpen = true;
+      productPicker.dispatch(ResourcePicker.Action.OPEN);
+    },
+    removeItem: function removeItem(i) {
+      var items = this.section.items;
+      items.splice(i, 1);
+      this.section.items = items;
+    },
+    addNewSection: function addNewSection() {
+      this.section = {
+        title: '',
+        desc: '',
+        items: []
+      };
+      this.showCreateSection = !this.showCreateSection;
+    },
+    saveSection: function saveSection() {
+      this.section.items = window.products;
+      this.bundle.sections.push(this.section);
+      this.section = {
+        title: '',
+        desc: '',
+        items: []
+      };
+      this.showCreateSection = false;
+    },
+    editSection: function editSection(sec) {
+      this.section = {
+        title: sec.title,
+        desc: sec.desc,
+        items: sec.items
+      };
+      this.showCreateSection = true;
+    },
+    removeSection: function removeSection(i) {
+      var sections = this.sections;
+      sections.splice(i, 1);
+      this.sections = sections;
+    },
+    saveBundle: function saveBundle() {
+      var _this2 = this;
+      axios.put("/api/bundle/".concat(this.bundle.id), this.bundle).then(function (response) {
+        _this2.$router.push({
+          name: 'home'
+        });
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Tab.vue?vue&type=script&lang=js":
+/*!*********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Tab.vue?vue&type=script&lang=js ***!
+  \*********************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    isSelected: {
+      type: Boolean
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/TabNav.vue?vue&type=script&lang=js":
+/*!************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/TabNav.vue?vue&type=script&lang=js ***!
+  \************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    tabs: {
+      type: Array,
+      required: true
+    },
+    selected: {
+      type: String,
+      required: true
+    }
+  },
+  methods: {
+    setTab: function setTab(tab) {
+      this.$emit('selected', tab);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Builders.vue?vue&type=template&id=13843da3":
+/*!******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Builders.vue?vue&type=template&id=13843da3 ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "Polaris-Page-Header Polaris-Page-Header--hasNavigation Polaris-Page-Header--mediumTitle"
+};
+var _hoisted_2 = {
+  "class": "Polaris-Page-Header__Row"
+};
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Page-Header__TitleWrapper"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "Polaris-Header-Title"
+}, "Bundles")], -1 /* HOISTED */);
+var _hoisted_4 = {
+  "class": "Polaris-Page-Header__RightAlign"
+};
+var _hoisted_5 = {
+  "class": "Polaris-Page-Header__PrimaryActionWrapper"
+};
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Create new bundle")], -1 /* HOISTED */);
+var _hoisted_7 = [_hoisted_6];
+var _hoisted_8 = {
+  "class": "Polaris-Layout builders-page"
+};
+var _hoisted_9 = {
+  "class": "Polaris-Layout__Section"
+};
+var _hoisted_10 = {
+  key: 0,
+  "class": "Polaris-Card"
+};
+var _hoisted_11 = {
+  "class": "Polaris-ResourceList__ResourceListWrapper"
+};
+var _hoisted_12 = {
+  "class": "Polaris-ResourceList",
+  "aria-live": "polite"
+};
+var _hoisted_13 = {
+  "class": "Polaris-ResourceItem__ListItem"
+};
+var _hoisted_14 = {
+  "class": "Polaris-ResourceItem__ItemWrapper"
+};
+var _hoisted_15 = {
+  "class": "Polaris-ResourceItem Polaris-ResourceItem--persistActions",
+  "data-href": "customers/341"
+};
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "aria-describedby": "110",
+  "aria-label": "View details for Mae Jemison",
+  "class": "Polaris-ResourceItem__Link",
+  tabindex: "0",
+  id: "PolarisResourceListItemOverlay4",
+  href: "customers/341",
+  "data-polaris-unstyled": "true"
+}, null, -1 /* HOISTED */);
+var _hoisted_17 = {
+  "class": "Polaris-ResourceItem__Container",
+  id: "110"
+};
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-ResourceItem__Owned"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-ResourceItem__Media"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "aria-label": "Mae Jemison",
+  role: "img",
+  "class": "Polaris-Avatar Polaris-Avatar--sizeMedium Polaris-Avatar--shapeRound"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Avatar__Initials"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  "class": "Polaris-Avatar__Svg",
+  viewBox: "0 0 40 40"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  fill: "currentColor",
+  d: "M8.28 27.5A14.95 14.95 0 0120 21.8c4.76 0 8.97 2.24 11.72 5.7a14.02 14.02 0 01-8.25 5.91 14.82 14.82 0 01-6.94 0 14.02 14.02 0 01-8.25-5.9zM13.99 12.78a6.02 6.02 0 1112.03 0 6.02 6.02 0 01-12.03 0z"
+})])])])])], -1 /* HOISTED */);
+var _hoisted_19 = {
+  "class": "Polaris-ResourceItem__Content"
+};
+var _hoisted_20 = {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--bold"
+};
+var _hoisted_21 = {
+  "class": "Polaris-ResourceItem__Actions"
+};
+var _hoisted_22 = {
+  "class": "Polaris-Badge"
+};
+var _hoisted_23 = {
+  "class": "Polaris-Text--root Polaris-Text--bodySm Polaris-Text--regular"
+};
+var _hoisted_24 = {
+  "class": "Polaris-ButtonGroup Polaris-ButtonGroup--segmented",
+  "data-buttongroup-segmented": "true"
+};
+var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-ButtonGroup__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "Polaris-Button",
+  type: "button"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "View")])])], -1 /* HOISTED */);
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Edit ");
+var _hoisted_27 = {
+  "class": "Polaris-ButtonGroup__Item"
+};
+var _hoisted_28 = ["onClick"];
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Edit")], -1 /* HOISTED */);
+var _hoisted_30 = [_hoisted_29];
+var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-ButtonGroup__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "Polaris-Button",
+  type: "button"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Delete")])])], -1 /* HOISTED */);
+var _hoisted_32 = {
+  key: 1,
+  "class": "Polaris-EmptyState Polaris-EmptyState--imageContained"
+};
+var _hoisted_33 = {
+  "class": "Polaris-EmptyState__Section"
+};
+var _hoisted_34 = {
+  "class": "Polaris-EmptyState__DetailsContainer"
+};
+var _hoisted_35 = {
+  "class": "Polaris-EmptyState__Details"
+};
+var _hoisted_36 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"Polaris-TextContainer\"><p class=\"Polaris-Text--root Polaris-Text--headingXl Polaris-Text--semibold\">Get started</p><div class=\"Polaris-EmptyState__Content\"><span class=\"Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular Polaris-Text--subdued\"><p>Create your first bundle by clicking below</p><div id=\"calendly-modal\"></div></span></div></div>", 1);
+var _hoisted_37 = {
+  "class": "Polaris-EmptyState__Actions"
+};
+var _hoisted_38 = {
+  "class": "Polaris-Stack Polaris-Stack--spacingTight Polaris-Stack--distributionCenter Polaris-Stack--alignmentCenter"
+};
+var _hoisted_39 = {
+  "class": "Polaris-Stack__Item"
+};
+var _hoisted_40 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Create new bundle")], -1 /* HOISTED */);
+var _hoisted_41 = [_hoisted_40];
+var _hoisted_42 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-EmptyState__ImageContainer"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  alt: "",
+  src: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIgogICB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIKICAgd2lkdGg9IjYyNCIKICAgaGVpZ2h0PSIzOTkiCiAgIHZpZXdCb3g9IjAgMCA2MjQgMzk5IgogICBmaWxsPSJub25lIgogICB2ZXJzaW9uPSIxLjEiCiAgIGlkPSJzdmcyODciCiAgIHNvZGlwb2RpOmRvY25hbWU9ImJiLXdlbGNvbWUuc3ZnIgogICBpbmtzY2FwZTp2ZXJzaW9uPSIxLjAuMSAoM2JjMmU4MTNmNSwgMjAyMC0wOS0wNykiPgogIDxtZXRhZGF0YQogICAgIGlkPSJtZXRhZGF0YTI5MSI+CiAgICA8cmRmOlJERj4KICAgICAgPGNjOldvcmsKICAgICAgICAgcmRmOmFib3V0PSIiPgogICAgICAgIDxkYzpmb3JtYXQ+aW1hZ2Uvc3ZnK3htbDwvZGM6Zm9ybWF0PgogICAgICAgIDxkYzp0eXBlCiAgICAgICAgICAgcmRmOnJlc291cmNlPSJodHRwOi8vcHVybC5vcmcvZGMvZGNtaXR5cGUvU3RpbGxJbWFnZSIgLz4KICAgICAgICA8ZGM6dGl0bGU+PC9kYzp0aXRsZT4KICAgICAgPC9jYzpXb3JrPgogICAgPC9yZGY6UkRGPgogIDwvbWV0YWRhdGE+CiAgPHNvZGlwb2RpOm5hbWVkdmlldwogICAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgICBib3JkZXJjb2xvcj0iIzY2NjY2NiIKICAgICBib3JkZXJvcGFjaXR5PSIxIgogICAgIG9iamVjdHRvbGVyYW5jZT0iMTAiCiAgICAgZ3JpZHRvbGVyYW5jZT0iMTAiCiAgICAgZ3VpZGV0b2xlcmFuY2U9IjEwIgogICAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwIgogICAgIGlua3NjYXBlOnBhZ2VzaGFkb3c9IjIiCiAgICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIyNDg2IgogICAgIGlua3NjYXBlOndpbmRvdy1oZWlnaHQ9IjE0MTYiCiAgICAgaWQ9Im5hbWVkdmlldzI4OSIKICAgICBzaG93Z3JpZD0iZmFsc2UiCiAgICAgaW5rc2NhcGU6em9vbT0iMS43OTE5Nzk5IgogICAgIGlua3NjYXBlOmN4PSIzMTIiCiAgICAgaW5rc2NhcGU6Y3k9IjE5OS41IgogICAgIGlua3NjYXBlOndpbmRvdy14PSIwIgogICAgIGlua3NjYXBlOndpbmRvdy15PSIwIgogICAgIGlua3NjYXBlOndpbmRvdy1tYXhpbWl6ZWQ9IjEiCiAgICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnMjg3IgogICAgIGlua3NjYXBlOnBhZ2VjaGVja2VyYm9hcmQ9InRydWUiIC8+CiAgPGcKICAgICBjbGlwLXBhdGg9InVybCgjY2xpcDApIgogICAgIGlkPSJnMjgwIj4KICAgIDxwYXRoCiAgICAgICBkPSJNNjc2LjU4MiAwSDBWMzk4LjU2SDY3Ni41ODJWMFoiCiAgICAgICBmaWxsPSIjRjNGNUY3IgogICAgICAgaWQ9InBhdGgyIgogICAgICAgc3R5bGU9ImZpbGw6bm9uZTtmaWxsLW9wYWNpdHk6MSIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNDczLjk0NiA2OS42MzU3SDE0MS4yNDVWMjg0Ljc1Nkg0NzMuOTQ2VjY5LjYzNTdaIgogICAgICAgZmlsbD0iI0QxRDREOSIKICAgICAgIGlkPSJwYXRoNCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNDczLjk0NiA1OS45MTI4SDE0MS4yNDVWMjc1LjAzM0g0NzMuOTQ2VjU5LjkxMjhaIgogICAgICAgZmlsbD0iI0YzRjVGNyIKICAgICAgIHN0cm9rZT0iI0QxRDREOSIKICAgICAgIHN0cm9rZS13aWR0aD0iMC45OTgyMjQiCiAgICAgICBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiCiAgICAgICBpZD0icGF0aDYiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTQ2MC44NjUgNzQuODIxM0gxNTQuMzIzVjI2MC4xMjVINDYwLjg2NVY3NC44MjEzWiIKICAgICAgIGZpbGw9IiNGM0Y1RjciCiAgICAgICBpZD0icGF0aDgiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTIzNi4wNjcgMTU4LjE5MkgxNTQuMzI2VjEyMS43MjhDMTYyLjM5IDEzMC4xMzIgMTcwLjEwMyAxNDQuMDY4IDE3MC4xMDMgMTQ0LjA2OEMxNzAuMTAzIDE0NC4wNjggMTY1LjMyNiA5My4xNDU5IDE3Ny4zNzMgOTEuNTgzN0MxODkuNDE5IDkwLjAyMTUgMjExLjExNSAxNDkuMDM3IDIxMS4xMTUgMTQ5LjAzN0MyMTEuMTE1IDE0OS4wMzcgMjExLjI4IDE0MS41ODIgMjIwLjE1NyAxMzEuNjQ5QzIyOS4wMzQgMTIxLjcxNSAyMzYuMDY3IDE1OC4xOTIgMjM2LjA2NyAxNTguMTkyWiIKICAgICAgIGZpbGw9IndoaXRlIgogICAgICAgaWQ9InBhdGgxMCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNDkzLjk5NCAyMTMuNzAxSDM1MS4zNjhDMzUxLjM2OCAyMTMuNzAxIDM1OC40MDEgMTc3LjIyIDM2Ny4yNzggMTg3LjE1N0MzNzYuMTU1IDE5Ny4wOTQgMzc2LjMyMSAyMDQuNTQ1IDM3Ni4zMjEgMjA0LjU0NUMzNzYuMzIxIDIwNC41NDUgMzk4LjAxMyAxNDUuNTI3IDQxMC4wNTkgMTQ3LjA5MkM0MjIuMTA2IDE0OC42NTggNDE3LjMzMiAxOTkuNTc3IDQxNy4zMzIgMTk5LjU3N0M0MTcuMzMyIDE5OS41NzcgNDMzLjE0MiAxNzEuMDExIDQ0My4xNTMgMTcxLjAxMUM0NTMuMTY0IDE3MS4wMTEgNDQzLjgzNyAyMDQuNTQ1IDQ0My44MzcgMjA0LjU0NUM0NDMuODM3IDIwNC41NDUgNDcyLjAzMyAxODQuNjcxIDQ3NC4zOSAxOTQuNjA4QzQ3Ni43NDYgMjA0LjU0NSA1MDEuMjkzIDE4NC4zNTQgNDkzLjk5NCAyMTMuNzAxWiIKICAgICAgIGZpbGw9IndoaXRlIgogICAgICAgaWQ9InBhdGgxMiIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNDczLjk0NiAyNzUuMDMzTDQ2MC44NjggMjYwLjEyNVY3NC44MjEzIgogICAgICAgc3Ryb2tlPSIjREZFM0VGIgogICAgICAgc3Ryb2tlLXdpZHRoPSIwLjk5ODIyNCIKICAgICAgIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIKICAgICAgIGlkPSJwYXRoMTQiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTE1NC4zMjYgNzQuODIxM1YxMjEuNzI4VjE1OC4xOTJWMjYwLjEyNUg0NjAuODY4IgogICAgICAgc3Ryb2tlPSIjRDFENEQ5IgogICAgICAgc3Ryb2tlLXdpZHRoPSIwLjk5ODIyNCIKICAgICAgIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIKICAgICAgIGlkPSJwYXRoMTYiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTQ3My45NDYgNTkuOTEyOEw0NjAuODY4IDc0LjgyMTRIMTU0LjMyNkwxNDEuMjQ1IDU5LjkxMjgiCiAgICAgICBzdHJva2U9IiNERkUzRUYiCiAgICAgICBzdHJva2Utd2lkdGg9IjAuOTk4MjI0IgogICAgICAgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIgogICAgICAgaWQ9InBhdGgxOCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNTI4LjI3NyA1Mi45OTMySDgwLjE5MTdWNjEuMjA5MUg1MjguMjc3VjUyLjk5MzJaIgogICAgICAgZmlsbD0iIzZENzE3NiIKICAgICAgIGlkPSJwYXRoMjAiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTE3OC41MDQgNDEuMzI1N0MxNzIuNDU2IDQxLjMyNTcgMTcyLjk0MiA0Ny40MTIzIDE2Mi44NTMgNDcuNDEyM0MxNTIuNzY0IDQ3LjQxMjMgMTU2LjY3OSA0MS4zMjU3IDE1MC44NDIgNDEuMzI1N0MxNDUuMDA1IDQxLjMyNTcgMTQ0LjM2IDQ3LjQxMjMgMTM3LjM5NSA0Ny40MTIzQzEzMC40MyA0Ny40MTIzIDEzMC4xMDMgNDEuMzI1NyAxMjUuNTA3IDQxLjMyNTdDMTIwLjkxMSA0MS4zMjU3IDExMy44OTggNDcuNDEyMyAxMDguNjEyIDQ3LjQxMjNDMTAzLjMyNiA0Ny40MTIzIDEwMy41MjcgNDEuMzI1NyA5OC40ODcxIDQxLjMyNTdDOTMuNDQ3MyA0MS4zMjU3IDg5LjUwOTUgNDcuNDEyMyA4OS41MDk1IDQ3LjQxMjNWMzQ5Ljc0OEgxODQuMjE0VjQ3LjQxMjNDMTg0LjIxNCA0Ny40MTIzIDE4NC41NTEgNDEuMzI1NyAxNzguNTA0IDQxLjMyNTdaIgogICAgICAgZmlsbD0iI0QxRDREOSIKICAgICAgIGlkPSJwYXRoMjIiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTEwOC42MTIgMzU0LjQwNVY1OS45MTI4IgogICAgICAgc3Ryb2tlPSIjRjNGNUY3IgogICAgICAgc3Ryb2tlLXdpZHRoPSIwLjk3MjI5NiIKICAgICAgIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIKICAgICAgIGlkPSJwYXRoMjQiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTEzNC41NCAzNTQuNDA1VjU5LjkxMjgiCiAgICAgICBzdHJva2U9IiNGM0Y1RjciCiAgICAgICBzdHJva2Utd2lkdGg9IjAuOTcyMjk2IgogICAgICAgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIgogICAgICAgaWQ9InBhdGgyNiIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNMTYwLjQ2OCAzNTQuNDA1VjU5LjkxMjgiCiAgICAgICBzdHJva2U9IiNGM0Y1RjciCiAgICAgICBzdHJva2Utd2lkdGg9IjAuOTcyMjk2IgogICAgICAgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIgogICAgICAgaWQ9InBhdGgyOCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNDMwLjEyNCA0MS4zMjU3QzQzNi4xNzIgNDEuMzI1NyA0MzUuNjg2IDQ3LjQxMjMgNDQ1Ljc3NSA0Ny40MTIzQzQ1NS44NjQgNDcuNDEyMyA0NTEuOTMzIDQxLjMyNTcgNDU3Ljc4NiA0MS4zMjU3QzQ2My42MzkgNDEuMzI1NyA0NjQuMjY4IDQ3LjQxMjMgNDcxLjIzMyA0Ny40MTIzQzQ3OC4xOTggNDcuNDEyMyA0NzguNTI1IDQxLjMyNTcgNDgzLjEyMSA0MS4zMjU3QzQ4Ny43MTYgNDEuMzI1NyA0OTQuNzMgNDcuNDEyMyA1MDAuMDE2IDQ3LjQxMjNDNTA1LjMwMiA0Ny40MTIzIDUwNS4xMDEgNDEuMzI1NyA1MTAuMTQxIDQxLjMyNTdDNTE1LjE4MSA0MS4zMjU3IDUxOS4xMTggNDcuNDEyMyA1MTkuMTE4IDQ3LjQxMjNWMzQ5Ljc0OEg0MjQuNDE0VjQ3LjQxMjNDNDI0LjQxNCA0Ny40MTIzIDQyNC4wNzYgNDEuMzI1NyA0MzAuMTI0IDQxLjMyNTdaIgogICAgICAgZmlsbD0iI0QxRDREOSIKICAgICAgIGlkPSJwYXRoMzAiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTUwMC4wMTYgMzU0LjQwNVY1OS45MTI4IgogICAgICAgc3Ryb2tlPSIjRjNGNUY3IgogICAgICAgc3Ryb2tlLXdpZHRoPSIwLjk3MjI5NiIKICAgICAgIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIKICAgICAgIGlkPSJwYXRoMzIiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTQ3NC4wODggMzU0LjQwNVY1OS45MTI4IgogICAgICAgc3Ryb2tlPSIjRjNGNUY3IgogICAgICAgc3Ryb2tlLXdpZHRoPSIwLjk3MjI5NiIKICAgICAgIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIKICAgICAgIGlkPSJwYXRoMzQiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTQ0OC4xNiAzNTQuNDA1VjU5LjkxMjgiCiAgICAgICBzdHJva2U9IiNGM0Y1RjciCiAgICAgICBzdHJva2Utd2lkdGg9IjAuOTcyMjk2IgogICAgICAgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIgogICAgICAgaWQ9InBhdGgzNiIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNTAyLjU2MyAxOTEuMTc5SDQxMC4yMThWMjQwLjA5OUg1MDIuNTYzVjE5MS4xNzlaIgogICAgICAgZmlsbD0iI0YzRjVGNyIKICAgICAgIGlkPSJwYXRoMzgiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTQ5NS4xMDYgMTkxLjE3OVYyNDAuMDk5IgogICAgICAgc3Ryb2tlPSIjQTFBNUFBIgogICAgICAgc3Ryb2tlLXdpZHRoPSIwLjkxMzk1OCIKICAgICAgIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIKICAgICAgIGlkPSJwYXRoNDAiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTQ4NS4zODMgMTkxLjE3OVYyNDAuMDk5IgogICAgICAgc3Ryb2tlPSIjQTFBNUFBIgogICAgICAgc3Ryb2tlLXdpZHRoPSIwLjkxMzk1OCIKICAgICAgIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIKICAgICAgIGlkPSJwYXRoNDIiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTQ3NS42NiAxOTEuMTc5VjI0MC4wOTkiCiAgICAgICBzdHJva2U9IiNBMUE1QUEiCiAgICAgICBzdHJva2Utd2lkdGg9IjAuOTEzOTU4IgogICAgICAgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIgogICAgICAgaWQ9InBhdGg0NCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNDY1LjkzNyAxOTEuMTc5VjI0MC4wOTkiCiAgICAgICBzdHJva2U9IiNBMUE1QUEiCiAgICAgICBzdHJva2Utd2lkdGg9IjAuOTEzOTU4IgogICAgICAgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIgogICAgICAgaWQ9InBhdGg0NiIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNDU2LjIxNCAxOTEuMTc5VjI0MC4wOTkiCiAgICAgICBzdHJva2U9IiNBMUE1QUEiCiAgICAgICBzdHJva2Utd2lkdGg9IjAuOTEzOTU4IgogICAgICAgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIgogICAgICAgaWQ9InBhdGg0OCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNDQ2LjQ5MSAxOTEuMTc5VjI0MC4wOTkiCiAgICAgICBzdHJva2U9IiNBMUE1QUEiCiAgICAgICBzdHJva2Utd2lkdGg9IjAuOTEzOTU4IgogICAgICAgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIgogICAgICAgaWQ9InBhdGg1MCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNDM2Ljc2OCAxOTEuMTc5VjI0MC4wOTkiCiAgICAgICBzdHJva2U9IiNBMUE1QUEiCiAgICAgICBzdHJva2Utd2lkdGg9IjAuOTEzOTU4IgogICAgICAgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIgogICAgICAgaWQ9InBhdGg1MiIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNDI3LjA0NSAxOTEuMTc5VjI0MC4wOTkiCiAgICAgICBzdHJva2U9IiNBMUE1QUEiCiAgICAgICBzdHJva2Utd2lkdGg9IjAuOTEzOTU4IgogICAgICAgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIgogICAgICAgaWQ9InBhdGg1NCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNDE3LjMyMiAxOTEuMTc5VjI0MC4wOTkiCiAgICAgICBzdHJva2U9IiNBMUE1QUEiCiAgICAgICBzdHJva2Utd2lkdGg9IjAuOTEzOTU4IgogICAgICAgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIgogICAgICAgaWQ9InBhdGg1NiIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNDU2LjM4OSAyNDUuOTY4VjIzOS40MzEiCiAgICAgICBzdHJva2U9IiNDQ0NERTYiCiAgICAgICBzdHJva2Utd2lkdGg9IjAuOTEzOTU4IgogICAgICAgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIgogICAgICAgaWQ9InBhdGg1OCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNTAzLjA3OSAzMDYuMTQ3SDQwOS42OTZWMzExLjU2OUg1MDMuMDc5VjMwNi4xNDdaIgogICAgICAgZmlsbD0iI0YzRjVGNyIKICAgICAgIGlkPSJwYXRoNjAiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTQyOS4zMDggMzExLjU2OUw0MjUuOTYgMzQ5Ljc0OCIKICAgICAgIHN0cm9rZT0iIzUwODk5NCIKICAgICAgIHN0cm9rZS13aWR0aD0iMC45OTgyMjQiCiAgICAgICBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiCiAgICAgICBpZD0icGF0aDYyIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik00ODIuNDk5IDMxMS41NjlMNDg1Ljg0NiAzNDkuNzQ4IgogICAgICAgc3Ryb2tlPSIjNTA4OTk0IgogICAgICAgc3Ryb2tlLXdpZHRoPSIwLjk5ODIyNCIKICAgICAgIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIKICAgICAgIGlkPSJwYXRoNjQiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTE4Ny4xOTMgMjEwLjc2MUMxODcuMjEgMjEwLjcxOSAxODcuMjM5IDIxMC42ODMgMTg3LjI3NyAyMTAuNjU4QzE4Ny4zMTYgMjEwLjYzNCAxODcuMzYxIDIxMC42MjEgMTg3LjQwNiAyMTAuNjIzQzE4Ny40NTEgMjEwLjYyNSAxODcuNDk1IDIxMC42NDEgMTg3LjUzMSAyMTAuNjY4QzE4Ny41NjcgMjEwLjY5NiAxODcuNTk0IDIxMC43MzQgMTg3LjYwOCAyMTAuNzc4QzE4OC4zMjQgMjEyLjk2OCAxOTAuMzg4IDIyMS4yMiAxODQuNjY1IDIzMC41ODZDMTc3Ljk3NSAyNDEuNTM1IDE2OC45OTggMjQ3LjMxMyAxNjUuODA2IDI1Mi43ODdDMTYzLjk2OCAyNTUuOTQ0IDE2My4xMzggMjU3LjY4NCAxNjIuNzY1IDI1OC41OTJDMTYyLjY2MiAyNTguODUyIDE2Mi40ODMgMjU5LjA3NSAxNjIuMjUyIDI1OS4yMzNDMTYyLjAyMiAyNTkuMzkxIDE2MS43NDkgMjU5LjQ3NyAxNjEuNDY5IDI1OS40OEMxNjEuMTc3IDI1OS40OCAxNjAuODkyIDI1OS4zODkgMTYwLjY1MyAyNTkuMjE5QzE2MC40MTUgMjU5LjA0OSAxNjAuMjM2IDI1OC44MSAxNjAuMTQgMjU4LjUzM0MxNTkuMzk1IDI1Ni4zOTEgMTU3Ljg3MiAyNTAuOTExIDE1OS4yODEgMjQ1LjMzNkMxNjEuMTA2IDIzOC4xOSAxNjcuNTg1IDIzNC41NCAxNzUuODI3IDIyNy4wODlDMTgyLjg3MyAyMjAuNzExIDE4Ni4zNTcgMjEyLjg4MSAxODcuMTkzIDIxMC43NjFaIgogICAgICAgZmlsbD0iI0I4QkFCRiIKICAgICAgIGlkPSJwYXRoNjYiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTE1OC44NTcgMjYwLjUyQzE1OS4xODQgMjYwLjQ4NSAxNTkuNDg5IDI2MC4zNCAxNTkuNzI0IDI2MC4xMTFDMTU5Ljk1OSAyNTkuODgxIDE2MC4xMSAyNTkuNTc5IDE2MC4xNTMgMjU5LjI1M0MxNjAuNTU4IDI1Ni4xMjUgMTYxLjcyMiAyNDYuODQgMTY3LjAyMSAyMzguMTg3QzE3NC40NzUgMjI1Ljk5MSAxODEuODk0IDE5MC4yMiAxNjcuOTkzIDE3MC43NDJDMTY3Ljk1MiAxNzAuNjg1IDE2Ny44OTIgMTcwLjY0NSAxNjcuODI1IDE3MC42MjhDMTY3Ljc1NyAxNzAuNjExIDE2Ny42ODUgMTcwLjYxOCAxNjcuNjIyIDE3MC42NDlDMTY3LjU1OSAxNzAuNjc5IDE2Ny41MDkgMTcwLjczMSAxNjcuNDggMTcwLjc5NUMxNjcuNDUxIDE3MC44NTggMTY3LjQ0NiAxNzAuOTMgMTY3LjQ2NSAxNzAuOTk4QzE3MC41NjMgMTgyLjQ5NyAxNjkuMjM4IDE5Mi40MzcgMTY0LjI4NiAyMDMuMjFDMTU3LjU4IDIxNy44MTQgMTU0Ljg1OCAyMjkuNjY5IDE1Ni4wNzYgMjQ0LjI2N0MxNTYuODA5IDI1My4wNzIgMTU3LjEgMjU3LjIzMSAxNTcuMjE3IDI1OS4xNDZDMTU3LjIyOSAyNTkuMzQ0IDE1Ny4yODEgMjU5LjUzOCAxNTcuMzcgMjU5LjcxNUMxNTcuNDU5IDI1OS44OTIgMTU3LjU4MyAyNjAuMDUgMTU3LjczNCAyNjAuMTc4QzE1Ny44ODYgMjYwLjMwNiAxNTguMDYxIDI2MC40MDIgMTU4LjI1MSAyNjAuNDZDMTU4LjQ0MSAyNjAuNTE5IDE1OC42NCAyNjAuNTM4IDE1OC44MzcgMjYwLjUxN0wxNTguODU3IDI2MC41MloiCiAgICAgICBmaWxsPSIjQjhCQUJGIgogICAgICAgaWQ9InBhdGg2OCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNMTEzLjA4MSAyMDEuNDM3QzExMy4wNjEgMjAxLjM4NyAxMTMuMDI1IDIwMS4zNDUgMTEyLjk4IDIwMS4zMTZDMTEyLjkzNSAyMDEuMjg3IDExMi44ODIgMjAxLjI3MiAxMTIuODI4IDIwMS4yNzRDMTEyLjc3NCAyMDEuMjc2IDExMi43MjMgMjAxLjI5NSAxMTIuNjggMjAxLjMyOEMxMTIuNjM3IDIwMS4zNiAxMTIuNjA1IDIwMS40MDUgMTEyLjU4OSAyMDEuNDU2QzExMS43MzYgMjA0LjA0OSAxMDkuMjgzIDIxMy44NTYgMTE2LjA3OSAyMjQuOTc2QzEyNC4wMjMgMjM3Ljk3NiAxMzQuNjg2IDI0NC44MzcgMTM4LjQ3MSAyNTEuMzM1QzE0MC42NTUgMjU1LjA4NSAxNDEuNjQxIDI1Ny4xNDkgMTQyLjA4MiAyNTguMjI5QzE0Mi4yMDYgMjU4LjUzOCAxNDIuNDIxIDI1OC44MDQgMTQyLjY5NyAyNTguOTkyQzE0Mi45NzQgMjU5LjE3OSAxNDMuMyAyNTkuMjggMTQzLjYzNCAyNTkuMjgyQzE0My45ODEgMjU5LjI4MyAxNDQuMzIgMjU5LjE3NSAxNDQuNjAzIDI1OC45NzRDMTQ0Ljg4NiAyNTguNzczIDE0NS4wOTkgMjU4LjQ4OSAxNDUuMjEyIDI1OC4xNkMxNDYuMDk3IDI1NS42MTYgMTQ3LjkyMiAyNDkuMTA4IDE0Ni4yMzMgMjQyLjQ5QzE0NC4wNjUgMjM0LjAwMiAxMzYuMzcxIDIyOS42NjkgMTI2LjU4NiAyMjAuODI0QzExOC4yMDggMjEzLjI1NyAxMTQuMDgzIDIwMy45NTIgMTEzLjA4MSAyMDEuNDM3WiIKICAgICAgIGZpbGw9IiNGM0Y1RjciCiAgICAgICBpZD0icGF0aDcwIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik0xNTMuMTQ5IDI2MC41M0MxNTIuNjk5IDI2MC41MzIgMTUyLjI2MiAyNjAuMzcyIDE1MS45MTkgMjYwLjA3OUMxNTEuNTc2IDI1OS43ODcgMTUxLjM0OSAyNTkuMzgxIDE1MS4yNzkgMjU4LjkzNUMxNTAuOTIgMjU2LjY0MSAxNDkuODc5IDI1MS45NTEgMTQ2LjkyNCAyNDUuMzc4QzE0OS4zMzIgMjUwLjcyOSAxNDYuMzE0IDE4NC4zNyAxMzkuNzMyIDIwNC4wMzNDMTQ2LjkyNCAxODIuNTUyIDE1NC4xNzQgMTU3LjAzOSAxNDcuNjgyIDEzNy40MjFDMTY5LjU5NCAxNTIuNTg2IDE3MS4zNDEgMjAzLjEyOSAxNjUuNDg4IDIyMC44MjVDMTYxLjI1OCAyMzMuNjM2IDE1NS4wMzYgMjQ3LjM2NSAxNTUuMDM2IDI1OC44MTlDMTU1LjAzNiAyNTkuNzk0IDE1NC4xMjUgMjYwLjUzIDE1My4xNDkgMjYwLjUzWiIKICAgICAgIGZpbGw9IiNGM0Y1RjciCiAgICAgICBpZD0icGF0aDcyIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik0xNDYuNzIzIDI2MC41MkMxNDYuMzMzIDI2MC40NzggMTQ1Ljk2OSAyNjAuMzA3IDE0NS42ODkgMjYwLjAzNEMxNDUuNDA5IDI1OS43NjEgMTQ1LjIyOCAyNTkuNDAxIDE0NS4xNzcgMjU5LjAxM0MxNDQuNjk3IDI1NS4zMDIgMTQzLjMxNiAyNDQuMjc2IDEzNy4wMjIgMjM0LjAwMkMxMjguMTU1IDIxOS41MjUgMTE5LjM2MiAxNzcuMDY4IDEzNS44NzIgMTUzLjkyNEMxMzUuOTIgMTUzLjg1NSAxMzUuOTkxIDE1My44MDYgMTM2LjA3MiAxNTMuNzg1QzEzNi4xNTMgMTUzLjc2MyAxMzYuMjM5IDE1My43NzEgMTM2LjMxNCAxNTMuODA4QzEzNi4zOSAxNTMuODQ0IDEzNi40NSAxNTMuOTA2IDEzNi40ODQgMTUzLjk4MkMxMzYuNTE4IDE1NC4wNTkgMTM2LjUyNCAxNTQuMTQ1IDEzNi41MDEgMTU0LjIyNUMxMzIuODIyIDE2Ny44ODMgMTM0LjM5NyAxNzkuNjgzIDE0MC4yNzMgMTkyLjQ2OUMxNDguMjQgMjA5LjgwOCAxNTEuNDY4IDIyMy44ODQgMTUwLjAyMiAyNDEuMjE3QzE0OS4xNTQgMjUxLjY3MiAxNDguODA3IDI1Ni42MTEgMTQ4LjY3MSAyNTguODgzQzE0OC42NTQgMjU5LjExOSAxNDguNTkgMjU5LjM0OSAxNDguNDgyIDI1OS41NkMxNDguMzc1IDI1OS43NzEgMTQ4LjIyNiAyNTkuOTU3IDE0OC4wNDQgMjYwLjEwOEMxNDcuODYyIDI2MC4yNiAxNDcuNjUyIDI2MC4zNzMgMTQ3LjQyNSAyNjAuNDQxQzE0Ny4xOTkgMjYwLjUwOSAxNDYuOTYxIDI2MC41MyAxNDYuNzI2IDI2MC41MDRMMTQ2LjcyMyAyNjAuNTJaIgogICAgICAgZmlsbD0iI0I4QkFCRiIKICAgICAgIGlkPSJwYXRoNzQiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTE3NS40MDkgMjU0LjIyOUgxMjguOTkxQzExMy40MzUgMjgzLjY5IDEyNS4xMDIgMzA3LjE4IDEzOC43MTQgMzQ5Ljc0OEgxNjUuNjc2QzE3OS4yOTggMzA3LjE4IDE5MC45NjUgMjgzLjY5IDE3NS40MDkgMjU0LjIyOVoiCiAgICAgICBmaWxsPSIjOENCREM0IgogICAgICAgaWQ9InBhdGg3NiIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNMjgwLjM5NyAyMzMuMTkyQzI4MC4zOTcgMjMzLjE5MiAyNzEuNDY4IDIyNy42MTEgMjY4LjU5NyAyMTUuMzMxQzI2NS43MjUgMjAzLjA1MSAyNzQuNjU3IDE5NC43NjEgMjg1LjE4MSAxOTguNDI5QzI5NS43MDQgMjAyLjA5OCAyOTcuMTQzIDE5NC4yODQgMjk0LjI3MiAxODkuODE4QzI5MS40IDE4NS4zNTIgMjk0Ljc1MSAxNzcuODU5IDMwMC4xNyAxNzYuNTgyQzI4OS43OTkgMTY1LjczOCAyOTAuOTI0IDE1Mi4xODQgMjk2Ljk4MSAxNDUuMDA4QzMwMy4wMzkgMTM3LjgzMyAzMTYuMTAzIDE0MC43MDQgMzE2LjEwMyAxNDAuNzA0QzMxNi4xMDMgMTQwLjcwNCAzMjUuNTAyIDEzNC42MjcgMzM1Ljg3MyAxNDAuMTM3QzM0Ni4yNDQgMTQ1LjY0NyAzNTUuNjQzIDE1Ni4wMTggMzUxLjY2IDE2Ny45NzFDMzQ3LjY3NyAxNzkuOTIzIDM0NS4yODIgMTgwLjU2OCAzNDUuMjgyIDE4MC41NjhDMzQ1LjI4MiAxODAuNTY4IDM2OC4yMDIgMTg2LjE0OSAzNTkuMjkyIDIxMC43MSIKICAgICAgIGZpbGw9IiM0RDM5MzAiCiAgICAgICBpZD0icGF0aDc4IiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik0xOTUuNDAyIDIxMy44NjZDMjE3LjI3OSAyMTMuODY2IDIzNS4wMTQgMTk2LjEzMiAyMzUuMDE0IDE3NC4yNTVDMjM1LjAxNCAxNTIuMzc4IDIxNy4yNzkgMTM0LjY0NCAxOTUuNDAyIDEzNC42NDRDMTczLjUyNSAxMzQuNjQ0IDE1NS43OTEgMTUyLjM3OCAxNTUuNzkxIDE3NC4yNTVDMTU1Ljc5MSAxOTYuMTMyIDE3My41MjUgMjEzLjg2NiAxOTUuNDAyIDIxMy44NjZaIgogICAgICAgZmlsbD0iI0UzQjA2NiIKICAgICAgIGlkPSJwYXRoODAiIC8+CiAgICA8cGF0aAogICAgICAgb3BhY2l0eT0iMC41IgogICAgICAgZD0iTTIwNC45NyAxODguMTQyTDIwMy4zMTcgMTk1LjE3MkwxNzcuMTg1IDIwOS40MzJDMTY4Ljc5OSAyMDUuMDc4IDE2Mi4yNDMgMTk3Ljg3NCAxNTguNjk2IDE4OS4xMTZDMTU1LjE0OSAxODAuMzU5IDE1NC44NDQgMTcwLjYyMyAxNTcuODM2IDE2MS42NkwxODIuNTQ4IDE0OS4wMjFMMjA0Ljk3IDE4OC4xNDJaIgogICAgICAgZmlsbD0iI0QwOTY0NCIKICAgICAgIGlkPSJwYXRoODIiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTE5NS40MDIgMTk2LjQzQzIwOS40NTkgMTk2LjQzIDIyMC44NTQgMTg1LjAzNSAyMjAuODU0IDE3MC45NzhDMjIwLjg1NCAxNTYuOTIyIDIwOS40NTkgMTQ1LjUyNyAxOTUuNDAyIDE0NS41MjdDMTgxLjM0NiAxNDUuNTI3IDE2OS45NTEgMTU2LjkyMiAxNjkuOTUxIDE3MC45NzhDMTY5Ljk1MSAxODUuMDM1IDE4MS4zNDYgMTk2LjQzIDE5NS40MDIgMTk2LjQzWiIKICAgICAgIGZpbGw9IiNCRjVGNEQiCiAgICAgICBpZD0icGF0aDg0IiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik0yMTYuMjg0IDE2My4yNjVDMjE3LjQ3NSAxNjcuMzExIDIxNy40NjQgMTcxLjYxNyAyMTYuMjUzIDE3NS42NTdDMjE1LjA0MiAxNzkuNjk4IDIxMi42ODQgMTgzLjI5OSAyMDkuNDY0IDE4Ni4wMjRDMjA2LjI0NCAxODguNzQ5IDIwMi4zMDIgMTkwLjQ4IDE5OC4xMTcgMTkxLjAwNkMxOTMuOTMyIDE5MS41MzIgMTg5LjY4NCAxOTAuODMgMTg1Ljg5IDE4OC45ODdDMTgyLjA5NiAxODcuMTQ0IDE3OC45MTkgMTg0LjIzNyAxNzYuNzQ3IDE4MC42MjJDMTc0LjU3NCAxNzcuMDA3IDE3My40OTggMTcyLjgzOCAxNzMuNjUgMTY4LjYyM0MxNzMuODAzIDE2NC40MDcgMTc1LjE3NyAxNjAuMzI3IDE3Ny42MDUgMTU2Ljg3OEMxODAuMDM0IDE1My40MjkgMTgzLjQxMiAxNTAuNzYgMTg3LjMyOSAxNDkuMTk2QzE4Ny45NTEgMTQ4Ljk0NiAxODguNTkgMTQ4LjcyMiAxODkuMjQ0IDE0OC41NDdDMTkxLjk4NiAxNDcuNzM4IDE5NC44NjEgMTQ3LjQ3NiAxOTcuNzA0IDE0Ny43NzdDMjAwLjU0NiAxNDguMDc5IDIwMy4zMDIgMTQ4LjkzNyAyMDUuODEzIDE1MC4zMDRDMjA4LjMyNCAxNTEuNjcxIDIxMC41NDEgMTUzLjUxOSAyMTIuMzM4IDE1NS43NDNDMjE0LjEzNSAxNTcuOTY2IDIxNS40NzUgMTYwLjUyMyAyMTYuMjg0IDE2My4yNjVaIgogICAgICAgZmlsbD0iI0UzQjA2NiIKICAgICAgIGlkPSJwYXRoODYiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTMwMC44MjUgMjAzLjg1OEMyOTMuMTczIDIwNi4yNSAyODYuNzE0IDIxMi43MDkgMjc5LjUzOCAyMjcuM0MyNzIuMzYzIDI0MS44OTEgMjY2LjYyMyAyNTQuMDkzIDI2Ni42MjMgMjU0LjA5M0MyNjYuNjIzIDI1NC4wOTMgMjQzLjE4MSAyMjEuMzI3IDIzNi45NjUgMjEzLjY3MkMyMzAuNzQ4IDIwNi4wMTcgMjI1Ljg0MiAxODkuNTEzIDIyMi41NTIgMTg3LjEyMkMyMTkuMjYyIDE4NC43MyAyMjIuNjE0IDE5NS43MzMgMjI0LjUyNiAyMDAuOTk2QzIyNC41MjYgMjAwLjk5NiAyMTcuMTEgMjA3Ljk4NCAyMTMuNzYyIDIwOS4yNzRDMjIxLjE3OCAyMTEuOTk5IDIyNC41MjYgMjExLjI4IDIyNi45MTggMjE1LjU4N0MyMjkuMzA5IDIxOS44OTQgMjQ2Ljc2OSAyNTYuNDUgMjQ2Ljc2OSAyNTYuNDVIMzAwLjgyNVYyMDMuODU4WiIKICAgICAgIGZpbGw9IiNFNEJBQTIiCiAgICAgICBpZD0icGF0aDg4IiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik0yNjYuNjIzIDI1NC4wOTNDMjY1LjI0OSAyNTcuMjczIDI2My42NTQgMjU5LjIxMSAyNTkuOTg1IDI1NC4wOTNDMjU2LjMxNyAyNDguOTc2IDI1OC44NyAyNDUuNDE3IDI1NS41MjMgMjQyLjQyNkMyNTIuMTc1IDIzOS40MzQgMjQ4LjEyIDIzNi40NTIgMjQ3LjU1IDIzMS43MTFDMjQ2Ljk3OSAyMjYuOTY5IDI0My4wMzUgMjIxLjYyOCAyNDMuMDM1IDIyMS42MjhMMjY2LjYyMyAyNTQuMDkzWiIKICAgICAgIGZpbGw9IiNEN0FEOTUiCiAgICAgICBpZD0icGF0aDkwIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik0yOTcuNjMzIDIxMC40N0MyOTUuNjIzIDIxNC44MDMgMjg4LjM3IDIyNi45NzMgMjg1LjgxOSAyMzMuMTkyQzI4My4yNjkgMjM5LjQxMiAyODYuMTQ0IDI0NC4yMTIgMjgzLjI2OSAyNDcuMjI2QzI4MC4zOTQgMjUwLjI0IDI3NS40OSAyNTIuNTE4IDI3My43MDEgMjU2LjQ1SDI5OC40MTdMMjk5LjIxNCAyMTMuOTA1TDI5Ny42MzMgMjEwLjQ3WiIKICAgICAgIGZpbGw9IiNEN0FEOTUiCiAgICAgICBpZD0icGF0aDkyIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik0yNzAuMTU5IDI1Ni40NDlIMTk4Ljg3VjM0OS43NDRIMjcwLjE1OVYyNTYuNDQ5WiIKICAgICAgIGZpbGw9IiNFOUVBRjQiCiAgICAgICBpZD0icGF0aDk0IiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik0xNzYuNzcgMzE0LjA4N0MxNzYuNzcgMzE0LjA4NyAxNzMuNzEgMzAyLjYzMyAxNjkuODA1IDI5NC42OEMxNjUuOSAyODYuNzI3IDE3MS4xMDEgMjgxLjAzMiAxNzUuOTE3IDI4MS45ODhMMTc5Ljc3NCAzMTIuMzg2IgogICAgICAgZmlsbD0iIzgzOEE5MCIKICAgICAgIGlkPSJwYXRoOTYiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTE3NC4zMTYgMjgzLjgyNkMxNzQuMzE2IDI4My44MjYgMTY5LjE1MyAyODQuOTY3IDE3Mi4zMDcgMjkzLjQ2NUMxNzUuNDYgMzAxLjk2MyAxNzYuNzcgMzA2LjQgMTc2Ljc3IDMwNi40TDE3NC4zMTYgMjgzLjgyNloiCiAgICAgICBmaWxsPSIjNDM0NzRCIgogICAgICAgaWQ9InBhdGg5OCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNMjA5LjA2IDMzMy4zNDJDMjA5LjA2IDMzMy4zNDIgMjE0Ljk2MiAzMjguMTU2IDIxOC40OTQgMzMwLjc0OUMyMjIuMDI3IDMzMy4zNDIgMjIzLjU3OSAzMzIuNjk0IDIyMy4yODggMzM3LjIzMUMyMjIuOTk2IDM0MS43NjkgMjIwLjUyNiAzNDUuMzM0IDIxMS44NzYgMzQ0LjAzN0MyMDMuMjI2IDM0Mi43NDEgMjA5LjA2IDMzMy4zNDIgMjA5LjA2IDMzMy4zNDJaIgogICAgICAgZmlsbD0iIzUyNTQ3NiIKICAgICAgIGlkPSJwYXRoMTAwIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik0yMDguNTU0IDM0OS43NDhIMTg2LjExNEMxODYuMTE0IDM0OS43NDggMTgyLjIyNCAzNDcuNDc5IDE3OC43NjYgMzQxLjIzQzE3NS4zMDggMzM0Ljk4MiAxNzcuNDcgMzI3LjYxOCAxNzQuOTUyIDMyNC4zNzdDMTcyLjQzMyAzMjEuMTM2IDE2OS40NzggMzIyLjAwMiAxNjUuMzcxIDMyMC4yNzFDMTY1LjAwMyAzMjAuMTI5IDE2NC42NzcgMzE5Ljg5NSAxNjQuNDI1IDMxOS41OUMxNjMuOTEzIDMxOC45MTYgMTY0LjAyNiAzMTcuOTcgMTY0LjY2NSAzMTYuOTIzQzE2Ni4yODUgMzE0LjI0MyAxNzEuMjQ0IDMxMC43NjUgMTc3Ljg0OSAzMDguNzRDMTc3Ljg0OSAzMDguNzQgMTgxLjU3NiAyOTguODggMTgxLjc5MyAyOTAuMDIzQzE4Mi4wMTEgMjgxLjE2NSAxODkuMjQ4IDI3OC41MTcgMTkzLjA4MiAyODEuNTk2TDE4Mi40NDIgMzEwLjMzNEMxODIuNDQyIDMxMC4zMzQgMTg2LjU0NSAzMTguNzYxIDE5NC43NTcgMzIwLjcwNUMyMDIuOTcgMzIyLjY1IDIxMS4zOTMgMzI1Ljc0NSAyMTMuNzYyIDMzNy4xNjNDMjE2LjM4MSAzNDkuNzc0IDIwOC41NTQgMzQ5Ljc0OCAyMDguNTU0IDM0OS43NDhaIgogICAgICAgZmlsbD0iI0ExQTVBQSIKICAgICAgIGlkPSJwYXRoMTAyIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik0xNzMuNzk4IDMxNi4xNzFDMTc0LjE4MyAzMTYuMTcxIDE3NC40OTUgMzE1LjYzOSAxNzQuNDk1IDMxNC45ODJDMTc0LjQ5NSAzMTQuMzI1IDE3NC4xODMgMzEzLjc5MiAxNzMuNzk4IDMxMy43OTJDMTczLjQxMyAzMTMuNzkyIDE3My4xMDEgMzE0LjMyNSAxNzMuMTAxIDMxNC45ODJDMTczLjEwMSAzMTUuNjM5IDE3My40MTMgMzE2LjE3MSAxNzMuNzk4IDMxNi4xNzFaIgogICAgICAgZmlsbD0iIzQzNDc0QiIKICAgICAgIGlkPSJwYXRoMTA0IiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik0xOTAuODEzIDI4Mi40ODhDMTkwLjgxMyAyODIuNDg4IDE4NS43MDkgMjgxLjExIDE4NC41NzQgMjkwLjEwNEMxODMuNDQgMjk5LjA5OCAxODIuNTQ5IDMwMy42MzUgMTgyLjU0OSAzMDMuNjM1TDE5MC44MTMgMjgyLjQ4OFoiCiAgICAgICBmaWxsPSIjODM4QTkwIgogICAgICAgaWQ9InBhdGgxMDYiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTE2Ny44ODMgMzE2LjkyM0MxNjcuNTg5IDMxNy42MyAxNjcuMTE1IDMxOC4yNDggMTY2LjUwOCAzMTguNzE2QzE2NS45MDIgMzE5LjE4NCAxNjUuMTg0IDMxOS40ODUgMTY0LjQyNSAzMTkuNTlDMTYzLjkxMyAzMTguOTE2IDE2NC4wMjYgMzE3Ljk3IDE2NC42NjUgMzE2LjkyM0gxNjcuODgzWiIKICAgICAgIGZpbGw9IiM0MzQ3NEIiCiAgICAgICBpZD0icGF0aDEwOCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNMjcwLjE1OSAyNTYuNDQ5SDE5OC44N1YzNDkuNzQ0SDI3MC4xNTlWMjU2LjQ0OVoiCiAgICAgICBmaWxsPSIjOEU1RTRDIgogICAgICAgaWQ9InBhdGgxMTAiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTI1NC4yMSAyOTUuMzgzSDE5OC44N1YyNTYuNDQ5SDI3MC4xNTlMMjU0LjIxIDI5NS4zODNaIgogICAgICAgZmlsbD0iIzY4NEEzRCIKICAgICAgIGlkPSJwYXRoMTEyIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik0zNzYuNzE2IDMwMS43NDVIMzUxLjgzOFYzNDkuNzQ4SDM3Ni43MTZWMzAxLjc0NVoiCiAgICAgICBmaWxsPSIjRDBENkU0IgogICAgICAgaWQ9InBhdGgxMTQiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTI3MC4xNTkgMzQ5Ljc0OEgzNjAuNzU3VjI1Ni40NTNIMjcwLjE1OVYzNDkuNzQ4WiIKICAgICAgIGZpbGw9IiNCNjg5NjciCiAgICAgICBpZD0icGF0aDExNiIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNMjg3LjY5OSAyOTUuMzgzSDM2MC43NTdWMjU2LjQ0OUgyNzAuMTU5TDI4Ny42OTkgMjk1LjM4M1oiCiAgICAgICBmaWxsPSIjNjg0QTNEIgogICAgICAgaWQ9InBhdGgxMTgiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTI0Ni4yMzcgMjg0LjUzOUgxNzQuOTQ4TDE5OC44NyAyNTYuNDQ5SDI3MC4xNTlMMjQ2LjIzNyAyODQuNTM5WiIKICAgICAgIGZpbGw9IiM4RTVFNEMiCiAgICAgICBpZD0icGF0aDEyMCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNMjk0LjA3NyAyODQuNTM5SDM4NC42NzZMMzYwLjc1NyAyNTYuNDQ5SDI3MC4xNTlMMjk0LjA3NyAyODQuNTM5WiIKICAgICAgIGZpbGw9IiNCNjg5NjciCiAgICAgICBpZD0icGF0aDEyMiIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNDIwLjQ0IDE3Ni42MDFDNDMxLjMwMSAxODIuODA0IDQ1Ny4xNTcgMjAxLjQyMSA0NjIuMDY3IDIwMi43MTRDNDY2Ljk3NyAyMDQuMDA3IDQ5Ny40OTEgMTU5LjAxOSA0OTcuNDkxIDE1My4zMzFDNDk3LjQ5MSAxNDcuNjQzIDQ4NS4wODIgMTQxLjQzNyA0ODMuMDExIDEzOC44NUM0ODAuOTQgMTM2LjI2NCA0NTguMTkxIDEyNS45MjIgNDQ5LjM5OCAxMjQuODg4QzQ0MC42MDYgMTIzLjg1NCA0MjAuNDQgMTc2LjYwMSA0MjAuNDQgMTc2LjYwMVoiCiAgICAgICBmaWxsPSIjRTNCMDY2IgogICAgICAgaWQ9InBhdGgxMjQiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTQzOS44MDIgMTg5LjA1M0M0MzkuODAyIDE4OS4wNTMgNDYwLjUxNSAxNDcuMzg0IDQ2My44NzYgMTQwLjkxOCIKICAgICAgIHN0cm9rZT0iI0Q3QTI1NCIKICAgICAgIHN0cm9rZS13aWR0aD0iMC41MTg1NTgiCiAgICAgICBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiCiAgICAgICBpZD0icGF0aDEyNiIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNDU3LjQxMyAxMzEuMDk1TDQ2Mi44NDUgMTIxLjc4N0w0ODcuNjY1IDEzMi44OTdMNDc4LjEgMTM5LjYyNUw0NTcuNDEzIDEzMS4wOTVaIgogICAgICAgZmlsbD0iI0Q3QTI1NCIKICAgICAgIGlkPSJwYXRoMTI4IiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik00NjIuODQ1IDEyNC44NzJMNDYzLjg3OSAxNDAuOTE4TDQ4MC42ODQgMTMzLjE2Mkw0NjIuODQ1IDEyNC44NzJaIgogICAgICAgZmlsbD0iI0JGNUY0RCIKICAgICAgIGlkPSJwYXRoMTMwIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik00ODcuNjY1IDEzMi44OTZMNDgwLjY4NCAxMzMuMTYyTDQ2My44NzkgMTQwLjkxOEw0NjcuNDk5IDE0OC42NzdDNDY3LjQ5OSAxNDguNjc3IDQ4MC41ODMgMTQyLjQ2NCA0ODUuMjg5IDE0MC43ODVDNDg5Ljk5NSAxMzkuMTA2IDQ4Ny42NjUgMTMyLjg5NiA0ODcuNjY1IDEzMi44OTZaIgogICAgICAgZmlsbD0iI0Q3QTI1NCIKICAgICAgIGlkPSJwYXRoMTMyIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik00NjMuODc5IDE0MC45MThMNDU1LjYwNSAxNDIuOTg2VjEyNC44NzJDNDU1LjYwNSAxMjIuNTYxIDQ2MCAxMjEuNzg3IDQ2Mi44NDUgMTIxLjc4N1YxMjQuODcyTDQ2My44NzkgMTQwLjkxOFoiCiAgICAgICBmaWxsPSIjRDdBMjU0IgogICAgICAgaWQ9InBhdGgxMzQiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTQ2Mi44NDUgMTUzLjk3NkM0NjMuNjMxIDE1My45NzYgNDY0LjI2OCAxNTMuMzM5IDQ2NC4yNjggMTUyLjU1M0M0NjQuMjY4IDE1MS43NjcgNDYzLjYzMSAxNTEuMTMgNDYyLjg0NSAxNTEuMTNDNDYyLjA1OSAxNTEuMTMgNDYxLjQyMiAxNTEuNzY3IDQ2MS40MjIgMTUyLjU1M0M0NjEuNDIyIDE1My4zMzkgNDYyLjA1OSAxNTMuOTc2IDQ2Mi44NDUgMTUzLjk3NloiCiAgICAgICBmaWxsPSIjQkY1RjREIgogICAgICAgaWQ9InBhdGgxMzYiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTQ1Ny42NzMgMTY2LjA0MkM0NTguNDU4IDE2Ni4wNDIgNDU5LjA5NSAxNjUuNDA1IDQ1OS4wOTUgMTY0LjYxOUM0NTkuMDk1IDE2My44MzQgNDU4LjQ1OCAxNjMuMTk3IDQ1Ny42NzMgMTYzLjE5N0M0NTYuODg3IDE2My4xOTcgNDU2LjI1IDE2My44MzQgNDU2LjI1IDE2NC42MTlDNDU2LjI1IDE2NS40MDUgNDU2Ljg4NyAxNjYuMDQyIDQ1Ny42NzMgMTY2LjA0MloiCiAgICAgICBmaWxsPSIjQkY1RjREIgogICAgICAgaWQ9InBhdGgxMzgiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTQ1Mi41IDE3OC4xMTJDNDUzLjI4NiAxNzguMTEyIDQ1My45MjMgMTc3LjQ3NSA0NTMuOTIzIDE3Ni42ODlDNDUzLjkyMyAxNzUuOTAzIDQ1My4yODYgMTc1LjI2NiA0NTIuNSAxNzUuMjY2QzQ1MS43MTQgMTc1LjI2NiA0NTEuMDc3IDE3NS45MDMgNDUxLjA3NyAxNzYuNjg5QzQ1MS4wNzcgMTc3LjQ3NSA0NTEuNzE0IDE3OC4xMTIgNDUyLjUgMTc4LjExMloiCiAgICAgICBmaWxsPSIjQkY1RjREIgogICAgICAgaWQ9InBhdGgxNDAiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTQ0Ny4zMzEgMTkwLjE3OEM0NDguMTE2IDE5MC4xNzggNDQ4Ljc1MyAxODkuNTQxIDQ0OC43NTMgMTg4Ljc1NUM0NDguNzUzIDE4Ny45NjkgNDQ4LjExNiAxODcuMzMyIDQ0Ny4zMzEgMTg3LjMzMkM0NDYuNTQ1IDE4Ny4zMzIgNDQ1LjkwOCAxODcuOTY5IDQ0NS45MDggMTg4Ljc1NUM0NDUuOTA4IDE4OS41NDEgNDQ2LjU0NSAxOTAuMTc4IDQ0Ny4zMzEgMTkwLjE3OFoiCiAgICAgICBmaWxsPSIjQkY1RjREIgogICAgICAgaWQ9InBhdGgxNDIiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTQzNy40IDE4Ny4xMjFMNDQ1LjkwOCAxOTMuMTAxQzQ0NS45MDggMTkzLjEwMSA0NDIuMTg0IDE5OC42MTEgNDM3LjE1NyAyMDIuMTkyQzQzMi4xMyAyMDUuNzczIDQyNC45NTggMjMzLjc2MiA0MTcuNzgzIDI0OC4xMTRDNDEwLjYwNyAyNjIuNDY1IDQwNS4zNDcgMjYyLjY5OCAzOTQuNTg0IDI1Ny45MjFDMzgzLjgyIDI1My4xNDQgMzYwLjc1NCAyMzUuMTk4IDM2MC43NTQgMjM1LjE5OEwzNTQuMzk5IDI1Ni40NDlIMjg4LjE1QzI4OC4xNSAyNTYuNDQ5IDI5Mi42ODcgMjQ5LjU0OSAyOTAuNzgxIDI0My4wOTNDMjg4Ljg3NiAyMzYuNjM3IDI4Ni45NTQgMjM1LjkxOCAyOTAuNzgxIDIyNi4xMUMyOTQuNjA5IDIxNi4zMDMgMzAwLjgyOCAyMDMuODY0IDMwMC44MjggMjAzLjg2NEMzMDAuODI4IDIwMy44NjQgMzA1LjkyMyAyMDIuNzgyIDMxMS4yIDIwMS43ODRDMzEyLjIwNyAyMDEuNTk2IDMxNi40MDggMjAxLjQxMSAzMTcuMzk2IDIwMS4yMzZDMzIxLjQ0OCAyMDAuNTE2IDMyMS40NDggMTg2Ljg4NSAzMjEuNDQ4IDE4Ni44ODVDMzIxLjQ0OCAxODYuODg1IDMwMy42ODQgMTkzLjU4MSAzMDQuMTYgMTczLjQ5QzMwNC42MzcgMTUzLjM5OSAzMTAuMjI0IDE0Mi4zOTYgMzI3LjQwNCAxNDQuMDY4QzM0NC41ODUgMTQ1Ljc0IDM0NC41ODIgMTYxLjI5MSAzNDAuNzU3IDE3MC42MThDMzM2LjkzMyAxNzkuOTQ2IDMzNS41NDYgMTkzLjU4MSAzMzUuODk2IDIwMC43NTlDMzM1Ljg5NiAyMDAuNzU5IDM1MS41MzcgMjAyLjMwOSAzNjAuNzYxIDIwOC4xNDZDMzY1LjYyMiAyMTEuMjI4IDM3MS4yMSAyMTcuNyAzNzYuNzI5IDIyMi4wMzNDMzk3Ljc3OSAyMzguNTYyIDQwMS4zNjEgMjQyLjEyNyA0MDEuMzYxIDI0Mi4xMjdDNDAxLjM2MSAyNDIuMTI3IDQyMy41MjYgMjA2LjcyOSA0MjUuOTE4IDIwMC43NUM0MjguMzA5IDE5NC43NyA0MjkuMjY1IDE4Ny41OTUgNDMyLjg1MyAxODIuNTcxQzQzNi40NDEgMTc3LjU0OCA0MzkuMzc0IDE3NS4wNDIgNDQxLjcwMSAxNzQuNDM5QzQ0Mi4xNzggMTc1LjIwOCA0NDEuOTQ0IDE3Ni41MSA0NDEuMjYgMTc3LjY4QzQ0MC4wODcgMTc5LjY0MyA0MzkuMTczIDE4MS43NDggNDM4LjU0MSAxODMuOTQ1QzQzOC4yMzEgMTg1LjAyOCA0MzcuODUgMTg2LjA4OSA0MzcuNCAxODcuMTIxWiIKICAgICAgIGZpbGw9IiNFNEJBQTIiCiAgICAgICBpZD0icGF0aDE0NCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNDQyLjAwNiAxOTAuMzU5QzQ0MC40NzMgMTkxLjkyNiA0MzguNTA1IDE5Mi45OTYgNDM2LjM1NyAxOTMuNDMyQzQzNi4wOTEgMTkxLjE5OSA0MzcuNCAxODcuMTIxIDQzNy40IDE4Ny4xMjFMNDQyLjAwNiAxOTAuMzU5WiIKICAgICAgIGZpbGw9IiM3Mzc2QkEiCiAgICAgICBpZD0icGF0aDE0NiIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNMzA2LjAxNyAxNzQuMDU3QzMwNi4wMTggMTc0LjY5OCAzMDUuODY1IDE3NS4zMjkgMzA1LjU3MSAxNzUuODk4QzMwNS4yNzggMTc2LjQ2NyAzMDQuODUxIDE3Ni45NTcgMzA0LjMyOSAxNzcuMzI3QzMwNC4xODkgMTc2LjA1MyAzMDQuMTM3IDE3NC43NzEgMzA0LjE3MyAxNzMuNDlDMzA0LjE5NiAxNzIuNTU3IDMwNC4yMzEgMTcxLjY0MyAzMDQuMjczIDE3MC43NDhDMzA0LjgxMSAxNzEuMTE2IDMwNS4yNTEgMTcxLjYxIDMwNS41NTUgMTcyLjE4N0MzMDUuODU5IDE3Mi43NjMgMzA2LjAxOCAxNzMuNDA1IDMwNi4wMTcgMTc0LjA1N1oiCiAgICAgICBmaWxsPSIjREY4QTc0IgogICAgICAgaWQ9InBhdGgxNDgiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTMwOS4xOSAxNzYuMzg3QzMwOS42MzkgMTc3LjU2MiAzMTAuNDM0IDE3OC41NzIgMzExLjQ3IDE3OS4yODRDMzEyLjUwNSAxNzkuOTk3IDMxMy43MzMgMTgwLjM3OCAzMTQuOTkgMTgwLjM3OEMzMTYuMjQ3IDE4MC4zNzggMzE3LjQ3NCAxNzkuOTk3IDMxOC41MSAxNzkuMjg0QzMxOS41NDUgMTc4LjU3MiAzMjAuMzQgMTc3LjU2MiAzMjAuNzkgMTc2LjM4N0gzMDkuMTlaIgogICAgICAgZmlsbD0iI0JGNUY0RCIKICAgICAgIGlkPSJwYXRoMTUwIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik0zMjEuNjMyIDE2OS40NThDMzIyLjQgMTY5LjQ1OCAzMjMuMDIzIDE2OC4zOTQgMzIzLjAyMyAxNjcuMDgyQzMyMy4wMjMgMTY1Ljc3IDMyMi40IDE2NC43MDcgMzIxLjYzMiAxNjQuNzA3QzMyMC44NjQgMTY0LjcwNyAzMjAuMjQyIDE2NS43NyAzMjAuMjQyIDE2Ny4wODJDMzIwLjI0MiAxNjguMzk0IDMyMC44NjQgMTY5LjQ1OCAzMjEuNjMyIDE2OS40NThaIgogICAgICAgZmlsbD0iIzREMzkzMCIKICAgICAgIGlkPSJwYXRoMTUyIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik0zMDguMDU2IDE2OS40NThDMzA4LjgyNCAxNjkuNDU4IDMwOS40NDYgMTY4LjM5NCAzMDkuNDQ2IDE2Ny4wODJDMzA5LjQ0NiAxNjUuNzcgMzA4LjgyNCAxNjQuNzA3IDMwOC4wNTYgMTY0LjcwN0MzMDcuMjg4IDE2NC43MDcgMzA2LjY2NSAxNjUuNzcgMzA2LjY2NSAxNjcuMDgyQzMwNi42NjUgMTY4LjM5NCAzMDcuMjg4IDE2OS40NTggMzA4LjA1NiAxNjkuNDU4WiIKICAgICAgIGZpbGw9IiM0RDM5MzAiCiAgICAgICBpZD0icGF0aDE1NCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNMzYwLjc1NCAyMzUuMTk4TDM1OC41OTkgMjQyLjQyNkMzNTQuNzI5IDIzOS42NzEgMzUzLjY1IDIzNC42MzEgMzU0Ljg3OCAyMzIuNTc2QzM1Ni4zMTEgMjMwLjE3NSAzNTcuMDM0IDIzMy4yODYgMzYwLjc1NCAyMzUuMTk4WiIKICAgICAgIGZpbGw9IiM3Mzc2QkEiCiAgICAgICBpZD0icGF0aDE1NiIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNMzE5Ljk1IDE5OC4xN0MzMjEuNDYgMTkzLjk1NyAzMjEuNDYgMTg2Ljg4NSAzMjEuNDYgMTg2Ljg4NUMzMjEuNDYgMTg2Ljg4NSAzMjUuMDQ4IDE4NS45OTEgMzI3LjU5OSAxODQuMTg1QzMyOC42MzYgMTkwLjI0NiAzMjQuNzgyIDE5NS45MzQgMzE5Ljk1IDE5OC4xN1oiCiAgICAgICBmaWxsPSIjNzM3NkJBIgogICAgICAgaWQ9InBhdGgxNTgiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTM0Ny4yMjYgMjI0LjY3NUMzNDcuMzY5IDIxNy41MjUgMzQ5LjY0NCAyMDkuNDc1IDM1MS41MDQgMjA0LjAzM0MzNDguNzA2IDIwMy4xNTEgMzQ1Ljg2IDIwMi40MjkgMzQyLjk4MSAyMDEuODY4QzM0MC4wNDQgMjA4LjE4NSAzMzUuNzczIDIxNy4yNjYgMzMzLjgzNSAyMjAuODQ3QzMzMC43MjMgMjI2LjU4NyAzMjYuMTUgMjI1LjYzMSAzMTguMjc4IDIyNS42MzFDMzEwLjQwNSAyMjUuNjMxIDMwMy45NDMgMjI1LjM2NSAzMDYuMDk1IDIxNy4yNDZDMzA3LjIyIDIxMy4wMDEgMzA4LjkzNCAyMDYuODU2IDMxMC4zMDggMjAxLjk1NUMzMDUuMzUzIDIwMi45MDIgMzAwLjgyNSAyMDMuODY0IDMwMC44MjUgMjAzLjg2NEMzMDAuODI1IDIwMy44NjQgMjk0LjYwNiAyMTYuMzAzIDI5MC43NzggMjI2LjExQzI4Ni45NSAyMzUuOTE4IDI4OC44NjMgMjM2LjYzNCAyOTAuNzc4IDI0My4wOTNDMjkyLjY5MyAyNDkuNTUzIDI4OC4xNDYgMjU2LjQ0OSAyODguMTQ2IDI1Ni40NDlIMzU0LjQwMkwzNTcuNDg0IDI0Ni4xNUMzNTAuOTE4IDI0My40ODkgMzQ3LjAzNSAyMzQuNTUzIDM0Ny4yMjYgMjI0LjY3NVoiCiAgICAgICBmaWxsPSJ3aGl0ZSIKICAgICAgIGlkPSJwYXRoMTYwIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik0zNTcuNDgxIDI0Ni4xNUwzNTYuNTkgMjQ5LjEyOEwzNTQuNDAyIDI1Ni40NDlIMjg4LjE1QzI4OC4xNSAyNTYuNDQ5IDI5Mi42ODcgMjQ5LjU0OSAyOTAuNzc4IDI0My4wOTNDMjg5Ljk2NSAyNDAuMzMyIDI4OS4xNTggMjM4LjYyMSAyODguNzc1IDIzNi43OTZDMjg4LjI3OSAyMzQuMzU5IDI4OC41OSAyMzEuNzI0IDI5MC43NzggMjI2LjEwMUMyOTQuNjA2IDIxNi4yOTQgMzAwLjgyNSAyMDMuODU1IDMwMC44MjUgMjAzLjg1NUwzMDEuNDczIDIwMy43MTlDMzAyLjUxNCAyMDMuNTAxIDMwNC43MTQgMjAzLjA0NCAzMDcuMzIzIDIwMi41MjZMMzEwLjMxNSAyMDEuOTQ2QzMwOC45MzQgMjA2Ljg0NiAzMDcuMjIgMjEyLjk5MSAzMDYuMTAxIDIxNy4yMzdDMzAzLjk0OSAyMjUuMzU1IDMxMC40MDYgMjI1LjYyMSAzMTguMjg0IDIyNS42MjFDMzI2LjE2MyAyMjUuNjIxIDMzMC43MzYgMjI2LjU5MyAzMzMuODQxIDIyMC44MzdDMzM1Ljc4NiAyMTcuMjcyIDM0MC4wNTEgMjA4LjE3NSAzNDIuOTg3IDIwMS44NTVDMzQzLjQxNSAyMDEuOTM5IDM0My44NTYgMjAyLjAzIDM0NC4zMDYgMjAyLjEyN0MzNDUuOTk4IDIwMi40OSAzNDcuODM5IDIwMi45MzQgMzQ5LjcxOSAyMDMuNDc5QzM1MC4zMTIgMjAzLjY1IDM1MC45MTEgMjAzLjgzMiAzNTEuNTExIDIwNC4wMjNDMzQ5LjY1MSAyMDkuNDY1IDM0Ny4zNzUgMjE3LjUxNSAzNDcuMjM2IDIyNC42NjVDMzQ3LjAzNSAyMzQuNTUzIDM1MC45MTggMjQzLjQ4OSAzNTcuNDgxIDI0Ni4xNVoiCiAgICAgICBmaWxsPSJ3aGl0ZSIKICAgICAgIGlkPSJwYXRoMTYyIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik0zNjAuNzU0IDIzNS4xOThMMzU4LjU5OSAyNDIuNDI2QzM1NC43MjkgMjM5LjY3MSAzNTMuNjUgMjM0LjYzMSAzNTQuODc4IDIzMi41NzZDMzU2LjMxMSAyMzAuMTc1IDM1Ny4wMzQgMjMzLjI4NiAzNjAuNzU0IDIzNS4xOThaIgogICAgICAgZmlsbD0iI0Q3QUQ5NSIKICAgICAgIGlkPSJwYXRoMTY0IiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik00NDIuMDA2IDE5MC4zNTlDNDQwLjQ3MyAxOTEuOTI2IDQzOC41MDUgMTkyLjk5NiA0MzYuMzU3IDE5My40MzJDNDM2LjA5MSAxOTEuMTk5IDQzNy40IDE4Ny4xMjEgNDM3LjQgMTg3LjEyMUw0NDIuMDA2IDE5MC4zNTlaIgogICAgICAgZmlsbD0iI0I2ODk2NyIKICAgICAgIGlkPSJwYXRoMTY2IiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik0zMTMuMDI0IDE0My45QzMxMy4wMjQgMTQzLjkgMzE2LjkxMyAxNjMuODIyIDMzMy42NiAxNjUuNTc1QzMzMy42NiAxNjUuNTc1IDMyOC4xNSAxODUuOTIyIDMzNS44OTMgMjAwLjc1M0wzNDEuNDg3IDE5My40MjhMMzQ0Ljg0MSAxNTAuMjg4TDMzMC4xOTUgMTM5LjM2MkwzMTMuMDI0IDE0My45WiIKICAgICAgIGZpbGw9IiM0RDM5MzAiCiAgICAgICBpZD0icGF0aDE2OCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNMzE5Ljk1IDE5OC4xN0MzMjEuNDYgMTkzLjk1NyAzMjEuNDYgMTg2Ljg4NSAzMjEuNDYgMTg2Ljg4NUMzMjEuNDYgMTg2Ljg4NSAzMjUuMDQ4IDE4NS45OTEgMzI3LjU5OSAxODQuMTg1QzMyOC42MzYgMTkwLjI0NiAzMjQuNzgyIDE5NS45MzQgMzE5Ljk1IDE5OC4xN1oiCiAgICAgICBmaWxsPSIjRDdBRDk1IgogICAgICAgaWQ9InBhdGgxNzAiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTQwMS4zNjQgMjQyLjEzNEM0MDQuODcxIDI0NS43MjIgNDA2LjMwNiAyNDkuMzkgNDA5LjE3OCAyNDIuNDE2QzQwOS43MTYgMjQxLjEwMyA0MDguOTY3IDIzOS4yNDYgNDA5Ljk3NSAyMzcuMDU4QzQxMS4wNTQgMjM0LjcxOSA0MTAuNzI3IDIzMi4wMDMgNDEyLjAxIDIyOS4xNTdDNDEzLjQ4NSAyMjUuOTE2IDQxNi41NzcgMjIyLjQ4MSA0MTcuODQ0IDIxOS4yODJDNDE5Ljk0MSAyMTMuOTg2IDQyMy4wMDQgMjA5LjI5IDQyMi42ODYgMjA2LjkzN0w0MDEuMzY0IDI0Mi4xMzRaIgogICAgICAgZmlsbD0iI0Q3QUQ5NSIKICAgICAgIGlkPSJwYXRoMTcyIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik0zMzIuMjYzIDE3My4yNzNDMzMyLjM5NiAxNzIuMTQ0IDMzMi4wOTMgMTcxLjAwNyAzMzEuNDE3IDE3MC4wOTNMMzMzLjY2IDE2NS41NzlDMzMzLjY2IDE2NS41NzkgMzM1Ljc4NiAxNjMuMDI4IDMzOC40NDMgMTY0LjA5MUMzNDEuMTAxIDE2NS4xNTQgMzQwLjIyMyAxNzQuMTYxIDMzMi4yNjMgMTczLjI3M1oiCiAgICAgICBmaWxsPSIjRDdBRDk1IgogICAgICAgaWQ9InBhdGgxNzQiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTI4OC40OTYgMTk2LjEwM0MyOTAuMTMyIDE5NS4xNTkgMjkwLjQxMSAxOTIuNTggMjg5LjExOSAxOTAuMzQzQzI4Ny44MjggMTg4LjEwNiAyODUuNDU1IDE4Ny4wNTkgMjgzLjgyIDE4OC4wMDNDMjgyLjE4NCAxODguOTQ3IDI4MS45MDUgMTkxLjUyNiAyODMuMTk3IDE5My43NjNDMjg0LjQ4OCAxOTUuOTk5IDI4Ni44NjEgMTk3LjA0NyAyODguNDk2IDE5Ni4xMDNaIgogICAgICAgZmlsbD0iIzREMzkzMCIKICAgICAgIGlkPSJwYXRoMTc2IiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik00MzAuNjk1IDM0MS44NzVINDEyLjg4OUw0MTYuMTMgMzQ5Ljc0OEg0MjcuNDU0TDQzMC42OTUgMzQxLjg3NVoiCiAgICAgICBmaWxsPSIjNzBBNEIxIgogICAgICAgaWQ9InBhdGgxNzgiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTM0Mi45MzUgMzQ1LjQ4OUg0MTkuMjY3QzQxOS4yNjcgMzQ2LjA0OSA0MTkuMTU3IDM0Ni42MDMgNDE4Ljk0MyAzNDcuMTJDNDE4LjcyOCAzNDcuNjM3IDQxOC40MTQgMzQ4LjEwNyA0MTguMDE5IDM0OC41MDNDNDE3LjYyMyAzNDguODk4IDQxNy4xNTMgMzQ5LjIxMiA0MTYuNjM2IDM0OS40MjdDNDE2LjExOSAzNDkuNjQxIDQxNS41NjUgMzQ5Ljc1MSA0MTUuMDA1IDM0OS43NTFIMzQyLjkzNVYzNDUuNDg5WiIKICAgICAgIGZpbGw9IiM0MzQ3NEIiCiAgICAgICBpZD0icGF0aDE4MCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNMzA5LjQ0NiAzNDUuNDg5SDM4NS43NzhDMzg1Ljc3OCAzNDYuMDQ5IDM4NS42NjcgMzQ2LjYwMyAzODUuNDUzIDM0Ny4xMkMzODUuMjM5IDM0Ny42MzcgMzg0LjkyNSAzNDguMTA3IDM4NC41MjkgMzQ4LjUwM0MzODQuMTM0IDM0OC44OTggMzgzLjY2NCAzNDkuMjEyIDM4My4xNDcgMzQ5LjQyN0MzODIuNjMgMzQ5LjY0MSAzODIuMDc2IDM0OS43NTEgMzgxLjUxNiAzNDkuNzUxSDMxMy43MTFDMzEzLjE1MSAzNDkuNzUxIDMxMi41OTcgMzQ5LjY0MSAzMTIuMDc5IDM0OS40MjdDMzExLjU2MiAzNDkuMjEzIDMxMS4wOTIgMzQ4LjkgMzEwLjY5NSAzNDguNTA0QzMxMC4yOTkgMzQ4LjEwOCAzMDkuOTg1IDM0Ny42MzggMzA5Ljc3MSAzNDcuMTIxQzMwOS41NTYgMzQ2LjYwMyAzMDkuNDQ2IDM0Ni4wNDkgMzA5LjQ0NiAzNDUuNDg5WiIKICAgICAgIGZpbGw9IiM2RDcxNzYiCiAgICAgICBpZD0icGF0aDE4MiIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNMjIwLjQ0MiAzMzQuMjk1SDIwOC41NTRWMzM3LjE2NkgyMjAuNDQyVjMzNC4yOTVaIgogICAgICAgZmlsbD0iIzREMzkzMCIKICAgICAgIGlkPSJwYXRoMTg0IiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik0yMjAuNDQyIDMyNy44MTNIMjA4LjU1NFYzMzAuNjg0SDIyMC40NDJWMzI3LjgxM1oiCiAgICAgICBmaWxsPSIjNjg0QTNEIgogICAgICAgaWQ9InBhdGgxODYiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTI2Mi41NzUgMzI3LjgxM0gyNTAuNjg3VjM0MC40MDdIMjYyLjU3NVYzMjcuODEzWiIKICAgICAgIGZpbGw9IiM2ODRBM0QiCiAgICAgICBpZD0icGF0aDE4OCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNMzU2LjU5IDI0OS4xMjhMMzU0LjQwMiAyNTYuNDQ5SDI4OC4xNUMyODguMTUgMjU2LjQ0OSAyOTIuNjg3IDI0OS41NDkgMjkwLjc3OCAyNDMuMDkzQzI4OS45NjUgMjQwLjMzMiAyODkuMTU4IDIzOC42MjEgMjg4Ljc3NSAyMzYuNzk2QzI4OS41NjggMjM1LjczNiAyOTAuMjg2IDIzNC42MjEgMjkwLjkyNCAyMzMuNDYxQzI5My42NzkgMjI4LjM3MyAyOTguODA5IDIxMi4zMjMgMzAxLjQ2NyAyMDMuNzI4QzMwMi41MDcgMjAzLjUxMSAzMDQuNzA4IDIwMy4wNTQgMzA3LjMxNyAyMDIuNTM2QzMwNC45MTUgMjEwLjg0NSAzMDEuOTExIDIyMy40NjkgMzAwLjE4NyAyMzAuOTI3QzMwMC4wMTcgMjMxLjY1OSAzMDAuMDE1IDIzMi40MiAzMDAuMTggMjMzLjE1M0MzMDAuMzQ1IDIzMy44ODcgMzAwLjY3NCAyMzQuNTczIDMwMS4xNDEgMjM1LjE2MkMzMDEuNjA4IDIzNS43NTEgMzAyLjIwMiAyMzYuMjI3IDMwMi44NzggMjM2LjU1NUMzMDMuNTU1IDIzNi44ODMgMzA0LjI5NiAyMzcuMDU0IDMwNS4wNDggMjM3LjA1NUgzMjYuMjE1QzMyNy4yNDcgMjM3LjA1NSAzMjguMjU0IDIzNi43MzYgMzI5LjA5OCAyMzYuMTQxQzMyOS45NDEgMjM1LjU0NyAzMzAuNTggMjM0LjcwNSAzMzAuOTI3IDIzMy43MzNDMzM0LjQ1NCAyMjMuODMyIDM0MC45NDUgMjA5LjQyNiAzNDQuMjkzIDIwMi4xMzdDMzQ1Ljk4NSAyMDIuNSAzNDcuODI2IDIwMi45NDQgMzQ5LjcwNiAyMDMuNDg4QzM0Ni4xNjMgMjEzLjUzNiAzMzkuNTc0IDIzMy4yNiAzNDAuOTg3IDIzNy4wNTVDMzQyLjg5NiAyNDIuMTk5IDM1MC4yNDQgMjQ4LjE4MiAzNTYuNTkgMjQ5LjEyOFoiCiAgICAgICBmaWxsPSIjQkY1RjREIgogICAgICAgaWQ9InBhdGgxOTAiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTMyNy4zMzYgMTc4LjA2OUMzMjkuNTUyIDE3OC4wNjkgMzMxLjM0OSAxNzYuMjczIDMzMS4zNDkgMTc0LjA1N0MzMzEuMzQ5IDE3MS44NDEgMzI5LjU1MiAxNzAuMDQ1IDMyNy4zMzYgMTcwLjA0NUMzMjUuMTIgMTcwLjA0NSAzMjMuMzI0IDE3MS44NDEgMzIzLjMyNCAxNzQuMDU3QzMyMy4zMjQgMTc2LjI3MyAzMjUuMTIgMTc4LjA2OSAzMjcuMzM2IDE3OC4wNjlaIgogICAgICAgZmlsbD0iI0RGOEE3NCIKICAgICAgIGlkPSJwYXRoMTkyIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik0xNzcuMDM5IDM0OS43NDhDMTc3LjAzOSAzNDkuNzQ4IDE3Ni41NTMgMzQ2LjgzMSAxNzkuMzA4IDM0NS40ODNDMTgyLjA2MiAzNDQuMTM0IDE4OS44NDEgMzQ1LjQ4MyAxODkuODQxIDM0NS40ODNWMzQ5Ljc0OEgxNzcuMDM5WiIKICAgICAgIGZpbGw9IiM2RDcxNzYiCiAgICAgICBpZD0icGF0aDE5NCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNTUzLjA2MSAzNzIuNTU0VjM0OS43NDhINTYuNTg0NFYzNzIuNTU0IgogICAgICAgc3Ryb2tlPSIjREZFM0VGIgogICAgICAgc3Ryb2tlLXdpZHRoPSIwLjc5NzI4MyIKICAgICAgIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIKICAgICAgIGlkPSJwYXRoMTk2IiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik00NDkuMTQ5IDI0NS45NjhINDYzLjYyOUw0NjYuODcgMjU2LjQ0OVYzMDYuMTQ3SDQ0NS45MDhWMjU2LjQ0OUw0NDkuMTQ5IDI0NS45NjhaIgogICAgICAgZmlsbD0iIzhDQkRDNCIKICAgICAgIGlkPSJwYXRoMTk4IiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik00NjYuODcgMjcwLjUzNUg0NDUuOTA4VjMwNi4xNDNINDY2Ljg3VjI3MC41MzVaIgogICAgICAgZmlsbD0iIzUwODk5NCIKICAgICAgIGlkPSJwYXRoMjAwIiAvPgogICAgPHBhdGgKICAgICAgIG9wYWNpdHk9IjAuNSIKICAgICAgIGQ9Ik0yMDQuNDMyIDE4OS4yMThDMjAxLjc5MyAxOTAuNDEgMTk4Ljk0MiAxOTEuMDYzIDE5Ni4wNDggMTkxLjEzOUMxOTMuMTUzIDE5MS4yMTUgMTkwLjI3MyAxOTAuNzEzIDE4Ny41NzUgMTg5LjY2MkMxODQuODc3IDE4OC42MTEgMTgyLjQxNSAxODcuMDMzIDE4MC4zMzUgMTg1LjAxOUMxNzguMjU1IDE4My4wMDUgMTc2LjU5NyAxODAuNTk2IDE3NS40NTkgMTc3LjkzM0MxNzQuMzIxIDE3NS4yNzEgMTczLjcyNiAxNzIuNDA4IDE3My43MDkgMTY5LjUxMkMxNzMuNjkxIDE2Ni42MTcgMTc0LjI1MSAxNjMuNzQ3IDE3NS4zNTcgMTYxLjA3MUMxNzYuNDYyIDE1OC4zOTQgMTc4LjA5IDE1NS45NjYgMTgwLjE0NiAxNTMuOTI2QzE4Mi4yMDIgMTUxLjg4NyAxODQuNjQ0IDE1MC4yNzkgMTg3LjMyOSAxNDkuMTk1QzE4NS4zODQgMTUzLjY3NCAxODIuMzI1IDE2My4xMzIgMTg1LjQ3MiAxNzIuOTkxQzE4OS4zOSAxODUuMjM4IDIwMS45MTMgMTg4LjY1MSAyMDQuNDMyIDE4OS4yMThaIgogICAgICAgZmlsbD0iI0QwOTY0NCIKICAgICAgIGlkPSJwYXRoMjAyIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik0zMDkuNTUzIDM0NS40ODlIMzg1Ljg4NUwzNzYuNDA4IDI5Mi44NDJDMzc2LjM4MiAyOTIuNzAxIDM3Ni4zMDggMjkyLjU3NCAzNzYuMTk4IDI5Mi40ODJDMzc2LjA4OCAyOTIuMzkgMzc1Ljk0OSAyOTIuMzQgMzc1LjgwNSAyOTIuMzRIMzAwLjcxNUMzMDAuNjI1IDI5Mi4zNCAzMDAuNTM3IDI5Mi4zNiAzMDAuNDU2IDI5Mi4zOThDMzAwLjM3NSAyOTIuNDM1IDMwMC4zMDQgMjkyLjQ5MSAzMDAuMjQ2IDI5Mi41NTlDMzAwLjE4OSAyOTIuNjI4IDMwMC4xNDggMjkyLjcwOCAzMDAuMTI1IDI5Mi43OTVDMzAwLjEwMiAyOTIuODgxIDMwMC4wOTkgMjkyLjk3MiAzMDAuMTE1IDI5My4wNkwzMDkuNTUzIDM0NS40ODlaIgogICAgICAgZmlsbD0iIzgzOEE5MCIKICAgICAgIGlkPSJwYXRoMjA0IiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik00MzIuMzc3IDMyMC42OTlINDExLjIwM1YzNDMuMjQ5SDQzMi4zNzdWMzIwLjY5OVoiCiAgICAgICBmaWxsPSIjOENCREM0IgogICAgICAgaWQ9InBhdGgyMDYiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTQyOS4zMDcgMzI1Ljc0NUg0MzcuMTMxVjMzMi44NDlDNDM3LjEzMSAzMzMuOTY5IDQzNi44NTggMzM1LjA3MiA0MzYuMzM1IDMzNi4wNjJDNDM1LjgxMiAzMzcuMDUyIDQzNS4wNTUgMzM3LjkgNDM0LjEzIDMzOC41MzFWMzM4LjUzMUM0MzIuOTg5IDMzOS4zMDggNDMxLjY0MSAzMzkuNzI0IDQzMC4yNiAzMzkuNzIzSDQyOS4zMDciCiAgICAgICBzdHJva2U9IiM4Q0JEQzQiCiAgICAgICBzdHJva2Utd2lkdGg9IjEuMjk2MzkiCiAgICAgICBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiCiAgICAgICBpZD0icGF0aDIwOCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNMzQwLjY4IDMyOC4wNDNDMzQ0LjczNiAzMjguMDQzIDM0OC4wMjQgMzI0Ljc1NSAzNDguMDI0IDMyMC42OTlDMzQ4LjAyNCAzMTYuNjQzIDM0NC43MzYgMzEzLjM1NSAzNDAuNjggMzEzLjM1NUMzMzYuNjI0IDMxMy4zNTUgMzMzLjMzNSAzMTYuNjQzIDMzMy4zMzUgMzIwLjY5OUMzMzMuMzM1IDMyNC43NTUgMzM2LjYyNCAzMjguMDQzIDM0MC42OCAzMjguMDQzWiIKICAgICAgIGZpbGw9IiNGM0Y1RjciCiAgICAgICBpZD0icGF0aDIxMCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNzAuOTk3MSA2Mi4xMzYxQzczLjc3NjkgNjIuMTM2MSA3Ni4wMzA0IDU5Ljg4MjYgNzYuMDMwNCA1Ny4xMDI4Qzc2LjAzMDQgNTQuMzIzIDczLjc3NjkgNTIuMDY5NiA3MC45OTcxIDUyLjA2OTZDNjguMjE3MyA1Mi4wNjk2IDY1Ljk2MzkgNTQuMzIzIDY1Ljk2MzkgNTcuMTAyOEM2NS45NjM5IDU5Ljg4MjYgNjguMjE3MyA2Mi4xMzYxIDcwLjk5NzEgNjIuMTM2MVoiCiAgICAgICBmaWxsPSIjNkQ3MTc2IgogICAgICAgaWQ9InBhdGgyMTIiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTUzOC42NDkgNjIuMTM2MUM1NDEuNDI5IDYyLjEzNjEgNTQzLjY4MiA1OS44ODI2IDU0My42ODIgNTcuMTAyOEM1NDMuNjgyIDU0LjMyMyA1NDEuNDI5IDUyLjA2OTYgNTM4LjY0OSA1Mi4wNjk2QzUzNS44NjkgNTIuMDY5NiA1MzMuNjE1IDU0LjMyMyA1MzMuNjE1IDU3LjEwMjhDNTMzLjYxNSA1OS44ODI2IDUzNS44NjkgNjIuMTM2MSA1MzguNjQ5IDYyLjEzNjFaIgogICAgICAgZmlsbD0iIzZENzE3NiIKICAgICAgIGlkPSJwYXRoMjE0IiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik00MjcuOTUgMjk1LjM4NEg0NjAuMDY4QzQ2MS40OTUgMjk1LjM4NCA0NjIuODYzIDI5NS45NSA0NjMuODcyIDI5Ni45NTlDNDY0Ljg4MSAyOTcuOTY4IDQ2NS40NDggMjk5LjMzNyA0NjUuNDQ4IDMwMC43NjRDNDY1LjQ0OCAzMDIuMTkxIDQ2NC44ODEgMzAzLjU2IDQ2My44NzIgMzA0LjU2OUM0NjIuODYzIDMwNS41NzggNDYxLjQ5NSAzMDYuMTQ2IDQ2MC4wNjggMzA2LjE0N0g0MjcuOTUiCiAgICAgICBmaWxsPSIjNkVBNUIwIgogICAgICAgaWQ9InBhdGgyMTYiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTQzNy42NzIgMjg0LjUzOUg0NjkuNzkxQzQ3MS4yMTggMjg0LjU0IDQ3Mi41ODYgMjg1LjEwNyA0NzMuNTk1IDI4Ni4xMTdDNDc0LjYwNCAyODcuMTI2IDQ3NS4xNzEgMjg4LjQ5NSA0NzUuMTcxIDI4OS45MjJDNDc1LjE3MSAyOTEuMzQ5IDQ3NC42MDQgMjkyLjcxOCA0NzMuNTk1IDI5My43MjdDNDcyLjU4NiAyOTQuNzM2IDQ3MS4yMTcgMjk1LjMwMiA0NjkuNzkxIDI5NS4zMDJINDM3LjY3MiIKICAgICAgIGZpbGw9IiM4Q0JEQzQiCiAgICAgICBpZD0icGF0aDIxOCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNDQ2LjAwMiAyODkuOTE5QzQ0Ni4wMDIgMjkxLjM0NiA0NDUuNDM1IDI5Mi43MTUgNDQ0LjQyNiAyOTMuNzI1QzQ0My40MTcgMjk0LjczNCA0NDIuMDQ5IDI5NS4zMDIgNDQwLjYyMiAyOTUuMzAySDQwOC41MDRDNDA4Ljg3MSAyOTQuOTk3IDQwOS4yMDcgMjk0LjY1NSA0MDkuNTA1IDI5NC4yODFDNDEwLjQ5MiAyOTMuMDQyIDQxMS4wMyAyOTEuNTA0IDQxMS4wMyAyODkuOTE5QzQxMS4wMyAyODguMzM0IDQxMC40OTIgMjg2Ljc5NyA0MDkuNTA1IDI4NS41NTdDNDA5LjIwOSAyODUuMTg0IDQwOC44NzQgMjg0Ljg0MyA0MDguNTA3IDI4NC41MzlINDQwLjYyNUM0NDIuMDUxIDI4NC41NCA0NDMuNDE5IDI4NS4xMDcgNDQ0LjQyNyAyODYuMTE2QzQ0NS40MzUgMjg3LjEyNSA0NDYuMDAyIDI4OC40OTMgNDQ2LjAwMiAyODkuOTE5WiIKICAgICAgIGZpbGw9IiM1MDg5OTQiCiAgICAgICBpZD0icGF0aDIyMCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNDQ1LjA1OSAyODkuOTE5QzQ0NS4wNTkgMjkwLjQ5MiA0NDQuOTQ3IDI5MS4wNTkgNDQ0LjcyOCAyOTEuNTg5QzQ0NC41MDggMjkyLjExOCA0NDQuMTg3IDI5Mi41OTkgNDQzLjc4MiAyOTMuMDA1QzQ0My4zNzcgMjkzLjQxIDQ0Mi44OTYgMjkzLjczMSA0NDIuMzY2IDI5My45NUM0NDEuODM3IDI5NC4xNjkgNDQxLjI2OSAyOTQuMjgyIDQ0MC42OTYgMjk0LjI4MUg0MDkuNTA1QzQxMC40OTIgMjkzLjA0MiA0MTEuMDMgMjkxLjUwNCA0MTEuMDMgMjg5LjkxOUM0MTEuMDMgMjg4LjMzNCA0MTAuNDkyIDI4Ni43OTYgNDA5LjUwNSAyODUuNTU3SDQ0MC43QzQ0MS44NTYgMjg1LjU1NyA0NDIuOTY1IDI4Ni4wMTcgNDQzLjc4MiAyODYuODM1QzQ0NC42IDI4Ny42NTMgNDQ1LjA1OSAyODguNzYzIDQ0NS4wNTkgMjg5LjkxOVoiCiAgICAgICBmaWxsPSJ3aGl0ZSIKICAgICAgIGlkPSJwYXRoMjIyIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik00NDIuNDM0IDMwMi4wMDVMNDQyLjA5IDMwMi45MzVINDQxLjE3TDQ0Mi44MjYgMjk4LjU5NUg0NDMuOTA4TDQ0NS41NzEgMzAyLjkzNUg0NDQuNjQ0TDQ0NC4yOTQgMzAyLjAwNUg0NDIuNDM0Wk00NDMuOTg5IDMwMS4xNzJMNDQzLjM0MSAyOTkuNDY0TDQ0Mi42OTMgMzAxLjE3Mkg0NDMuOTg5WiIKICAgICAgIGZpbGw9IiM1MDg5OTQiCiAgICAgICBpZD0icGF0aDIyNCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNDQ5Ljk5MSAzMDAuOTM4QzQ1MC4wMDQgMzAxLjIxMiA0NDkuOTU5IDMwMS40ODUgNDQ5Ljg2IDMwMS43NEM0NDkuNzYyIDMwMS45OTUgNDQ5LjYxMSAzMDIuMjI3IDQ0OS40MTggMzAyLjQyMUM0NDkuMjI0IDMwMi42MTUgNDQ4Ljk5MyAzMDIuNzY2IDQ0OC43MzggMzAyLjg2NkM0NDguNDgzIDMwMi45NjYgNDQ4LjIxIDMwMy4wMTEgNDQ3LjkzNyAzMDNDNDQ3LjY0IDMwMy4wMDkgNDQ3LjM0NCAzMDIuOTU5IDQ0Ny4wNjggMzAyLjg1QzQ0Ni43OTIgMzAyLjc0MSA0NDYuNTQxIDMwMi41NzggNDQ2LjMzIDMwMi4zNjhDNDQ2LjExOSAzMDIuMTU5IDQ0NS45NTQgMzAxLjkwOSA0NDUuODQzIDMwMS42MzRDNDQ1LjczMyAzMDEuMzU4IDQ0NS42OCAzMDEuMDYzIDQ0NS42ODcgMzAwLjc2N0M0NDUuNjg3IDMwMC40NyA0NDUuNzQ2IDMwMC4xNzYgNDQ1Ljg2MSAyOTkuOTAzQzQ0NS45NzUgMjk5LjYyOSA0NDYuMTQzIDI5OS4zODEgNDQ2LjM1NCAyOTkuMTczQzQ0Ni41NjUgMjk4Ljk2NCA0NDYuODE1IDI5OC44IDQ0Ny4wOSAyOTguNjg5QzQ0Ny4zNjUgMjk4LjU3OCA0NDcuNjYgMjk4LjUyMyA0NDcuOTU2IDI5OC41MjdDNDQ5LjAzOSAyOTguNTI3IDQ0OS43MjYgMjk5LjE1OSA0NDkuOTAxIDI5OS44NTNMNDQ5LjAyNiAzMDAuMTE4QzQ0OC45NSAyOTkuODk0IDQ0OC44MDMgMjk5LjcgNDQ4LjYwNyAyOTkuNTY3QzQ0OC40MTEgMjk5LjQzNCA0NDguMTc2IDI5OS4zNyA0NDcuOTQgMjk5LjM4M0M0NDcuNTg1IDI5OS40IDQ0Ny4yNSAyOTkuNTUzIDQ0Ny4wMDUgMjk5LjgxQzQ0Ni43NiAzMDAuMDY4IDQ0Ni42MjMgMzAwLjQxIDQ0Ni42MjMgMzAwLjc2NUM0NDYuNjIzIDMwMS4xMiA0NDYuNzYgMzAxLjQ2MiA0NDcuMDA1IDMwMS43MkM0NDcuMjUgMzAxLjk3NyA0NDcuNTg1IDMwMi4xMyA0NDcuOTQgMzAyLjE0N0M0NDguMTgyIDMwMi4xNzEgNDQ4LjQyNSAzMDIuMTExIDQ0OC42MjggMzAxLjk3OEM0NDguODMxIDMwMS44NDUgNDQ4Ljk4MyAzMDEuNjQ2IDQ0OS4wNTggMzAxLjQxNUg0NDcuNzM5VjMwMC42MDFINDUwLjAwOEw0NDkuOTkxIDMwMC45MzhaIgogICAgICAgZmlsbD0iIzUwODk5NCIKICAgICAgIGlkPSJwYXRoMjI2IiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik00NTEuNTk5IDI5OC41OTVWMzAyLjkzNUg0NTAuNzAxVjI5OC41OTVINDUxLjU5OVoiCiAgICAgICBmaWxsPSIjNTA4OTk0IgogICAgICAgaWQ9InBhdGgyMjgiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTQ1Mi42MTMgMjk4LjU5NUg0NTMuNTA1VjMwMi4wODNINDU1LjM1OFYzMDIuOTM1SDQ1Mi42MUw0NTIuNjEzIDI5OC41OTVaIgogICAgICAgZmlsbD0iIzUwODk5NCIKICAgICAgIGlkPSJwYXRoMjMwIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik00NTUuOTYxIDI5OC41OTVINDU4LjgwNFYyOTkuNDM4SDQ1Ni44NTlWMzAwLjMxOUg0NTguNTk5VjMwMS4xNjJINDU2Ljg0NlYzMDIuMDk5SDQ1OC44MTNWMzAyLjkzNUg0NTUuOTYxVjI5OC41OTVaIgogICAgICAgZmlsbD0iIzUwODk5NCIKICAgICAgIGlkPSJwYXRoMjMyIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik00MzQuNjQ5IDI3My43NzlDNDM5LjE3NCAyNzMuNzc5IDQ0Mi44NDIgMjcwLjExMSA0NDIuODQyIDI2NS41ODZDNDQyLjg0MiAyNjEuMDYxIDQzOS4xNzQgMjU3LjM5MyA0MzQuNjQ5IDI1Ny4zOTNDNDMwLjEyNCAyNTcuMzkzIDQyNi40NTUgMjYxLjA2MSA0MjYuNDU1IDI2NS41ODZDNDI2LjQ1NSAyNzAuMTExIDQzMC4xMjQgMjczLjc3OSA0MzQuNjQ5IDI3My43NzlaIgogICAgICAgZmlsbD0id2hpdGUiCiAgICAgICBpZD0icGF0aDIzNCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNDMxLjE5MSAyNzMuNzc2SDQ2My4zMDlDNDY0LjczNiAyNzMuNzc2IDQ2Ni4xMDQgMjc0LjM0NCA0NjcuMTEzIDI3NS4zNTRDNDY4LjEyMiAyNzYuMzYzIDQ2OC42ODkgMjc3LjczMiA0NjguNjg5IDI3OS4xNTlDNDY4LjY4OSAyNzkuODY1IDQ2OC41NSAyODAuNTY1IDQ2OC4yNzkgMjgxLjIxOEM0NjguMDA5IDI4MS44NzEgNDY3LjYxMyAyODIuNDY0IDQ2Ny4xMTMgMjgyLjk2M0M0NjYuNjEzIDI4My40NjMgNDY2LjAyIDI4My44NTkgNDY1LjM2OCAyODQuMTI5QzQ2NC43MTUgMjg0LjQgNDY0LjAxNSAyODQuNTM5IDQ2My4zMDkgMjg0LjUzOUg0MzEuMTkxIgogICAgICAgZmlsbD0iIzZFQTVCMCIKICAgICAgIGlkPSJwYXRoMjM2IiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik00MzkuNTIgMjc5LjE1OUM0MzkuNTIgMjgwLjU4NiA0MzguOTUzIDI4MS45NTUgNDM3Ljk0NCAyODIuOTY0QzQzNi45MzUgMjgzLjk3NCA0MzUuNTY3IDI4NC41NDIgNDM0LjE0IDI4NC41NDJINDAyLjAyMkM0MDIuMzg5IDI4NC4yMzcgNDAyLjcyNSAyODMuODk1IDQwMy4wMjMgMjgzLjUyMUM0MDQuMDEgMjgyLjI4MiA0MDQuNTQ4IDI4MC43NDQgNDA0LjU0OCAyNzkuMTU5QzQwNC41NDggMjc3LjU3NCA0MDQuMDEgMjc2LjAzNyA0MDMuMDIzIDI3NC43OTdDNDAyLjcyNiAyNzQuNDI0IDQwMi4zOTIgMjc0LjA4MyA0MDIuMDI1IDI3My43NzlINDM0LjE0M0M0MzUuNTY5IDI3My43OCA0MzYuOTM3IDI3NC4zNDcgNDM3Ljk0NSAyNzUuMzU2QzQzOC45NTMgMjc2LjM2NSA0MzkuNTIgMjc3LjczMyA0MzkuNTIgMjc5LjE1OVoiCiAgICAgICBmaWxsPSIjQjNCNERBIgogICAgICAgaWQ9InBhdGgyMzgiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTQzOS41MiAyNzkuMTU5QzQzOS41MiAyODAuNTg2IDQzOC45NTMgMjgxLjk1NSA0MzcuOTQ0IDI4Mi45NjRDNDM2LjkzNSAyODMuOTc0IDQzNS41NjcgMjg0LjU0MiA0MzQuMTQgMjg0LjU0Mkg0MDIuMDIyQzQwMi4zODkgMjg0LjIzNyA0MDIuNzI1IDI4My44OTUgNDAzLjAyMyAyODMuNTIxQzQwNC4wMSAyODIuMjgyIDQwNC41NDggMjgwLjc0NCA0MDQuNTQ4IDI3OS4xNTlDNDA0LjU0OCAyNzcuNTc0IDQwNC4wMSAyNzYuMDM3IDQwMy4wMjMgMjc0Ljc5N0M0MDIuNzI2IDI3NC40MjQgNDAyLjM5MiAyNzQuMDgzIDQwMi4wMjUgMjczLjc3OUg0MzQuMTQzQzQzNS41NjkgMjczLjc4IDQzNi45MzcgMjc0LjM0NyA0MzcuOTQ1IDI3NS4zNTZDNDM4Ljk1MyAyNzYuMzY1IDQzOS41MiAyNzcuNzMzIDQzOS41MiAyNzkuMTU5WiIKICAgICAgIGZpbGw9IiM1MDg5OTQiCiAgICAgICBpZD0icGF0aDI0MCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNDM4LjU3NyAyNzkuMTU5QzQzOC41NzcgMjc5LjczMiA0MzguNDY1IDI4MC4yOTkgNDM4LjI0NiAyODAuODI5QzQzOC4wMjcgMjgxLjM1OCA0MzcuNzA1IDI4MS44MzkgNDM3LjMgMjgyLjI0NUM0MzYuODk1IDI4Mi42NSA0MzYuNDE0IDI4Mi45NzEgNDM1Ljg4NCAyODMuMTlDNDM1LjM1NSAyODMuNDA5IDQzNC43ODcgMjgzLjUyMiA0MzQuMjE0IDI4My41MjFINDAzLjAyM0M0MDQuMDEgMjgyLjI4MiA0MDQuNTQ4IDI4MC43NDQgNDA0LjU0OCAyNzkuMTU5QzQwNC41NDggMjc3LjU3NCA0MDQuMDEgMjc2LjAzNiA0MDMuMDIzIDI3NC43OTdINDM0LjIxOEM0MzUuMzc0IDI3NC43OTcgNDM2LjQ4MyAyNzUuMjU3IDQzNy4zIDI3Ni4wNzVDNDM4LjExOCAyNzYuODkzIDQzOC41NzcgMjc4LjAwMyA0MzguNTc3IDI3OS4xNTlaIgogICAgICAgZmlsbD0id2hpdGUiCiAgICAgICBpZD0icGF0aDI0MiIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNDM2LjI3OSAzMDAuNzY0QzQzNi4yNzkgMzAyLjE5MSA0MzUuNzEyIDMwMy41NiA0MzQuNzAzIDMwNC41NjlDNDMzLjY5NCAzMDUuNTc4IDQzMi4zMjYgMzA2LjE0NiA0MzAuODk5IDMwNi4xNDdIMzk4Ljc4MUMzOTkuMTQ4IDMwNS44NDEgMzk5LjQ4NCAzMDUuNDk5IDM5OS43ODIgMzA1LjEyNkM0MDAuNzY5IDMwMy44ODYgNDAxLjMwNyAzMDIuMzQ4IDQwMS4zMDcgMzAwLjc2NEM0MDEuMzA3IDI5OS4xNzkgNDAwLjc2OSAyOTcuNjQxIDM5OS43ODIgMjk2LjQwMUMzOTkuNDg2IDI5Ni4wMjggMzk5LjE1MSAyOTUuNjg3IDM5OC43ODQgMjk1LjM4NEg0MzAuOTAyQzQzMi4zMjggMjk1LjM4NCA0MzMuNjk2IDI5NS45NTIgNDM0LjcwNCAyOTYuOTZDNDM1LjcxMiAyOTcuOTY5IDQzNi4yNzkgMjk5LjMzNyA0MzYuMjc5IDMwMC43NjRaIgogICAgICAgZmlsbD0iIzUwODk5NCIKICAgICAgIGlkPSJwYXRoMjQ0IiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik00MzUuMzM2IDMwMC43NjNDNDM1LjMzNiAzMDEuMzM2IDQzNS4yMjQgMzAxLjkwNCA0MzUuMDA1IDMwMi40MzNDNDM0Ljc4NiAzMDIuOTYzIDQzNC40NjQgMzAzLjQ0NCA0MzQuMDU5IDMwMy44NDlDNDMzLjY1NCAzMDQuMjU0IDQzMy4xNzMgMzA0LjU3NiA0MzIuNjQzIDMwNC43OTVDNDMyLjExNCAzMDUuMDE0IDQzMS41NDYgMzA1LjEyNiA0MzAuOTczIDMwNS4xMjZIMzk5Ljc4MkM0MDAuNzY5IDMwMy44ODYgNDAxLjMwNyAzMDIuMzQ4IDQwMS4zMDcgMzAwLjc2M0M0MDEuMzA3IDI5OS4xNzkgNDAwLjc2OSAyOTcuNjQxIDM5OS43ODIgMjk2LjQwMUg0MzAuOTc3QzQzMi4xMzMgMjk2LjQwMiA0MzMuMjQyIDI5Ni44NjIgNDM0LjA1OSAyOTcuNjhDNDM0Ljg3NyAyOTguNDk4IDQzNS4zMzYgMjk5LjYwNyA0MzUuMzM2IDMwMC43NjNaIgogICAgICAgZmlsbD0id2hpdGUiCiAgICAgICBpZD0icGF0aDI0NiIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNDI2LjkyOSAyNjIuMzlDNDI2LjkyOSAyNjIuMzkgNDMwLjIzNCAyNjkuMTk2IDQzOC43NjEgMjcyLjc5NyIKICAgICAgIHN0cm9rZT0iI0ExQTVBQSIKICAgICAgIHN0cm9rZS13aWR0aD0iMC45MTM5NTgiCiAgICAgICBzdHJva2UtbGluZWNhcD0icm91bmQiCiAgICAgICBzdHJva2UtbGluZWpvaW49InJvdW5kIgogICAgICAgaWQ9InBhdGgyNDgiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTQyOC41NDkgMjYwLjc3QzQyOC41NDkgMjYwLjc3IDQzMS40NDMgMjY2LjcxNyA0MzguNzk3IDI3MC40NDFDNDM5LjIwNyAyNzAuNjQxIDQzOS41NyAyNzAuOTI0IDQzOS44NjQgMjcxLjI3MkM0NDAuMTU4IDI3MS42MiA0NDAuMzc3IDI3Mi4wMjYgNDQwLjUwNSAyNzIuNDYzQzQ0MC42ODMgMjczLjExMSA0NDEuMDg4IDI3My43NTkgNDQyLjAwMiAyNzMuNzU5QzQ0My44MyAyNzMuNzc5IDQ0Ni43NTcgMjcwLjc0NSA0NDkuOTQgMjcyLjI2MkM0NTMuMTIyIDI3My43NzkgNDUzLjcyMiAyNzIuODA3IDQ1NS45NjEgMjczLjI5M0M0NTguMjAxIDI3My43NzkgNDY0LjI0OSAyNzAuMTU5IDQ2OC4xMzggMjcyLjgiCiAgICAgICBzdHJva2U9IiNBMUE1QUEiCiAgICAgICBzdHJva2Utd2lkdGg9IjAuOTEzOTU4IgogICAgICAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogICAgICAgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKICAgICAgIGlkPSJwYXRoMjUwIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik00MzAuMTcgMjU4LjgyNUM0MzAuMTcgMjU4LjgyNSA0MzMuNDc1IDI2NS42MzEgNDQyLjAwMiAyNjkuMjMyIgogICAgICAgc3Ryb2tlPSIjQTFBNUFBIgogICAgICAgc3Ryb2tlLXdpZHRoPSIwLjkxMzk1OCIKICAgICAgIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIKICAgICAgIHN0cm9rZS1saW5lam9pbj0icm91bmQiCiAgICAgICBpZD0icGF0aDI1MiIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNDM5LjY5MiAyNTkuMjJDNDQwLjk1NiAyNjIuMzM1IDQ0MS41ODcgMjY1LjY3IDQ0MS41NDUgMjY5LjAzMSIKICAgICAgIHN0cm9rZT0iI0ExQTVBQSIKICAgICAgIHN0cm9rZS13aWR0aD0iMC45MTM5NTgiCiAgICAgICBzdHJva2UtbGluZWNhcD0icm91bmQiCiAgICAgICBzdHJva2UtbGluZWpvaW49InJvdW5kIgogICAgICAgaWQ9InBhdGgyNTQiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTQzOS4yMzggMjY3Ljg1OEM0MzkuMTU0IDI2NS4zNjQgNDM4LjcgMjYyLjg5NiA0MzcuODkgMjYwLjUzNiIKICAgICAgIHN0cm9rZT0iI0ExQTVBQSIKICAgICAgIHN0cm9rZS13aWR0aD0iMC45MTM5NTgiCiAgICAgICBzdHJva2UtbGluZWNhcD0icm91bmQiCiAgICAgICBzdHJva2UtbGluZWpvaW49InJvdW5kIgogICAgICAgaWQ9InBhdGgyNTYiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTQzNi41NjEgMjY2LjA4NUM0MzYuNDE4IDI2NC44MzkgNDM2LjE4MyAyNjMuNjA1IDQzNS44NTggMjYyLjM5NCIKICAgICAgIHN0cm9rZT0iI0ExQTVBQSIKICAgICAgIHN0cm9rZS13aWR0aD0iMC45MTM5NTgiCiAgICAgICBzdHJva2UtbGluZWNhcD0icm91bmQiCiAgICAgICBzdHJva2UtbGluZWpvaW49InJvdW5kIgogICAgICAgaWQ9InBhdGgyNTgiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTQzNC4xNjIgMjU3LjQwNkM0MzMuMDc1IDI1OC4zMzEgNDMyLjA2OCAyNTkuMzQ3IDQzMS4xNTIgMjYwLjQ0MiIKICAgICAgIHN0cm9rZT0iI0ExQTVBQSIKICAgICAgIHN0cm9rZS13aWR0aD0iMC45MTM5NTgiCiAgICAgICBzdHJva2UtbGluZWNhcD0icm91bmQiCiAgICAgICBzdHJva2UtbGluZWpvaW49InJvdW5kIgogICAgICAgaWQ9InBhdGgyNjAiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTTQzMi41NjUgMjYyLjI5NkM0MzMuOTQ3IDI2MC42MDggNDM1LjU0NSAyNTkuMTEgNDM3LjMxOSAyNTcuODQiCiAgICAgICBzdHJva2U9IiNBMUE1QUEiCiAgICAgICBzdHJva2Utd2lkdGg9IjAuOTEzOTU4IgogICAgICAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogICAgICAgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKICAgICAgIGlkPSJwYXRoMjYyIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik00MzQuMzA4IDI2NC4xNTdDNDM1Ljg1NyAyNjIuMjI5IDQzNy42ODYgMjYwLjU0NSA0MzkuNzM0IDI1OS4xNTkiCiAgICAgICBzdHJva2U9IiNBMUE1QUEiCiAgICAgICBzdHJva2Utd2lkdGg9IjAuOTEzOTU4IgogICAgICAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogICAgICAgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKICAgICAgIGlkPSJwYXRoMjY0IiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik00MjkuNDMxIDI2NS45NzVDNDI4LjU0NSAyNjYuNzcyIDQyNy43MTYgMjY3LjYzMSA0MjYuOTUxIDI2OC41NDUiCiAgICAgICBzdHJva2U9IiNBMUE1QUEiCiAgICAgICBzdHJva2Utd2lkdGg9IjAuOTEzOTU4IgogICAgICAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogICAgICAgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKICAgICAgIGlkPSJwYXRoMjY2IiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik00MjguMzUxIDI3MC4zOTlDNDI5LjE1OCAyNjkuNDE1IDQzMC4wMzkgMjY4LjQ5NCA0MzAuOTg2IDI2Ny42NDQiCiAgICAgICBzdHJva2U9IiNBMUE1QUEiCiAgICAgICBzdHJva2Utd2lkdGg9IjAuOTEzOTU4IgogICAgICAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogICAgICAgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKICAgICAgIGlkPSJwYXRoMjY4IiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik00MzIuODg5IDI2OS4zMjZDNDMxLjg4MSAyNzAuMjMyIDQzMC45NDcgMjcxLjIxNyA0MzAuMDk1IDI3Mi4yNzIiCiAgICAgICBzdHJva2U9IiNBMUE1QUEiCiAgICAgICBzdHJva2Utd2lkdGg9IjAuOTEzOTU4IgogICAgICAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogICAgICAgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKICAgICAgIGlkPSJwYXRoMjcwIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik00MzEuODY4IDI3My4yOUM0MzEuNDQ2IDI3Mi43MyA0MzEuMDU0IDI3Mi4xNDggNDMwLjY5NSAyNzEuNTQ2IgogICAgICAgc3Ryb2tlPSIjQTFBNUFBIgogICAgICAgc3Ryb2tlLXdpZHRoPSIwLjkxMzk1OCIKICAgICAgIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIKICAgICAgIHN0cm9rZS1saW5lam9pbj0icm91bmQiCiAgICAgICBpZD0icGF0aDI3MiIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNDM1LjIzOSAyNzMuNzU2QzQzNC4xMTQgMjcyLjU3MyA0MzMuMTI0IDI3MS4yNjkgNDMyLjI4NiAyNjkuODY3IgogICAgICAgc3Ryb2tlPSIjQTFBNUFBIgogICAgICAgc3Ryb2tlLXdpZHRoPSIwLjkxMzk1OCIKICAgICAgIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIKICAgICAgIHN0cm9rZS1saW5lam9pbj0icm91bmQiCiAgICAgICBpZD0icGF0aDI3NCIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJNNDM4LjA3OCAyNzMuMDI0QzQzNy42OTUgMjcyLjY3IDQzNy4zNDIgMjcyLjMxNyA0MzcuMDExIDI3MS45NzQiCiAgICAgICBzdHJva2U9IiNDQ0NERTYiCiAgICAgICBzdHJva2Utd2lkdGg9IjAuOTEzOTU4IgogICAgICAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogICAgICAgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKICAgICAgIGlkPSJwYXRoMjc2IiAvPgogICAgPHBhdGgKICAgICAgIGQ9Ik0zMTMuODE4IDE3MS45OTZIMzExLjY3OUMzMTEuODU0IDE3Mi40NzIgMzEyLjE3MSAxNzIuODgzIDMxMi41ODcgMTczLjE3M0MzMTMuMDAzIDE3My40NjMgMzEzLjQ5OSAxNzMuNjE4IDMxNC4wMDYgMTczLjYxNkMzMTQuNTA0IDE3My42MjUgMzE0Ljk5MiAxNzMuNDcyIDMxNS4zOTUgMTczLjE4QzMxNS43OTggMTcyLjg4NyAzMTYuMDk2IDE3Mi40NzIgMzE2LjI0MyAxNzEuOTk2SDMxMy44MThaIgogICAgICAgZmlsbD0iI0I2ODk2NyIKICAgICAgIGlkPSJwYXRoMjc4IiAvPgogIDwvZz4KICA8ZGVmcwogICAgIGlkPSJkZWZzMjg1Ij4KICAgIDxjbGlwUGF0aAogICAgICAgaWQ9ImNsaXAwIj4KICAgICAgPHJlY3QKICAgICAgICAgd2lkdGg9IjYyNCIKICAgICAgICAgaGVpZ2h0PSIzOTguNTYiCiAgICAgICAgIGZpbGw9IndoaXRlIgogICAgICAgICBpZD0icmVjdDI4MiIgLz4KICAgIDwvY2xpcFBhdGg+CiAgPC9kZWZzPgo8L3N2Zz4K",
+  "class": "Polaris-EmptyState__Image",
+  role: "presentation"
+})], -1 /* HOISTED */);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _this = this;
+  var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[0] || (_cache[0] = function ($event) {
+      return _this.$router.push({
+        name: 'add'
+      });
+    }),
+    "class": "Polaris-Button Polaris-Button--primary",
+    type: "button"
+  }, _hoisted_7)])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [$data.bundles.length > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_12, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.bundles, function (bundle) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(bundle.bundle_name), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(bundle.bundle_type), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [_hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+      to: {
+        name: 'edit',
+        params: {
+          id: bundle.id
+        }
+      },
+      "class": "btn btn-primary"
+    }, {
+      "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+        return [_hoisted_26];
+      }),
+      _: 2 /* DYNAMIC */
+    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["to"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      onClick: function onClick($event) {
+        return $options.editBundle(bundle, _ctx.id);
+      },
+      "class": "Polaris-Button",
+      type: "button"
+    }, _hoisted_30, 8 /* PROPS */, _hoisted_28)]), _hoisted_31])])])])])]);
+  }), 256 /* UNKEYED_FRAGMENT */))])])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_32, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_33, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, [_hoisted_36, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_37, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_38, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[1] || (_cache[1] = function ($event) {
+      return _this.$router.push({
+        name: 'add'
+      });
+    }),
+    "class": "Polaris-Button Polaris-Button--primary",
+    type: "button"
+  }, _hoisted_41)])])])])]), _hoisted_42])]))])])], 64 /* STABLE_FRAGMENT */);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/CreateBuilder.vue?vue&type=template&id=7aa4d1b8":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/CreateBuilder.vue?vue&type=template&id=7aa4d1b8 ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "Polaris-Page-Header Polaris-Page-Header--hasNavigation Polaris-Page-Header--mediumTitle"
+};
+var _hoisted_2 = {
+  "class": "Polaris-Page-Header__Row"
+};
+var _hoisted_3 = {
+  "class": "Polaris-Page-Header__BreadcrumbWrapper"
+};
+var _hoisted_4 = {
+  role: "navigation"
+};
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Breadcrumbs__Icon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Icon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodySm Polaris-Text--regular Polaris-Text--visuallyHidden"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  viewBox: "0 0 20 20",
+  "class": "Polaris-Icon__Svg",
+  focusable: "false",
+  "aria-hidden": "true"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  d: "M17 9h-11.586l3.293-3.293a.999.999 0 1 0-1.414-1.414l-5 5a.999.999 0 0 0 0 1.414l5 5a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414l-3.293-3.293h11.586a1 1 0 1 0 0-2z"
+})])])], -1 /* HOISTED */);
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodySm Polaris-Text--regular Polaris-Text--subdued Polaris-Text--visuallyHidden"
+}, "Bundles", -1 /* HOISTED */);
+var _hoisted_7 = [_hoisted_5, _hoisted_6];
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Page-Header__TitleWrapper"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "Polaris-Header-Title"
+}, "Design your builder")], -1 /* HOISTED */);
+var _hoisted_9 = {
+  "class": "Polaris-Layout create-builder-page"
+};
+var _hoisted_10 = {
+  "class": "Polaris-Layout__Section"
+};
+var _hoisted_11 = {
+  "class": "Polaris-Card"
+};
+var _hoisted_12 = {
+  "class": "Polaris-Tabs__Panel",
+  id: "setup-content-1",
+  role: "tabpanel",
+  "aria-labelledby": "setup-1",
+  tabindex: "-1"
+};
+var _hoisted_13 = {
+  "class": "Polaris-Page Polaris-Page--fullWidth"
+};
+var _hoisted_14 = {
+  "class": "Polaris-Page__Content"
+};
+var _hoisted_15 = {
+  "class": "Polaris-Layout"
+};
+var _hoisted_16 = {
+  "class": "Polaris-Layout__AnnotatedSection"
+};
+var _hoisted_17 = {
+  "class": "Polaris-Layout__AnnotationWrapper"
+};
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Layout__Annotation"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextContainer"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "Polaris-Text--root Polaris-Text--headingMd Polaris-Text--semibold"
+}, "Bundle details"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Box",
+  style: {
+    "--pc-box-color": "var(--p-text-subdued)"
+  }
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Name your bundle, upload a header image and let your users know what the bundles' criteria are by adding a description.")])])], -1 /* HOISTED */);
+var _hoisted_19 = {
+  "class": "Polaris-Layout__AnnotationContent"
+};
+var _hoisted_20 = {
+  "class": "Polaris-Card"
+};
+var _hoisted_21 = {
+  "class": "Polaris-Card__Section"
+};
+var _hoisted_22 = {
+  "class": "Polaris-FormLayout"
+};
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-FormLayout__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  id: "error-internalName"
+})], -1 /* HOISTED */);
+var _hoisted_24 = {
+  "class": "Polaris-FormLayout__Item"
+};
+var _hoisted_25 = {
+  "class": ""
+};
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Labelled__LabelWrapper"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  id: "PolarisTextField52Label",
+  "for": "PolarisTextField52",
+  "class": "Polaris-Label__Text"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Bundle name")])])], -1 /* HOISTED */);
+var _hoisted_27 = {
+  "class": "Polaris-Connected"
+};
+var _hoisted_28 = {
+  "class": "Polaris-Connected__Item Polaris-Connected__Item--primary"
+};
+var _hoisted_29 = {
+  "class": "Polaris-TextField Polaris-TextField--hasValue"
+};
+var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField__Backdrop"
+}, null, -1 /* HOISTED */);
+var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Labelled__HelpText",
+  id: "PolarisTextField52HelpText"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular Polaris-Text--break Polaris-Text--subdued"
+}, "This will only be used in your Shopify dashboard; it won't be visible to customers.")], -1 /* HOISTED */);
+var _hoisted_32 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-FormLayout__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  id: "error-externalName"
+})], -1 /* HOISTED */);
+var _hoisted_33 = {
+  "class": "Polaris-FormLayout__Item"
+};
+var _hoisted_34 = {
+  "class": ""
+};
+var _hoisted_35 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Labelled__LabelWrapper"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  id: "PolarisTextField53Label",
+  "for": "PolarisTextField53",
+  "class": "Polaris-Label__Text"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Product name")])])], -1 /* HOISTED */);
+var _hoisted_36 = {
+  "class": "Polaris-Connected"
+};
+var _hoisted_37 = {
+  "class": "Polaris-Connected__Item Polaris-Connected__Item--primary"
+};
+var _hoisted_38 = {
+  "class": "Polaris-TextField Polaris-TextField--hasValue"
+};
+var _hoisted_39 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField__Backdrop"
+}, null, -1 /* HOISTED */);
+var _hoisted_40 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Labelled__HelpText",
+  id: "PolarisTextField53HelpText"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular Polaris-Text--break Polaris-Text--subdued"
+}, "This is the bundle name your customers will see in the checkout and email notifications.")], -1 /* HOISTED */);
+var _hoisted_41 = {
+  "class": "Polaris-Layout__AnnotatedSection",
+  id: "product-setup"
+};
+var _hoisted_42 = {
+  "class": "Polaris-Layout__AnnotationWrapper"
+};
+var _hoisted_43 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Layout__Annotation"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextContainer"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "Polaris-Text--root Polaris-Text--headingMd Polaris-Text--semibold"
+}, "Bundle structure"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Layout__AnnotationDescription"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextContainer"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Choose a suitable layout for your bundle."), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "PLEASE NOTE: this cannot be changed once the bundle has been created.")])])])], -1 /* HOISTED */);
+var _hoisted_44 = {
+  "class": "Polaris-Layout__AnnotationContent"
+};
+var _hoisted_45 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  id: "error-layout"
+}, null, -1 /* HOISTED */);
+var _hoisted_46 = {
+  "class": "Polaris-Card"
+};
+var _hoisted_47 = {
+  "class": "Polaris-Card__Section"
+};
+var _hoisted_48 = {
+  "class": "Polaris-Choice",
+  "for": "PolarisRadioButton45"
+};
+var _hoisted_49 = {
+  "class": "Polaris-Choice__Control"
+};
+var _hoisted_50 = {
+  "class": "Polaris-RadioButton"
+};
+var _hoisted_51 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-RadioButton__Backdrop"
+}, null, -1 /* HOISTED */);
+var _hoisted_52 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Choice__Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Single page")], -1 /* HOISTED */);
+var _hoisted_53 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Choice__Descriptions"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Choice__HelpText",
+  id: "PolarisRadioButton45HelpText"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular Polaris-Text--subdued"
+}, "Display all available bundle products on a single page.")])], -1 /* HOISTED */);
+var _hoisted_54 = {
+  "class": "Polaris-Choice",
+  "for": "PolarisRadioButton46"
+};
+var _hoisted_55 = {
+  "class": "Polaris-Choice__Control"
+};
+var _hoisted_56 = {
+  "class": "Polaris-RadioButton"
+};
+var _hoisted_57 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-RadioButton__Backdrop"
+}, null, -1 /* HOISTED */);
+var _hoisted_58 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Choice__Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Multiple sections")], -1 /* HOISTED */);
+var _hoisted_59 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Choice__Descriptions"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Choice__HelpText",
+  id: "PolarisRadioButton46HelpText"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular Polaris-Text--subdued"
+}, "Break the bundle up into distinct sections, so the customer can build their bundle step by step, or use the sections to categorise your products.")])], -1 /* HOISTED */);
+var _hoisted_60 = {
+  "class": "Polaris-PageActions"
+};
+var _hoisted_61 = {
+  "class": "Polaris-Stack Polaris-Stack--spacingTight Polaris-Stack--distributionEqualSpacing"
+};
+var _hoisted_62 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Stack__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-ButtonGroup"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-ButtonGroup__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "Polaris-Button",
+  type: "button"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Cancel")])])])])], -1 /* HOISTED */);
+var _hoisted_63 = {
+  "class": "Polaris-Stack__Item"
+};
+var _hoisted_64 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Next")], -1 /* HOISTED */);
+var _hoisted_65 = [_hoisted_64];
+var _hoisted_66 = {
+  "class": "Polaris-Tabs__Panel",
+  id: "products-content-1",
+  role: "tabpanel",
+  "aria-labelledby": "products-1",
+  tabindex: "-1"
+};
+var _hoisted_67 = {
+  "class": "Polaris-Page Polaris-Page--fullWidth"
+};
+var _hoisted_68 = {
+  "class": "Polaris-Page__Content"
+};
+var _hoisted_69 = {
+  "class": "Polaris-Card__Section"
+};
+var _hoisted_70 = {
+  "class": "Polaris-Layout"
+};
+var _hoisted_71 = {
+  "class": "Polaris-Layout__Section"
+};
+var _hoisted_72 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  style: {
+    "margin-bottom": "1rem"
+  }
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "Polaris-Text--root Polaris-Text--headingMd Polaris-Text--semibold"
+}, "Sections")], -1 /* HOISTED */);
+var _hoisted_73 = {
+  "class": "Polaris-Card"
+};
+var _hoisted_74 = {
+  "class": "Polaris-Card__Section"
+};
+var _hoisted_75 = {
+  "class": "Polaris-Layout"
+};
+var _hoisted_76 = {
+  "class": "Polaris-Layout__Section"
+};
+var _hoisted_77 = {
+  "class": "product-image-list product-list-padding sections-added"
+};
+var _hoisted_78 = {
+  "class": "Polaris-ResourceList",
+  "aria-live": "polite"
+};
+var _hoisted_79 = {
+  "class": "Polaris-ResourceItem Polaris-ResourceItem--persistActions"
+};
+var _hoisted_80 = {
+  "class": "Polaris-ResourceItem__Container"
+};
+var _hoisted_81 = {
+  "class": "Polaris-ResourceItem__Owned"
+};
+var _hoisted_82 = {
+  "class": "Polaris-ResourceList-Item__Media"
+};
+var _hoisted_83 = {
+  "class": "Polaris-Thumbnail Polaris-Thumbnail--sizeMedium"
+};
+var _hoisted_84 = ["src"];
+var _hoisted_85 = {
+  "class": "Polaris-ResourceItem__Content"
+};
+var _hoisted_86 = {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--bold"
+};
+var _hoisted_87 = {
+  "class": "Polaris-ResourceItem__Actions"
+};
+var _hoisted_88 = {
+  "class": "Polaris-ButtonGroup"
+};
+var _hoisted_89 = {
+  "class": "Polaris-ButtonGroup__Item"
+};
+var _hoisted_90 = ["onClick"];
+var _hoisted_91 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Edit section")], -1 /* HOISTED */);
+var _hoisted_92 = [_hoisted_91];
+var _hoisted_93 = {
+  "class": "Polaris-ButtonGroup__Item"
+};
+var _hoisted_94 = ["onClick"];
+var _hoisted_95 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Remove")], -1 /* HOISTED */);
+var _hoisted_96 = [_hoisted_95];
+var _hoisted_97 = {
+  "class": "Polaris-Card__Section"
+};
+var _hoisted_98 = {
+  "class": "Polaris-FormLayout"
+};
+var _hoisted_99 = {
+  "class": "Polaris-FormLayout__Item"
+};
+var _hoisted_100 = {
+  "class": ""
+};
+var _hoisted_101 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Labelled__LabelWrapper"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  id: "PolarisTextField5Label",
+  "for": "PolarisTextField5",
+  "class": "Polaris-Label__Text"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Section name")])])], -1 /* HOISTED */);
+var _hoisted_102 = {
+  "class": "Polaris-Connected"
+};
+var _hoisted_103 = {
+  "class": "Polaris-Connected__Item Polaris-Connected__Item--primary"
+};
+var _hoisted_104 = {
+  "class": "Polaris-TextField Polaris-TextField--hasValue"
+};
+var _hoisted_105 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField__Backdrop"
+}, null, -1 /* HOISTED */);
+var _hoisted_106 = {
+  "class": "Polaris-FormLayout__Item"
+};
+var _hoisted_107 = {
+  "class": ""
+};
+var _hoisted_108 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Labelled__LabelWrapper"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  id: "PolarisTextField6Label",
+  "for": "PolarisTextField6",
+  "class": "Polaris-Label__Text"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Description")])])], -1 /* HOISTED */);
+var _hoisted_109 = {
+  "class": "Polaris-Connected"
+};
+var _hoisted_110 = {
+  "class": "Polaris-Connected__Item Polaris-Connected__Item--primary"
+};
+var _hoisted_111 = {
+  "class": "Polaris-TextField Polaris-TextField--hasValue Polaris-TextField--multiline"
+};
+var _hoisted_112 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField__Backdrop"
+}, null, -1 /* HOISTED */);
+var _hoisted_113 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "aria-hidden": "true",
+  "class": "Polaris-TextField__Resizer"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField__DummyInput"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField__DummyInput"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br")])], -1 /* HOISTED */);
+var _hoisted_114 = {
+  "class": "Polaris-Card__Section"
+};
+var _hoisted_115 = {
+  "class": "Polaris-Layout"
+};
+var _hoisted_116 = {
+  "class": "Polaris-Layout__Section"
+};
+var _hoisted_117 = {
+  "class": "product-image-list product-list-padding sections-added"
+};
+var _hoisted_118 = {
+  "class": "Polaris-ResourceList",
+  "aria-live": "polite"
+};
+var _hoisted_119 = {
+  "class": "Polaris-ResourceItem Polaris-ResourceItem--persistActions"
+};
+var _hoisted_120 = {
+  "class": "Polaris-ResourceItem__Container"
+};
+var _hoisted_121 = {
+  "class": "Polaris-ResourceItem__Owned"
+};
+var _hoisted_122 = {
+  "class": "Polaris-ResourceList-Item__Media"
+};
+var _hoisted_123 = {
+  "class": "Polaris-Thumbnail Polaris-Thumbnail--sizeMedium"
+};
+var _hoisted_124 = ["src"];
+var _hoisted_125 = {
+  "class": "Polaris-ResourceItem__Content"
+};
+var _hoisted_126 = {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--bold"
+};
+var _hoisted_127 = {
+  "class": "Polaris-ResourceItem__Actions"
+};
+var _hoisted_128 = {
+  "class": "Polaris-ButtonGroup"
+};
+var _hoisted_129 = {
+  "class": "Polaris-ButtonGroup__Item"
+};
+var _hoisted_130 = ["onClick"];
+var _hoisted_131 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Remove")], -1 /* HOISTED */);
+var _hoisted_132 = [_hoisted_131];
+var _hoisted_133 = {
+  "class": "Polaris-Card__Section"
+};
+var _hoisted_134 = {
+  "class": "Polaris-Stack"
+};
+var _hoisted_135 = {
+  "class": "Polaris-Stack__Item"
+};
+var _hoisted_136 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Add products")], -1 /* HOISTED */);
+var _hoisted_137 = [_hoisted_136];
+var _hoisted_138 = {
+  "class": "Polaris-PageActions"
+};
+var _hoisted_139 = {
+  "class": "Polaris-Stack Polaris-Stack--spacingTight Polaris-Stack--distributionEqualSpacing"
+};
+var _hoisted_140 = {
+  "class": "Polaris-Stack__Item"
+};
+var _hoisted_141 = {
+  "class": "Polaris-ButtonGroup"
+};
+var _hoisted_142 = {
+  "class": "Polaris-ButtonGroup__Item"
+};
+var _hoisted_143 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Cancel")], -1 /* HOISTED */);
+var _hoisted_144 = [_hoisted_143];
+var _hoisted_145 = {
+  "class": "Polaris-Stack__Item"
+};
+var _hoisted_146 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Save section")], -1 /* HOISTED */);
+var _hoisted_147 = [_hoisted_146];
+var _hoisted_148 = {
+  "class": "Polaris-Layout__Section"
+};
+var _hoisted_149 = {
+  "class": "product-add-button"
+};
+var _hoisted_150 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Add a new section")], -1 /* HOISTED */);
+var _hoisted_151 = [_hoisted_150];
+var _hoisted_152 = {
+  "class": "Polaris-PageActions"
+};
+var _hoisted_153 = {
+  "class": "Polaris-Stack Polaris-Stack--spacingTight Polaris-Stack--distributionTrailing"
+};
+var _hoisted_154 = {
+  "class": "Polaris-Stack__Item"
+};
+var _hoisted_155 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Next")], -1 /* HOISTED */);
+var _hoisted_156 = [_hoisted_155];
+var _hoisted_157 = {
+  "class": "Polaris-Tabs__Panel",
+  id: "pricing-content-1",
+  role: "tabpanel",
+  "aria-labelledby": "pricing-1",
+  tabindex: "-1"
+};
+var _hoisted_158 = {
+  "class": "Polaris-Page Polaris-Page--fullWidth"
+};
+var _hoisted_159 = {
+  "class": "Polaris-Page__Content"
+};
+var _hoisted_160 = {
+  "class": "Polaris-Layout"
+};
+var _hoisted_161 = {
+  "class": "Polaris-Layout__AnnotatedSection",
+  id: "pricing-section"
+};
+var _hoisted_162 = {
+  "class": "Polaris-Layout__AnnotationWrapper"
+};
+var _hoisted_163 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Layout__Annotation"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextContainer"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "Polaris-Text--root Polaris-Text--headingMd Polaris-Text--semibold"
+}, "Pricing"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Layout__AnnotationDescription"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Add an optional discount to your bundle.")])])], -1 /* HOISTED */);
+var _hoisted_164 = {
+  "class": "Polaris-Layout__AnnotationContent"
+};
+var _hoisted_165 = {
+  "class": "Polaris-Card"
+};
+var _hoisted_166 = {
+  "class": "Polaris-Card__Section"
+};
+var _hoisted_167 = {
+  "class": "Polaris-FormLayout"
+};
+var _hoisted_168 = {
+  "class": "Polaris-FormLayout__Item"
+};
+var _hoisted_169 = {
+  "class": "Polaris-Choice",
+  "for": "PolarisRadioButton121"
+};
+var _hoisted_170 = {
+  "class": "Polaris-Choice__Control"
+};
+var _hoisted_171 = {
+  "class": "Polaris-RadioButton"
+};
+var _hoisted_172 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-RadioButton__Backdrop"
+}, null, -1 /* HOISTED */);
+var _hoisted_173 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Choice__Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Flat discount")], -1 /* HOISTED */);
+var _hoisted_174 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Choice__Descriptions"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Choice__HelpText",
+  id: "PolarisRadioButton121HelpText"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular Polaris-Text--subdued"
+}, "Apply the same discount, regardless of the bundle's volume or total value.")])], -1 /* HOISTED */);
+var _hoisted_175 = {
+  role: "group",
+  "class": "Polaris-FormLayout--grouped"
+};
+var _hoisted_176 = {
+  "class": "Polaris-FormLayout__Items"
+};
+var _hoisted_177 = {
+  "class": "Polaris-FormLayout__Item"
+};
+var _hoisted_178 = {
+  "class": ""
+};
+var _hoisted_179 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Labelled__LabelWrapper"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  id: "PolarisSelect38Label",
+  "for": "PolarisSelect38",
+  "class": "Polaris-Label__Text"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Type")])])], -1 /* HOISTED */);
+var _hoisted_180 = {
+  "class": "Polaris-Select"
+};
+var _hoisted_181 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "percentage"
+}, "Percentage discount", -1 /* HOISTED */);
+var _hoisted_182 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "fixed"
+}, "Fixed discount", -1 /* HOISTED */);
+var _hoisted_183 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "price"
+}, "Fixed price", -1 /* HOISTED */);
+var _hoisted_184 = [_hoisted_181, _hoisted_182, _hoisted_183];
+var _hoisted_185 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Select__Content",
+  "aria-hidden": "true"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Select__SelectedOption"
+}, "Percentage discount"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Select__Icon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Icon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodySm Polaris-Text--regular Polaris-Text--visuallyHidden"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  viewBox: "0 0 20 20",
+  "class": "Polaris-Icon__Svg",
+  focusable: "false",
+  "aria-hidden": "true"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  d: "M7.676 9h4.648c.563 0 .879-.603.53-1.014l-2.323-2.746a.708.708 0 0 0-1.062 0l-2.324 2.746c-.347.411-.032 1.014.531 1.014Zm4.648 2h-4.648c-.563 0-.878.603-.53 1.014l2.323 2.746c.27.32.792.32 1.062 0l2.323-2.746c.349-.411.033-1.014-.53-1.014Z"
+})])])])], -1 /* HOISTED */);
+var _hoisted_186 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Select__Backdrop"
+}, null, -1 /* HOISTED */);
+var _hoisted_187 = {
+  "class": "Polaris-FormLayout__Item"
+};
+var _hoisted_188 = {
+  "class": ""
+};
+var _hoisted_189 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Labelled__LabelWrapper"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  id: "PolarisTextField108Label",
+  "for": "PolarisTextField108",
+  "class": "Polaris-Label__Text"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Discount value")])])], -1 /* HOISTED */);
+var _hoisted_190 = {
+  "class": "Polaris-Connected"
+};
+var _hoisted_191 = {
+  "class": "Polaris-Connected__Item Polaris-Connected__Item--primary"
+};
+var _hoisted_192 = {
+  "class": "Polaris-TextField"
+};
+var _hoisted_193 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField__Spinner",
+  "aria-hidden": "true"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  role: "button",
+  "class": "Polaris-TextField__Segment",
+  tabindex: "-1"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField__SpinnerIcon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Icon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodySm Polaris-Text--regular Polaris-Text--visuallyHidden"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  viewBox: "0 0 20 20",
+  "class": "Polaris-Icon__Svg",
+  focusable: "false",
+  "aria-hidden": "true"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  d: "M6.902 12h6.196c.751 0 1.172-.754.708-1.268l-3.098-3.432c-.36-.399-1.055-.399-1.416 0l-3.098 3.433c-.464.513-.043 1.267.708 1.267Z"
+})])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  role: "button",
+  "class": "Polaris-TextField__Segment",
+  tabindex: "-1"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField__SpinnerIcon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Icon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodySm Polaris-Text--regular Polaris-Text--visuallyHidden"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  viewBox: "0 0 20 20",
+  "class": "Polaris-Icon__Svg",
+  focusable: "false",
+  "aria-hidden": "true"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  d: "M13.098 8h-6.196c-.751 0-1.172.754-.708 1.268l3.098 3.432c.36.399 1.055.399 1.416 0l3.098-3.433c.464-.513.043-1.267-.708-1.267Z"
+})])])])])], -1 /* HOISTED */);
+var _hoisted_194 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField__Backdrop"
+}, null, -1 /* HOISTED */);
+var _hoisted_195 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-PageActions"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Stack Polaris-Stack--spacingTight Polaris-Stack--distributionEqualSpacing"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Stack__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-ButtonGroup"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-ButtonGroup__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "Polaris-Button",
+  type: "button"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Cancel")])])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Stack__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "Polaris-Button Polaris-Button--primary",
+  "aria-disabled": "false",
+  type: "button"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Next")])])])])], -1 /* HOISTED */);
+var _hoisted_196 = {
+  "class": "Polaris-Tabs__Panel",
+  id: "design-content-1",
+  role: "tabpanel",
+  "aria-labelledby": "design-1",
+  tabindex: "-1"
+};
+var _hoisted_197 = {
+  "class": "Polaris-Page Polaris-Page--fullWidth"
+};
+var _hoisted_198 = {
+  "class": "Polaris-Page__Content"
+};
+var _hoisted_199 = {
+  "class": "Polaris-Layout"
+};
+var _hoisted_200 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Layout__AnnotatedSection"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Layout__AnnotationWrapper"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Layout__Annotation"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextContainer"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "Polaris-Text--root Polaris-Text--headingMd Polaris-Text--semibold"
+}, "Imagery"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Box",
+  style: {
+    "--pc-box-color": "var(--p-text-subdued)"
+  }
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Layout__AnnotationContent"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Card"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Card__Section"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-FormLayout"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-FormLayout__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": ""
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Labelled__LabelWrapper"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  id: "PolarisTextField118Label",
+  "for": "PolarisTextField118",
+  "class": "Polaris-Label__Text"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Product image")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Connected"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Connected__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "Polaris-Button",
+  type: "button"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Upload")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Connected__Item Polaris-Connected__Item--primary"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField Polaris-TextField--disabled"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  id: "PolarisTextField118",
+  disabled: "",
+  autocomplete: "0",
+  "class": "Polaris-TextField__Input",
+  type: "text",
+  "aria-describedby": "PolarisTextField118HelpText",
+  "aria-labelledby": "PolarisTextField118Label",
+  "aria-invalid": "false",
+  value: ""
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField__Backdrop"
+})])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Labelled__HelpText",
+  id: "PolarisTextField118HelpText"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular Polaris-Text--break Polaris-Text--subdued"
+}, "This will be displayed in the checkout and email notifications.")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-FormLayout__Item"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-FormLayout__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": ""
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Labelled__LabelWrapper"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  id: "PolarisTextField119Label",
+  "for": "PolarisTextField119",
+  "class": "Polaris-Label__Text"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Header image")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Connected"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Connected__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "Polaris-Button",
+  type: "button"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Upload")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Connected__Item Polaris-Connected__Item--primary"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField Polaris-TextField--disabled"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  id: "PolarisTextField119",
+  disabled: "",
+  autocomplete: "0",
+  "class": "Polaris-TextField__Input",
+  type: "text",
+  "aria-describedby": "PolarisTextField119HelpText",
+  "aria-labelledby": "PolarisTextField119Label",
+  "aria-invalid": "false",
+  value: ""
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField__Backdrop"
+})])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Labelled__HelpText",
+  id: "PolarisTextField119HelpText"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular Polaris-Text--break Polaris-Text--subdued"
+}, "This will be the header image on the bundle page.")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-FormLayout__Item"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-FormLayout__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+  style: {
+    "display": "none"
+  }
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  type: "file",
+  id: "upload-file",
+  accept: "image/*"
+})])])])])])])])], -1 /* HOISTED */);
+var _hoisted_201 = {
+  "class": "Polaris-Layout__AnnotatedSection"
+};
+var _hoisted_202 = {
+  "class": "Polaris-Layout__AnnotationWrapper"
+};
+var _hoisted_203 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Layout__Annotation"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextContainer"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "Polaris-Text--root Polaris-Text--headingMd Polaris-Text--semibold"
+}, "Additional fields"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Box",
+  style: {
+    "--pc-box-color": "var(--p-text-subdued)"
+  }
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p")])])], -1 /* HOISTED */);
+var _hoisted_204 = {
+  "class": "Polaris-Layout__AnnotationContent"
+};
+var _hoisted_205 = {
+  "class": "Polaris-Card"
+};
+var _hoisted_206 = {
+  "class": "Polaris-Card__Section"
+};
+var _hoisted_207 = {
+  "class": "Polaris-FormLayout"
+};
+var _hoisted_208 = {
+  "class": "Polaris-FormLayout__Item"
+};
+var _hoisted_209 = {
+  "class": "Polaris-Choice",
+  "for": "PolarisCheckbox137"
+};
+var _hoisted_210 = {
+  "class": "Polaris-Choice__Control"
+};
+var _hoisted_211 = {
+  "class": "Polaris-Checkbox"
+};
+var _hoisted_212 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Checkbox__Backdrop"
+}, null, -1 /* HOISTED */);
+var _hoisted_213 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Checkbox__Icon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Icon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodySm Polaris-Text--regular Polaris-Text--visuallyHidden"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  viewBox: "0 0 20 20",
+  "class": "Polaris-Icon__Svg",
+  focusable: "false",
+  "aria-hidden": "true"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  d: "M14.723 6.237a.94.94 0 0 1 .053 1.277l-5.366 6.193a.834.834 0 0 1-.611.293.83.83 0 0 1-.622-.264l-2.927-3.097a.94.94 0 0 1 0-1.278.82.82 0 0 1 1.207 0l2.297 2.43 4.763-5.498a.821.821 0 0 1 1.206-.056Z"
+})])])], -1 /* HOISTED */);
+var _hoisted_214 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Choice__Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Add a note field")], -1 /* HOISTED */);
+var _hoisted_215 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Choice__Descriptions"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Choice__HelpText",
+  id: "PolarisCheckbox137HelpText"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular Polaris-Text--subdued"
+}, "Add a text field to the bundle summary so your customers can add a note.")])], -1 /* HOISTED */);
+var _hoisted_216 = {
+  "class": "Polaris-Layout__AnnotatedSection"
+};
+var _hoisted_217 = {
+  "class": "Polaris-Layout__AnnotationWrapper"
+};
+var _hoisted_218 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Layout__Annotation"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextContainer"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "Polaris-Text--root Polaris-Text--headingMd Polaris-Text--semibold"
+}, "Product grid"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Box",
+  style: {
+    "--pc-box-color": "var(--p-text-subdued)"
+  }
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Configure how the bundle products will be displayed.")])])], -1 /* HOISTED */);
+var _hoisted_219 = {
+  "class": "Polaris-Layout__AnnotationContent"
+};
+var _hoisted_220 = {
+  "class": "Polaris-Card"
+};
+var _hoisted_221 = {
+  "class": "Polaris-Card__Section"
+};
+var _hoisted_222 = {
+  "class": "Polaris-FormLayout"
+};
+var _hoisted_223 = {
+  "class": "Polaris-FormLayout__Item"
+};
+var _hoisted_224 = {
+  "class": "Polaris-Choice",
+  "for": "product-description-checkbox"
+};
+var _hoisted_225 = {
+  "class": "Polaris-Choice__Control"
+};
+var _hoisted_226 = {
+  "class": "Polaris-Checkbox"
+};
+var _hoisted_227 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Checkbox__Backdrop"
+}, null, -1 /* HOISTED */);
+var _hoisted_228 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Checkbox__Icon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Icon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodySm Polaris-Text--regular Polaris-Text--visuallyHidden"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  viewBox: "0 0 20 20",
+  "class": "Polaris-Icon__Svg",
+  focusable: "false",
+  "aria-hidden": "true"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  d: "M14.723 6.237a.94.94 0 0 1 .053 1.277l-5.366 6.193a.834.834 0 0 1-.611.293.83.83 0 0 1-.622-.264l-2.927-3.097a.94.94 0 0 1 0-1.278.82.82 0 0 1 1.207 0l2.297 2.43 4.763-5.498a.821.821 0 0 1 1.206-.056Z"
+})])])], -1 /* HOISTED */);
+var _hoisted_229 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Choice__Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Display bundle description")], -1 /* HOISTED */);
+var _hoisted_230 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Choice__Descriptions"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Choice__HelpText",
+  id: "product-description-checkboxHelpText"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular Polaris-Text--subdued"
+}, "Display the bundle description below the bundle name.")])], -1 /* HOISTED */);
+var _hoisted_231 = {
+  "class": "Polaris-FormLayout__Item"
+};
+var _hoisted_232 = {
+  "class": "Polaris-Choice",
+  "for": "PolarisCheckbox140"
+};
+var _hoisted_233 = {
+  "class": "Polaris-Choice__Control"
+};
+var _hoisted_234 = {
+  "class": "Polaris-Checkbox"
+};
+var _hoisted_235 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Checkbox__Backdrop"
+}, null, -1 /* HOISTED */);
+var _hoisted_236 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Checkbox__Icon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Icon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodySm Polaris-Text--regular Polaris-Text--visuallyHidden"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  viewBox: "0 0 20 20",
+  "class": "Polaris-Icon__Svg",
+  focusable: "false",
+  "aria-hidden": "true"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  d: "M14.723 6.237a.94.94 0 0 1 .053 1.277l-5.366 6.193a.834.834 0 0 1-.611.293.83.83 0 0 1-.622-.264l-2.927-3.097a.94.94 0 0 1 0-1.278.82.82 0 0 1 1.207 0l2.297 2.43 4.763-5.498a.821.821 0 0 1 1.206-.056Z"
+})])])], -1 /* HOISTED */);
+var _hoisted_237 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Choice__Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Display product descriptions")], -1 /* HOISTED */);
+var _hoisted_238 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Choice__Descriptions"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Choice__HelpText",
+  id: "PolarisCheckbox140HelpText"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular Polaris-Text--subdued"
+}, "Display the product description below the product title.")])], -1 /* HOISTED */);
+var _hoisted_239 = {
+  "class": "Polaris-PageActions"
+};
+var _hoisted_240 = {
+  "class": "Polaris-Stack Polaris-Stack--spacingTight Polaris-Stack--distributionEqualSpacing"
+};
+var _hoisted_241 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Stack__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-ButtonGroup"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-ButtonGroup__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "Polaris-Button",
+  type: "button"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Cancel")])])])])], -1 /* HOISTED */);
+var _hoisted_242 = {
+  "class": "Polaris-Stack__Item"
+};
+var _hoisted_243 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Save")], -1 /* HOISTED */);
+var _hoisted_244 = [_hoisted_243];
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _this = this;
+  var _component_Tab = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Tab");
+  var _component_TabNav = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("TabNav");
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    onClick: _cache[0] || (_cache[0] = function ($event) {
+      return _this.$router.push({
+        name: 'home'
+      });
+    }),
+    "class": "Polaris-Breadcrumbs__Breadcrumb",
+    "data-polaris-unstyled": "true"
+  }, _hoisted_7)])]), _hoisted_8])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_TabNav, {
+    tabs: ['Setup', 'Products', 'Pricing', 'Design'],
+    selected: $data.selected,
+    onSelected: $options.setSelected
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Tab, {
+        isSelected: $data.selected === 'Setup'
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [_hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [_hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+            "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+              return $data.bundle.bundle_name = $event;
+            }),
+            name: "internal-name",
+            id: "PolarisTextField52",
+            autocomplete: "1",
+            "class": "Polaris-TextField__Input",
+            type: "text",
+            "aria-describedby": "PolarisTextField52HelpText",
+            "aria-labelledby": "PolarisTextField52Label",
+            "aria-invalid": "false"
+          }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.bundle.bundle_name]]), _hoisted_30])])]), _hoisted_31])]), _hoisted_32, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_33, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [_hoisted_35, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_36, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_37, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_38, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+            "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+              return $data.bundle.product_name = $event;
+            }),
+            name: "external-name",
+            id: "PolarisTextField53",
+            autocomplete: "1",
+            "class": "Polaris-TextField__Input",
+            type: "text",
+            "aria-describedby": "PolarisTextField53HelpText",
+            "aria-labelledby": "PolarisTextField53Label",
+            "aria-invalid": "false"
+          }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.bundle.product_name]]), _hoisted_39])])]), _hoisted_40])])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_41, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_42, [_hoisted_43, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_44, [_hoisted_45, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_46, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_47, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_48, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_49, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_50, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+            "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+              return $data.bundle.bundle_type = $event;
+            }),
+            value: "Single page",
+            id: "PolarisRadioButton45",
+            name: "bundle-type",
+            type: "radio",
+            "class": "Polaris-RadioButton__Input",
+            "aria-describedby": "PolarisRadioButton45HelpText"
+          }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.bundle.bundle_type]]), _hoisted_51])]), _hoisted_52]), _hoisted_53]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_54, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_55, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_56, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+            "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+              return $data.bundle.bundle_type = $event;
+            }),
+            value: "Multiple sections",
+            id: "PolarisRadioButton46",
+            name: "bundle-type",
+            type: "radio",
+            "class": "Polaris-RadioButton__Input",
+            "aria-describedby": "PolarisRadioButton46HelpText",
+            checked: ""
+          }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.bundle.bundle_type]]), _hoisted_57])]), _hoisted_58]), _hoisted_59])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_60, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_61, [_hoisted_62, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_63, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+            onClick: _cache[5] || (_cache[5] = function () {
+              return $options.next && $options.next.apply($options, arguments);
+            }),
+            "class": "Polaris-Button Polaris-Button--primary",
+            "aria-disabled": "false",
+            type: "button"
+          }, _hoisted_65)])])])])])])];
+        }),
+        _: 1 /* STABLE */
+      }, 8 /* PROPS */, ["isSelected"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Tab, {
+        isSelected: $data.selected === 'Products'
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_66, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_67, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_68, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_69, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_70, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_71, [_hoisted_72, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_73, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_74, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_75, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_76, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_77, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_78, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.bundle.sections, function (section, index) {
+            var _section$items$0$imag;
+            return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", {
+              key: index,
+              "class": "Polaris-ResourceList__ItemWrapper bundle-item"
+            }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_79, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_80, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_81, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_82, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_83, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+              alt: "",
+              src: (_section$items$0$imag = section.items[0].images[0]) === null || _section$items$0$imag === void 0 ? void 0 : _section$items$0$imag.originalSrc
+            }, null, 8 /* PROPS */, _hoisted_84)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_85, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_86, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(section.title), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_87, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_88, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_89, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+              onClick: function onClick($event) {
+                return $options.editSection(section);
+              },
+              "class": "Polaris-Button",
+              type: "button"
+            }, _hoisted_92, 8 /* PROPS */, _hoisted_90)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_93, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+              onClick: function onClick($event) {
+                return $options.removeSection(index);
+              },
+              "class": "Polaris-Button",
+              type: "button"
+            }, _hoisted_96, 8 /* PROPS */, _hoisted_94)])])])])])]);
+          }), 128 /* KEYED_FRAGMENT */))])])])])], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.bundle.sections.length > 0 && !$data.showCreateSection]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"Polaris-Card__Section\" v-show=\"sections.length <= 0 || showEditSection\">\r\n                    <div class=\"Polaris-FormLayout\">\r\n                        <div class=\"Polaris-FormLayout__Item\">\r\n                            <div class=\"\">\r\n                                <div class=\"Polaris-Labelled__LabelWrapper\"><div class=\"Polaris-Label\"><label id=\"PolarisTextField5Label\" for=\"PolarisTextField5\" class=\"Polaris-Label__Text\"><span class=\"Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular\">Section name</span></label></div></div>\r\n                                <div class=\"Polaris-Connected\"><div class=\"Polaris-Connected__Item Polaris-Connected__Item--primary\"><div class=\"Polaris-TextField Polaris-TextField--hasValue\">\r\n                                    <input v-model=\"section.title\" placeholder=\"The name your customers will see for the bundle in checkout and email notifications\" autocomplete=\"1\" class=\"Polaris-TextField__Input\" type=\"text\" aria-labelledby=\"PolarisTextField5Label\" aria-invalid=\"false\"><div class=\"Polaris-TextField__Backdrop\"></div></div></div></div></div>\r\n                        </div>\r\n                        <div class=\"Polaris-FormLayout__Item\">\r\n                            <div class=\"\"><div class=\"Polaris-Labelled__LabelWrapper\"><div class=\"Polaris-Label\"><label id=\"PolarisTextField6Label\" for=\"PolarisTextField6\" class=\"Polaris-Label__Text\"><span class=\"Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular\">Description</span></label></div></div><div class=\"Polaris-Connected\"><div class=\"Polaris-Connected__Item Polaris-Connected__Item--primary\"><div class=\"Polaris-TextField Polaris-TextField--hasValue Polaris-TextField--multiline\"><textarea v-model=\"section.desc\" autocomplete=\"1\" class=\"Polaris-TextField__Input\" type=\"text\" rows=\"5\" aria-labelledby=\"PolarisTextField6Label\" aria-invalid=\"false\" aria-multiline=\"true\" style=\"height: 130px;\"></textarea><div class=\"Polaris-TextField__Backdrop\"></div><div aria-hidden=\"true\" class=\"Polaris-TextField__Resizer\"><div class=\"Polaris-TextField__DummyInput\"><br></div><div class=\"Polaris-TextField__DummyInput\"><br><br><br><br><br></div></div></div></div></div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_97, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_98, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_99, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_100, [_hoisted_101, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_102, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_103, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_104, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+            "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
+              return $data.section.title = $event;
+            }),
+            placeholder: "The name your customers will see for the bundle in checkout and email notifications",
+            autocomplete: "1",
+            "class": "Polaris-TextField__Input",
+            type: "text",
+            "aria-labelledby": "PolarisTextField5Label",
+            "aria-invalid": "false"
+          }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.section.title]]), _hoisted_105])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_106, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_107, [_hoisted_108, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_109, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_110, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_111, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
+            "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
+              return $data.section.desc = $event;
+            }),
+            autocomplete: "1",
+            "class": "Polaris-TextField__Input",
+            type: "text",
+            rows: "5",
+            "aria-labelledby": "PolarisTextField6Label",
+            "aria-invalid": "false",
+            "aria-multiline": "true",
+            style: {
+              "height": "130px"
+            }
+          }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.section.desc]]), _hoisted_112, _hoisted_113])])])])])])], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.bundle.sections.length <= 0 || $data.showCreateSection]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_114, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_115, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_116, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_117, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_118, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.section.items, function (item, i) {
+            var _item$images$;
+            return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", {
+              key: i,
+              "class": "Polaris-ResourceList__ItemWrapper bundle-item"
+            }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_119, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_120, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_121, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_122, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_123, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+              alt: "",
+              src: (_item$images$ = item.images[0]) === null || _item$images$ === void 0 ? void 0 : _item$images$.originalSrc
+            }, null, 8 /* PROPS */, _hoisted_124)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_125, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_126, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.title), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_127, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_128, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_129, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+              onClick: function onClick($event) {
+                return $options.removeItem(i);
+              },
+              "class": "Polaris-Button",
+              type: "button"
+            }, _hoisted_132, 8 /* PROPS */, _hoisted_130)])])])])])]);
+          }), 128 /* KEYED_FRAGMENT */))])])])])], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.section.items.length > 0 && $data.showCreateSection]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_133, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_134, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_135, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+            onClick: _cache[8] || (_cache[8] = function ($event) {
+              return $options.openProductPicker();
+            }),
+            "class": "Polaris-Button",
+            type: "button"
+          }, _hoisted_137)])])], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.bundle.sections.length <= 0 || $data.showCreateSection]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_138, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_139, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_140, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_141, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_142, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+            onClick: _cache[9] || (_cache[9] = function ($event) {
+              return $data.showCreateSection = !$data.showCreateSection;
+            }),
+            "class": "Polaris-Button",
+            type: "button"
+          }, _hoisted_144)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_145, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+            onClick: _cache[10] || (_cache[10] = function () {
+              return $options.saveSection && $options.saveSection.apply($options, arguments);
+            }),
+            "class": "Polaris-Button Polaris-Button--primary",
+            type: "button"
+          }, _hoisted_147)])])], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.bundle.sections.length <= 0 || $data.showCreateSection]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_148, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_149, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+            "class": "Polaris-Button",
+            type: "button",
+            onClick: _cache[11] || (_cache[11] = function () {
+              return $options.addNewSection && $options.addNewSection.apply($options, arguments);
+            })
+          }, _hoisted_151)])], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.bundle.sections.length > 0 && !$data.showCreateSection]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_152, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_153, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_154, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+            onClick: _cache[12] || (_cache[12] = function () {
+              return $options.next && $options.next.apply($options, arguments);
+            }),
+            "class": "Polaris-Button Polaris-Button--primary",
+            "aria-disabled": "false",
+            type: "button"
+          }, _hoisted_156)])])])])])])];
+        }),
+        _: 1 /* STABLE */
+      }, 8 /* PROPS */, ["isSelected"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Tab, {
+        isSelected: $data.selected === 'Pricing'
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_157, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_158, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_159, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_160, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_161, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_162, [_hoisted_163, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_164, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_165, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_166, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_167, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_168, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_169, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_170, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_171, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+            "onUpdate:modelValue": _cache[13] || (_cache[13] = function ($event) {
+              return $data.bundle.discount_type = $event;
+            }),
+            value: "Flat discount",
+            id: "PolarisRadioButton121",
+            name: "PolarisRadioButton121",
+            type: "radio",
+            "class": "Polaris-RadioButton__Input",
+            "aria-describedby": "PolarisRadioButton121HelpText",
+            checked: ""
+          }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.bundle.discount_type]]), _hoisted_172])]), _hoisted_173]), _hoisted_174])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"Polaris-FormLayout__Item\">\r\n                                        <div>\r\n                                            <label class=\"Polaris-Choice\" for=\"PolarisRadioButton122\"><span class=\"Polaris-Choice__Control\"><span class=\"Polaris-RadioButton\"><input id=\"PolarisRadioButton122\" name=\"PolarisRadioButton122\" type=\"radio\" class=\"Polaris-RadioButton__Input\" aria-describedby=\"PolarisRadioButton122HelpText\" value=\"\"><span class=\"Polaris-RadioButton__Backdrop\"></span></span></span><span class=\"Polaris-Choice__Label\"><span class=\"Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular\">Tiered discount</span></span></label>\r\n                                            <div class=\"Polaris-Choice__Descriptions\">\r\n                                                <div class=\"Polaris-Choice__HelpText\" id=\"PolarisRadioButton122HelpText\"><span class=\"Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular Polaris-Text--subdued\">The discount will change based on the bundle's volume or total value.</span></div>\r\n                                            </div>\r\n                                        </div>\r\n                                    </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_175, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_176, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_177, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_178, [_hoisted_179, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_180, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+            "onUpdate:modelValue": _cache[14] || (_cache[14] = function ($event) {
+              return $data.bundle.type_off = $event;
+            }),
+            id: "PolarisSelect38",
+            "class": "Polaris-Select__Input",
+            "aria-invalid": "false"
+          }, _hoisted_184, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.bundle.type_off]]), _hoisted_185, _hoisted_186])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_187, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_188, [_hoisted_189, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_190, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_191, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_192, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+            "onUpdate:modelValue": _cache[15] || (_cache[15] = function ($event) {
+              return $data.bundle.discount_value = $event;
+            }),
+            id: "PolarisTextField108",
+            autocomplete: "0",
+            "class": "Polaris-TextField__Input",
+            pattern: "[0-9]{0,10}(\\.[0-9]{0,2})?",
+            type: "number",
+            "aria-labelledby": "PolarisTextField108Label",
+            "aria-invalid": "false"
+          }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.bundle.discount_value]]), _hoisted_193, _hoisted_194])])])])])])])])])])])])])]), _hoisted_195])])])];
+        }),
+        _: 1 /* STABLE */
+      }, 8 /* PROPS */, ["isSelected"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Tab, {
+        isSelected: $data.selected === 'Design'
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_196, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_197, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_198, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_199, [_hoisted_200, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_201, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_202, [_hoisted_203, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_204, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_205, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_206, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_207, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_208, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_209, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_210, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_211, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+            "onUpdate:modelValue": _cache[16] || (_cache[16] = function ($event) {
+              return $data.bundle.settings.add_note_field = $event;
+            }),
+            id: "PolarisCheckbox137",
+            type: "checkbox",
+            "class": "Polaris-Checkbox__Input",
+            "aria-invalid": "false",
+            "aria-describedby": "PolarisCheckbox137HelpText",
+            role: "checkbox",
+            "aria-checked": "false",
+            value: ""
+          }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $data.bundle.settings.add_note_field]]), _hoisted_212, _hoisted_213])]), _hoisted_214]), _hoisted_215])])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_216, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_217, [_hoisted_218, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_219, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_220, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_221, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_222, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_223, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_224, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_225, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_226, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+            "onUpdate:modelValue": _cache[17] || (_cache[17] = function ($event) {
+              return $data.bundle.settings.show_bundle_desc = $event;
+            }),
+            id: "product-description-checkbox",
+            type: "checkbox",
+            "class": "Polaris-Checkbox__Input",
+            "aria-invalid": "false",
+            "aria-describedby": "product-description-checkboxHelpText",
+            role: "checkbox",
+            "aria-checked": "false"
+          }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $data.bundle.settings.show_bundle_desc]]), _hoisted_227, _hoisted_228])]), _hoisted_229]), _hoisted_230])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_231, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_232, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_233, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_234, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+            "onUpdate:modelValue": _cache[18] || (_cache[18] = function ($event) {
+              return $data.bundle.settings.show_product_desc = $event;
+            }),
+            id: "PolarisCheckbox140",
+            type: "checkbox",
+            "class": "Polaris-Checkbox__Input",
+            "aria-invalid": "false",
+            "aria-describedby": "PolarisCheckbox140HelpText",
+            role: "checkbox",
+            "aria-checked": "false",
+            value: ""
+          }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $data.bundle.settings.show_product_desc]]), _hoisted_235, _hoisted_236])]), _hoisted_237]), _hoisted_238])])])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_239, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_240, [_hoisted_241, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_242, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+            onClick: _cache[19] || (_cache[19] = function () {
+              return $options.saveBundle && $options.saveBundle.apply($options, arguments);
+            }),
+            "class": "Polaris-Button Polaris-Button--primary",
+            "aria-disabled": "false",
+            type: "button"
+          }, _hoisted_244)])])])])])])];
+        }),
+        _: 1 /* STABLE */
+      }, 8 /* PROPS */, ["isSelected"])];
+    }),
+    _: 1 /* STABLE */
+  }, 8 /* PROPS */, ["selected", "onSelected"])])])])], 64 /* STABLE_FRAGMENT */);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EditBuilder.vue?vue&type=template&id=1d4cd6d4":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EditBuilder.vue?vue&type=template&id=1d4cd6d4 ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "Polaris-Page-Header Polaris-Page-Header--hasNavigation Polaris-Page-Header--mediumTitle"
+};
+var _hoisted_2 = {
+  "class": "Polaris-Page-Header__Row"
+};
+var _hoisted_3 = {
+  "class": "Polaris-Page-Header__BreadcrumbWrapper"
+};
+var _hoisted_4 = {
+  role: "navigation"
+};
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Breadcrumbs__Icon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Icon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodySm Polaris-Text--regular Polaris-Text--visuallyHidden"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  viewBox: "0 0 20 20",
+  "class": "Polaris-Icon__Svg",
+  focusable: "false",
+  "aria-hidden": "true"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  d: "M17 9h-11.586l3.293-3.293a.999.999 0 1 0-1.414-1.414l-5 5a.999.999 0 0 0 0 1.414l5 5a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414l-3.293-3.293h11.586a1 1 0 1 0 0-2z"
+})])])], -1 /* HOISTED */);
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodySm Polaris-Text--regular Polaris-Text--subdued Polaris-Text--visuallyHidden"
+}, "Bundles", -1 /* HOISTED */);
+var _hoisted_7 = [_hoisted_5, _hoisted_6];
+var _hoisted_8 = {
+  "class": "Polaris-Page-Header__TitleWrapper"
+};
+var _hoisted_9 = {
+  "class": "Polaris-Header-Title"
+};
+var _hoisted_10 = {
+  "class": "Polaris-Layout create-builder-page"
+};
+var _hoisted_11 = {
+  "class": "Polaris-Layout__Section"
+};
+var _hoisted_12 = {
+  "class": "Polaris-Card"
+};
+var _hoisted_13 = {
+  "class": "Polaris-Tabs__Panel",
+  id: "setup-content-1",
+  role: "tabpanel",
+  "aria-labelledby": "setup-1",
+  tabindex: "-1"
+};
+var _hoisted_14 = {
+  "class": "Polaris-Page Polaris-Page--fullWidth"
+};
+var _hoisted_15 = {
+  "class": "Polaris-Page__Content"
+};
+var _hoisted_16 = {
+  "class": "Polaris-Layout"
+};
+var _hoisted_17 = {
+  "class": "Polaris-Layout__AnnotatedSection"
+};
+var _hoisted_18 = {
+  "class": "Polaris-Layout__AnnotationWrapper"
+};
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Layout__Annotation"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextContainer"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "Polaris-Text--root Polaris-Text--headingMd Polaris-Text--semibold"
+}, "Bundle details"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Box",
+  style: {
+    "--pc-box-color": "var(--p-text-subdued)"
+  }
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Name your bundle, upload a header image and let your users know what the bundles' criteria are by adding a description.")])])], -1 /* HOISTED */);
+var _hoisted_20 = {
+  "class": "Polaris-Layout__AnnotationContent"
+};
+var _hoisted_21 = {
+  "class": "Polaris-Card"
+};
+var _hoisted_22 = {
+  "class": "Polaris-Card__Section"
+};
+var _hoisted_23 = {
+  "class": "Polaris-FormLayout"
+};
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-FormLayout__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  id: "error-internalName"
+})], -1 /* HOISTED */);
+var _hoisted_25 = {
+  "class": "Polaris-FormLayout__Item"
+};
+var _hoisted_26 = {
+  "class": ""
+};
+var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Labelled__LabelWrapper"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  id: "PolarisTextField52Label",
+  "for": "PolarisTextField52",
+  "class": "Polaris-Label__Text"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Bundle name")])])], -1 /* HOISTED */);
+var _hoisted_28 = {
+  "class": "Polaris-Connected"
+};
+var _hoisted_29 = {
+  "class": "Polaris-Connected__Item Polaris-Connected__Item--primary"
+};
+var _hoisted_30 = {
+  "class": "Polaris-TextField Polaris-TextField--hasValue"
+};
+var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField__Backdrop"
+}, null, -1 /* HOISTED */);
+var _hoisted_32 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Labelled__HelpText",
+  id: "PolarisTextField52HelpText"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular Polaris-Text--break Polaris-Text--subdued"
+}, "This will only be used in your Shopify dashboard; it won't be visible to customers.")], -1 /* HOISTED */);
+var _hoisted_33 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-FormLayout__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  id: "error-externalName"
+})], -1 /* HOISTED */);
+var _hoisted_34 = {
+  "class": "Polaris-FormLayout__Item"
+};
+var _hoisted_35 = {
+  "class": ""
+};
+var _hoisted_36 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Labelled__LabelWrapper"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  id: "PolarisTextField53Label",
+  "for": "PolarisTextField53",
+  "class": "Polaris-Label__Text"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Product name")])])], -1 /* HOISTED */);
+var _hoisted_37 = {
+  "class": "Polaris-Connected"
+};
+var _hoisted_38 = {
+  "class": "Polaris-Connected__Item Polaris-Connected__Item--primary"
+};
+var _hoisted_39 = {
+  "class": "Polaris-TextField Polaris-TextField--hasValue"
+};
+var _hoisted_40 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField__Backdrop"
+}, null, -1 /* HOISTED */);
+var _hoisted_41 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Labelled__HelpText",
+  id: "PolarisTextField53HelpText"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular Polaris-Text--break Polaris-Text--subdued"
+}, "This is the bundle name your customers will see in the checkout and email notifications.")], -1 /* HOISTED */);
+var _hoisted_42 = {
+  "class": "Polaris-Layout__AnnotatedSection",
+  id: "product-setup"
+};
+var _hoisted_43 = {
+  "class": "Polaris-Layout__AnnotationWrapper"
+};
+var _hoisted_44 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Layout__Annotation"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextContainer"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "Polaris-Text--root Polaris-Text--headingMd Polaris-Text--semibold"
+}, "Bundle structure"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Layout__AnnotationDescription"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextContainer"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Choose a suitable layout for your bundle."), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "PLEASE NOTE: this cannot be changed once the bundle has been created.")])])])], -1 /* HOISTED */);
+var _hoisted_45 = {
+  "class": "Polaris-Layout__AnnotationContent"
+};
+var _hoisted_46 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  id: "error-layout"
+}, null, -1 /* HOISTED */);
+var _hoisted_47 = {
+  "class": "Polaris-Card"
+};
+var _hoisted_48 = {
+  "class": "Polaris-Card__Section"
+};
+var _hoisted_49 = {
+  "class": "Polaris-Choice",
+  "for": "PolarisRadioButton45"
+};
+var _hoisted_50 = {
+  "class": "Polaris-Choice__Control"
+};
+var _hoisted_51 = {
+  "class": "Polaris-RadioButton"
+};
+var _hoisted_52 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-RadioButton__Backdrop"
+}, null, -1 /* HOISTED */);
+var _hoisted_53 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Choice__Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Single page")], -1 /* HOISTED */);
+var _hoisted_54 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Choice__Descriptions"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Choice__HelpText",
+  id: "PolarisRadioButton45HelpText"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular Polaris-Text--subdued"
+}, "Display all available bundle products on a single page.")])], -1 /* HOISTED */);
+var _hoisted_55 = {
+  "class": "Polaris-Choice",
+  "for": "PolarisRadioButton46"
+};
+var _hoisted_56 = {
+  "class": "Polaris-Choice__Control"
+};
+var _hoisted_57 = {
+  "class": "Polaris-RadioButton"
+};
+var _hoisted_58 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-RadioButton__Backdrop"
+}, null, -1 /* HOISTED */);
+var _hoisted_59 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Choice__Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Multiple sections")], -1 /* HOISTED */);
+var _hoisted_60 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Choice__Descriptions"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Choice__HelpText",
+  id: "PolarisRadioButton46HelpText"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular Polaris-Text--subdued"
+}, "Break the bundle up into distinct sections, so the customer can build their bundle step by step, or use the sections to categorise your products.")])], -1 /* HOISTED */);
+var _hoisted_61 = {
+  "class": "Polaris-PageActions"
+};
+var _hoisted_62 = {
+  "class": "Polaris-Stack Polaris-Stack--spacingTight Polaris-Stack--distributionEqualSpacing"
+};
+var _hoisted_63 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Stack__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-ButtonGroup"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-ButtonGroup__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "Polaris-Button",
+  type: "button"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Cancel")])])])])], -1 /* HOISTED */);
+var _hoisted_64 = {
+  "class": "Polaris-Stack__Item"
+};
+var _hoisted_65 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Next")], -1 /* HOISTED */);
+var _hoisted_66 = [_hoisted_65];
+var _hoisted_67 = {
+  "class": "Polaris-Tabs__Panel",
+  id: "products-content-1",
+  role: "tabpanel",
+  "aria-labelledby": "products-1",
+  tabindex: "-1"
+};
+var _hoisted_68 = {
+  "class": "Polaris-Page Polaris-Page--fullWidth"
+};
+var _hoisted_69 = {
+  "class": "Polaris-Page__Content"
+};
+var _hoisted_70 = {
+  "class": "Polaris-Card__Section"
+};
+var _hoisted_71 = {
+  "class": "Polaris-Layout"
+};
+var _hoisted_72 = {
+  "class": "Polaris-Layout__Section"
+};
+var _hoisted_73 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  style: {
+    "margin-bottom": "1rem"
+  }
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "Polaris-Text--root Polaris-Text--headingMd Polaris-Text--semibold"
+}, "Sections")], -1 /* HOISTED */);
+var _hoisted_74 = {
+  "class": "Polaris-Card"
+};
+var _hoisted_75 = {
+  "class": "Polaris-Card__Section"
+};
+var _hoisted_76 = {
+  "class": "Polaris-Layout"
+};
+var _hoisted_77 = {
+  "class": "Polaris-Layout__Section"
+};
+var _hoisted_78 = {
+  "class": "product-image-list product-list-padding sections-added"
+};
+var _hoisted_79 = {
+  "class": "Polaris-ResourceList",
+  "aria-live": "polite"
+};
+var _hoisted_80 = {
+  "class": "Polaris-ResourceItem Polaris-ResourceItem--persistActions"
+};
+var _hoisted_81 = {
+  "class": "Polaris-ResourceItem__Container"
+};
+var _hoisted_82 = {
+  "class": "Polaris-ResourceItem__Owned"
+};
+var _hoisted_83 = {
+  "class": "Polaris-ResourceList-Item__Media"
+};
+var _hoisted_84 = {
+  "class": "Polaris-Thumbnail Polaris-Thumbnail--sizeMedium"
+};
+var _hoisted_85 = ["src"];
+var _hoisted_86 = {
+  "class": "Polaris-ResourceItem__Content"
+};
+var _hoisted_87 = {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--bold"
+};
+var _hoisted_88 = {
+  "class": "Polaris-ResourceItem__Actions"
+};
+var _hoisted_89 = {
+  "class": "Polaris-ButtonGroup"
+};
+var _hoisted_90 = {
+  "class": "Polaris-ButtonGroup__Item"
+};
+var _hoisted_91 = ["onClick"];
+var _hoisted_92 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Edit section")], -1 /* HOISTED */);
+var _hoisted_93 = [_hoisted_92];
+var _hoisted_94 = {
+  "class": "Polaris-ButtonGroup__Item"
+};
+var _hoisted_95 = ["onClick"];
+var _hoisted_96 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Remove")], -1 /* HOISTED */);
+var _hoisted_97 = [_hoisted_96];
+var _hoisted_98 = {
+  "class": "Polaris-Card__Section"
+};
+var _hoisted_99 = {
+  "class": "Polaris-FormLayout"
+};
+var _hoisted_100 = {
+  "class": "Polaris-FormLayout__Item"
+};
+var _hoisted_101 = {
+  "class": ""
+};
+var _hoisted_102 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Labelled__LabelWrapper"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  id: "PolarisTextField5Label",
+  "for": "PolarisTextField5",
+  "class": "Polaris-Label__Text"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Section name")])])], -1 /* HOISTED */);
+var _hoisted_103 = {
+  "class": "Polaris-Connected"
+};
+var _hoisted_104 = {
+  "class": "Polaris-Connected__Item Polaris-Connected__Item--primary"
+};
+var _hoisted_105 = {
+  "class": "Polaris-TextField Polaris-TextField--hasValue"
+};
+var _hoisted_106 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField__Backdrop"
+}, null, -1 /* HOISTED */);
+var _hoisted_107 = {
+  "class": "Polaris-FormLayout__Item"
+};
+var _hoisted_108 = {
+  "class": ""
+};
+var _hoisted_109 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Labelled__LabelWrapper"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  id: "PolarisTextField6Label",
+  "for": "PolarisTextField6",
+  "class": "Polaris-Label__Text"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Description")])])], -1 /* HOISTED */);
+var _hoisted_110 = {
+  "class": "Polaris-Connected"
+};
+var _hoisted_111 = {
+  "class": "Polaris-Connected__Item Polaris-Connected__Item--primary"
+};
+var _hoisted_112 = {
+  "class": "Polaris-TextField Polaris-TextField--hasValue Polaris-TextField--multiline"
+};
+var _hoisted_113 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField__Backdrop"
+}, null, -1 /* HOISTED */);
+var _hoisted_114 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "aria-hidden": "true",
+  "class": "Polaris-TextField__Resizer"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField__DummyInput"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField__DummyInput"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br")])], -1 /* HOISTED */);
+var _hoisted_115 = {
+  "class": "Polaris-Card__Section"
+};
+var _hoisted_116 = {
+  "class": "Polaris-Layout"
+};
+var _hoisted_117 = {
+  "class": "Polaris-Layout__Section"
+};
+var _hoisted_118 = {
+  "class": "product-image-list product-list-padding sections-added"
+};
+var _hoisted_119 = {
+  "class": "Polaris-ResourceList",
+  "aria-live": "polite"
+};
+var _hoisted_120 = {
+  "class": "Polaris-ResourceItem Polaris-ResourceItem--persistActions"
+};
+var _hoisted_121 = {
+  "class": "Polaris-ResourceItem__Container"
+};
+var _hoisted_122 = {
+  "class": "Polaris-ResourceItem__Owned"
+};
+var _hoisted_123 = {
+  "class": "Polaris-ResourceList-Item__Media"
+};
+var _hoisted_124 = {
+  "class": "Polaris-Thumbnail Polaris-Thumbnail--sizeMedium"
+};
+var _hoisted_125 = ["src"];
+var _hoisted_126 = {
+  "class": "Polaris-ResourceItem__Content"
+};
+var _hoisted_127 = {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--bold"
+};
+var _hoisted_128 = {
+  "class": "Polaris-ResourceItem__Actions"
+};
+var _hoisted_129 = {
+  "class": "Polaris-ButtonGroup"
+};
+var _hoisted_130 = {
+  "class": "Polaris-ButtonGroup__Item"
+};
+var _hoisted_131 = ["onClick"];
+var _hoisted_132 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Remove")], -1 /* HOISTED */);
+var _hoisted_133 = [_hoisted_132];
+var _hoisted_134 = {
+  "class": "Polaris-Card__Section"
+};
+var _hoisted_135 = {
+  "class": "Polaris-Stack"
+};
+var _hoisted_136 = {
+  "class": "Polaris-Stack__Item"
+};
+var _hoisted_137 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Add products")], -1 /* HOISTED */);
+var _hoisted_138 = [_hoisted_137];
+var _hoisted_139 = {
+  "class": "Polaris-PageActions"
+};
+var _hoisted_140 = {
+  "class": "Polaris-Stack Polaris-Stack--spacingTight Polaris-Stack--distributionEqualSpacing"
+};
+var _hoisted_141 = {
+  "class": "Polaris-Stack__Item"
+};
+var _hoisted_142 = {
+  "class": "Polaris-ButtonGroup"
+};
+var _hoisted_143 = {
+  "class": "Polaris-ButtonGroup__Item"
+};
+var _hoisted_144 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Cancel")], -1 /* HOISTED */);
+var _hoisted_145 = [_hoisted_144];
+var _hoisted_146 = {
+  "class": "Polaris-Stack__Item"
+};
+var _hoisted_147 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Save section")], -1 /* HOISTED */);
+var _hoisted_148 = [_hoisted_147];
+var _hoisted_149 = {
+  "class": "Polaris-Layout__Section"
+};
+var _hoisted_150 = {
+  "class": "product-add-button"
+};
+var _hoisted_151 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Add a new section")], -1 /* HOISTED */);
+var _hoisted_152 = [_hoisted_151];
+var _hoisted_153 = {
+  "class": "Polaris-PageActions"
+};
+var _hoisted_154 = {
+  "class": "Polaris-Stack Polaris-Stack--spacingTight Polaris-Stack--distributionTrailing"
+};
+var _hoisted_155 = {
+  "class": "Polaris-Stack__Item"
+};
+var _hoisted_156 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Next")], -1 /* HOISTED */);
+var _hoisted_157 = [_hoisted_156];
+var _hoisted_158 = {
+  "class": "Polaris-Tabs__Panel",
+  id: "pricing-content-1",
+  role: "tabpanel",
+  "aria-labelledby": "pricing-1",
+  tabindex: "-1"
+};
+var _hoisted_159 = {
+  "class": "Polaris-Page Polaris-Page--fullWidth"
+};
+var _hoisted_160 = {
+  "class": "Polaris-Page__Content"
+};
+var _hoisted_161 = {
+  "class": "Polaris-Layout"
+};
+var _hoisted_162 = {
+  "class": "Polaris-Layout__AnnotatedSection",
+  id: "pricing-section"
+};
+var _hoisted_163 = {
+  "class": "Polaris-Layout__AnnotationWrapper"
+};
+var _hoisted_164 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Layout__Annotation"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextContainer"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "Polaris-Text--root Polaris-Text--headingMd Polaris-Text--semibold"
+}, "Pricing"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Layout__AnnotationDescription"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Add an optional discount to your bundle.")])])], -1 /* HOISTED */);
+var _hoisted_165 = {
+  "class": "Polaris-Layout__AnnotationContent"
+};
+var _hoisted_166 = {
+  "class": "Polaris-Card"
+};
+var _hoisted_167 = {
+  "class": "Polaris-Card__Section"
+};
+var _hoisted_168 = {
+  "class": "Polaris-FormLayout"
+};
+var _hoisted_169 = {
+  "class": "Polaris-FormLayout__Item"
+};
+var _hoisted_170 = {
+  "class": "Polaris-Choice",
+  "for": "PolarisRadioButton121"
+};
+var _hoisted_171 = {
+  "class": "Polaris-Choice__Control"
+};
+var _hoisted_172 = {
+  "class": "Polaris-RadioButton"
+};
+var _hoisted_173 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-RadioButton__Backdrop"
+}, null, -1 /* HOISTED */);
+var _hoisted_174 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Choice__Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Flat discount")], -1 /* HOISTED */);
+var _hoisted_175 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Choice__Descriptions"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Choice__HelpText",
+  id: "PolarisRadioButton121HelpText"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular Polaris-Text--subdued"
+}, "Apply the same discount, regardless of the bundle's volume or total value.")])], -1 /* HOISTED */);
+var _hoisted_176 = {
+  role: "group",
+  "class": "Polaris-FormLayout--grouped"
+};
+var _hoisted_177 = {
+  "class": "Polaris-FormLayout__Items"
+};
+var _hoisted_178 = {
+  "class": "Polaris-FormLayout__Item"
+};
+var _hoisted_179 = {
+  "class": ""
+};
+var _hoisted_180 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Labelled__LabelWrapper"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  id: "PolarisSelect38Label",
+  "for": "PolarisSelect38",
+  "class": "Polaris-Label__Text"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Type")])])], -1 /* HOISTED */);
+var _hoisted_181 = {
+  "class": "Polaris-Select"
+};
+var _hoisted_182 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "percentage"
+}, "Percentage discount", -1 /* HOISTED */);
+var _hoisted_183 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "fixed"
+}, "Fixed discount", -1 /* HOISTED */);
+var _hoisted_184 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "price"
+}, "Fixed price", -1 /* HOISTED */);
+var _hoisted_185 = [_hoisted_182, _hoisted_183, _hoisted_184];
+var _hoisted_186 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Select__Content",
+  "aria-hidden": "true"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Select__SelectedOption"
+}, "Percentage discount"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Select__Icon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Icon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodySm Polaris-Text--regular Polaris-Text--visuallyHidden"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  viewBox: "0 0 20 20",
+  "class": "Polaris-Icon__Svg",
+  focusable: "false",
+  "aria-hidden": "true"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  d: "M7.676 9h4.648c.563 0 .879-.603.53-1.014l-2.323-2.746a.708.708 0 0 0-1.062 0l-2.324 2.746c-.347.411-.032 1.014.531 1.014Zm4.648 2h-4.648c-.563 0-.878.603-.53 1.014l2.323 2.746c.27.32.792.32 1.062 0l2.323-2.746c.349-.411.033-1.014-.53-1.014Z"
+})])])])], -1 /* HOISTED */);
+var _hoisted_187 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Select__Backdrop"
+}, null, -1 /* HOISTED */);
+var _hoisted_188 = {
+  "class": "Polaris-FormLayout__Item"
+};
+var _hoisted_189 = {
+  "class": ""
+};
+var _hoisted_190 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Labelled__LabelWrapper"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  id: "PolarisTextField108Label",
+  "for": "PolarisTextField108",
+  "class": "Polaris-Label__Text"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Discount value")])])], -1 /* HOISTED */);
+var _hoisted_191 = {
+  "class": "Polaris-Connected"
+};
+var _hoisted_192 = {
+  "class": "Polaris-Connected__Item Polaris-Connected__Item--primary"
+};
+var _hoisted_193 = {
+  "class": "Polaris-TextField"
+};
+var _hoisted_194 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField__Spinner",
+  "aria-hidden": "true"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  role: "button",
+  "class": "Polaris-TextField__Segment",
+  tabindex: "-1"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField__SpinnerIcon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Icon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodySm Polaris-Text--regular Polaris-Text--visuallyHidden"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  viewBox: "0 0 20 20",
+  "class": "Polaris-Icon__Svg",
+  focusable: "false",
+  "aria-hidden": "true"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  d: "M6.902 12h6.196c.751 0 1.172-.754.708-1.268l-3.098-3.432c-.36-.399-1.055-.399-1.416 0l-3.098 3.433c-.464.513-.043 1.267.708 1.267Z"
+})])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  role: "button",
+  "class": "Polaris-TextField__Segment",
+  tabindex: "-1"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField__SpinnerIcon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Icon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodySm Polaris-Text--regular Polaris-Text--visuallyHidden"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  viewBox: "0 0 20 20",
+  "class": "Polaris-Icon__Svg",
+  focusable: "false",
+  "aria-hidden": "true"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  d: "M13.098 8h-6.196c-.751 0-1.172.754-.708 1.268l3.098 3.432c.36.399 1.055.399 1.416 0l3.098-3.433c.464-.513.043-1.267-.708-1.267Z"
+})])])])])], -1 /* HOISTED */);
+var _hoisted_195 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField__Backdrop"
+}, null, -1 /* HOISTED */);
+var _hoisted_196 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-PageActions"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Stack Polaris-Stack--spacingTight Polaris-Stack--distributionEqualSpacing"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Stack__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-ButtonGroup"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-ButtonGroup__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "Polaris-Button",
+  type: "button"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Cancel")])])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Stack__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "Polaris-Button Polaris-Button--primary",
+  "aria-disabled": "false",
+  type: "button"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Next")])])])])], -1 /* HOISTED */);
+var _hoisted_197 = {
+  "class": "Polaris-Tabs__Panel",
+  id: "design-content-1",
+  role: "tabpanel",
+  "aria-labelledby": "design-1",
+  tabindex: "-1"
+};
+var _hoisted_198 = {
+  "class": "Polaris-Page Polaris-Page--fullWidth"
+};
+var _hoisted_199 = {
+  "class": "Polaris-Page__Content"
+};
+var _hoisted_200 = {
+  "class": "Polaris-Layout"
+};
+var _hoisted_201 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Layout__AnnotatedSection"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Layout__AnnotationWrapper"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Layout__Annotation"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextContainer"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "Polaris-Text--root Polaris-Text--headingMd Polaris-Text--semibold"
+}, "Imagery"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Box",
+  style: {
+    "--pc-box-color": "var(--p-text-subdued)"
+  }
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Layout__AnnotationContent"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Card"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Card__Section"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-FormLayout"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-FormLayout__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": ""
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Labelled__LabelWrapper"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  id: "PolarisTextField118Label",
+  "for": "PolarisTextField118",
+  "class": "Polaris-Label__Text"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Product image")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Connected"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Connected__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "Polaris-Button",
+  type: "button"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Upload")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Connected__Item Polaris-Connected__Item--primary"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField Polaris-TextField--disabled"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  id: "PolarisTextField118",
+  disabled: "",
+  autocomplete: "0",
+  "class": "Polaris-TextField__Input",
+  type: "text",
+  "aria-describedby": "PolarisTextField118HelpText",
+  "aria-labelledby": "PolarisTextField118Label",
+  "aria-invalid": "false",
+  value: ""
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField__Backdrop"
+})])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Labelled__HelpText",
+  id: "PolarisTextField118HelpText"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular Polaris-Text--break Polaris-Text--subdued"
+}, "This will be displayed in the checkout and email notifications.")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-FormLayout__Item"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-FormLayout__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": ""
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Labelled__LabelWrapper"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  id: "PolarisTextField119Label",
+  "for": "PolarisTextField119",
+  "class": "Polaris-Label__Text"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Header image")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Connected"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Connected__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "Polaris-Button",
+  type: "button"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Upload")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Connected__Item Polaris-Connected__Item--primary"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField Polaris-TextField--disabled"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  id: "PolarisTextField119",
+  disabled: "",
+  autocomplete: "0",
+  "class": "Polaris-TextField__Input",
+  type: "text",
+  "aria-describedby": "PolarisTextField119HelpText",
+  "aria-labelledby": "PolarisTextField119Label",
+  "aria-invalid": "false",
+  value: ""
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextField__Backdrop"
+})])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Labelled__HelpText",
+  id: "PolarisTextField119HelpText"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular Polaris-Text--break Polaris-Text--subdued"
+}, "This will be the header image on the bundle page.")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-FormLayout__Item"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-FormLayout__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+  style: {
+    "display": "none"
+  }
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  type: "file",
+  id: "upload-file",
+  accept: "image/*"
+})])])])])])])])], -1 /* HOISTED */);
+var _hoisted_202 = {
+  "class": "Polaris-Layout__AnnotatedSection"
+};
+var _hoisted_203 = {
+  "class": "Polaris-Layout__AnnotationWrapper"
+};
+var _hoisted_204 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Layout__Annotation"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextContainer"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "Polaris-Text--root Polaris-Text--headingMd Polaris-Text--semibold"
+}, "Additional fields"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Box",
+  style: {
+    "--pc-box-color": "var(--p-text-subdued)"
+  }
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p")])])], -1 /* HOISTED */);
+var _hoisted_205 = {
+  "class": "Polaris-Layout__AnnotationContent"
+};
+var _hoisted_206 = {
+  "class": "Polaris-Card"
+};
+var _hoisted_207 = {
+  "class": "Polaris-Card__Section"
+};
+var _hoisted_208 = {
+  "class": "Polaris-FormLayout"
+};
+var _hoisted_209 = {
+  "class": "Polaris-FormLayout__Item"
+};
+var _hoisted_210 = {
+  "class": "Polaris-Choice",
+  "for": "PolarisCheckbox137"
+};
+var _hoisted_211 = {
+  "class": "Polaris-Choice__Control"
+};
+var _hoisted_212 = {
+  "class": "Polaris-Checkbox"
+};
+var _hoisted_213 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Checkbox__Backdrop"
+}, null, -1 /* HOISTED */);
+var _hoisted_214 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Checkbox__Icon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Icon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodySm Polaris-Text--regular Polaris-Text--visuallyHidden"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  viewBox: "0 0 20 20",
+  "class": "Polaris-Icon__Svg",
+  focusable: "false",
+  "aria-hidden": "true"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  d: "M14.723 6.237a.94.94 0 0 1 .053 1.277l-5.366 6.193a.834.834 0 0 1-.611.293.83.83 0 0 1-.622-.264l-2.927-3.097a.94.94 0 0 1 0-1.278.82.82 0 0 1 1.207 0l2.297 2.43 4.763-5.498a.821.821 0 0 1 1.206-.056Z"
+})])])], -1 /* HOISTED */);
+var _hoisted_215 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Choice__Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Add a note field")], -1 /* HOISTED */);
+var _hoisted_216 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Choice__Descriptions"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Choice__HelpText",
+  id: "PolarisCheckbox137HelpText"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular Polaris-Text--subdued"
+}, "Add a text field to the bundle summary so your customers can add a note.")])], -1 /* HOISTED */);
+var _hoisted_217 = {
+  "class": "Polaris-Layout__AnnotatedSection"
+};
+var _hoisted_218 = {
+  "class": "Polaris-Layout__AnnotationWrapper"
+};
+var _hoisted_219 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Layout__Annotation"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-TextContainer"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "Polaris-Text--root Polaris-Text--headingMd Polaris-Text--semibold"
+}, "Product grid"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Box",
+  style: {
+    "--pc-box-color": "var(--p-text-subdued)"
+  }
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Configure how the bundle products will be displayed.")])])], -1 /* HOISTED */);
+var _hoisted_220 = {
+  "class": "Polaris-Layout__AnnotationContent"
+};
+var _hoisted_221 = {
+  "class": "Polaris-Card"
+};
+var _hoisted_222 = {
+  "class": "Polaris-Card__Section"
+};
+var _hoisted_223 = {
+  "class": "Polaris-FormLayout"
+};
+var _hoisted_224 = {
+  "class": "Polaris-FormLayout__Item"
+};
+var _hoisted_225 = {
+  "class": "Polaris-Choice",
+  "for": "product-description-checkbox"
+};
+var _hoisted_226 = {
+  "class": "Polaris-Choice__Control"
+};
+var _hoisted_227 = {
+  "class": "Polaris-Checkbox"
+};
+var _hoisted_228 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Checkbox__Backdrop"
+}, null, -1 /* HOISTED */);
+var _hoisted_229 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Checkbox__Icon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Icon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodySm Polaris-Text--regular Polaris-Text--visuallyHidden"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  viewBox: "0 0 20 20",
+  "class": "Polaris-Icon__Svg",
+  focusable: "false",
+  "aria-hidden": "true"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  d: "M14.723 6.237a.94.94 0 0 1 .053 1.277l-5.366 6.193a.834.834 0 0 1-.611.293.83.83 0 0 1-.622-.264l-2.927-3.097a.94.94 0 0 1 0-1.278.82.82 0 0 1 1.207 0l2.297 2.43 4.763-5.498a.821.821 0 0 1 1.206-.056Z"
+})])])], -1 /* HOISTED */);
+var _hoisted_230 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Choice__Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Display bundle description")], -1 /* HOISTED */);
+var _hoisted_231 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Choice__Descriptions"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Choice__HelpText",
+  id: "product-description-checkboxHelpText"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular Polaris-Text--subdued"
+}, "Display the bundle description below the bundle name.")])], -1 /* HOISTED */);
+var _hoisted_232 = {
+  "class": "Polaris-FormLayout__Item"
+};
+var _hoisted_233 = {
+  "class": "Polaris-Choice",
+  "for": "PolarisCheckbox140"
+};
+var _hoisted_234 = {
+  "class": "Polaris-Choice__Control"
+};
+var _hoisted_235 = {
+  "class": "Polaris-Checkbox"
+};
+var _hoisted_236 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Checkbox__Backdrop"
+}, null, -1 /* HOISTED */);
+var _hoisted_237 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Checkbox__Icon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Icon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodySm Polaris-Text--regular Polaris-Text--visuallyHidden"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  viewBox: "0 0 20 20",
+  "class": "Polaris-Icon__Svg",
+  focusable: "false",
+  "aria-hidden": "true"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  d: "M14.723 6.237a.94.94 0 0 1 .053 1.277l-5.366 6.193a.834.834 0 0 1-.611.293.83.83 0 0 1-.622-.264l-2.927-3.097a.94.94 0 0 1 0-1.278.82.82 0 0 1 1.207 0l2.297 2.43 4.763-5.498a.821.821 0 0 1 1.206-.056Z"
+})])])], -1 /* HOISTED */);
+var _hoisted_238 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Choice__Label"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+}, "Display product descriptions")], -1 /* HOISTED */);
+var _hoisted_239 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Choice__Descriptions"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Choice__HelpText",
+  id: "PolarisCheckbox140HelpText"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular Polaris-Text--subdued"
+}, "Display the product description below the product title.")])], -1 /* HOISTED */);
+var _hoisted_240 = {
+  "class": "Polaris-PageActions"
+};
+var _hoisted_241 = {
+  "class": "Polaris-Stack Polaris-Stack--spacingTight Polaris-Stack--distributionEqualSpacing"
+};
+var _hoisted_242 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-Stack__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-ButtonGroup"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "Polaris-ButtonGroup__Item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "Polaris-Button",
+  type: "button"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Cancel")])])])])], -1 /* HOISTED */);
+var _hoisted_243 = {
+  "class": "Polaris-Stack__Item"
+};
+var _hoisted_244 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Button__Text"
+}, "Save")], -1 /* HOISTED */);
+var _hoisted_245 = [_hoisted_244];
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _this = this;
+  var _component_Tab = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Tab");
+  var _component_TabNav = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("TabNav");
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    onClick: _cache[0] || (_cache[0] = function ($event) {
+      return _this.$router.push({
+        name: 'home'
+      });
+    }),
+    "class": "Polaris-Breadcrumbs__Breadcrumb",
+    "data-polaris-unstyled": "true"
+  }, _hoisted_7)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.bundle.bundle_name), 1 /* TEXT */)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_TabNav, {
+    tabs: ['Setup', 'Products', 'Pricing', 'Design'],
+    selected: $data.selected,
+    onSelected: $options.setSelected
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Tab, {
+        isSelected: $data.selected === 'Setup'
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [_hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [_hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+            "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+              return $data.bundle.bundle_name = $event;
+            }),
+            name: "internal-name",
+            id: "PolarisTextField52",
+            autocomplete: "1",
+            "class": "Polaris-TextField__Input",
+            type: "text",
+            "aria-describedby": "PolarisTextField52HelpText",
+            "aria-labelledby": "PolarisTextField52Label",
+            "aria-invalid": "false"
+          }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.bundle.bundle_name]]), _hoisted_31])])]), _hoisted_32])]), _hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, [_hoisted_36, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_37, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_38, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+            "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+              return $data.bundle.product_name = $event;
+            }),
+            name: "external-name",
+            id: "PolarisTextField53",
+            autocomplete: "1",
+            "class": "Polaris-TextField__Input",
+            type: "text",
+            "aria-describedby": "PolarisTextField53HelpText",
+            "aria-labelledby": "PolarisTextField53Label",
+            "aria-invalid": "false"
+          }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.bundle.product_name]]), _hoisted_40])])]), _hoisted_41])])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_42, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_43, [_hoisted_44, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_45, [_hoisted_46, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_47, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_48, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_49, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_50, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_51, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+            "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+              return $data.bundle.bundle_type = $event;
+            }),
+            value: "Single page",
+            id: "PolarisRadioButton45",
+            name: "bundle-type",
+            type: "radio",
+            "class": "Polaris-RadioButton__Input",
+            "aria-describedby": "PolarisRadioButton45HelpText"
+          }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.bundle.bundle_type]]), _hoisted_52])]), _hoisted_53]), _hoisted_54]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_55, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_56, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_57, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+            "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+              return $data.bundle.bundle_type = $event;
+            }),
+            value: "Multiple sections",
+            id: "PolarisRadioButton46",
+            name: "bundle-type",
+            type: "radio",
+            "class": "Polaris-RadioButton__Input",
+            "aria-describedby": "PolarisRadioButton46HelpText",
+            checked: ""
+          }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.bundle.bundle_type]]), _hoisted_58])]), _hoisted_59]), _hoisted_60])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_61, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_62, [_hoisted_63, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_64, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+            onClick: _cache[5] || (_cache[5] = function () {
+              return $options.next && $options.next.apply($options, arguments);
+            }),
+            "class": "Polaris-Button Polaris-Button--primary",
+            "aria-disabled": "false",
+            type: "button"
+          }, _hoisted_66)])])])])])])];
+        }),
+        _: 1 /* STABLE */
+      }, 8 /* PROPS */, ["isSelected"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Tab, {
+        isSelected: $data.selected === 'Products'
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_67, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_68, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_69, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_70, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_71, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_72, [_hoisted_73, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_74, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_75, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_76, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_77, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_78, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_79, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.bundle.sections, function (section, index) {
+            var _section$items$0$imag;
+            return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", {
+              key: index,
+              "class": "Polaris-ResourceList__ItemWrapper bundle-item"
+            }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_80, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_81, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_82, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_83, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_84, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+              alt: "",
+              src: (_section$items$0$imag = section.items[0].images[0]) === null || _section$items$0$imag === void 0 ? void 0 : _section$items$0$imag.originalSrc
+            }, null, 8 /* PROPS */, _hoisted_85)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_86, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_87, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(section.title), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_88, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_89, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_90, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+              onClick: function onClick($event) {
+                return $options.editSection(section);
+              },
+              "class": "Polaris-Button",
+              type: "button"
+            }, _hoisted_93, 8 /* PROPS */, _hoisted_91)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_94, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+              onClick: function onClick($event) {
+                return $options.removeSection(index);
+              },
+              "class": "Polaris-Button",
+              type: "button"
+            }, _hoisted_97, 8 /* PROPS */, _hoisted_95)])])])])])]);
+          }), 128 /* KEYED_FRAGMENT */))])])])])], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.bundle.sections.length > 0 && !$data.showCreateSection]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"Polaris-Card__Section\" v-show=\"sections.length <= 0 || showEditSection\">\r\n                    <div class=\"Polaris-FormLayout\">\r\n                        <div class=\"Polaris-FormLayout__Item\">\r\n                            <div class=\"\">\r\n                                <div class=\"Polaris-Labelled__LabelWrapper\"><div class=\"Polaris-Label\"><label id=\"PolarisTextField5Label\" for=\"PolarisTextField5\" class=\"Polaris-Label__Text\"><span class=\"Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular\">Section name</span></label></div></div>\r\n                                <div class=\"Polaris-Connected\"><div class=\"Polaris-Connected__Item Polaris-Connected__Item--primary\"><div class=\"Polaris-TextField Polaris-TextField--hasValue\">\r\n                                    <input v-model=\"section.title\" placeholder=\"The name your customers will see for the bundle in checkout and email notifications\" autocomplete=\"1\" class=\"Polaris-TextField__Input\" type=\"text\" aria-labelledby=\"PolarisTextField5Label\" aria-invalid=\"false\"><div class=\"Polaris-TextField__Backdrop\"></div></div></div></div></div>\r\n                        </div>\r\n                        <div class=\"Polaris-FormLayout__Item\">\r\n                            <div class=\"\"><div class=\"Polaris-Labelled__LabelWrapper\"><div class=\"Polaris-Label\"><label id=\"PolarisTextField6Label\" for=\"PolarisTextField6\" class=\"Polaris-Label__Text\"><span class=\"Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular\">Description</span></label></div></div><div class=\"Polaris-Connected\"><div class=\"Polaris-Connected__Item Polaris-Connected__Item--primary\"><div class=\"Polaris-TextField Polaris-TextField--hasValue Polaris-TextField--multiline\"><textarea v-model=\"section.desc\" autocomplete=\"1\" class=\"Polaris-TextField__Input\" type=\"text\" rows=\"5\" aria-labelledby=\"PolarisTextField6Label\" aria-invalid=\"false\" aria-multiline=\"true\" style=\"height: 130px;\"></textarea><div class=\"Polaris-TextField__Backdrop\"></div><div aria-hidden=\"true\" class=\"Polaris-TextField__Resizer\"><div class=\"Polaris-TextField__DummyInput\"><br></div><div class=\"Polaris-TextField__DummyInput\"><br><br><br><br><br></div></div></div></div></div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_98, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_99, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_100, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_101, [_hoisted_102, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_103, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_104, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_105, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+            "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
+              return $data.section.title = $event;
+            }),
+            placeholder: "The name your customers will see for the bundle in checkout and email notifications",
+            autocomplete: "1",
+            "class": "Polaris-TextField__Input",
+            type: "text",
+            "aria-labelledby": "PolarisTextField5Label",
+            "aria-invalid": "false"
+          }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.section.title]]), _hoisted_106])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_107, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_108, [_hoisted_109, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_110, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_111, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_112, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
+            "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
+              return $data.section.desc = $event;
+            }),
+            autocomplete: "1",
+            "class": "Polaris-TextField__Input",
+            type: "text",
+            rows: "5",
+            "aria-labelledby": "PolarisTextField6Label",
+            "aria-invalid": "false",
+            "aria-multiline": "true",
+            style: {
+              "height": "130px"
+            }
+          }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.section.desc]]), _hoisted_113, _hoisted_114])])])])])])], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.bundle.sections.length <= 0 || $data.showCreateSection]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_115, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_116, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_117, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_118, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_119, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.section.items, function (item, i) {
+            var _item$images$;
+            return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", {
+              key: i,
+              "class": "Polaris-ResourceList__ItemWrapper bundle-item"
+            }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_120, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_121, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_122, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_123, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_124, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+              alt: "",
+              src: (_item$images$ = item.images[0]) === null || _item$images$ === void 0 ? void 0 : _item$images$.originalSrc
+            }, null, 8 /* PROPS */, _hoisted_125)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_126, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_127, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.title), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_128, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_129, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_130, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+              onClick: function onClick($event) {
+                return $options.removeItem(i);
+              },
+              "class": "Polaris-Button",
+              type: "button"
+            }, _hoisted_133, 8 /* PROPS */, _hoisted_131)])])])])])]);
+          }), 128 /* KEYED_FRAGMENT */))])])])])], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.section.items.length > 0 && $data.showCreateSection]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_134, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_135, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_136, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+            onClick: _cache[8] || (_cache[8] = function ($event) {
+              return $options.openProductPicker();
+            }),
+            "class": "Polaris-Button",
+            type: "button"
+          }, _hoisted_138)])])], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.bundle.sections.length <= 0 || $data.showCreateSection]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_139, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_140, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_141, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_142, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_143, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+            onClick: _cache[9] || (_cache[9] = function ($event) {
+              return $data.showCreateSection = !$data.showCreateSection;
+            }),
+            "class": "Polaris-Button",
+            type: "button"
+          }, _hoisted_145)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_146, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+            onClick: _cache[10] || (_cache[10] = function () {
+              return $options.saveSection && $options.saveSection.apply($options, arguments);
+            }),
+            "class": "Polaris-Button Polaris-Button--primary",
+            type: "button"
+          }, _hoisted_148)])])], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.bundle.sections.length <= 0 || $data.showCreateSection]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_149, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_150, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+            "class": "Polaris-Button",
+            type: "button",
+            onClick: _cache[11] || (_cache[11] = function () {
+              return $options.addNewSection && $options.addNewSection.apply($options, arguments);
+            })
+          }, _hoisted_152)])], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.bundle.sections.length > 0 && !$data.showCreateSection]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_153, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_154, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_155, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+            onClick: _cache[12] || (_cache[12] = function () {
+              return $options.next && $options.next.apply($options, arguments);
+            }),
+            "class": "Polaris-Button Polaris-Button--primary",
+            "aria-disabled": "false",
+            type: "button"
+          }, _hoisted_157)])])])])])])];
+        }),
+        _: 1 /* STABLE */
+      }, 8 /* PROPS */, ["isSelected"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Tab, {
+        isSelected: $data.selected === 'Pricing'
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_158, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_159, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_160, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_161, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_162, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_163, [_hoisted_164, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_165, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_166, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_167, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_168, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_169, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_170, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_171, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_172, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+            "onUpdate:modelValue": _cache[13] || (_cache[13] = function ($event) {
+              return $data.bundle.discount_type = $event;
+            }),
+            value: "Flat discount",
+            id: "PolarisRadioButton121",
+            name: "PolarisRadioButton121",
+            type: "radio",
+            "class": "Polaris-RadioButton__Input",
+            "aria-describedby": "PolarisRadioButton121HelpText",
+            checked: ""
+          }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.bundle.discount_type]]), _hoisted_173])]), _hoisted_174]), _hoisted_175])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"Polaris-FormLayout__Item\">\r\n                                        <div>\r\n                                            <label class=\"Polaris-Choice\" for=\"PolarisRadioButton122\"><span class=\"Polaris-Choice__Control\"><span class=\"Polaris-RadioButton\"><input id=\"PolarisRadioButton122\" name=\"PolarisRadioButton122\" type=\"radio\" class=\"Polaris-RadioButton__Input\" aria-describedby=\"PolarisRadioButton122HelpText\" value=\"\"><span class=\"Polaris-RadioButton__Backdrop\"></span></span></span><span class=\"Polaris-Choice__Label\"><span class=\"Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular\">Tiered discount</span></span></label>\r\n                                            <div class=\"Polaris-Choice__Descriptions\">\r\n                                                <div class=\"Polaris-Choice__HelpText\" id=\"PolarisRadioButton122HelpText\"><span class=\"Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular Polaris-Text--subdued\">The discount will change based on the bundle's volume or total value.</span></div>\r\n                                            </div>\r\n                                        </div>\r\n                                    </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_176, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_177, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_178, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_179, [_hoisted_180, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_181, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+            "onUpdate:modelValue": _cache[14] || (_cache[14] = function ($event) {
+              return $data.bundle.type_off = $event;
+            }),
+            id: "PolarisSelect38",
+            "class": "Polaris-Select__Input",
+            "aria-invalid": "false"
+          }, _hoisted_185, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.bundle.type_off]]), _hoisted_186, _hoisted_187])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_188, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_189, [_hoisted_190, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_191, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_192, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_193, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+            "onUpdate:modelValue": _cache[15] || (_cache[15] = function ($event) {
+              return $data.bundle.discount_value = $event;
+            }),
+            id: "PolarisTextField108",
+            autocomplete: "0",
+            "class": "Polaris-TextField__Input",
+            pattern: "[0-9]{0,10}(\\.[0-9]{0,2})?",
+            type: "number",
+            "aria-labelledby": "PolarisTextField108Label",
+            "aria-invalid": "false"
+          }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.bundle.discount_value]]), _hoisted_194, _hoisted_195])])])])])])])])])])])])])]), _hoisted_196])])])];
+        }),
+        _: 1 /* STABLE */
+      }, 8 /* PROPS */, ["isSelected"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Tab, {
+        isSelected: $data.selected === 'Design'
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_197, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_198, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_199, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_200, [_hoisted_201, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_202, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_203, [_hoisted_204, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_205, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_206, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_207, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_208, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_209, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_210, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_211, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_212, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+            "onUpdate:modelValue": _cache[16] || (_cache[16] = function ($event) {
+              return $data.bundle.add_note_field = $event;
+            }),
+            id: "PolarisCheckbox137",
+            type: "checkbox",
+            "class": "Polaris-Checkbox__Input",
+            "aria-invalid": "false",
+            "aria-describedby": "PolarisCheckbox137HelpText",
+            role: "checkbox",
+            "aria-checked": "false",
+            value: ""
+          }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $data.bundle.add_note_field]]), _hoisted_213, _hoisted_214])]), _hoisted_215]), _hoisted_216])])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_217, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_218, [_hoisted_219, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_220, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_221, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_222, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_223, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_224, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_225, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_226, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_227, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+            "onUpdate:modelValue": _cache[17] || (_cache[17] = function ($event) {
+              return $data.bundle.show_bundle_desc = $event;
+            }),
+            id: "product-description-checkbox",
+            type: "checkbox",
+            "class": "Polaris-Checkbox__Input",
+            "aria-invalid": "false",
+            "aria-describedby": "product-description-checkboxHelpText",
+            role: "checkbox",
+            "aria-checked": "false"
+          }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $data.bundle.show_bundle_desc]]), _hoisted_228, _hoisted_229])]), _hoisted_230]), _hoisted_231])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_232, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_233, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_234, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_235, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+            "onUpdate:modelValue": _cache[18] || (_cache[18] = function ($event) {
+              return $data.bundle.show_product_desc = $event;
+            }),
+            id: "PolarisCheckbox140",
+            type: "checkbox",
+            "class": "Polaris-Checkbox__Input",
+            "aria-invalid": "false",
+            "aria-describedby": "PolarisCheckbox140HelpText",
+            role: "checkbox",
+            "aria-checked": "false",
+            value: ""
+          }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $data.bundle.show_product_desc]]), _hoisted_236, _hoisted_237])]), _hoisted_238]), _hoisted_239])])])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_240, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_241, [_hoisted_242, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_243, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+            onClick: _cache[19] || (_cache[19] = function () {
+              return $options.saveBundle && $options.saveBundle.apply($options, arguments);
+            }),
+            "class": "Polaris-Button Polaris-Button--primary",
+            "aria-disabled": "false",
+            type: "button"
+          }, _hoisted_245)])])])])])])];
+        }),
+        _: 1 /* STABLE */
+      }, 8 /* PROPS */, ["isSelected"])];
+    }),
+    _: 1 /* STABLE */
+  }, 8 /* PROPS */, ["selected", "onSelected"])])])])], 64 /* STABLE_FRAGMENT */);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Tab.vue?vue&type=template&id=8dbef60c":
+/*!*************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Tab.vue?vue&type=template&id=8dbef60c ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  key: 0
+};
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return $props.isSelected ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/TabNav.vue?vue&type=template&id=2f89b70e":
+/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/TabNav.vue?vue&type=template&id=2f89b70e ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "Polaris-Tabs__Wrapper"
+};
+var _hoisted_2 = {
+  "class": "Polaris-Tabs Polaris-Tabs__TabMeasurer"
+};
+var _hoisted_3 = ["id"];
+var _hoisted_4 = {
+  "class": "Polaris-Tabs__Title"
+};
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  type: "button",
+  "class": "Polaris-Tabs__DisclosureActivator",
+  "aria-label": "More tabs"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Tabs__Title"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Icon Polaris-Icon--colorSubdued Polaris-Icon--applyColor"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodySm Polaris-Text--regular Polaris-Text--visuallyHidden"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  viewBox: "0 0 20 20",
+  "class": "Polaris-Icon__Svg",
+  focusable: "false",
+  "aria-hidden": "true"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  d: "M6 10a2 2 0 1 1-4.001-.001 2 2 0 0 1 4.001.001zm6 0a2 2 0 1 1-4.001-.001 2 2 0 0 1 4.001.001zm6 0a2 2 0 1 1-4.001-.001 2 2 0 0 1 4.001.001z"
+})])])])], -1 /* HOISTED */);
+var _hoisted_6 = {
+  role: "tablist",
+  "class": "Polaris-Tabs"
+};
+var _hoisted_7 = ["id", "aria-controls", "aria-label", "onClick"];
+var _hoisted_8 = {
+  "class": "Polaris-Tabs__Title"
+};
+var _hoisted_9 = {
+  "class": "Polaris-Text--root Polaris-Text--bodyMd Polaris-Text--regular"
+};
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  "class": "Polaris-Tabs__DisclosureTab",
+  role: "presentation"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  type: "button",
+  "class": "Polaris-Tabs__DisclosureActivator",
+  "aria-label": "More tabs",
+  tabindex: "0",
+  "aria-controls": "Polarispopover1",
+  "aria-owns": "Polarispopover1",
+  "aria-expanded": "false"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Tabs__Title"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Icon Polaris-Icon--colorSubdued Polaris-Icon--applyColor"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "Polaris-Text--root Polaris-Text--bodySm Polaris-Text--regular Polaris-Text--visuallyHidden"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  viewBox: "0 0 20 20",
+  "class": "Polaris-Icon__Svg",
+  focusable: "false",
+  "aria-hidden": "true"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  d: "M6 10a2 2 0 1 1-4.001-.001 2 2 0 0 1 4.001.001zm6 0a2 2 0 1 1-4.001-.001 2 2 0 0 1 4.001.001zm6 0a2 2 0 1 1-4.001-.001 2 2 0 0 1 4.001.001z"
+})])])])])])], -1 /* HOISTED */);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.tabs, function (tab) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", {
+      key: tab,
+      "class": "Polaris-Tabs__TabContainer",
+      role: "presentation"
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      id: tab + 'Measurer',
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([{
+        'Polaris-Tabs__Tab--selected': tab == $props.selected
+      }, "Polaris-Tabs__Tab"]),
+      role: "tab",
+      type: "button",
+      tabindex: "-1",
+      "aria-selected": "true"
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(tab), 1 /* TEXT */)], 10 /* CLASS, PROPS */, _hoisted_3)]);
+  }), 128 /* KEYED_FRAGMENT */)), _hoisted_5]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_6, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.tabs, function (tab) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", {
+      key: tab,
+      "class": "Polaris-Tabs__TabContainer",
+      role: "presentation"
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([{
+        'Polaris-Tabs__Tab--selected': tab === $props.selected
+      }, "Polaris-Tabs__Tab"]),
+      id: tab,
+      role: "tab",
+      type: "button",
+      tabindex: "0",
+      "aria-selected": "true",
+      "aria-controls": tab,
+      "aria-label": tab,
+      onClick: function onClick($event) {
+        return $options.setTab(tab);
+      }
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(tab), 1 /* TEXT */)])], 10 /* CLASS, PROPS */, _hoisted_7)]);
+  }), 128 /* KEYED_FRAGMENT */)), _hoisted_10])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")], 64 /* STABLE_FRAGMENT */);
+}
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -19640,42 +23315,38 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.runtime.esm-bundler.js");
-/* harmony import */ var _components_App_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/App.vue */ "./resources/js/components/App.vue");
-/* harmony import */ var _components_App_vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_components_App_vue__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.mjs");
+/* harmony import */ var _components_Builders_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Builders.vue */ "./resources/js/components/Builders.vue");
+/* harmony import */ var _components_CreateBuilder_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/CreateBuilder.vue */ "./resources/js/components/CreateBuilder.vue");
+/* harmony import */ var _components_EditBuilder_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/EditBuilder.vue */ "./resources/js/components/EditBuilder.vue");
+/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-// import axios from 'axios';
-
-// window.Vue = Vue;
-// window.axios = axios;
-
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/index.js");
 
 
-// import App from './components/App.vue';
-// import Builders from './components/Builders.vue';
-// import VueAxios from 'vue-axios';
-
-// import {
-//     routes
-// } from './routes';	
 
 
-// // import VueRouter from 'vue-router';
-
-// Vue.use(VueRouter);
-
-// const router = new VueRouter({
-//     mode: 'history',
-//     routes: routes
-// });
-
-// const app = new Vue({
-//     el: '#app',
-//     router: router,
-//     render: h => h(App),
-// });
+var routes = [{
+  name: 'home',
+  path: '/',
+  component: _components_Builders_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+}, {
+  name: 'add',
+  path: '/bundle/create',
+  component: _components_CreateBuilder_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+}, {
+  name: 'edit',
+  path: '/bundle/:id',
+  component: _components_EditBuilder_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+}];
+var app = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({});
+var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_4__.createRouter)({
+  history: (0,vue_router__WEBPACK_IMPORTED_MODULE_4__.createWebHistory)(process.env.BASE_URL),
+  routes: routes
+});
+app.use(router);
+app.mount('#app');
 
 /***/ }),
 
@@ -19712,6 +23383,19 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/css/app.css":
+/*!*******************************!*\
+  !*** ./resources/css/app.css ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
@@ -36927,19 +40611,6 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
-/***/ "./resources/css/app.css":
-/*!*******************************!*\
-  !*** ./resources/css/app.css ***!
-  \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\
   !*** ./node_modules/process/browser.js ***!
@@ -37134,102 +40805,332 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ "./node_modules/vue/dist/vue.cjs.js":
-/*!******************************************!*\
-  !*** ./node_modules/vue/dist/vue.cjs.js ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ "./node_modules/vue-loader/dist/exportHelper.js":
+/*!******************************************************!*\
+  !*** ./node_modules/vue-loader/dist/exportHelper.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
 
-
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-
-var compilerDom = __webpack_require__(/*! @vue/compiler-dom */ "./node_modules/@vue/compiler-dom/dist/compiler-dom.esm-bundler.js");
-var runtimeDom = __webpack_require__(/*! @vue/runtime-dom */ "./node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js");
-var shared = __webpack_require__(/*! @vue/shared */ "./node_modules/@vue/shared/dist/shared.esm-bundler.js");
-
-function _interopNamespace(e) {
-  if (e && e.__esModule) return e;
-  var n = Object.create(null);
-  if (e) {
-    Object.keys(e).forEach(function (k) {
-      n[k] = e[k];
-    });
-  }
-  n['default'] = e;
-  return Object.freeze(n);
-}
-
-var runtimeDom__namespace = /*#__PURE__*/_interopNamespace(runtimeDom);
-
-// This entry is the "full-build" that includes both the runtime
-const compileCache = Object.create(null);
-function compileToFunction(template, options) {
-    if (!shared.isString(template)) {
-        if (template.nodeType) {
-            template = template.innerHTML;
-        }
-        else {
-            runtimeDom.warn(`invalid template option: `, template);
-            return shared.NOOP;
-        }
+// runtime helper for setting properties on components
+// in a tree-shakable way
+exports["default"] = (sfc, props) => {
+    const target = sfc.__vccOpts || sfc;
+    for (const [key, val] of props) {
+        target[key] = val;
     }
-    const key = template;
-    const cached = compileCache[key];
-    if (cached) {
-        return cached;
-    }
-    if (template[0] === '#') {
-        const el = document.querySelector(template);
-        if (!el) {
-            runtimeDom.warn(`Template element not found or is empty: ${template}`);
-        }
-        // __UNSAFE__
-        // Reason: potential execution of JS expressions in in-DOM template.
-        // The user must make sure the in-DOM template is trusted. If it's rendered
-        // by the server, the template should not contain any user data.
-        template = el ? el.innerHTML : ``;
-    }
-    const opts = shared.extend({
-        hoistStatic: true,
-        onError: onError ,
-        onWarn: e => onError(e, true) 
-    }, options);
-    if (!opts.isCustomElement && typeof customElements !== 'undefined') {
-        opts.isCustomElement = tag => !!customElements.get(tag);
-    }
-    const { code } = compilerDom.compile(template, opts);
-    function onError(err, asWarning = false) {
-        const message = asWarning
-            ? err.message
-            : `Template compilation error: ${err.message}`;
-        const codeFrame = err.loc &&
-            shared.generateCodeFrame(template, err.loc.start.offset, err.loc.end.offset);
-        runtimeDom.warn(codeFrame ? `${message}\n${codeFrame}` : message);
-    }
-    // The wildcard import results in a huge object with every export
-    // with keys that cannot be mangled, and can be quite heavy size-wise.
-    // In the global build we know `Vue` is available globally so we can avoid
-    // the wildcard object.
-    const render = (new Function('Vue', code)(runtimeDom__namespace));
-    render._rc = true;
-    return (compileCache[key] = render);
-}
-runtimeDom.registerRuntimeCompiler(compileToFunction);
-
-Object.keys(runtimeDom).forEach(function (k) {
-  if (k !== 'default') exports[k] = runtimeDom[k];
-});
-exports.compile = compileToFunction;
+    return target;
+};
 
 
 /***/ }),
 
-/***/ "./node_modules/vue/dist/vue.runtime.esm-bundler.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/vue/dist/vue.runtime.esm-bundler.js ***!
-  \**********************************************************/
+/***/ "./resources/js/components/Builders.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/components/Builders.vue ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Builders_vue_vue_type_template_id_13843da3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Builders.vue?vue&type=template&id=13843da3 */ "./resources/js/components/Builders.vue?vue&type=template&id=13843da3");
+/* harmony import */ var _Builders_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Builders.vue?vue&type=script&lang=js */ "./resources/js/components/Builders.vue?vue&type=script&lang=js");
+/* harmony import */ var E_kamini_shopify_product_builder_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,E_kamini_shopify_product_builder_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Builders_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Builders_vue_vue_type_template_id_13843da3__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Builders.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/components/CreateBuilder.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/CreateBuilder.vue ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _CreateBuilder_vue_vue_type_template_id_7aa4d1b8__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CreateBuilder.vue?vue&type=template&id=7aa4d1b8 */ "./resources/js/components/CreateBuilder.vue?vue&type=template&id=7aa4d1b8");
+/* harmony import */ var _CreateBuilder_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CreateBuilder.vue?vue&type=script&lang=js */ "./resources/js/components/CreateBuilder.vue?vue&type=script&lang=js");
+/* harmony import */ var E_kamini_shopify_product_builder_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,E_kamini_shopify_product_builder_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_CreateBuilder_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_CreateBuilder_vue_vue_type_template_id_7aa4d1b8__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/CreateBuilder.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/components/EditBuilder.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/components/EditBuilder.vue ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _EditBuilder_vue_vue_type_template_id_1d4cd6d4__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditBuilder.vue?vue&type=template&id=1d4cd6d4 */ "./resources/js/components/EditBuilder.vue?vue&type=template&id=1d4cd6d4");
+/* harmony import */ var _EditBuilder_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditBuilder.vue?vue&type=script&lang=js */ "./resources/js/components/EditBuilder.vue?vue&type=script&lang=js");
+/* harmony import */ var E_kamini_shopify_product_builder_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,E_kamini_shopify_product_builder_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_EditBuilder_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_EditBuilder_vue_vue_type_template_id_1d4cd6d4__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/EditBuilder.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/components/Tab.vue":
+/*!*****************************************!*\
+  !*** ./resources/js/components/Tab.vue ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Tab_vue_vue_type_template_id_8dbef60c__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Tab.vue?vue&type=template&id=8dbef60c */ "./resources/js/components/Tab.vue?vue&type=template&id=8dbef60c");
+/* harmony import */ var _Tab_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Tab.vue?vue&type=script&lang=js */ "./resources/js/components/Tab.vue?vue&type=script&lang=js");
+/* harmony import */ var E_kamini_shopify_product_builder_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,E_kamini_shopify_product_builder_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Tab_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Tab_vue_vue_type_template_id_8dbef60c__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Tab.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/components/TabNav.vue":
+/*!********************************************!*\
+  !*** ./resources/js/components/TabNav.vue ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _TabNav_vue_vue_type_template_id_2f89b70e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TabNav.vue?vue&type=template&id=2f89b70e */ "./resources/js/components/TabNav.vue?vue&type=template&id=2f89b70e");
+/* harmony import */ var _TabNav_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TabNav.vue?vue&type=script&lang=js */ "./resources/js/components/TabNav.vue?vue&type=script&lang=js");
+/* harmony import */ var E_kamini_shopify_product_builder_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,E_kamini_shopify_product_builder_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_TabNav_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_TabNav_vue_vue_type_template_id_2f89b70e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/TabNav.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/components/Builders.vue?vue&type=script&lang=js":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/Builders.vue?vue&type=script&lang=js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Builders_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Builders_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Builders.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Builders.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/components/CreateBuilder.vue?vue&type=script&lang=js":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/CreateBuilder.vue?vue&type=script&lang=js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CreateBuilder_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CreateBuilder_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./CreateBuilder.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/CreateBuilder.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/components/EditBuilder.vue?vue&type=script&lang=js":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/EditBuilder.vue?vue&type=script&lang=js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EditBuilder_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EditBuilder_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./EditBuilder.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EditBuilder.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/components/Tab.vue?vue&type=script&lang=js":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/Tab.vue?vue&type=script&lang=js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Tab_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Tab_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Tab.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Tab.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/components/TabNav.vue?vue&type=script&lang=js":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/TabNav.vue?vue&type=script&lang=js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_TabNav_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_TabNav_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./TabNav.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/TabNav.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/components/Builders.vue?vue&type=template&id=13843da3":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/Builders.vue?vue&type=template&id=13843da3 ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Builders_vue_vue_type_template_id_13843da3__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Builders_vue_vue_type_template_id_13843da3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Builders.vue?vue&type=template&id=13843da3 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Builders.vue?vue&type=template&id=13843da3");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/CreateBuilder.vue?vue&type=template&id=7aa4d1b8":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/CreateBuilder.vue?vue&type=template&id=7aa4d1b8 ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CreateBuilder_vue_vue_type_template_id_7aa4d1b8__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CreateBuilder_vue_vue_type_template_id_7aa4d1b8__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./CreateBuilder.vue?vue&type=template&id=7aa4d1b8 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/CreateBuilder.vue?vue&type=template&id=7aa4d1b8");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/EditBuilder.vue?vue&type=template&id=1d4cd6d4":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/EditBuilder.vue?vue&type=template&id=1d4cd6d4 ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EditBuilder_vue_vue_type_template_id_1d4cd6d4__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EditBuilder_vue_vue_type_template_id_1d4cd6d4__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./EditBuilder.vue?vue&type=template&id=1d4cd6d4 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EditBuilder.vue?vue&type=template&id=1d4cd6d4");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Tab.vue?vue&type=template&id=8dbef60c":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/Tab.vue?vue&type=template&id=8dbef60c ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Tab_vue_vue_type_template_id_8dbef60c__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Tab_vue_vue_type_template_id_8dbef60c__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Tab.vue?vue&type=template&id=8dbef60c */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Tab.vue?vue&type=template&id=8dbef60c");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/TabNav.vue?vue&type=template&id=2f89b70e":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/TabNav.vue?vue&type=template&id=2f89b70e ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_TabNav_vue_vue_type_template_id_2f89b70e__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_TabNav_vue_vue_type_template_id_2f89b70e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./TabNav.vue?vue&type=template&id=2f89b70e */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/TabNav.vue?vue&type=template&id=2f89b70e");
+
+
+/***/ }),
+
+/***/ "./node_modules/vue/dist/vue.esm-bundler.js":
+/*!**************************************************!*\
+  !*** ./node_modules/vue/dist/vue.esm-bundler.js ***!
+  \**************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -37254,7 +41155,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "capitalize": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.capitalize),
 /* harmony export */   "cloneVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.cloneVNode),
 /* harmony export */   "compatUtils": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.compatUtils),
-/* harmony export */   "compile": () => (/* binding */ compile),
+/* harmony export */   "compile": () => (/* binding */ compileToFunction),
 /* harmony export */   "computed": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.computed),
 /* harmony export */   "createApp": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createApp),
 /* harmony export */   "createBlock": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createBlock),
@@ -37381,8 +41282,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "withModifiers": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withModifiers),
 /* harmony export */   "withScopeId": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withScopeId)
 /* harmony export */ });
-/* harmony import */ var _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @vue/runtime-dom */ "./node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js");
 /* harmony import */ var _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @vue/runtime-dom */ "./node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js");
+/* harmony import */ var _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @vue/runtime-dom */ "./node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js");
+/* harmony import */ var _vue_compiler_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @vue/compiler-dom */ "./node_modules/@vue/compiler-dom/dist/compiler-dom.esm-bundler.js");
+/* harmony import */ var _vue_shared__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @vue/shared */ "./node_modules/@vue/shared/dist/shared.esm-bundler.js");
+
+
+
 
 
 
@@ -37392,46 +41298,3703 @@ function initDev() {
     }
 }
 
-// This entry exports the runtime only, and is built as
+// This entry is the "full-build" that includes both the runtime
 if ((true)) {
     initDev();
 }
-const compile = () => {
-    if ((true)) {
-        (0,_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__.warn)(`Runtime compilation is not supported in this build of Vue.` +
-            (` Configure your bundler to alias "vue" to "vue/dist/vue.esm-bundler.js".`
-                ) /* should not happen */);
+const compileCache = Object.create(null);
+function compileToFunction(template, options) {
+    if (!(0,_vue_shared__WEBPACK_IMPORTED_MODULE_2__.isString)(template)) {
+        if (template.nodeType) {
+            template = template.innerHTML;
+        }
+        else {
+            ( true) && (0,_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__.warn)(`invalid template option: `, template);
+            return _vue_shared__WEBPACK_IMPORTED_MODULE_2__.NOOP;
+        }
     }
-};
+    const key = template;
+    const cached = compileCache[key];
+    if (cached) {
+        return cached;
+    }
+    if (template[0] === '#') {
+        const el = document.querySelector(template);
+        if (( true) && !el) {
+            (0,_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__.warn)(`Template element not found or is empty: ${template}`);
+        }
+        // __UNSAFE__
+        // Reason: potential execution of JS expressions in in-DOM template.
+        // The user must make sure the in-DOM template is trusted. If it's rendered
+        // by the server, the template should not contain any user data.
+        template = el ? el.innerHTML : ``;
+    }
+    const { code } = (0,_vue_compiler_dom__WEBPACK_IMPORTED_MODULE_3__.compile)(template, (0,_vue_shared__WEBPACK_IMPORTED_MODULE_2__.extend)({
+        hoistStatic: true,
+        onError: ( true) ? onError : 0,
+        onWarn: ( true) ? e => onError(e, true) : 0
+    }, options));
+    function onError(err, asWarning = false) {
+        const message = asWarning
+            ? err.message
+            : `Template compilation error: ${err.message}`;
+        const codeFrame = err.loc &&
+            (0,_vue_shared__WEBPACK_IMPORTED_MODULE_2__.generateCodeFrame)(template, err.loc.start.offset, err.loc.end.offset);
+        (0,_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__.warn)(codeFrame ? `${message}\n${codeFrame}` : message);
+    }
+    // The wildcard import results in a huge object with every export
+    // with keys that cannot be mangled, and can be quite heavy size-wise.
+    // In the global build we know `Vue` is available globally so we can avoid
+    // the wildcard object.
+    const render = (new Function('Vue', code)(_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__));
+    render._rc = true;
+    return (compileCache[key] = render);
+}
+(0,_vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__.registerRuntimeCompiler)(compileToFunction);
 
 
 
 
 /***/ }),
 
-/***/ "./node_modules/vue/index.js":
-/*!***********************************!*\
-  !*** ./node_modules/vue/index.js ***!
-  \***********************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ "./node_modules/vue-router/dist/vue-router.mjs":
+/*!*****************************************************!*\
+  !*** ./node_modules/vue-router/dist/vue-router.mjs ***!
+  \*****************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "NavigationFailureType": () => (/* binding */ NavigationFailureType),
+/* harmony export */   "RouterLink": () => (/* binding */ RouterLink),
+/* harmony export */   "RouterView": () => (/* binding */ RouterView),
+/* harmony export */   "START_LOCATION": () => (/* binding */ START_LOCATION_NORMALIZED),
+/* harmony export */   "createMemoryHistory": () => (/* binding */ createMemoryHistory),
+/* harmony export */   "createRouter": () => (/* binding */ createRouter),
+/* harmony export */   "createRouterMatcher": () => (/* binding */ createRouterMatcher),
+/* harmony export */   "createWebHashHistory": () => (/* binding */ createWebHashHistory),
+/* harmony export */   "createWebHistory": () => (/* binding */ createWebHistory),
+/* harmony export */   "isNavigationFailure": () => (/* binding */ isNavigationFailure),
+/* harmony export */   "loadRouteLocation": () => (/* binding */ loadRouteLocation),
+/* harmony export */   "matchedRouteKey": () => (/* binding */ matchedRouteKey),
+/* harmony export */   "onBeforeRouteLeave": () => (/* binding */ onBeforeRouteLeave),
+/* harmony export */   "onBeforeRouteUpdate": () => (/* binding */ onBeforeRouteUpdate),
+/* harmony export */   "parseQuery": () => (/* binding */ parseQuery),
+/* harmony export */   "routeLocationKey": () => (/* binding */ routeLocationKey),
+/* harmony export */   "routerKey": () => (/* binding */ routerKey),
+/* harmony export */   "routerViewLocationKey": () => (/* binding */ routerViewLocationKey),
+/* harmony export */   "stringifyQuery": () => (/* binding */ stringifyQuery),
+/* harmony export */   "useLink": () => (/* binding */ useLink),
+/* harmony export */   "useRoute": () => (/* binding */ useRoute),
+/* harmony export */   "useRouter": () => (/* binding */ useRouter),
+/* harmony export */   "viewDepthKey": () => (/* binding */ viewDepthKey)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _vue_devtools_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @vue/devtools-api */ "./node_modules/@vue/devtools-api/lib/esm/index.js");
+/*!
+  * vue-router v4.1.6
+  * (c) 2022 Eduardo San Martin Morote
+  * @license MIT
+  */
 
 
-if (false) {} else {
-  module.exports = __webpack_require__(/*! ./dist/vue.cjs.js */ "./node_modules/vue/dist/vue.cjs.js")
+
+const isBrowser = typeof window !== 'undefined';
+
+function isESModule(obj) {
+    return obj.__esModule || obj[Symbol.toStringTag] === 'Module';
+}
+const assign = Object.assign;
+function applyToParams(fn, params) {
+    const newParams = {};
+    for (const key in params) {
+        const value = params[key];
+        newParams[key] = isArray(value)
+            ? value.map(fn)
+            : fn(value);
+    }
+    return newParams;
+}
+const noop = () => { };
+/**
+ * Typesafe alternative to Array.isArray
+ * https://github.com/microsoft/TypeScript/pull/48228
+ */
+const isArray = Array.isArray;
+
+function warn(msg) {
+    // avoid using ...args as it breaks in older Edge builds
+    const args = Array.from(arguments).slice(1);
+    console.warn.apply(console, ['[Vue Router warn]: ' + msg].concat(args));
+}
+
+const TRAILING_SLASH_RE = /\/$/;
+const removeTrailingSlash = (path) => path.replace(TRAILING_SLASH_RE, '');
+/**
+ * Transforms a URI into a normalized history location
+ *
+ * @param parseQuery
+ * @param location - URI to normalize
+ * @param currentLocation - current absolute location. Allows resolving relative
+ * paths. Must start with `/`. Defaults to `/`
+ * @returns a normalized history location
+ */
+function parseURL(parseQuery, location, currentLocation = '/') {
+    let path, query = {}, searchString = '', hash = '';
+    // Could use URL and URLSearchParams but IE 11 doesn't support it
+    // TODO: move to new URL()
+    const hashPos = location.indexOf('#');
+    let searchPos = location.indexOf('?');
+    // the hash appears before the search, so it's not part of the search string
+    if (hashPos < searchPos && hashPos >= 0) {
+        searchPos = -1;
+    }
+    if (searchPos > -1) {
+        path = location.slice(0, searchPos);
+        searchString = location.slice(searchPos + 1, hashPos > -1 ? hashPos : location.length);
+        query = parseQuery(searchString);
+    }
+    if (hashPos > -1) {
+        path = path || location.slice(0, hashPos);
+        // keep the # character
+        hash = location.slice(hashPos, location.length);
+    }
+    // no search and no query
+    path = resolveRelativePath(path != null ? path : location, currentLocation);
+    // empty path means a relative query or hash `?foo=f`, `#thing`
+    return {
+        fullPath: path + (searchString && '?') + searchString + hash,
+        path,
+        query,
+        hash,
+    };
+}
+/**
+ * Stringifies a URL object
+ *
+ * @param stringifyQuery
+ * @param location
+ */
+function stringifyURL(stringifyQuery, location) {
+    const query = location.query ? stringifyQuery(location.query) : '';
+    return location.path + (query && '?') + query + (location.hash || '');
+}
+/**
+ * Strips off the base from the beginning of a location.pathname in a non-case-sensitive way.
+ *
+ * @param pathname - location.pathname
+ * @param base - base to strip off
+ */
+function stripBase(pathname, base) {
+    // no base or base is not found at the beginning
+    if (!base || !pathname.toLowerCase().startsWith(base.toLowerCase()))
+        return pathname;
+    return pathname.slice(base.length) || '/';
+}
+/**
+ * Checks if two RouteLocation are equal. This means that both locations are
+ * pointing towards the same {@link RouteRecord} and that all `params`, `query`
+ * parameters and `hash` are the same
+ *
+ * @param a - first {@link RouteLocation}
+ * @param b - second {@link RouteLocation}
+ */
+function isSameRouteLocation(stringifyQuery, a, b) {
+    const aLastIndex = a.matched.length - 1;
+    const bLastIndex = b.matched.length - 1;
+    return (aLastIndex > -1 &&
+        aLastIndex === bLastIndex &&
+        isSameRouteRecord(a.matched[aLastIndex], b.matched[bLastIndex]) &&
+        isSameRouteLocationParams(a.params, b.params) &&
+        stringifyQuery(a.query) === stringifyQuery(b.query) &&
+        a.hash === b.hash);
+}
+/**
+ * Check if two `RouteRecords` are equal. Takes into account aliases: they are
+ * considered equal to the `RouteRecord` they are aliasing.
+ *
+ * @param a - first {@link RouteRecord}
+ * @param b - second {@link RouteRecord}
+ */
+function isSameRouteRecord(a, b) {
+    // since the original record has an undefined value for aliasOf
+    // but all aliases point to the original record, this will always compare
+    // the original record
+    return (a.aliasOf || a) === (b.aliasOf || b);
+}
+function isSameRouteLocationParams(a, b) {
+    if (Object.keys(a).length !== Object.keys(b).length)
+        return false;
+    for (const key in a) {
+        if (!isSameRouteLocationParamsValue(a[key], b[key]))
+            return false;
+    }
+    return true;
+}
+function isSameRouteLocationParamsValue(a, b) {
+    return isArray(a)
+        ? isEquivalentArray(a, b)
+        : isArray(b)
+            ? isEquivalentArray(b, a)
+            : a === b;
+}
+/**
+ * Check if two arrays are the same or if an array with one single entry is the
+ * same as another primitive value. Used to check query and parameters
+ *
+ * @param a - array of values
+ * @param b - array of values or a single value
+ */
+function isEquivalentArray(a, b) {
+    return isArray(b)
+        ? a.length === b.length && a.every((value, i) => value === b[i])
+        : a.length === 1 && a[0] === b;
+}
+/**
+ * Resolves a relative path that starts with `.`.
+ *
+ * @param to - path location we are resolving
+ * @param from - currentLocation.path, should start with `/`
+ */
+function resolveRelativePath(to, from) {
+    if (to.startsWith('/'))
+        return to;
+    if (( true) && !from.startsWith('/')) {
+        warn(`Cannot resolve a relative location without an absolute path. Trying to resolve "${to}" from "${from}". It should look like "/${from}".`);
+        return to;
+    }
+    if (!to)
+        return from;
+    const fromSegments = from.split('/');
+    const toSegments = to.split('/');
+    let position = fromSegments.length - 1;
+    let toPosition;
+    let segment;
+    for (toPosition = 0; toPosition < toSegments.length; toPosition++) {
+        segment = toSegments[toPosition];
+        // we stay on the same position
+        if (segment === '.')
+            continue;
+        // go up in the from array
+        if (segment === '..') {
+            // we can't go below zero, but we still need to increment toPosition
+            if (position > 1)
+                position--;
+            // continue
+        }
+        // we reached a non-relative path, we stop here
+        else
+            break;
+    }
+    return (fromSegments.slice(0, position).join('/') +
+        '/' +
+        toSegments
+            // ensure we use at least the last element in the toSegments
+            .slice(toPosition - (toPosition === toSegments.length ? 1 : 0))
+            .join('/'));
+}
+
+var NavigationType;
+(function (NavigationType) {
+    NavigationType["pop"] = "pop";
+    NavigationType["push"] = "push";
+})(NavigationType || (NavigationType = {}));
+var NavigationDirection;
+(function (NavigationDirection) {
+    NavigationDirection["back"] = "back";
+    NavigationDirection["forward"] = "forward";
+    NavigationDirection["unknown"] = "";
+})(NavigationDirection || (NavigationDirection = {}));
+/**
+ * Starting location for Histories
+ */
+const START = '';
+// Generic utils
+/**
+ * Normalizes a base by removing any trailing slash and reading the base tag if
+ * present.
+ *
+ * @param base - base to normalize
+ */
+function normalizeBase(base) {
+    if (!base) {
+        if (isBrowser) {
+            // respect <base> tag
+            const baseEl = document.querySelector('base');
+            base = (baseEl && baseEl.getAttribute('href')) || '/';
+            // strip full URL origin
+            base = base.replace(/^\w+:\/\/[^\/]+/, '');
+        }
+        else {
+            base = '/';
+        }
+    }
+    // ensure leading slash when it was removed by the regex above avoid leading
+    // slash with hash because the file could be read from the disk like file://
+    // and the leading slash would cause problems
+    if (base[0] !== '/' && base[0] !== '#')
+        base = '/' + base;
+    // remove the trailing slash so all other method can just do `base + fullPath`
+    // to build an href
+    return removeTrailingSlash(base);
+}
+// remove any character before the hash
+const BEFORE_HASH_RE = /^[^#]+#/;
+function createHref(base, location) {
+    return base.replace(BEFORE_HASH_RE, '#') + location;
+}
+
+function getElementPosition(el, offset) {
+    const docRect = document.documentElement.getBoundingClientRect();
+    const elRect = el.getBoundingClientRect();
+    return {
+        behavior: offset.behavior,
+        left: elRect.left - docRect.left - (offset.left || 0),
+        top: elRect.top - docRect.top - (offset.top || 0),
+    };
+}
+const computeScrollPosition = () => ({
+    left: window.pageXOffset,
+    top: window.pageYOffset,
+});
+function scrollToPosition(position) {
+    let scrollToOptions;
+    if ('el' in position) {
+        const positionEl = position.el;
+        const isIdSelector = typeof positionEl === 'string' && positionEl.startsWith('#');
+        /**
+         * `id`s can accept pretty much any characters, including CSS combinators
+         * like `>` or `~`. It's still possible to retrieve elements using
+         * `document.getElementById('~')` but it needs to be escaped when using
+         * `document.querySelector('#\\~')` for it to be valid. The only
+         * requirements for `id`s are them to be unique on the page and to not be
+         * empty (`id=""`). Because of that, when passing an id selector, it should
+         * be properly escaped for it to work with `querySelector`. We could check
+         * for the id selector to be simple (no CSS combinators `+ >~`) but that
+         * would make things inconsistent since they are valid characters for an
+         * `id` but would need to be escaped when using `querySelector`, breaking
+         * their usage and ending up in no selector returned. Selectors need to be
+         * escaped:
+         *
+         * - `#1-thing` becomes `#\31 -thing`
+         * - `#with~symbols` becomes `#with\\~symbols`
+         *
+         * - More information about  the topic can be found at
+         *   https://mathiasbynens.be/notes/html5-id-class.
+         * - Practical example: https://mathiasbynens.be/demo/html5-id
+         */
+        if (( true) && typeof position.el === 'string') {
+            if (!isIdSelector || !document.getElementById(position.el.slice(1))) {
+                try {
+                    const foundEl = document.querySelector(position.el);
+                    if (isIdSelector && foundEl) {
+                        warn(`The selector "${position.el}" should be passed as "el: document.querySelector('${position.el}')" because it starts with "#".`);
+                        // return to avoid other warnings
+                        return;
+                    }
+                }
+                catch (err) {
+                    warn(`The selector "${position.el}" is invalid. If you are using an id selector, make sure to escape it. You can find more information about escaping characters in selectors at https://mathiasbynens.be/notes/css-escapes or use CSS.escape (https://developer.mozilla.org/en-US/docs/Web/API/CSS/escape).`);
+                    // return to avoid other warnings
+                    return;
+                }
+            }
+        }
+        const el = typeof positionEl === 'string'
+            ? isIdSelector
+                ? document.getElementById(positionEl.slice(1))
+                : document.querySelector(positionEl)
+            : positionEl;
+        if (!el) {
+            ( true) &&
+                warn(`Couldn't find element using selector "${position.el}" returned by scrollBehavior.`);
+            return;
+        }
+        scrollToOptions = getElementPosition(el, position);
+    }
+    else {
+        scrollToOptions = position;
+    }
+    if ('scrollBehavior' in document.documentElement.style)
+        window.scrollTo(scrollToOptions);
+    else {
+        window.scrollTo(scrollToOptions.left != null ? scrollToOptions.left : window.pageXOffset, scrollToOptions.top != null ? scrollToOptions.top : window.pageYOffset);
+    }
+}
+function getScrollKey(path, delta) {
+    const position = history.state ? history.state.position - delta : -1;
+    return position + path;
+}
+const scrollPositions = new Map();
+function saveScrollPosition(key, scrollPosition) {
+    scrollPositions.set(key, scrollPosition);
+}
+function getSavedScrollPosition(key) {
+    const scroll = scrollPositions.get(key);
+    // consume it so it's not used again
+    scrollPositions.delete(key);
+    return scroll;
+}
+// TODO: RFC about how to save scroll position
+/**
+ * ScrollBehavior instance used by the router to compute and restore the scroll
+ * position when navigating.
+ */
+// export interface ScrollHandler<ScrollPositionEntry extends HistoryStateValue, ScrollPosition extends ScrollPositionEntry> {
+//   // returns a scroll position that can be saved in history
+//   compute(): ScrollPositionEntry
+//   // can take an extended ScrollPositionEntry
+//   scroll(position: ScrollPosition): void
+// }
+// export const scrollHandler: ScrollHandler<ScrollPosition> = {
+//   compute: computeScroll,
+//   scroll: scrollToPosition,
+// }
+
+let createBaseLocation = () => location.protocol + '//' + location.host;
+/**
+ * Creates a normalized history location from a window.location object
+ * @param location -
+ */
+function createCurrentLocation(base, location) {
+    const { pathname, search, hash } = location;
+    // allows hash bases like #, /#, #/, #!, #!/, /#!/, or even /folder#end
+    const hashPos = base.indexOf('#');
+    if (hashPos > -1) {
+        let slicePos = hash.includes(base.slice(hashPos))
+            ? base.slice(hashPos).length
+            : 1;
+        let pathFromHash = hash.slice(slicePos);
+        // prepend the starting slash to hash so the url starts with /#
+        if (pathFromHash[0] !== '/')
+            pathFromHash = '/' + pathFromHash;
+        return stripBase(pathFromHash, '');
+    }
+    const path = stripBase(pathname, base);
+    return path + search + hash;
+}
+function useHistoryListeners(base, historyState, currentLocation, replace) {
+    let listeners = [];
+    let teardowns = [];
+    // TODO: should it be a stack? a Dict. Check if the popstate listener
+    // can trigger twice
+    let pauseState = null;
+    const popStateHandler = ({ state, }) => {
+        const to = createCurrentLocation(base, location);
+        const from = currentLocation.value;
+        const fromState = historyState.value;
+        let delta = 0;
+        if (state) {
+            currentLocation.value = to;
+            historyState.value = state;
+            // ignore the popstate and reset the pauseState
+            if (pauseState && pauseState === from) {
+                pauseState = null;
+                return;
+            }
+            delta = fromState ? state.position - fromState.position : 0;
+        }
+        else {
+            replace(to);
+        }
+        // console.log({ deltaFromCurrent })
+        // Here we could also revert the navigation by calling history.go(-delta)
+        // this listener will have to be adapted to not trigger again and to wait for the url
+        // to be updated before triggering the listeners. Some kind of validation function would also
+        // need to be passed to the listeners so the navigation can be accepted
+        // call all listeners
+        listeners.forEach(listener => {
+            listener(currentLocation.value, from, {
+                delta,
+                type: NavigationType.pop,
+                direction: delta
+                    ? delta > 0
+                        ? NavigationDirection.forward
+                        : NavigationDirection.back
+                    : NavigationDirection.unknown,
+            });
+        });
+    };
+    function pauseListeners() {
+        pauseState = currentLocation.value;
+    }
+    function listen(callback) {
+        // set up the listener and prepare teardown callbacks
+        listeners.push(callback);
+        const teardown = () => {
+            const index = listeners.indexOf(callback);
+            if (index > -1)
+                listeners.splice(index, 1);
+        };
+        teardowns.push(teardown);
+        return teardown;
+    }
+    function beforeUnloadListener() {
+        const { history } = window;
+        if (!history.state)
+            return;
+        history.replaceState(assign({}, history.state, { scroll: computeScrollPosition() }), '');
+    }
+    function destroy() {
+        for (const teardown of teardowns)
+            teardown();
+        teardowns = [];
+        window.removeEventListener('popstate', popStateHandler);
+        window.removeEventListener('beforeunload', beforeUnloadListener);
+    }
+    // set up the listeners and prepare teardown callbacks
+    window.addEventListener('popstate', popStateHandler);
+    window.addEventListener('beforeunload', beforeUnloadListener);
+    return {
+        pauseListeners,
+        listen,
+        destroy,
+    };
+}
+/**
+ * Creates a state object
+ */
+function buildState(back, current, forward, replaced = false, computeScroll = false) {
+    return {
+        back,
+        current,
+        forward,
+        replaced,
+        position: window.history.length,
+        scroll: computeScroll ? computeScrollPosition() : null,
+    };
+}
+function useHistoryStateNavigation(base) {
+    const { history, location } = window;
+    // private variables
+    const currentLocation = {
+        value: createCurrentLocation(base, location),
+    };
+    const historyState = { value: history.state };
+    // build current history entry as this is a fresh navigation
+    if (!historyState.value) {
+        changeLocation(currentLocation.value, {
+            back: null,
+            current: currentLocation.value,
+            forward: null,
+            // the length is off by one, we need to decrease it
+            position: history.length - 1,
+            replaced: true,
+            // don't add a scroll as the user may have an anchor, and we want
+            // scrollBehavior to be triggered without a saved position
+            scroll: null,
+        }, true);
+    }
+    function changeLocation(to, state, replace) {
+        /**
+         * if a base tag is provided, and we are on a normal domain, we have to
+         * respect the provided `base` attribute because pushState() will use it and
+         * potentially erase anything before the `#` like at
+         * https://github.com/vuejs/router/issues/685 where a base of
+         * `/folder/#` but a base of `/` would erase the `/folder/` section. If
+         * there is no host, the `<base>` tag makes no sense and if there isn't a
+         * base tag we can just use everything after the `#`.
+         */
+        const hashIndex = base.indexOf('#');
+        const url = hashIndex > -1
+            ? (location.host && document.querySelector('base')
+                ? base
+                : base.slice(hashIndex)) + to
+            : createBaseLocation() + base + to;
+        try {
+            // BROWSER QUIRK
+            // NOTE: Safari throws a SecurityError when calling this function 100 times in 30 seconds
+            history[replace ? 'replaceState' : 'pushState'](state, '', url);
+            historyState.value = state;
+        }
+        catch (err) {
+            if ((true)) {
+                warn('Error with push/replace State', err);
+            }
+            else {}
+            // Force the navigation, this also resets the call count
+            location[replace ? 'replace' : 'assign'](url);
+        }
+    }
+    function replace(to, data) {
+        const state = assign({}, history.state, buildState(historyState.value.back, 
+        // keep back and forward entries but override current position
+        to, historyState.value.forward, true), data, { position: historyState.value.position });
+        changeLocation(to, state, true);
+        currentLocation.value = to;
+    }
+    function push(to, data) {
+        // Add to current entry the information of where we are going
+        // as well as saving the current position
+        const currentState = assign({}, 
+        // use current history state to gracefully handle a wrong call to
+        // history.replaceState
+        // https://github.com/vuejs/router/issues/366
+        historyState.value, history.state, {
+            forward: to,
+            scroll: computeScrollPosition(),
+        });
+        if (( true) && !history.state) {
+            warn(`history.state seems to have been manually replaced without preserving the necessary values. Make sure to preserve existing history state if you are manually calling history.replaceState:\n\n` +
+                `history.replaceState(history.state, '', url)\n\n` +
+                `You can find more information at https://next.router.vuejs.org/guide/migration/#usage-of-history-state.`);
+        }
+        changeLocation(currentState.current, currentState, true);
+        const state = assign({}, buildState(currentLocation.value, to, null), { position: currentState.position + 1 }, data);
+        changeLocation(to, state, false);
+        currentLocation.value = to;
+    }
+    return {
+        location: currentLocation,
+        state: historyState,
+        push,
+        replace,
+    };
+}
+/**
+ * Creates an HTML5 history. Most common history for single page applications.
+ *
+ * @param base -
+ */
+function createWebHistory(base) {
+    base = normalizeBase(base);
+    const historyNavigation = useHistoryStateNavigation(base);
+    const historyListeners = useHistoryListeners(base, historyNavigation.state, historyNavigation.location, historyNavigation.replace);
+    function go(delta, triggerListeners = true) {
+        if (!triggerListeners)
+            historyListeners.pauseListeners();
+        history.go(delta);
+    }
+    const routerHistory = assign({
+        // it's overridden right after
+        location: '',
+        base,
+        go,
+        createHref: createHref.bind(null, base),
+    }, historyNavigation, historyListeners);
+    Object.defineProperty(routerHistory, 'location', {
+        enumerable: true,
+        get: () => historyNavigation.location.value,
+    });
+    Object.defineProperty(routerHistory, 'state', {
+        enumerable: true,
+        get: () => historyNavigation.state.value,
+    });
+    return routerHistory;
+}
+
+/**
+ * Creates an in-memory based history. The main purpose of this history is to handle SSR. It starts in a special location that is nowhere.
+ * It's up to the user to replace that location with the starter location by either calling `router.push` or `router.replace`.
+ *
+ * @param base - Base applied to all urls, defaults to '/'
+ * @returns a history object that can be passed to the router constructor
+ */
+function createMemoryHistory(base = '') {
+    let listeners = [];
+    let queue = [START];
+    let position = 0;
+    base = normalizeBase(base);
+    function setLocation(location) {
+        position++;
+        if (position === queue.length) {
+            // we are at the end, we can simply append a new entry
+            queue.push(location);
+        }
+        else {
+            // we are in the middle, we remove everything from here in the queue
+            queue.splice(position);
+            queue.push(location);
+        }
+    }
+    function triggerListeners(to, from, { direction, delta }) {
+        const info = {
+            direction,
+            delta,
+            type: NavigationType.pop,
+        };
+        for (const callback of listeners) {
+            callback(to, from, info);
+        }
+    }
+    const routerHistory = {
+        // rewritten by Object.defineProperty
+        location: START,
+        // TODO: should be kept in queue
+        state: {},
+        base,
+        createHref: createHref.bind(null, base),
+        replace(to) {
+            // remove current entry and decrement position
+            queue.splice(position--, 1);
+            setLocation(to);
+        },
+        push(to, data) {
+            setLocation(to);
+        },
+        listen(callback) {
+            listeners.push(callback);
+            return () => {
+                const index = listeners.indexOf(callback);
+                if (index > -1)
+                    listeners.splice(index, 1);
+            };
+        },
+        destroy() {
+            listeners = [];
+            queue = [START];
+            position = 0;
+        },
+        go(delta, shouldTrigger = true) {
+            const from = this.location;
+            const direction = 
+            // we are considering delta === 0 going forward, but in abstract mode
+            // using 0 for the delta doesn't make sense like it does in html5 where
+            // it reloads the page
+            delta < 0 ? NavigationDirection.back : NavigationDirection.forward;
+            position = Math.max(0, Math.min(position + delta, queue.length - 1));
+            if (shouldTrigger) {
+                triggerListeners(this.location, from, {
+                    direction,
+                    delta,
+                });
+            }
+        },
+    };
+    Object.defineProperty(routerHistory, 'location', {
+        enumerable: true,
+        get: () => queue[position],
+    });
+    return routerHistory;
+}
+
+/**
+ * Creates a hash history. Useful for web applications with no host (e.g. `file://`) or when configuring a server to
+ * handle any URL is not possible.
+ *
+ * @param base - optional base to provide. Defaults to `location.pathname + location.search` If there is a `<base>` tag
+ * in the `head`, its value will be ignored in favor of this parameter **but note it affects all the history.pushState()
+ * calls**, meaning that if you use a `<base>` tag, it's `href` value **has to match this parameter** (ignoring anything
+ * after the `#`).
+ *
+ * @example
+ * ```js
+ * // at https://example.com/folder
+ * createWebHashHistory() // gives a url of `https://example.com/folder#`
+ * createWebHashHistory('/folder/') // gives a url of `https://example.com/folder/#`
+ * // if the `#` is provided in the base, it won't be added by `createWebHashHistory`
+ * createWebHashHistory('/folder/#/app/') // gives a url of `https://example.com/folder/#/app/`
+ * // you should avoid doing this because it changes the original url and breaks copying urls
+ * createWebHashHistory('/other-folder/') // gives a url of `https://example.com/other-folder/#`
+ *
+ * // at file:///usr/etc/folder/index.html
+ * // for locations with no `host`, the base is ignored
+ * createWebHashHistory('/iAmIgnored') // gives a url of `file:///usr/etc/folder/index.html#`
+ * ```
+ */
+function createWebHashHistory(base) {
+    // Make sure this implementation is fine in terms of encoding, specially for IE11
+    // for `file://`, directly use the pathname and ignore the base
+    // location.pathname contains an initial `/` even at the root: `https://example.com`
+    base = location.host ? base || location.pathname + location.search : '';
+    // allow the user to provide a `#` in the middle: `/base/#/app`
+    if (!base.includes('#'))
+        base += '#';
+    if (( true) && !base.endsWith('#/') && !base.endsWith('#')) {
+        warn(`A hash base must end with a "#":\n"${base}" should be "${base.replace(/#.*$/, '#')}".`);
+    }
+    return createWebHistory(base);
+}
+
+function isRouteLocation(route) {
+    return typeof route === 'string' || (route && typeof route === 'object');
+}
+function isRouteName(name) {
+    return typeof name === 'string' || typeof name === 'symbol';
+}
+
+/**
+ * Initial route location where the router is. Can be used in navigation guards
+ * to differentiate the initial navigation.
+ *
+ * @example
+ * ```js
+ * import { START_LOCATION } from 'vue-router'
+ *
+ * router.beforeEach((to, from) => {
+ *   if (from === START_LOCATION) {
+ *     // initial navigation
+ *   }
+ * })
+ * ```
+ */
+const START_LOCATION_NORMALIZED = {
+    path: '/',
+    name: undefined,
+    params: {},
+    query: {},
+    hash: '',
+    fullPath: '/',
+    matched: [],
+    meta: {},
+    redirectedFrom: undefined,
+};
+
+const NavigationFailureSymbol = Symbol(( true) ? 'navigation failure' : 0);
+/**
+ * Enumeration with all possible types for navigation failures. Can be passed to
+ * {@link isNavigationFailure} to check for specific failures.
+ */
+var NavigationFailureType;
+(function (NavigationFailureType) {
+    /**
+     * An aborted navigation is a navigation that failed because a navigation
+     * guard returned `false` or called `next(false)`
+     */
+    NavigationFailureType[NavigationFailureType["aborted"] = 4] = "aborted";
+    /**
+     * A cancelled navigation is a navigation that failed because a more recent
+     * navigation finished started (not necessarily finished).
+     */
+    NavigationFailureType[NavigationFailureType["cancelled"] = 8] = "cancelled";
+    /**
+     * A duplicated navigation is a navigation that failed because it was
+     * initiated while already being at the exact same location.
+     */
+    NavigationFailureType[NavigationFailureType["duplicated"] = 16] = "duplicated";
+})(NavigationFailureType || (NavigationFailureType = {}));
+// DEV only debug messages
+const ErrorTypeMessages = {
+    [1 /* ErrorTypes.MATCHER_NOT_FOUND */]({ location, currentLocation }) {
+        return `No match for\n ${JSON.stringify(location)}${currentLocation
+            ? '\nwhile being at\n' + JSON.stringify(currentLocation)
+            : ''}`;
+    },
+    [2 /* ErrorTypes.NAVIGATION_GUARD_REDIRECT */]({ from, to, }) {
+        return `Redirected from "${from.fullPath}" to "${stringifyRoute(to)}" via a navigation guard.`;
+    },
+    [4 /* ErrorTypes.NAVIGATION_ABORTED */]({ from, to }) {
+        return `Navigation aborted from "${from.fullPath}" to "${to.fullPath}" via a navigation guard.`;
+    },
+    [8 /* ErrorTypes.NAVIGATION_CANCELLED */]({ from, to }) {
+        return `Navigation cancelled from "${from.fullPath}" to "${to.fullPath}" with a new navigation.`;
+    },
+    [16 /* ErrorTypes.NAVIGATION_DUPLICATED */]({ from, to }) {
+        return `Avoided redundant navigation to current location: "${from.fullPath}".`;
+    },
+};
+function createRouterError(type, params) {
+    // keep full error messages in cjs versions
+    if (true) {
+        return assign(new Error(ErrorTypeMessages[type](params)), {
+            type,
+            [NavigationFailureSymbol]: true,
+        }, params);
+    }
+    else {}
+}
+function isNavigationFailure(error, type) {
+    return (error instanceof Error &&
+        NavigationFailureSymbol in error &&
+        (type == null || !!(error.type & type)));
+}
+const propertiesToLog = ['params', 'query', 'hash'];
+function stringifyRoute(to) {
+    if (typeof to === 'string')
+        return to;
+    if ('path' in to)
+        return to.path;
+    const location = {};
+    for (const key of propertiesToLog) {
+        if (key in to)
+            location[key] = to[key];
+    }
+    return JSON.stringify(location, null, 2);
+}
+
+// default pattern for a param: non-greedy everything but /
+const BASE_PARAM_PATTERN = '[^/]+?';
+const BASE_PATH_PARSER_OPTIONS = {
+    sensitive: false,
+    strict: false,
+    start: true,
+    end: true,
+};
+// Special Regex characters that must be escaped in static tokens
+const REGEX_CHARS_RE = /[.+*?^${}()[\]/\\]/g;
+/**
+ * Creates a path parser from an array of Segments (a segment is an array of Tokens)
+ *
+ * @param segments - array of segments returned by tokenizePath
+ * @param extraOptions - optional options for the regexp
+ * @returns a PathParser
+ */
+function tokensToParser(segments, extraOptions) {
+    const options = assign({}, BASE_PATH_PARSER_OPTIONS, extraOptions);
+    // the amount of scores is the same as the length of segments except for the root segment "/"
+    const score = [];
+    // the regexp as a string
+    let pattern = options.start ? '^' : '';
+    // extracted keys
+    const keys = [];
+    for (const segment of segments) {
+        // the root segment needs special treatment
+        const segmentScores = segment.length ? [] : [90 /* PathScore.Root */];
+        // allow trailing slash
+        if (options.strict && !segment.length)
+            pattern += '/';
+        for (let tokenIndex = 0; tokenIndex < segment.length; tokenIndex++) {
+            const token = segment[tokenIndex];
+            // resets the score if we are inside a sub-segment /:a-other-:b
+            let subSegmentScore = 40 /* PathScore.Segment */ +
+                (options.sensitive ? 0.25 /* PathScore.BonusCaseSensitive */ : 0);
+            if (token.type === 0 /* TokenType.Static */) {
+                // prepend the slash if we are starting a new segment
+                if (!tokenIndex)
+                    pattern += '/';
+                pattern += token.value.replace(REGEX_CHARS_RE, '\\$&');
+                subSegmentScore += 40 /* PathScore.Static */;
+            }
+            else if (token.type === 1 /* TokenType.Param */) {
+                const { value, repeatable, optional, regexp } = token;
+                keys.push({
+                    name: value,
+                    repeatable,
+                    optional,
+                });
+                const re = regexp ? regexp : BASE_PARAM_PATTERN;
+                // the user provided a custom regexp /:id(\\d+)
+                if (re !== BASE_PARAM_PATTERN) {
+                    subSegmentScore += 10 /* PathScore.BonusCustomRegExp */;
+                    // make sure the regexp is valid before using it
+                    try {
+                        new RegExp(`(${re})`);
+                    }
+                    catch (err) {
+                        throw new Error(`Invalid custom RegExp for param "${value}" (${re}): ` +
+                            err.message);
+                    }
+                }
+                // when we repeat we must take care of the repeating leading slash
+                let subPattern = repeatable ? `((?:${re})(?:/(?:${re}))*)` : `(${re})`;
+                // prepend the slash if we are starting a new segment
+                if (!tokenIndex)
+                    subPattern =
+                        // avoid an optional / if there are more segments e.g. /:p?-static
+                        // or /:p?-:p2
+                        optional && segment.length < 2
+                            ? `(?:/${subPattern})`
+                            : '/' + subPattern;
+                if (optional)
+                    subPattern += '?';
+                pattern += subPattern;
+                subSegmentScore += 20 /* PathScore.Dynamic */;
+                if (optional)
+                    subSegmentScore += -8 /* PathScore.BonusOptional */;
+                if (repeatable)
+                    subSegmentScore += -20 /* PathScore.BonusRepeatable */;
+                if (re === '.*')
+                    subSegmentScore += -50 /* PathScore.BonusWildcard */;
+            }
+            segmentScores.push(subSegmentScore);
+        }
+        // an empty array like /home/ -> [[{home}], []]
+        // if (!segment.length) pattern += '/'
+        score.push(segmentScores);
+    }
+    // only apply the strict bonus to the last score
+    if (options.strict && options.end) {
+        const i = score.length - 1;
+        score[i][score[i].length - 1] += 0.7000000000000001 /* PathScore.BonusStrict */;
+    }
+    // TODO: dev only warn double trailing slash
+    if (!options.strict)
+        pattern += '/?';
+    if (options.end)
+        pattern += '$';
+    // allow paths like /dynamic to only match dynamic or dynamic/... but not dynamic_something_else
+    else if (options.strict)
+        pattern += '(?:/|$)';
+    const re = new RegExp(pattern, options.sensitive ? '' : 'i');
+    function parse(path) {
+        const match = path.match(re);
+        const params = {};
+        if (!match)
+            return null;
+        for (let i = 1; i < match.length; i++) {
+            const value = match[i] || '';
+            const key = keys[i - 1];
+            params[key.name] = value && key.repeatable ? value.split('/') : value;
+        }
+        return params;
+    }
+    function stringify(params) {
+        let path = '';
+        // for optional parameters to allow to be empty
+        let avoidDuplicatedSlash = false;
+        for (const segment of segments) {
+            if (!avoidDuplicatedSlash || !path.endsWith('/'))
+                path += '/';
+            avoidDuplicatedSlash = false;
+            for (const token of segment) {
+                if (token.type === 0 /* TokenType.Static */) {
+                    path += token.value;
+                }
+                else if (token.type === 1 /* TokenType.Param */) {
+                    const { value, repeatable, optional } = token;
+                    const param = value in params ? params[value] : '';
+                    if (isArray(param) && !repeatable) {
+                        throw new Error(`Provided param "${value}" is an array but it is not repeatable (* or + modifiers)`);
+                    }
+                    const text = isArray(param)
+                        ? param.join('/')
+                        : param;
+                    if (!text) {
+                        if (optional) {
+                            // if we have more than one optional param like /:a?-static we don't need to care about the optional param
+                            if (segment.length < 2) {
+                                // remove the last slash as we could be at the end
+                                if (path.endsWith('/'))
+                                    path = path.slice(0, -1);
+                                // do not append a slash on the next iteration
+                                else
+                                    avoidDuplicatedSlash = true;
+                            }
+                        }
+                        else
+                            throw new Error(`Missing required param "${value}"`);
+                    }
+                    path += text;
+                }
+            }
+        }
+        // avoid empty path when we have multiple optional params
+        return path || '/';
+    }
+    return {
+        re,
+        score,
+        keys,
+        parse,
+        stringify,
+    };
+}
+/**
+ * Compares an array of numbers as used in PathParser.score and returns a
+ * number. This function can be used to `sort` an array
+ *
+ * @param a - first array of numbers
+ * @param b - second array of numbers
+ * @returns 0 if both are equal, < 0 if a should be sorted first, > 0 if b
+ * should be sorted first
+ */
+function compareScoreArray(a, b) {
+    let i = 0;
+    while (i < a.length && i < b.length) {
+        const diff = b[i] - a[i];
+        // only keep going if diff === 0
+        if (diff)
+            return diff;
+        i++;
+    }
+    // if the last subsegment was Static, the shorter segments should be sorted first
+    // otherwise sort the longest segment first
+    if (a.length < b.length) {
+        return a.length === 1 && a[0] === 40 /* PathScore.Static */ + 40 /* PathScore.Segment */
+            ? -1
+            : 1;
+    }
+    else if (a.length > b.length) {
+        return b.length === 1 && b[0] === 40 /* PathScore.Static */ + 40 /* PathScore.Segment */
+            ? 1
+            : -1;
+    }
+    return 0;
+}
+/**
+ * Compare function that can be used with `sort` to sort an array of PathParser
+ *
+ * @param a - first PathParser
+ * @param b - second PathParser
+ * @returns 0 if both are equal, < 0 if a should be sorted first, > 0 if b
+ */
+function comparePathParserScore(a, b) {
+    let i = 0;
+    const aScore = a.score;
+    const bScore = b.score;
+    while (i < aScore.length && i < bScore.length) {
+        const comp = compareScoreArray(aScore[i], bScore[i]);
+        // do not return if both are equal
+        if (comp)
+            return comp;
+        i++;
+    }
+    if (Math.abs(bScore.length - aScore.length) === 1) {
+        if (isLastScoreNegative(aScore))
+            return 1;
+        if (isLastScoreNegative(bScore))
+            return -1;
+    }
+    // if a and b share the same score entries but b has more, sort b first
+    return bScore.length - aScore.length;
+    // this is the ternary version
+    // return aScore.length < bScore.length
+    //   ? 1
+    //   : aScore.length > bScore.length
+    //   ? -1
+    //   : 0
+}
+/**
+ * This allows detecting splats at the end of a path: /home/:id(.*)*
+ *
+ * @param score - score to check
+ * @returns true if the last entry is negative
+ */
+function isLastScoreNegative(score) {
+    const last = score[score.length - 1];
+    return score.length > 0 && last[last.length - 1] < 0;
+}
+
+const ROOT_TOKEN = {
+    type: 0 /* TokenType.Static */,
+    value: '',
+};
+const VALID_PARAM_RE = /[a-zA-Z0-9_]/;
+// After some profiling, the cache seems to be unnecessary because tokenizePath
+// (the slowest part of adding a route) is very fast
+// const tokenCache = new Map<string, Token[][]>()
+function tokenizePath(path) {
+    if (!path)
+        return [[]];
+    if (path === '/')
+        return [[ROOT_TOKEN]];
+    if (!path.startsWith('/')) {
+        throw new Error(( true)
+            ? `Route paths should start with a "/": "${path}" should be "/${path}".`
+            : 0);
+    }
+    // if (tokenCache.has(path)) return tokenCache.get(path)!
+    function crash(message) {
+        throw new Error(`ERR (${state})/"${buffer}": ${message}`);
+    }
+    let state = 0 /* TokenizerState.Static */;
+    let previousState = state;
+    const tokens = [];
+    // the segment will always be valid because we get into the initial state
+    // with the leading /
+    let segment;
+    function finalizeSegment() {
+        if (segment)
+            tokens.push(segment);
+        segment = [];
+    }
+    // index on the path
+    let i = 0;
+    // char at index
+    let char;
+    // buffer of the value read
+    let buffer = '';
+    // custom regexp for a param
+    let customRe = '';
+    function consumeBuffer() {
+        if (!buffer)
+            return;
+        if (state === 0 /* TokenizerState.Static */) {
+            segment.push({
+                type: 0 /* TokenType.Static */,
+                value: buffer,
+            });
+        }
+        else if (state === 1 /* TokenizerState.Param */ ||
+            state === 2 /* TokenizerState.ParamRegExp */ ||
+            state === 3 /* TokenizerState.ParamRegExpEnd */) {
+            if (segment.length > 1 && (char === '*' || char === '+'))
+                crash(`A repeatable param (${buffer}) must be alone in its segment. eg: '/:ids+.`);
+            segment.push({
+                type: 1 /* TokenType.Param */,
+                value: buffer,
+                regexp: customRe,
+                repeatable: char === '*' || char === '+',
+                optional: char === '*' || char === '?',
+            });
+        }
+        else {
+            crash('Invalid state to consume buffer');
+        }
+        buffer = '';
+    }
+    function addCharToBuffer() {
+        buffer += char;
+    }
+    while (i < path.length) {
+        char = path[i++];
+        if (char === '\\' && state !== 2 /* TokenizerState.ParamRegExp */) {
+            previousState = state;
+            state = 4 /* TokenizerState.EscapeNext */;
+            continue;
+        }
+        switch (state) {
+            case 0 /* TokenizerState.Static */:
+                if (char === '/') {
+                    if (buffer) {
+                        consumeBuffer();
+                    }
+                    finalizeSegment();
+                }
+                else if (char === ':') {
+                    consumeBuffer();
+                    state = 1 /* TokenizerState.Param */;
+                }
+                else {
+                    addCharToBuffer();
+                }
+                break;
+            case 4 /* TokenizerState.EscapeNext */:
+                addCharToBuffer();
+                state = previousState;
+                break;
+            case 1 /* TokenizerState.Param */:
+                if (char === '(') {
+                    state = 2 /* TokenizerState.ParamRegExp */;
+                }
+                else if (VALID_PARAM_RE.test(char)) {
+                    addCharToBuffer();
+                }
+                else {
+                    consumeBuffer();
+                    state = 0 /* TokenizerState.Static */;
+                    // go back one character if we were not modifying
+                    if (char !== '*' && char !== '?' && char !== '+')
+                        i--;
+                }
+                break;
+            case 2 /* TokenizerState.ParamRegExp */:
+                // TODO: is it worth handling nested regexp? like :p(?:prefix_([^/]+)_suffix)
+                // it already works by escaping the closing )
+                // https://paths.esm.dev/?p=AAMeJbiAwQEcDKbAoAAkP60PG2R6QAvgNaA6AFACM2ABuQBB#
+                // is this really something people need since you can also write
+                // /prefix_:p()_suffix
+                if (char === ')') {
+                    // handle the escaped )
+                    if (customRe[customRe.length - 1] == '\\')
+                        customRe = customRe.slice(0, -1) + char;
+                    else
+                        state = 3 /* TokenizerState.ParamRegExpEnd */;
+                }
+                else {
+                    customRe += char;
+                }
+                break;
+            case 3 /* TokenizerState.ParamRegExpEnd */:
+                // same as finalizing a param
+                consumeBuffer();
+                state = 0 /* TokenizerState.Static */;
+                // go back one character if we were not modifying
+                if (char !== '*' && char !== '?' && char !== '+')
+                    i--;
+                customRe = '';
+                break;
+            default:
+                crash('Unknown state');
+                break;
+        }
+    }
+    if (state === 2 /* TokenizerState.ParamRegExp */)
+        crash(`Unfinished custom RegExp for param "${buffer}"`);
+    consumeBuffer();
+    finalizeSegment();
+    // tokenCache.set(path, tokens)
+    return tokens;
+}
+
+function createRouteRecordMatcher(record, parent, options) {
+    const parser = tokensToParser(tokenizePath(record.path), options);
+    // warn against params with the same name
+    if ((true)) {
+        const existingKeys = new Set();
+        for (const key of parser.keys) {
+            if (existingKeys.has(key.name))
+                warn(`Found duplicated params with name "${key.name}" for path "${record.path}". Only the last one will be available on "$route.params".`);
+            existingKeys.add(key.name);
+        }
+    }
+    const matcher = assign(parser, {
+        record,
+        parent,
+        // these needs to be populated by the parent
+        children: [],
+        alias: [],
+    });
+    if (parent) {
+        // both are aliases or both are not aliases
+        // we don't want to mix them because the order is used when
+        // passing originalRecord in Matcher.addRoute
+        if (!matcher.record.aliasOf === !parent.record.aliasOf)
+            parent.children.push(matcher);
+    }
+    return matcher;
+}
+
+/**
+ * Creates a Router Matcher.
+ *
+ * @internal
+ * @param routes - array of initial routes
+ * @param globalOptions - global route options
+ */
+function createRouterMatcher(routes, globalOptions) {
+    // normalized ordered array of matchers
+    const matchers = [];
+    const matcherMap = new Map();
+    globalOptions = mergeOptions({ strict: false, end: true, sensitive: false }, globalOptions);
+    function getRecordMatcher(name) {
+        return matcherMap.get(name);
+    }
+    function addRoute(record, parent, originalRecord) {
+        // used later on to remove by name
+        const isRootAdd = !originalRecord;
+        const mainNormalizedRecord = normalizeRouteRecord(record);
+        if ((true)) {
+            checkChildMissingNameWithEmptyPath(mainNormalizedRecord, parent);
+        }
+        // we might be the child of an alias
+        mainNormalizedRecord.aliasOf = originalRecord && originalRecord.record;
+        const options = mergeOptions(globalOptions, record);
+        // generate an array of records to correctly handle aliases
+        const normalizedRecords = [
+            mainNormalizedRecord,
+        ];
+        if ('alias' in record) {
+            const aliases = typeof record.alias === 'string' ? [record.alias] : record.alias;
+            for (const alias of aliases) {
+                normalizedRecords.push(assign({}, mainNormalizedRecord, {
+                    // this allows us to hold a copy of the `components` option
+                    // so that async components cache is hold on the original record
+                    components: originalRecord
+                        ? originalRecord.record.components
+                        : mainNormalizedRecord.components,
+                    path: alias,
+                    // we might be the child of an alias
+                    aliasOf: originalRecord
+                        ? originalRecord.record
+                        : mainNormalizedRecord,
+                    // the aliases are always of the same kind as the original since they
+                    // are defined on the same record
+                }));
+            }
+        }
+        let matcher;
+        let originalMatcher;
+        for (const normalizedRecord of normalizedRecords) {
+            const { path } = normalizedRecord;
+            // Build up the path for nested routes if the child isn't an absolute
+            // route. Only add the / delimiter if the child path isn't empty and if the
+            // parent path doesn't have a trailing slash
+            if (parent && path[0] !== '/') {
+                const parentPath = parent.record.path;
+                const connectingSlash = parentPath[parentPath.length - 1] === '/' ? '' : '/';
+                normalizedRecord.path =
+                    parent.record.path + (path && connectingSlash + path);
+            }
+            if (( true) && normalizedRecord.path === '*') {
+                throw new Error('Catch all routes ("*") must now be defined using a param with a custom regexp.\n' +
+                    'See more at https://next.router.vuejs.org/guide/migration/#removed-star-or-catch-all-routes.');
+            }
+            // create the object beforehand, so it can be passed to children
+            matcher = createRouteRecordMatcher(normalizedRecord, parent, options);
+            if (( true) && parent && path[0] === '/')
+                checkMissingParamsInAbsolutePath(matcher, parent);
+            // if we are an alias we must tell the original record that we exist,
+            // so we can be removed
+            if (originalRecord) {
+                originalRecord.alias.push(matcher);
+                if ((true)) {
+                    checkSameParams(originalRecord, matcher);
+                }
+            }
+            else {
+                // otherwise, the first record is the original and others are aliases
+                originalMatcher = originalMatcher || matcher;
+                if (originalMatcher !== matcher)
+                    originalMatcher.alias.push(matcher);
+                // remove the route if named and only for the top record (avoid in nested calls)
+                // this works because the original record is the first one
+                if (isRootAdd && record.name && !isAliasRecord(matcher))
+                    removeRoute(record.name);
+            }
+            if (mainNormalizedRecord.children) {
+                const children = mainNormalizedRecord.children;
+                for (let i = 0; i < children.length; i++) {
+                    addRoute(children[i], matcher, originalRecord && originalRecord.children[i]);
+                }
+            }
+            // if there was no original record, then the first one was not an alias and all
+            // other aliases (if any) need to reference this record when adding children
+            originalRecord = originalRecord || matcher;
+            // TODO: add normalized records for more flexibility
+            // if (parent && isAliasRecord(originalRecord)) {
+            //   parent.children.push(originalRecord)
+            // }
+            // Avoid adding a record that doesn't display anything. This allows passing through records without a component to
+            // not be reached and pass through the catch all route
+            if ((matcher.record.components &&
+                Object.keys(matcher.record.components).length) ||
+                matcher.record.name ||
+                matcher.record.redirect) {
+                insertMatcher(matcher);
+            }
+        }
+        return originalMatcher
+            ? () => {
+                // since other matchers are aliases, they should be removed by the original matcher
+                removeRoute(originalMatcher);
+            }
+            : noop;
+    }
+    function removeRoute(matcherRef) {
+        if (isRouteName(matcherRef)) {
+            const matcher = matcherMap.get(matcherRef);
+            if (matcher) {
+                matcherMap.delete(matcherRef);
+                matchers.splice(matchers.indexOf(matcher), 1);
+                matcher.children.forEach(removeRoute);
+                matcher.alias.forEach(removeRoute);
+            }
+        }
+        else {
+            const index = matchers.indexOf(matcherRef);
+            if (index > -1) {
+                matchers.splice(index, 1);
+                if (matcherRef.record.name)
+                    matcherMap.delete(matcherRef.record.name);
+                matcherRef.children.forEach(removeRoute);
+                matcherRef.alias.forEach(removeRoute);
+            }
+        }
+    }
+    function getRoutes() {
+        return matchers;
+    }
+    function insertMatcher(matcher) {
+        let i = 0;
+        while (i < matchers.length &&
+            comparePathParserScore(matcher, matchers[i]) >= 0 &&
+            // Adding children with empty path should still appear before the parent
+            // https://github.com/vuejs/router/issues/1124
+            (matcher.record.path !== matchers[i].record.path ||
+                !isRecordChildOf(matcher, matchers[i])))
+            i++;
+        matchers.splice(i, 0, matcher);
+        // only add the original record to the name map
+        if (matcher.record.name && !isAliasRecord(matcher))
+            matcherMap.set(matcher.record.name, matcher);
+    }
+    function resolve(location, currentLocation) {
+        let matcher;
+        let params = {};
+        let path;
+        let name;
+        if ('name' in location && location.name) {
+            matcher = matcherMap.get(location.name);
+            if (!matcher)
+                throw createRouterError(1 /* ErrorTypes.MATCHER_NOT_FOUND */, {
+                    location,
+                });
+            // warn if the user is passing invalid params so they can debug it better when they get removed
+            if ((true)) {
+                const invalidParams = Object.keys(location.params || {}).filter(paramName => !matcher.keys.find(k => k.name === paramName));
+                if (invalidParams.length) {
+                    warn(`Discarded invalid param(s) "${invalidParams.join('", "')}" when navigating. See https://github.com/vuejs/router/blob/main/packages/router/CHANGELOG.md#414-2022-08-22 for more details.`);
+                }
+            }
+            name = matcher.record.name;
+            params = assign(
+            // paramsFromLocation is a new object
+            paramsFromLocation(currentLocation.params, 
+            // only keep params that exist in the resolved location
+            // TODO: only keep optional params coming from a parent record
+            matcher.keys.filter(k => !k.optional).map(k => k.name)), 
+            // discard any existing params in the current location that do not exist here
+            // #1497 this ensures better active/exact matching
+            location.params &&
+                paramsFromLocation(location.params, matcher.keys.map(k => k.name)));
+            // throws if cannot be stringified
+            path = matcher.stringify(params);
+        }
+        else if ('path' in location) {
+            // no need to resolve the path with the matcher as it was provided
+            // this also allows the user to control the encoding
+            path = location.path;
+            if (( true) && !path.startsWith('/')) {
+                warn(`The Matcher cannot resolve relative paths but received "${path}". Unless you directly called \`matcher.resolve("${path}")\`, this is probably a bug in vue-router. Please open an issue at https://new-issue.vuejs.org/?repo=vuejs/router.`);
+            }
+            matcher = matchers.find(m => m.re.test(path));
+            // matcher should have a value after the loop
+            if (matcher) {
+                // we know the matcher works because we tested the regexp
+                params = matcher.parse(path);
+                name = matcher.record.name;
+            }
+            // location is a relative path
+        }
+        else {
+            // match by name or path of current route
+            matcher = currentLocation.name
+                ? matcherMap.get(currentLocation.name)
+                : matchers.find(m => m.re.test(currentLocation.path));
+            if (!matcher)
+                throw createRouterError(1 /* ErrorTypes.MATCHER_NOT_FOUND */, {
+                    location,
+                    currentLocation,
+                });
+            name = matcher.record.name;
+            // since we are navigating to the same location, we don't need to pick the
+            // params like when `name` is provided
+            params = assign({}, currentLocation.params, location.params);
+            path = matcher.stringify(params);
+        }
+        const matched = [];
+        let parentMatcher = matcher;
+        while (parentMatcher) {
+            // reversed order so parents are at the beginning
+            matched.unshift(parentMatcher.record);
+            parentMatcher = parentMatcher.parent;
+        }
+        return {
+            name,
+            path,
+            params,
+            matched,
+            meta: mergeMetaFields(matched),
+        };
+    }
+    // add initial routes
+    routes.forEach(route => addRoute(route));
+    return { addRoute, resolve, removeRoute, getRoutes, getRecordMatcher };
+}
+function paramsFromLocation(params, keys) {
+    const newParams = {};
+    for (const key of keys) {
+        if (key in params)
+            newParams[key] = params[key];
+    }
+    return newParams;
+}
+/**
+ * Normalizes a RouteRecordRaw. Creates a copy
+ *
+ * @param record
+ * @returns the normalized version
+ */
+function normalizeRouteRecord(record) {
+    return {
+        path: record.path,
+        redirect: record.redirect,
+        name: record.name,
+        meta: record.meta || {},
+        aliasOf: undefined,
+        beforeEnter: record.beforeEnter,
+        props: normalizeRecordProps(record),
+        children: record.children || [],
+        instances: {},
+        leaveGuards: new Set(),
+        updateGuards: new Set(),
+        enterCallbacks: {},
+        components: 'components' in record
+            ? record.components || null
+            : record.component && { default: record.component },
+    };
+}
+/**
+ * Normalize the optional `props` in a record to always be an object similar to
+ * components. Also accept a boolean for components.
+ * @param record
+ */
+function normalizeRecordProps(record) {
+    const propsObject = {};
+    // props does not exist on redirect records, but we can set false directly
+    const props = record.props || false;
+    if ('component' in record) {
+        propsObject.default = props;
+    }
+    else {
+        // NOTE: we could also allow a function to be applied to every component.
+        // Would need user feedback for use cases
+        for (const name in record.components)
+            propsObject[name] = typeof props === 'boolean' ? props : props[name];
+    }
+    return propsObject;
+}
+/**
+ * Checks if a record or any of its parent is an alias
+ * @param record
+ */
+function isAliasRecord(record) {
+    while (record) {
+        if (record.record.aliasOf)
+            return true;
+        record = record.parent;
+    }
+    return false;
+}
+/**
+ * Merge meta fields of an array of records
+ *
+ * @param matched - array of matched records
+ */
+function mergeMetaFields(matched) {
+    return matched.reduce((meta, record) => assign(meta, record.meta), {});
+}
+function mergeOptions(defaults, partialOptions) {
+    const options = {};
+    for (const key in defaults) {
+        options[key] = key in partialOptions ? partialOptions[key] : defaults[key];
+    }
+    return options;
+}
+function isSameParam(a, b) {
+    return (a.name === b.name &&
+        a.optional === b.optional &&
+        a.repeatable === b.repeatable);
+}
+/**
+ * Check if a path and its alias have the same required params
+ *
+ * @param a - original record
+ * @param b - alias record
+ */
+function checkSameParams(a, b) {
+    for (const key of a.keys) {
+        if (!key.optional && !b.keys.find(isSameParam.bind(null, key)))
+            return warn(`Alias "${b.record.path}" and the original record: "${a.record.path}" must have the exact same param named "${key.name}"`);
+    }
+    for (const key of b.keys) {
+        if (!key.optional && !a.keys.find(isSameParam.bind(null, key)))
+            return warn(`Alias "${b.record.path}" and the original record: "${a.record.path}" must have the exact same param named "${key.name}"`);
+    }
+}
+/**
+ * A route with a name and a child with an empty path without a name should warn when adding the route
+ *
+ * @param mainNormalizedRecord - RouteRecordNormalized
+ * @param parent - RouteRecordMatcher
+ */
+function checkChildMissingNameWithEmptyPath(mainNormalizedRecord, parent) {
+    if (parent &&
+        parent.record.name &&
+        !mainNormalizedRecord.name &&
+        !mainNormalizedRecord.path) {
+        warn(`The route named "${String(parent.record.name)}" has a child without a name and an empty path. Using that name won't render the empty path child so you probably want to move the name to the child instead. If this is intentional, add a name to the child route to remove the warning.`);
+    }
+}
+function checkMissingParamsInAbsolutePath(record, parent) {
+    for (const key of parent.keys) {
+        if (!record.keys.find(isSameParam.bind(null, key)))
+            return warn(`Absolute path "${record.record.path}" must have the exact same param named "${key.name}" as its parent "${parent.record.path}".`);
+    }
+}
+function isRecordChildOf(record, parent) {
+    return parent.children.some(child => child === record || isRecordChildOf(record, child));
+}
+
+/**
+ * Encoding Rules ␣ = Space Path: ␣ " < > # ? { } Query: ␣ " < > # & = Hash: ␣ "
+ * < > `
+ *
+ * On top of that, the RFC3986 (https://tools.ietf.org/html/rfc3986#section-2.2)
+ * defines some extra characters to be encoded. Most browsers do not encode them
+ * in encodeURI https://github.com/whatwg/url/issues/369, so it may be safer to
+ * also encode `!'()*`. Leaving un-encoded only ASCII alphanumeric(`a-zA-Z0-9`)
+ * plus `-._~`. This extra safety should be applied to query by patching the
+ * string returned by encodeURIComponent encodeURI also encodes `[\]^`. `\`
+ * should be encoded to avoid ambiguity. Browsers (IE, FF, C) transform a `\`
+ * into a `/` if directly typed in. The _backtick_ (`````) should also be
+ * encoded everywhere because some browsers like FF encode it when directly
+ * written while others don't. Safari and IE don't encode ``"<>{}``` in hash.
+ */
+// const EXTRA_RESERVED_RE = /[!'()*]/g
+// const encodeReservedReplacer = (c: string) => '%' + c.charCodeAt(0).toString(16)
+const HASH_RE = /#/g; // %23
+const AMPERSAND_RE = /&/g; // %26
+const SLASH_RE = /\//g; // %2F
+const EQUAL_RE = /=/g; // %3D
+const IM_RE = /\?/g; // %3F
+const PLUS_RE = /\+/g; // %2B
+/**
+ * NOTE: It's not clear to me if we should encode the + symbol in queries, it
+ * seems to be less flexible than not doing so and I can't find out the legacy
+ * systems requiring this for regular requests like text/html. In the standard,
+ * the encoding of the plus character is only mentioned for
+ * application/x-www-form-urlencoded
+ * (https://url.spec.whatwg.org/#urlencoded-parsing) and most browsers seems lo
+ * leave the plus character as is in queries. To be more flexible, we allow the
+ * plus character on the query, but it can also be manually encoded by the user.
+ *
+ * Resources:
+ * - https://url.spec.whatwg.org/#urlencoded-parsing
+ * - https://stackoverflow.com/questions/1634271/url-encoding-the-space-character-or-20
+ */
+const ENC_BRACKET_OPEN_RE = /%5B/g; // [
+const ENC_BRACKET_CLOSE_RE = /%5D/g; // ]
+const ENC_CARET_RE = /%5E/g; // ^
+const ENC_BACKTICK_RE = /%60/g; // `
+const ENC_CURLY_OPEN_RE = /%7B/g; // {
+const ENC_PIPE_RE = /%7C/g; // |
+const ENC_CURLY_CLOSE_RE = /%7D/g; // }
+const ENC_SPACE_RE = /%20/g; // }
+/**
+ * Encode characters that need to be encoded on the path, search and hash
+ * sections of the URL.
+ *
+ * @internal
+ * @param text - string to encode
+ * @returns encoded string
+ */
+function commonEncode(text) {
+    return encodeURI('' + text)
+        .replace(ENC_PIPE_RE, '|')
+        .replace(ENC_BRACKET_OPEN_RE, '[')
+        .replace(ENC_BRACKET_CLOSE_RE, ']');
+}
+/**
+ * Encode characters that need to be encoded on the hash section of the URL.
+ *
+ * @param text - string to encode
+ * @returns encoded string
+ */
+function encodeHash(text) {
+    return commonEncode(text)
+        .replace(ENC_CURLY_OPEN_RE, '{')
+        .replace(ENC_CURLY_CLOSE_RE, '}')
+        .replace(ENC_CARET_RE, '^');
+}
+/**
+ * Encode characters that need to be encoded query values on the query
+ * section of the URL.
+ *
+ * @param text - string to encode
+ * @returns encoded string
+ */
+function encodeQueryValue(text) {
+    return (commonEncode(text)
+        // Encode the space as +, encode the + to differentiate it from the space
+        .replace(PLUS_RE, '%2B')
+        .replace(ENC_SPACE_RE, '+')
+        .replace(HASH_RE, '%23')
+        .replace(AMPERSAND_RE, '%26')
+        .replace(ENC_BACKTICK_RE, '`')
+        .replace(ENC_CURLY_OPEN_RE, '{')
+        .replace(ENC_CURLY_CLOSE_RE, '}')
+        .replace(ENC_CARET_RE, '^'));
+}
+/**
+ * Like `encodeQueryValue` but also encodes the `=` character.
+ *
+ * @param text - string to encode
+ */
+function encodeQueryKey(text) {
+    return encodeQueryValue(text).replace(EQUAL_RE, '%3D');
+}
+/**
+ * Encode characters that need to be encoded on the path section of the URL.
+ *
+ * @param text - string to encode
+ * @returns encoded string
+ */
+function encodePath(text) {
+    return commonEncode(text).replace(HASH_RE, '%23').replace(IM_RE, '%3F');
+}
+/**
+ * Encode characters that need to be encoded on the path section of the URL as a
+ * param. This function encodes everything {@link encodePath} does plus the
+ * slash (`/`) character. If `text` is `null` or `undefined`, returns an empty
+ * string instead.
+ *
+ * @param text - string to encode
+ * @returns encoded string
+ */
+function encodeParam(text) {
+    return text == null ? '' : encodePath(text).replace(SLASH_RE, '%2F');
+}
+/**
+ * Decode text using `decodeURIComponent`. Returns the original text if it
+ * fails.
+ *
+ * @param text - string to decode
+ * @returns decoded string
+ */
+function decode(text) {
+    try {
+        return decodeURIComponent('' + text);
+    }
+    catch (err) {
+        ( true) && warn(`Error decoding "${text}". Using original value`);
+    }
+    return '' + text;
+}
+
+/**
+ * Transforms a queryString into a {@link LocationQuery} object. Accept both, a
+ * version with the leading `?` and without Should work as URLSearchParams
+
+ * @internal
+ *
+ * @param search - search string to parse
+ * @returns a query object
+ */
+function parseQuery(search) {
+    const query = {};
+    // avoid creating an object with an empty key and empty value
+    // because of split('&')
+    if (search === '' || search === '?')
+        return query;
+    const hasLeadingIM = search[0] === '?';
+    const searchParams = (hasLeadingIM ? search.slice(1) : search).split('&');
+    for (let i = 0; i < searchParams.length; ++i) {
+        // pre decode the + into space
+        const searchParam = searchParams[i].replace(PLUS_RE, ' ');
+        // allow the = character
+        const eqPos = searchParam.indexOf('=');
+        const key = decode(eqPos < 0 ? searchParam : searchParam.slice(0, eqPos));
+        const value = eqPos < 0 ? null : decode(searchParam.slice(eqPos + 1));
+        if (key in query) {
+            // an extra variable for ts types
+            let currentValue = query[key];
+            if (!isArray(currentValue)) {
+                currentValue = query[key] = [currentValue];
+            }
+            currentValue.push(value);
+        }
+        else {
+            query[key] = value;
+        }
+    }
+    return query;
+}
+/**
+ * Stringifies a {@link LocationQueryRaw} object. Like `URLSearchParams`, it
+ * doesn't prepend a `?`
+ *
+ * @internal
+ *
+ * @param query - query object to stringify
+ * @returns string version of the query without the leading `?`
+ */
+function stringifyQuery(query) {
+    let search = '';
+    for (let key in query) {
+        const value = query[key];
+        key = encodeQueryKey(key);
+        if (value == null) {
+            // only null adds the value
+            if (value !== undefined) {
+                search += (search.length ? '&' : '') + key;
+            }
+            continue;
+        }
+        // keep null values
+        const values = isArray(value)
+            ? value.map(v => v && encodeQueryValue(v))
+            : [value && encodeQueryValue(value)];
+        values.forEach(value => {
+            // skip undefined values in arrays as if they were not present
+            // smaller code than using filter
+            if (value !== undefined) {
+                // only append & with non-empty search
+                search += (search.length ? '&' : '') + key;
+                if (value != null)
+                    search += '=' + value;
+            }
+        });
+    }
+    return search;
+}
+/**
+ * Transforms a {@link LocationQueryRaw} into a {@link LocationQuery} by casting
+ * numbers into strings, removing keys with an undefined value and replacing
+ * undefined with null in arrays
+ *
+ * @param query - query object to normalize
+ * @returns a normalized query object
+ */
+function normalizeQuery(query) {
+    const normalizedQuery = {};
+    for (const key in query) {
+        const value = query[key];
+        if (value !== undefined) {
+            normalizedQuery[key] = isArray(value)
+                ? value.map(v => (v == null ? null : '' + v))
+                : value == null
+                    ? value
+                    : '' + value;
+        }
+    }
+    return normalizedQuery;
+}
+
+/**
+ * RouteRecord being rendered by the closest ancestor Router View. Used for
+ * `onBeforeRouteUpdate` and `onBeforeRouteLeave`. rvlm stands for Router View
+ * Location Matched
+ *
+ * @internal
+ */
+const matchedRouteKey = Symbol(( true) ? 'router view location matched' : 0);
+/**
+ * Allows overriding the router view depth to control which component in
+ * `matched` is rendered. rvd stands for Router View Depth
+ *
+ * @internal
+ */
+const viewDepthKey = Symbol(( true) ? 'router view depth' : 0);
+/**
+ * Allows overriding the router instance returned by `useRouter` in tests. r
+ * stands for router
+ *
+ * @internal
+ */
+const routerKey = Symbol(( true) ? 'router' : 0);
+/**
+ * Allows overriding the current route returned by `useRoute` in tests. rl
+ * stands for route location
+ *
+ * @internal
+ */
+const routeLocationKey = Symbol(( true) ? 'route location' : 0);
+/**
+ * Allows overriding the current route used by router-view. Internally this is
+ * used when the `route` prop is passed.
+ *
+ * @internal
+ */
+const routerViewLocationKey = Symbol(( true) ? 'router view location' : 0);
+
+/**
+ * Create a list of callbacks that can be reset. Used to create before and after navigation guards list
+ */
+function useCallbacks() {
+    let handlers = [];
+    function add(handler) {
+        handlers.push(handler);
+        return () => {
+            const i = handlers.indexOf(handler);
+            if (i > -1)
+                handlers.splice(i, 1);
+        };
+    }
+    function reset() {
+        handlers = [];
+    }
+    return {
+        add,
+        list: () => handlers,
+        reset,
+    };
+}
+
+function registerGuard(record, name, guard) {
+    const removeFromList = () => {
+        record[name].delete(guard);
+    };
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onUnmounted)(removeFromList);
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onDeactivated)(removeFromList);
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onActivated)(() => {
+        record[name].add(guard);
+    });
+    record[name].add(guard);
+}
+/**
+ * Add a navigation guard that triggers whenever the component for the current
+ * location is about to be left. Similar to {@link beforeRouteLeave} but can be
+ * used in any component. The guard is removed when the component is unmounted.
+ *
+ * @param leaveGuard - {@link NavigationGuard}
+ */
+function onBeforeRouteLeave(leaveGuard) {
+    if (( true) && !(0,vue__WEBPACK_IMPORTED_MODULE_0__.getCurrentInstance)()) {
+        warn('getCurrentInstance() returned null. onBeforeRouteLeave() must be called at the top of a setup function');
+        return;
+    }
+    const activeRecord = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)(matchedRouteKey, 
+    // to avoid warning
+    {}).value;
+    if (!activeRecord) {
+        ( true) &&
+            warn('No active route record was found when calling `onBeforeRouteLeave()`. Make sure you call this function inside a component child of <router-view>. Maybe you called it inside of App.vue?');
+        return;
+    }
+    registerGuard(activeRecord, 'leaveGuards', leaveGuard);
+}
+/**
+ * Add a navigation guard that triggers whenever the current location is about
+ * to be updated. Similar to {@link beforeRouteUpdate} but can be used in any
+ * component. The guard is removed when the component is unmounted.
+ *
+ * @param updateGuard - {@link NavigationGuard}
+ */
+function onBeforeRouteUpdate(updateGuard) {
+    if (( true) && !(0,vue__WEBPACK_IMPORTED_MODULE_0__.getCurrentInstance)()) {
+        warn('getCurrentInstance() returned null. onBeforeRouteUpdate() must be called at the top of a setup function');
+        return;
+    }
+    const activeRecord = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)(matchedRouteKey, 
+    // to avoid warning
+    {}).value;
+    if (!activeRecord) {
+        ( true) &&
+            warn('No active route record was found when calling `onBeforeRouteUpdate()`. Make sure you call this function inside a component child of <router-view>. Maybe you called it inside of App.vue?');
+        return;
+    }
+    registerGuard(activeRecord, 'updateGuards', updateGuard);
+}
+function guardToPromiseFn(guard, to, from, record, name) {
+    // keep a reference to the enterCallbackArray to prevent pushing callbacks if a new navigation took place
+    const enterCallbackArray = record &&
+        // name is defined if record is because of the function overload
+        (record.enterCallbacks[name] = record.enterCallbacks[name] || []);
+    return () => new Promise((resolve, reject) => {
+        const next = (valid) => {
+            if (valid === false) {
+                reject(createRouterError(4 /* ErrorTypes.NAVIGATION_ABORTED */, {
+                    from,
+                    to,
+                }));
+            }
+            else if (valid instanceof Error) {
+                reject(valid);
+            }
+            else if (isRouteLocation(valid)) {
+                reject(createRouterError(2 /* ErrorTypes.NAVIGATION_GUARD_REDIRECT */, {
+                    from: to,
+                    to: valid,
+                }));
+            }
+            else {
+                if (enterCallbackArray &&
+                    // since enterCallbackArray is truthy, both record and name also are
+                    record.enterCallbacks[name] === enterCallbackArray &&
+                    typeof valid === 'function') {
+                    enterCallbackArray.push(valid);
+                }
+                resolve();
+            }
+        };
+        // wrapping with Promise.resolve allows it to work with both async and sync guards
+        const guardReturn = guard.call(record && record.instances[name], to, from, ( true) ? canOnlyBeCalledOnce(next, to, from) : 0);
+        let guardCall = Promise.resolve(guardReturn);
+        if (guard.length < 3)
+            guardCall = guardCall.then(next);
+        if (( true) && guard.length > 2) {
+            const message = `The "next" callback was never called inside of ${guard.name ? '"' + guard.name + '"' : ''}:\n${guard.toString()}\n. If you are returning a value instead of calling "next", make sure to remove the "next" parameter from your function.`;
+            if (typeof guardReturn === 'object' && 'then' in guardReturn) {
+                guardCall = guardCall.then(resolvedValue => {
+                    // @ts-expect-error: _called is added at canOnlyBeCalledOnce
+                    if (!next._called) {
+                        warn(message);
+                        return Promise.reject(new Error('Invalid navigation guard'));
+                    }
+                    return resolvedValue;
+                });
+            }
+            else if (guardReturn !== undefined) {
+                // @ts-expect-error: _called is added at canOnlyBeCalledOnce
+                if (!next._called) {
+                    warn(message);
+                    reject(new Error('Invalid navigation guard'));
+                    return;
+                }
+            }
+        }
+        guardCall.catch(err => reject(err));
+    });
+}
+function canOnlyBeCalledOnce(next, to, from) {
+    let called = 0;
+    return function () {
+        if (called++ === 1)
+            warn(`The "next" callback was called more than once in one navigation guard when going from "${from.fullPath}" to "${to.fullPath}". It should be called exactly one time in each navigation guard. This will fail in production.`);
+        // @ts-expect-error: we put it in the original one because it's easier to check
+        next._called = true;
+        if (called === 1)
+            next.apply(null, arguments);
+    };
+}
+function extractComponentsGuards(matched, guardType, to, from) {
+    const guards = [];
+    for (const record of matched) {
+        if (( true) && !record.components && !record.children.length) {
+            warn(`Record with path "${record.path}" is either missing a "component(s)"` +
+                ` or "children" property.`);
+        }
+        for (const name in record.components) {
+            let rawComponent = record.components[name];
+            if ((true)) {
+                if (!rawComponent ||
+                    (typeof rawComponent !== 'object' &&
+                        typeof rawComponent !== 'function')) {
+                    warn(`Component "${name}" in record with path "${record.path}" is not` +
+                        ` a valid component. Received "${String(rawComponent)}".`);
+                    // throw to ensure we stop here but warn to ensure the message isn't
+                    // missed by the user
+                    throw new Error('Invalid route component');
+                }
+                else if ('then' in rawComponent) {
+                    // warn if user wrote import('/component.vue') instead of () =>
+                    // import('./component.vue')
+                    warn(`Component "${name}" in record with path "${record.path}" is a ` +
+                        `Promise instead of a function that returns a Promise. Did you ` +
+                        `write "import('./MyPage.vue')" instead of ` +
+                        `"() => import('./MyPage.vue')" ? This will break in ` +
+                        `production if not fixed.`);
+                    const promise = rawComponent;
+                    rawComponent = () => promise;
+                }
+                else if (rawComponent.__asyncLoader &&
+                    // warn only once per component
+                    !rawComponent.__warnedDefineAsync) {
+                    rawComponent.__warnedDefineAsync = true;
+                    warn(`Component "${name}" in record with path "${record.path}" is defined ` +
+                        `using "defineAsyncComponent()". ` +
+                        `Write "() => import('./MyPage.vue')" instead of ` +
+                        `"defineAsyncComponent(() => import('./MyPage.vue'))".`);
+                }
+            }
+            // skip update and leave guards if the route component is not mounted
+            if (guardType !== 'beforeRouteEnter' && !record.instances[name])
+                continue;
+            if (isRouteComponent(rawComponent)) {
+                // __vccOpts is added by vue-class-component and contain the regular options
+                const options = rawComponent.__vccOpts || rawComponent;
+                const guard = options[guardType];
+                guard && guards.push(guardToPromiseFn(guard, to, from, record, name));
+            }
+            else {
+                // start requesting the chunk already
+                let componentPromise = rawComponent();
+                if (( true) && !('catch' in componentPromise)) {
+                    warn(`Component "${name}" in record with path "${record.path}" is a function that does not return a Promise. If you were passing a functional component, make sure to add a "displayName" to the component. This will break in production if not fixed.`);
+                    componentPromise = Promise.resolve(componentPromise);
+                }
+                guards.push(() => componentPromise.then(resolved => {
+                    if (!resolved)
+                        return Promise.reject(new Error(`Couldn't resolve component "${name}" at "${record.path}"`));
+                    const resolvedComponent = isESModule(resolved)
+                        ? resolved.default
+                        : resolved;
+                    // replace the function with the resolved component
+                    // cannot be null or undefined because we went into the for loop
+                    record.components[name] = resolvedComponent;
+                    // __vccOpts is added by vue-class-component and contain the regular options
+                    const options = resolvedComponent.__vccOpts || resolvedComponent;
+                    const guard = options[guardType];
+                    return guard && guardToPromiseFn(guard, to, from, record, name)();
+                }));
+            }
+        }
+    }
+    return guards;
+}
+/**
+ * Allows differentiating lazy components from functional components and vue-class-component
+ * @internal
+ *
+ * @param component
+ */
+function isRouteComponent(component) {
+    return (typeof component === 'object' ||
+        'displayName' in component ||
+        'props' in component ||
+        '__vccOpts' in component);
+}
+/**
+ * Ensures a route is loaded, so it can be passed as o prop to `<RouterView>`.
+ *
+ * @param route - resolved route to load
+ */
+function loadRouteLocation(route) {
+    return route.matched.every(record => record.redirect)
+        ? Promise.reject(new Error('Cannot load a route that redirects.'))
+        : Promise.all(route.matched.map(record => record.components &&
+            Promise.all(Object.keys(record.components).reduce((promises, name) => {
+                const rawComponent = record.components[name];
+                if (typeof rawComponent === 'function' &&
+                    !('displayName' in rawComponent)) {
+                    promises.push(rawComponent().then(resolved => {
+                        if (!resolved)
+                            return Promise.reject(new Error(`Couldn't resolve component "${name}" at "${record.path}". Ensure you passed a function that returns a promise.`));
+                        const resolvedComponent = isESModule(resolved)
+                            ? resolved.default
+                            : resolved;
+                        // replace the function with the resolved component
+                        // cannot be null or undefined because we went into the for loop
+                        record.components[name] = resolvedComponent;
+                        return;
+                    }));
+                }
+                return promises;
+            }, [])))).then(() => route);
+}
+
+// TODO: we could allow currentRoute as a prop to expose `isActive` and
+// `isExactActive` behavior should go through an RFC
+function useLink(props) {
+    const router = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)(routerKey);
+    const currentRoute = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)(routeLocationKey);
+    const route = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => router.resolve((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(props.to)));
+    const activeRecordIndex = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => {
+        const { matched } = route.value;
+        const { length } = matched;
+        const routeMatched = matched[length - 1];
+        const currentMatched = currentRoute.matched;
+        if (!routeMatched || !currentMatched.length)
+            return -1;
+        const index = currentMatched.findIndex(isSameRouteRecord.bind(null, routeMatched));
+        if (index > -1)
+            return index;
+        // possible parent record
+        const parentRecordPath = getOriginalPath(matched[length - 2]);
+        return (
+        // we are dealing with nested routes
+        length > 1 &&
+            // if the parent and matched route have the same path, this link is
+            // referring to the empty child. Or we currently are on a different
+            // child of the same parent
+            getOriginalPath(routeMatched) === parentRecordPath &&
+            // avoid comparing the child with its parent
+            currentMatched[currentMatched.length - 1].path !== parentRecordPath
+            ? currentMatched.findIndex(isSameRouteRecord.bind(null, matched[length - 2]))
+            : index);
+    });
+    const isActive = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => activeRecordIndex.value > -1 &&
+        includesParams(currentRoute.params, route.value.params));
+    const isExactActive = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => activeRecordIndex.value > -1 &&
+        activeRecordIndex.value === currentRoute.matched.length - 1 &&
+        isSameRouteLocationParams(currentRoute.params, route.value.params));
+    function navigate(e = {}) {
+        if (guardEvent(e)) {
+            return router[(0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(props.replace) ? 'replace' : 'push']((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(props.to)
+            // avoid uncaught errors are they are logged anyway
+            ).catch(noop);
+        }
+        return Promise.resolve();
+    }
+    // devtools only
+    if (( true) && isBrowser) {
+        const instance = (0,vue__WEBPACK_IMPORTED_MODULE_0__.getCurrentInstance)();
+        if (instance) {
+            const linkContextDevtools = {
+                route: route.value,
+                isActive: isActive.value,
+                isExactActive: isExactActive.value,
+            };
+            // @ts-expect-error: this is internal
+            instance.__vrl_devtools = instance.__vrl_devtools || [];
+            // @ts-expect-error: this is internal
+            instance.__vrl_devtools.push(linkContextDevtools);
+            (0,vue__WEBPACK_IMPORTED_MODULE_0__.watchEffect)(() => {
+                linkContextDevtools.route = route.value;
+                linkContextDevtools.isActive = isActive.value;
+                linkContextDevtools.isExactActive = isExactActive.value;
+            }, { flush: 'post' });
+        }
+    }
+    /**
+     * NOTE: update {@link _RouterLinkI}'s `$slots` type when updating this
+     */
+    return {
+        route,
+        href: (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => route.value.href),
+        isActive,
+        isExactActive,
+        navigate,
+    };
+}
+const RouterLinkImpl = /*#__PURE__*/ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
+    name: 'RouterLink',
+    compatConfig: { MODE: 3 },
+    props: {
+        to: {
+            type: [String, Object],
+            required: true,
+        },
+        replace: Boolean,
+        activeClass: String,
+        // inactiveClass: String,
+        exactActiveClass: String,
+        custom: Boolean,
+        ariaCurrentValue: {
+            type: String,
+            default: 'page',
+        },
+    },
+    useLink,
+    setup(props, { slots }) {
+        const link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)(useLink(props));
+        const { options } = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)(routerKey);
+        const elClass = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => ({
+            [getLinkClass(props.activeClass, options.linkActiveClass, 'router-link-active')]: link.isActive,
+            // [getLinkClass(
+            //   props.inactiveClass,
+            //   options.linkInactiveClass,
+            //   'router-link-inactive'
+            // )]: !link.isExactActive,
+            [getLinkClass(props.exactActiveClass, options.linkExactActiveClass, 'router-link-exact-active')]: link.isExactActive,
+        }));
+        return () => {
+            const children = slots.default && slots.default(link);
+            return props.custom
+                ? children
+                : (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)('a', {
+                    'aria-current': link.isExactActive
+                        ? props.ariaCurrentValue
+                        : null,
+                    href: link.href,
+                    // this would override user added attrs but Vue will still add
+                    // the listener, so we end up triggering both
+                    onClick: link.navigate,
+                    class: elClass.value,
+                }, children);
+        };
+    },
+});
+// export the public type for h/tsx inference
+// also to avoid inline import() in generated d.ts files
+/**
+ * Component to render a link that triggers a navigation on click.
+ */
+const RouterLink = RouterLinkImpl;
+function guardEvent(e) {
+    // don't redirect with control keys
+    if (e.metaKey || e.altKey || e.ctrlKey || e.shiftKey)
+        return;
+    // don't redirect when preventDefault called
+    if (e.defaultPrevented)
+        return;
+    // don't redirect on right click
+    if (e.button !== undefined && e.button !== 0)
+        return;
+    // don't redirect if `target="_blank"`
+    // @ts-expect-error getAttribute does exist
+    if (e.currentTarget && e.currentTarget.getAttribute) {
+        // @ts-expect-error getAttribute exists
+        const target = e.currentTarget.getAttribute('target');
+        if (/\b_blank\b/i.test(target))
+            return;
+    }
+    // this may be a Weex event which doesn't have this method
+    if (e.preventDefault)
+        e.preventDefault();
+    return true;
+}
+function includesParams(outer, inner) {
+    for (const key in inner) {
+        const innerValue = inner[key];
+        const outerValue = outer[key];
+        if (typeof innerValue === 'string') {
+            if (innerValue !== outerValue)
+                return false;
+        }
+        else {
+            if (!isArray(outerValue) ||
+                outerValue.length !== innerValue.length ||
+                innerValue.some((value, i) => value !== outerValue[i]))
+                return false;
+        }
+    }
+    return true;
+}
+/**
+ * Get the original path value of a record by following its aliasOf
+ * @param record
+ */
+function getOriginalPath(record) {
+    return record ? (record.aliasOf ? record.aliasOf.path : record.path) : '';
+}
+/**
+ * Utility class to get the active class based on defaults.
+ * @param propClass
+ * @param globalClass
+ * @param defaultClass
+ */
+const getLinkClass = (propClass, globalClass, defaultClass) => propClass != null
+    ? propClass
+    : globalClass != null
+        ? globalClass
+        : defaultClass;
+
+const RouterViewImpl = /*#__PURE__*/ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
+    name: 'RouterView',
+    // #674 we manually inherit them
+    inheritAttrs: false,
+    props: {
+        name: {
+            type: String,
+            default: 'default',
+        },
+        route: Object,
+    },
+    // Better compat for @vue/compat users
+    // https://github.com/vuejs/router/issues/1315
+    compatConfig: { MODE: 3 },
+    setup(props, { attrs, slots }) {
+        ( true) && warnDeprecatedUsage();
+        const injectedRoute = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)(routerViewLocationKey);
+        const routeToDisplay = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => props.route || injectedRoute.value);
+        const injectedDepth = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)(viewDepthKey, 0);
+        // The depth changes based on empty components option, which allows passthrough routes e.g. routes with children
+        // that are used to reuse the `path` property
+        const depth = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => {
+            let initialDepth = (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(injectedDepth);
+            const { matched } = routeToDisplay.value;
+            let matchedRoute;
+            while ((matchedRoute = matched[initialDepth]) &&
+                !matchedRoute.components) {
+                initialDepth++;
+            }
+            return initialDepth;
+        });
+        const matchedRouteRef = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => routeToDisplay.value.matched[depth.value]);
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.provide)(viewDepthKey, (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => depth.value + 1));
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.provide)(matchedRouteKey, matchedRouteRef);
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.provide)(routerViewLocationKey, routeToDisplay);
+        const viewRef = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)();
+        // watch at the same time the component instance, the route record we are
+        // rendering, and the name
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.watch)(() => [viewRef.value, matchedRouteRef.value, props.name], ([instance, to, name], [oldInstance, from, oldName]) => {
+            // copy reused instances
+            if (to) {
+                // this will update the instance for new instances as well as reused
+                // instances when navigating to a new route
+                to.instances[name] = instance;
+                // the component instance is reused for a different route or name, so
+                // we copy any saved update or leave guards. With async setup, the
+                // mounting component will mount before the matchedRoute changes,
+                // making instance === oldInstance, so we check if guards have been
+                // added before. This works because we remove guards when
+                // unmounting/deactivating components
+                if (from && from !== to && instance && instance === oldInstance) {
+                    if (!to.leaveGuards.size) {
+                        to.leaveGuards = from.leaveGuards;
+                    }
+                    if (!to.updateGuards.size) {
+                        to.updateGuards = from.updateGuards;
+                    }
+                }
+            }
+            // trigger beforeRouteEnter next callbacks
+            if (instance &&
+                to &&
+                // if there is no instance but to and from are the same this might be
+                // the first visit
+                (!from || !isSameRouteRecord(to, from) || !oldInstance)) {
+                (to.enterCallbacks[name] || []).forEach(callback => callback(instance));
+            }
+        }, { flush: 'post' });
+        return () => {
+            const route = routeToDisplay.value;
+            // we need the value at the time we render because when we unmount, we
+            // navigated to a different location so the value is different
+            const currentName = props.name;
+            const matchedRoute = matchedRouteRef.value;
+            const ViewComponent = matchedRoute && matchedRoute.components[currentName];
+            if (!ViewComponent) {
+                return normalizeSlot(slots.default, { Component: ViewComponent, route });
+            }
+            // props from route configuration
+            const routePropsOption = matchedRoute.props[currentName];
+            const routeProps = routePropsOption
+                ? routePropsOption === true
+                    ? route.params
+                    : typeof routePropsOption === 'function'
+                        ? routePropsOption(route)
+                        : routePropsOption
+                : null;
+            const onVnodeUnmounted = vnode => {
+                // remove the instance reference to prevent leak
+                if (vnode.component.isUnmounted) {
+                    matchedRoute.instances[currentName] = null;
+                }
+            };
+            const component = (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(ViewComponent, assign({}, routeProps, attrs, {
+                onVnodeUnmounted,
+                ref: viewRef,
+            }));
+            if (( true) &&
+                isBrowser &&
+                component.ref) {
+                // TODO: can display if it's an alias, its props
+                const info = {
+                    depth: depth.value,
+                    name: matchedRoute.name,
+                    path: matchedRoute.path,
+                    meta: matchedRoute.meta,
+                };
+                const internalInstances = isArray(component.ref)
+                    ? component.ref.map(r => r.i)
+                    : [component.ref.i];
+                internalInstances.forEach(instance => {
+                    // @ts-expect-error
+                    instance.__vrv_devtools = info;
+                });
+            }
+            return (
+            // pass the vnode to the slot as a prop.
+            // h and <component :is="..."> both accept vnodes
+            normalizeSlot(slots.default, { Component: component, route }) ||
+                component);
+        };
+    },
+});
+function normalizeSlot(slot, data) {
+    if (!slot)
+        return null;
+    const slotContent = slot(data);
+    return slotContent.length === 1 ? slotContent[0] : slotContent;
+}
+// export the public type for h/tsx inference
+// also to avoid inline import() in generated d.ts files
+/**
+ * Component to display the current route the user is at.
+ */
+const RouterView = RouterViewImpl;
+// warn against deprecated usage with <transition> & <keep-alive>
+// due to functional component being no longer eager in Vue 3
+function warnDeprecatedUsage() {
+    const instance = (0,vue__WEBPACK_IMPORTED_MODULE_0__.getCurrentInstance)();
+    const parentName = instance.parent && instance.parent.type.name;
+    if (parentName &&
+        (parentName === 'KeepAlive' || parentName.includes('Transition'))) {
+        const comp = parentName === 'KeepAlive' ? 'keep-alive' : 'transition';
+        warn(`<router-view> can no longer be used directly inside <transition> or <keep-alive>.\n` +
+            `Use slot props instead:\n\n` +
+            `<router-view v-slot="{ Component }">\n` +
+            `  <${comp}>\n` +
+            `    <component :is="Component" />\n` +
+            `  </${comp}>\n` +
+            `</router-view>`);
+    }
+}
+
+/**
+ * Copies a route location and removes any problematic properties that cannot be shown in devtools (e.g. Vue instances).
+ *
+ * @param routeLocation - routeLocation to format
+ * @param tooltip - optional tooltip
+ * @returns a copy of the routeLocation
+ */
+function formatRouteLocation(routeLocation, tooltip) {
+    const copy = assign({}, routeLocation, {
+        // remove variables that can contain vue instances
+        matched: routeLocation.matched.map(matched => omit(matched, ['instances', 'children', 'aliasOf'])),
+    });
+    return {
+        _custom: {
+            type: null,
+            readOnly: true,
+            display: routeLocation.fullPath,
+            tooltip,
+            value: copy,
+        },
+    };
+}
+function formatDisplay(display) {
+    return {
+        _custom: {
+            display,
+        },
+    };
+}
+// to support multiple router instances
+let routerId = 0;
+function addDevtools(app, router, matcher) {
+    // Take over router.beforeEach and afterEach
+    // make sure we are not registering the devtool twice
+    if (router.__hasDevtools)
+        return;
+    router.__hasDevtools = true;
+    // increment to support multiple router instances
+    const id = routerId++;
+    (0,_vue_devtools_api__WEBPACK_IMPORTED_MODULE_1__.setupDevtoolsPlugin)({
+        id: 'org.vuejs.router' + (id ? '.' + id : ''),
+        label: 'Vue Router',
+        packageName: 'vue-router',
+        homepage: 'https://router.vuejs.org',
+        logo: 'https://router.vuejs.org/logo.png',
+        componentStateTypes: ['Routing'],
+        app,
+    }, api => {
+        if (typeof api.now !== 'function') {
+            console.warn('[Vue Router]: You seem to be using an outdated version of Vue Devtools. Are you still using the Beta release instead of the stable one? You can find the links at https://devtools.vuejs.org/guide/installation.html.');
+        }
+        // display state added by the router
+        api.on.inspectComponent((payload, ctx) => {
+            if (payload.instanceData) {
+                payload.instanceData.state.push({
+                    type: 'Routing',
+                    key: '$route',
+                    editable: false,
+                    value: formatRouteLocation(router.currentRoute.value, 'Current Route'),
+                });
+            }
+        });
+        // mark router-link as active and display tags on router views
+        api.on.visitComponentTree(({ treeNode: node, componentInstance }) => {
+            if (componentInstance.__vrv_devtools) {
+                const info = componentInstance.__vrv_devtools;
+                node.tags.push({
+                    label: (info.name ? `${info.name.toString()}: ` : '') + info.path,
+                    textColor: 0,
+                    tooltip: 'This component is rendered by &lt;router-view&gt;',
+                    backgroundColor: PINK_500,
+                });
+            }
+            // if multiple useLink are used
+            if (isArray(componentInstance.__vrl_devtools)) {
+                componentInstance.__devtoolsApi = api;
+                componentInstance.__vrl_devtools.forEach(devtoolsData => {
+                    let backgroundColor = ORANGE_400;
+                    let tooltip = '';
+                    if (devtoolsData.isExactActive) {
+                        backgroundColor = LIME_500;
+                        tooltip = 'This is exactly active';
+                    }
+                    else if (devtoolsData.isActive) {
+                        backgroundColor = BLUE_600;
+                        tooltip = 'This link is active';
+                    }
+                    node.tags.push({
+                        label: devtoolsData.route.path,
+                        textColor: 0,
+                        tooltip,
+                        backgroundColor,
+                    });
+                });
+            }
+        });
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.watch)(router.currentRoute, () => {
+            // refresh active state
+            refreshRoutesView();
+            api.notifyComponentUpdate();
+            api.sendInspectorTree(routerInspectorId);
+            api.sendInspectorState(routerInspectorId);
+        });
+        const navigationsLayerId = 'router:navigations:' + id;
+        api.addTimelineLayer({
+            id: navigationsLayerId,
+            label: `Router${id ? ' ' + id : ''} Navigations`,
+            color: 0x40a8c4,
+        });
+        // const errorsLayerId = 'router:errors'
+        // api.addTimelineLayer({
+        //   id: errorsLayerId,
+        //   label: 'Router Errors',
+        //   color: 0xea5455,
+        // })
+        router.onError((error, to) => {
+            api.addTimelineEvent({
+                layerId: navigationsLayerId,
+                event: {
+                    title: 'Error during Navigation',
+                    subtitle: to.fullPath,
+                    logType: 'error',
+                    time: api.now(),
+                    data: { error },
+                    groupId: to.meta.__navigationId,
+                },
+            });
+        });
+        // attached to `meta` and used to group events
+        let navigationId = 0;
+        router.beforeEach((to, from) => {
+            const data = {
+                guard: formatDisplay('beforeEach'),
+                from: formatRouteLocation(from, 'Current Location during this navigation'),
+                to: formatRouteLocation(to, 'Target location'),
+            };
+            // Used to group navigations together, hide from devtools
+            Object.defineProperty(to.meta, '__navigationId', {
+                value: navigationId++,
+            });
+            api.addTimelineEvent({
+                layerId: navigationsLayerId,
+                event: {
+                    time: api.now(),
+                    title: 'Start of navigation',
+                    subtitle: to.fullPath,
+                    data,
+                    groupId: to.meta.__navigationId,
+                },
+            });
+        });
+        router.afterEach((to, from, failure) => {
+            const data = {
+                guard: formatDisplay('afterEach'),
+            };
+            if (failure) {
+                data.failure = {
+                    _custom: {
+                        type: Error,
+                        readOnly: true,
+                        display: failure ? failure.message : '',
+                        tooltip: 'Navigation Failure',
+                        value: failure,
+                    },
+                };
+                data.status = formatDisplay('❌');
+            }
+            else {
+                data.status = formatDisplay('✅');
+            }
+            // we set here to have the right order
+            data.from = formatRouteLocation(from, 'Current Location during this navigation');
+            data.to = formatRouteLocation(to, 'Target location');
+            api.addTimelineEvent({
+                layerId: navigationsLayerId,
+                event: {
+                    title: 'End of navigation',
+                    subtitle: to.fullPath,
+                    time: api.now(),
+                    data,
+                    logType: failure ? 'warning' : 'default',
+                    groupId: to.meta.__navigationId,
+                },
+            });
+        });
+        /**
+         * Inspector of Existing routes
+         */
+        const routerInspectorId = 'router-inspector:' + id;
+        api.addInspector({
+            id: routerInspectorId,
+            label: 'Routes' + (id ? ' ' + id : ''),
+            icon: 'book',
+            treeFilterPlaceholder: 'Search routes',
+        });
+        function refreshRoutesView() {
+            // the routes view isn't active
+            if (!activeRoutesPayload)
+                return;
+            const payload = activeRoutesPayload;
+            // children routes will appear as nested
+            let routes = matcher.getRoutes().filter(route => !route.parent);
+            // reset match state to false
+            routes.forEach(resetMatchStateOnRouteRecord);
+            // apply a match state if there is a payload
+            if (payload.filter) {
+                routes = routes.filter(route => 
+                // save matches state based on the payload
+                isRouteMatching(route, payload.filter.toLowerCase()));
+            }
+            // mark active routes
+            routes.forEach(route => markRouteRecordActive(route, router.currentRoute.value));
+            payload.rootNodes = routes.map(formatRouteRecordForInspector);
+        }
+        let activeRoutesPayload;
+        api.on.getInspectorTree(payload => {
+            activeRoutesPayload = payload;
+            if (payload.app === app && payload.inspectorId === routerInspectorId) {
+                refreshRoutesView();
+            }
+        });
+        /**
+         * Display information about the currently selected route record
+         */
+        api.on.getInspectorState(payload => {
+            if (payload.app === app && payload.inspectorId === routerInspectorId) {
+                const routes = matcher.getRoutes();
+                const route = routes.find(route => route.record.__vd_id === payload.nodeId);
+                if (route) {
+                    payload.state = {
+                        options: formatRouteRecordMatcherForStateInspector(route),
+                    };
+                }
+            }
+        });
+        api.sendInspectorTree(routerInspectorId);
+        api.sendInspectorState(routerInspectorId);
+    });
+}
+function modifierForKey(key) {
+    if (key.optional) {
+        return key.repeatable ? '*' : '?';
+    }
+    else {
+        return key.repeatable ? '+' : '';
+    }
+}
+function formatRouteRecordMatcherForStateInspector(route) {
+    const { record } = route;
+    const fields = [
+        { editable: false, key: 'path', value: record.path },
+    ];
+    if (record.name != null) {
+        fields.push({
+            editable: false,
+            key: 'name',
+            value: record.name,
+        });
+    }
+    fields.push({ editable: false, key: 'regexp', value: route.re });
+    if (route.keys.length) {
+        fields.push({
+            editable: false,
+            key: 'keys',
+            value: {
+                _custom: {
+                    type: null,
+                    readOnly: true,
+                    display: route.keys
+                        .map(key => `${key.name}${modifierForKey(key)}`)
+                        .join(' '),
+                    tooltip: 'Param keys',
+                    value: route.keys,
+                },
+            },
+        });
+    }
+    if (record.redirect != null) {
+        fields.push({
+            editable: false,
+            key: 'redirect',
+            value: record.redirect,
+        });
+    }
+    if (route.alias.length) {
+        fields.push({
+            editable: false,
+            key: 'aliases',
+            value: route.alias.map(alias => alias.record.path),
+        });
+    }
+    if (Object.keys(route.record.meta).length) {
+        fields.push({
+            editable: false,
+            key: 'meta',
+            value: route.record.meta,
+        });
+    }
+    fields.push({
+        key: 'score',
+        editable: false,
+        value: {
+            _custom: {
+                type: null,
+                readOnly: true,
+                display: route.score.map(score => score.join(', ')).join(' | '),
+                tooltip: 'Score used to sort routes',
+                value: route.score,
+            },
+        },
+    });
+    return fields;
+}
+/**
+ * Extracted from tailwind palette
+ */
+const PINK_500 = 0xec4899;
+const BLUE_600 = 0x2563eb;
+const LIME_500 = 0x84cc16;
+const CYAN_400 = 0x22d3ee;
+const ORANGE_400 = 0xfb923c;
+// const GRAY_100 = 0xf4f4f5
+const DARK = 0x666666;
+function formatRouteRecordForInspector(route) {
+    const tags = [];
+    const { record } = route;
+    if (record.name != null) {
+        tags.push({
+            label: String(record.name),
+            textColor: 0,
+            backgroundColor: CYAN_400,
+        });
+    }
+    if (record.aliasOf) {
+        tags.push({
+            label: 'alias',
+            textColor: 0,
+            backgroundColor: ORANGE_400,
+        });
+    }
+    if (route.__vd_match) {
+        tags.push({
+            label: 'matches',
+            textColor: 0,
+            backgroundColor: PINK_500,
+        });
+    }
+    if (route.__vd_exactActive) {
+        tags.push({
+            label: 'exact',
+            textColor: 0,
+            backgroundColor: LIME_500,
+        });
+    }
+    if (route.__vd_active) {
+        tags.push({
+            label: 'active',
+            textColor: 0,
+            backgroundColor: BLUE_600,
+        });
+    }
+    if (record.redirect) {
+        tags.push({
+            label: typeof record.redirect === 'string'
+                ? `redirect: ${record.redirect}`
+                : 'redirects',
+            textColor: 0xffffff,
+            backgroundColor: DARK,
+        });
+    }
+    // add an id to be able to select it. Using the `path` is not possible because
+    // empty path children would collide with their parents
+    let id = record.__vd_id;
+    if (id == null) {
+        id = String(routeRecordId++);
+        record.__vd_id = id;
+    }
+    return {
+        id,
+        label: record.path,
+        tags,
+        children: route.children.map(formatRouteRecordForInspector),
+    };
+}
+//  incremental id for route records and inspector state
+let routeRecordId = 0;
+const EXTRACT_REGEXP_RE = /^\/(.*)\/([a-z]*)$/;
+function markRouteRecordActive(route, currentRoute) {
+    // no route will be active if matched is empty
+    // reset the matching state
+    const isExactActive = currentRoute.matched.length &&
+        isSameRouteRecord(currentRoute.matched[currentRoute.matched.length - 1], route.record);
+    route.__vd_exactActive = route.__vd_active = isExactActive;
+    if (!isExactActive) {
+        route.__vd_active = currentRoute.matched.some(match => isSameRouteRecord(match, route.record));
+    }
+    route.children.forEach(childRoute => markRouteRecordActive(childRoute, currentRoute));
+}
+function resetMatchStateOnRouteRecord(route) {
+    route.__vd_match = false;
+    route.children.forEach(resetMatchStateOnRouteRecord);
+}
+function isRouteMatching(route, filter) {
+    const found = String(route.re).match(EXTRACT_REGEXP_RE);
+    route.__vd_match = false;
+    if (!found || found.length < 3) {
+        return false;
+    }
+    // use a regexp without $ at the end to match nested routes better
+    const nonEndingRE = new RegExp(found[1].replace(/\$$/, ''), found[2]);
+    if (nonEndingRE.test(filter)) {
+        // mark children as matches
+        route.children.forEach(child => isRouteMatching(child, filter));
+        // exception case: `/`
+        if (route.record.path !== '/' || filter === '/') {
+            route.__vd_match = route.re.test(filter);
+            return true;
+        }
+        // hide the / route
+        return false;
+    }
+    const path = route.record.path.toLowerCase();
+    const decodedPath = decode(path);
+    // also allow partial matching on the path
+    if (!filter.startsWith('/') &&
+        (decodedPath.includes(filter) || path.includes(filter)))
+        return true;
+    if (decodedPath.startsWith(filter) || path.startsWith(filter))
+        return true;
+    if (route.record.name && String(route.record.name).includes(filter))
+        return true;
+    return route.children.some(child => isRouteMatching(child, filter));
+}
+function omit(obj, keys) {
+    const ret = {};
+    for (const key in obj) {
+        if (!keys.includes(key)) {
+            // @ts-expect-error
+            ret[key] = obj[key];
+        }
+    }
+    return ret;
+}
+
+/**
+ * Creates a Router instance that can be used by a Vue app.
+ *
+ * @param options - {@link RouterOptions}
+ */
+function createRouter(options) {
+    const matcher = createRouterMatcher(options.routes, options);
+    const parseQuery$1 = options.parseQuery || parseQuery;
+    const stringifyQuery$1 = options.stringifyQuery || stringifyQuery;
+    const routerHistory = options.history;
+    if (( true) && !routerHistory)
+        throw new Error('Provide the "history" option when calling "createRouter()":' +
+            ' https://next.router.vuejs.org/api/#history.');
+    const beforeGuards = useCallbacks();
+    const beforeResolveGuards = useCallbacks();
+    const afterGuards = useCallbacks();
+    const currentRoute = (0,vue__WEBPACK_IMPORTED_MODULE_0__.shallowRef)(START_LOCATION_NORMALIZED);
+    let pendingLocation = START_LOCATION_NORMALIZED;
+    // leave the scrollRestoration if no scrollBehavior is provided
+    if (isBrowser && options.scrollBehavior && 'scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+    const normalizeParams = applyToParams.bind(null, paramValue => '' + paramValue);
+    const encodeParams = applyToParams.bind(null, encodeParam);
+    const decodeParams = 
+    // @ts-expect-error: intentionally avoid the type check
+    applyToParams.bind(null, decode);
+    function addRoute(parentOrRoute, route) {
+        let parent;
+        let record;
+        if (isRouteName(parentOrRoute)) {
+            parent = matcher.getRecordMatcher(parentOrRoute);
+            record = route;
+        }
+        else {
+            record = parentOrRoute;
+        }
+        return matcher.addRoute(record, parent);
+    }
+    function removeRoute(name) {
+        const recordMatcher = matcher.getRecordMatcher(name);
+        if (recordMatcher) {
+            matcher.removeRoute(recordMatcher);
+        }
+        else if ((true)) {
+            warn(`Cannot remove non-existent route "${String(name)}"`);
+        }
+    }
+    function getRoutes() {
+        return matcher.getRoutes().map(routeMatcher => routeMatcher.record);
+    }
+    function hasRoute(name) {
+        return !!matcher.getRecordMatcher(name);
+    }
+    function resolve(rawLocation, currentLocation) {
+        // const objectLocation = routerLocationAsObject(rawLocation)
+        // we create a copy to modify it later
+        currentLocation = assign({}, currentLocation || currentRoute.value);
+        if (typeof rawLocation === 'string') {
+            const locationNormalized = parseURL(parseQuery$1, rawLocation, currentLocation.path);
+            const matchedRoute = matcher.resolve({ path: locationNormalized.path }, currentLocation);
+            const href = routerHistory.createHref(locationNormalized.fullPath);
+            if ((true)) {
+                if (href.startsWith('//'))
+                    warn(`Location "${rawLocation}" resolved to "${href}". A resolved location cannot start with multiple slashes.`);
+                else if (!matchedRoute.matched.length) {
+                    warn(`No match found for location with path "${rawLocation}"`);
+                }
+            }
+            // locationNormalized is always a new object
+            return assign(locationNormalized, matchedRoute, {
+                params: decodeParams(matchedRoute.params),
+                hash: decode(locationNormalized.hash),
+                redirectedFrom: undefined,
+                href,
+            });
+        }
+        let matcherLocation;
+        // path could be relative in object as well
+        if ('path' in rawLocation) {
+            if (( true) &&
+                'params' in rawLocation &&
+                !('name' in rawLocation) &&
+                // @ts-expect-error: the type is never
+                Object.keys(rawLocation.params).length) {
+                warn(`Path "${
+                // @ts-expect-error: the type is never
+                rawLocation.path}" was passed with params but they will be ignored. Use a named route alongside params instead.`);
+            }
+            matcherLocation = assign({}, rawLocation, {
+                path: parseURL(parseQuery$1, rawLocation.path, currentLocation.path).path,
+            });
+        }
+        else {
+            // remove any nullish param
+            const targetParams = assign({}, rawLocation.params);
+            for (const key in targetParams) {
+                if (targetParams[key] == null) {
+                    delete targetParams[key];
+                }
+            }
+            // pass encoded values to the matcher, so it can produce encoded path and fullPath
+            matcherLocation = assign({}, rawLocation, {
+                params: encodeParams(rawLocation.params),
+            });
+            // current location params are decoded, we need to encode them in case the
+            // matcher merges the params
+            currentLocation.params = encodeParams(currentLocation.params);
+        }
+        const matchedRoute = matcher.resolve(matcherLocation, currentLocation);
+        const hash = rawLocation.hash || '';
+        if (( true) && hash && !hash.startsWith('#')) {
+            warn(`A \`hash\` should always start with the character "#". Replace "${hash}" with "#${hash}".`);
+        }
+        // the matcher might have merged current location params, so
+        // we need to run the decoding again
+        matchedRoute.params = normalizeParams(decodeParams(matchedRoute.params));
+        const fullPath = stringifyURL(stringifyQuery$1, assign({}, rawLocation, {
+            hash: encodeHash(hash),
+            path: matchedRoute.path,
+        }));
+        const href = routerHistory.createHref(fullPath);
+        if ((true)) {
+            if (href.startsWith('//')) {
+                warn(`Location "${rawLocation}" resolved to "${href}". A resolved location cannot start with multiple slashes.`);
+            }
+            else if (!matchedRoute.matched.length) {
+                warn(`No match found for location with path "${'path' in rawLocation ? rawLocation.path : rawLocation}"`);
+            }
+        }
+        return assign({
+            fullPath,
+            // keep the hash encoded so fullPath is effectively path + encodedQuery +
+            // hash
+            hash,
+            query: 
+            // if the user is using a custom query lib like qs, we might have
+            // nested objects, so we keep the query as is, meaning it can contain
+            // numbers at `$route.query`, but at the point, the user will have to
+            // use their own type anyway.
+            // https://github.com/vuejs/router/issues/328#issuecomment-649481567
+            stringifyQuery$1 === stringifyQuery
+                ? normalizeQuery(rawLocation.query)
+                : (rawLocation.query || {}),
+        }, matchedRoute, {
+            redirectedFrom: undefined,
+            href,
+        });
+    }
+    function locationAsObject(to) {
+        return typeof to === 'string'
+            ? parseURL(parseQuery$1, to, currentRoute.value.path)
+            : assign({}, to);
+    }
+    function checkCanceledNavigation(to, from) {
+        if (pendingLocation !== to) {
+            return createRouterError(8 /* ErrorTypes.NAVIGATION_CANCELLED */, {
+                from,
+                to,
+            });
+        }
+    }
+    function push(to) {
+        return pushWithRedirect(to);
+    }
+    function replace(to) {
+        return push(assign(locationAsObject(to), { replace: true }));
+    }
+    function handleRedirectRecord(to) {
+        const lastMatched = to.matched[to.matched.length - 1];
+        if (lastMatched && lastMatched.redirect) {
+            const { redirect } = lastMatched;
+            let newTargetLocation = typeof redirect === 'function' ? redirect(to) : redirect;
+            if (typeof newTargetLocation === 'string') {
+                newTargetLocation =
+                    newTargetLocation.includes('?') || newTargetLocation.includes('#')
+                        ? (newTargetLocation = locationAsObject(newTargetLocation))
+                        : // force empty params
+                            { path: newTargetLocation };
+                // @ts-expect-error: force empty params when a string is passed to let
+                // the router parse them again
+                newTargetLocation.params = {};
+            }
+            if (( true) &&
+                !('path' in newTargetLocation) &&
+                !('name' in newTargetLocation)) {
+                warn(`Invalid redirect found:\n${JSON.stringify(newTargetLocation, null, 2)}\n when navigating to "${to.fullPath}". A redirect must contain a name or path. This will break in production.`);
+                throw new Error('Invalid redirect');
+            }
+            return assign({
+                query: to.query,
+                hash: to.hash,
+                // avoid transferring params if the redirect has a path
+                params: 'path' in newTargetLocation ? {} : to.params,
+            }, newTargetLocation);
+        }
+    }
+    function pushWithRedirect(to, redirectedFrom) {
+        const targetLocation = (pendingLocation = resolve(to));
+        const from = currentRoute.value;
+        const data = to.state;
+        const force = to.force;
+        // to could be a string where `replace` is a function
+        const replace = to.replace === true;
+        const shouldRedirect = handleRedirectRecord(targetLocation);
+        if (shouldRedirect)
+            return pushWithRedirect(assign(locationAsObject(shouldRedirect), {
+                state: typeof shouldRedirect === 'object'
+                    ? assign({}, data, shouldRedirect.state)
+                    : data,
+                force,
+                replace,
+            }), 
+            // keep original redirectedFrom if it exists
+            redirectedFrom || targetLocation);
+        // if it was a redirect we already called `pushWithRedirect` above
+        const toLocation = targetLocation;
+        toLocation.redirectedFrom = redirectedFrom;
+        let failure;
+        if (!force && isSameRouteLocation(stringifyQuery$1, from, targetLocation)) {
+            failure = createRouterError(16 /* ErrorTypes.NAVIGATION_DUPLICATED */, { to: toLocation, from });
+            // trigger scroll to allow scrolling to the same anchor
+            handleScroll(from, from, 
+            // this is a push, the only way for it to be triggered from a
+            // history.listen is with a redirect, which makes it become a push
+            true, 
+            // This cannot be the first navigation because the initial location
+            // cannot be manually navigated to
+            false);
+        }
+        return (failure ? Promise.resolve(failure) : navigate(toLocation, from))
+            .catch((error) => isNavigationFailure(error)
+            ? // navigation redirects still mark the router as ready
+                isNavigationFailure(error, 2 /* ErrorTypes.NAVIGATION_GUARD_REDIRECT */)
+                    ? error
+                    : markAsReady(error) // also returns the error
+            : // reject any unknown error
+                triggerError(error, toLocation, from))
+            .then((failure) => {
+            if (failure) {
+                if (isNavigationFailure(failure, 2 /* ErrorTypes.NAVIGATION_GUARD_REDIRECT */)) {
+                    if (( true) &&
+                        // we are redirecting to the same location we were already at
+                        isSameRouteLocation(stringifyQuery$1, resolve(failure.to), toLocation) &&
+                        // and we have done it a couple of times
+                        redirectedFrom &&
+                        // @ts-expect-error: added only in dev
+                        (redirectedFrom._count = redirectedFrom._count
+                            ? // @ts-expect-error
+                                redirectedFrom._count + 1
+                            : 1) > 10) {
+                        warn(`Detected an infinite redirection in a navigation guard when going from "${from.fullPath}" to "${toLocation.fullPath}". Aborting to avoid a Stack Overflow. This will break in production if not fixed.`);
+                        return Promise.reject(new Error('Infinite redirect in navigation guard'));
+                    }
+                    return pushWithRedirect(
+                    // keep options
+                    assign({
+                        // preserve an existing replacement but allow the redirect to override it
+                        replace,
+                    }, locationAsObject(failure.to), {
+                        state: typeof failure.to === 'object'
+                            ? assign({}, data, failure.to.state)
+                            : data,
+                        force,
+                    }), 
+                    // preserve the original redirectedFrom if any
+                    redirectedFrom || toLocation);
+                }
+            }
+            else {
+                // if we fail we don't finalize the navigation
+                failure = finalizeNavigation(toLocation, from, true, replace, data);
+            }
+            triggerAfterEach(toLocation, from, failure);
+            return failure;
+        });
+    }
+    /**
+     * Helper to reject and skip all navigation guards if a new navigation happened
+     * @param to
+     * @param from
+     */
+    function checkCanceledNavigationAndReject(to, from) {
+        const error = checkCanceledNavigation(to, from);
+        return error ? Promise.reject(error) : Promise.resolve();
+    }
+    // TODO: refactor the whole before guards by internally using router.beforeEach
+    function navigate(to, from) {
+        let guards;
+        const [leavingRecords, updatingRecords, enteringRecords] = extractChangingRecords(to, from);
+        // all components here have been resolved once because we are leaving
+        guards = extractComponentsGuards(leavingRecords.reverse(), 'beforeRouteLeave', to, from);
+        // leavingRecords is already reversed
+        for (const record of leavingRecords) {
+            record.leaveGuards.forEach(guard => {
+                guards.push(guardToPromiseFn(guard, to, from));
+            });
+        }
+        const canceledNavigationCheck = checkCanceledNavigationAndReject.bind(null, to, from);
+        guards.push(canceledNavigationCheck);
+        // run the queue of per route beforeRouteLeave guards
+        return (runGuardQueue(guards)
+            .then(() => {
+            // check global guards beforeEach
+            guards = [];
+            for (const guard of beforeGuards.list()) {
+                guards.push(guardToPromiseFn(guard, to, from));
+            }
+            guards.push(canceledNavigationCheck);
+            return runGuardQueue(guards);
+        })
+            .then(() => {
+            // check in components beforeRouteUpdate
+            guards = extractComponentsGuards(updatingRecords, 'beforeRouteUpdate', to, from);
+            for (const record of updatingRecords) {
+                record.updateGuards.forEach(guard => {
+                    guards.push(guardToPromiseFn(guard, to, from));
+                });
+            }
+            guards.push(canceledNavigationCheck);
+            // run the queue of per route beforeEnter guards
+            return runGuardQueue(guards);
+        })
+            .then(() => {
+            // check the route beforeEnter
+            guards = [];
+            for (const record of to.matched) {
+                // do not trigger beforeEnter on reused views
+                if (record.beforeEnter && !from.matched.includes(record)) {
+                    if (isArray(record.beforeEnter)) {
+                        for (const beforeEnter of record.beforeEnter)
+                            guards.push(guardToPromiseFn(beforeEnter, to, from));
+                    }
+                    else {
+                        guards.push(guardToPromiseFn(record.beforeEnter, to, from));
+                    }
+                }
+            }
+            guards.push(canceledNavigationCheck);
+            // run the queue of per route beforeEnter guards
+            return runGuardQueue(guards);
+        })
+            .then(() => {
+            // NOTE: at this point to.matched is normalized and does not contain any () => Promise<Component>
+            // clear existing enterCallbacks, these are added by extractComponentsGuards
+            to.matched.forEach(record => (record.enterCallbacks = {}));
+            // check in-component beforeRouteEnter
+            guards = extractComponentsGuards(enteringRecords, 'beforeRouteEnter', to, from);
+            guards.push(canceledNavigationCheck);
+            // run the queue of per route beforeEnter guards
+            return runGuardQueue(guards);
+        })
+            .then(() => {
+            // check global guards beforeResolve
+            guards = [];
+            for (const guard of beforeResolveGuards.list()) {
+                guards.push(guardToPromiseFn(guard, to, from));
+            }
+            guards.push(canceledNavigationCheck);
+            return runGuardQueue(guards);
+        })
+            // catch any navigation canceled
+            .catch(err => isNavigationFailure(err, 8 /* ErrorTypes.NAVIGATION_CANCELLED */)
+            ? err
+            : Promise.reject(err)));
+    }
+    function triggerAfterEach(to, from, failure) {
+        // navigation is confirmed, call afterGuards
+        // TODO: wrap with error handlers
+        for (const guard of afterGuards.list())
+            guard(to, from, failure);
+    }
+    /**
+     * - Cleans up any navigation guards
+     * - Changes the url if necessary
+     * - Calls the scrollBehavior
+     */
+    function finalizeNavigation(toLocation, from, isPush, replace, data) {
+        // a more recent navigation took place
+        const error = checkCanceledNavigation(toLocation, from);
+        if (error)
+            return error;
+        // only consider as push if it's not the first navigation
+        const isFirstNavigation = from === START_LOCATION_NORMALIZED;
+        const state = !isBrowser ? {} : history.state;
+        // change URL only if the user did a push/replace and if it's not the initial navigation because
+        // it's just reflecting the url
+        if (isPush) {
+            // on the initial navigation, we want to reuse the scroll position from
+            // history state if it exists
+            if (replace || isFirstNavigation)
+                routerHistory.replace(toLocation.fullPath, assign({
+                    scroll: isFirstNavigation && state && state.scroll,
+                }, data));
+            else
+                routerHistory.push(toLocation.fullPath, data);
+        }
+        // accept current navigation
+        currentRoute.value = toLocation;
+        handleScroll(toLocation, from, isPush, isFirstNavigation);
+        markAsReady();
+    }
+    let removeHistoryListener;
+    // attach listener to history to trigger navigations
+    function setupListeners() {
+        // avoid setting up listeners twice due to an invalid first navigation
+        if (removeHistoryListener)
+            return;
+        removeHistoryListener = routerHistory.listen((to, _from, info) => {
+            if (!router.listening)
+                return;
+            // cannot be a redirect route because it was in history
+            const toLocation = resolve(to);
+            // due to dynamic routing, and to hash history with manual navigation
+            // (manually changing the url or calling history.hash = '#/somewhere'),
+            // there could be a redirect record in history
+            const shouldRedirect = handleRedirectRecord(toLocation);
+            if (shouldRedirect) {
+                pushWithRedirect(assign(shouldRedirect, { replace: true }), toLocation).catch(noop);
+                return;
+            }
+            pendingLocation = toLocation;
+            const from = currentRoute.value;
+            // TODO: should be moved to web history?
+            if (isBrowser) {
+                saveScrollPosition(getScrollKey(from.fullPath, info.delta), computeScrollPosition());
+            }
+            navigate(toLocation, from)
+                .catch((error) => {
+                if (isNavigationFailure(error, 4 /* ErrorTypes.NAVIGATION_ABORTED */ | 8 /* ErrorTypes.NAVIGATION_CANCELLED */)) {
+                    return error;
+                }
+                if (isNavigationFailure(error, 2 /* ErrorTypes.NAVIGATION_GUARD_REDIRECT */)) {
+                    // Here we could call if (info.delta) routerHistory.go(-info.delta,
+                    // false) but this is bug prone as we have no way to wait the
+                    // navigation to be finished before calling pushWithRedirect. Using
+                    // a setTimeout of 16ms seems to work but there is no guarantee for
+                    // it to work on every browser. So instead we do not restore the
+                    // history entry and trigger a new navigation as requested by the
+                    // navigation guard.
+                    // the error is already handled by router.push we just want to avoid
+                    // logging the error
+                    pushWithRedirect(error.to, toLocation
+                    // avoid an uncaught rejection, let push call triggerError
+                    )
+                        .then(failure => {
+                        // manual change in hash history #916 ending up in the URL not
+                        // changing, but it was changed by the manual url change, so we
+                        // need to manually change it ourselves
+                        if (isNavigationFailure(failure, 4 /* ErrorTypes.NAVIGATION_ABORTED */ |
+                            16 /* ErrorTypes.NAVIGATION_DUPLICATED */) &&
+                            !info.delta &&
+                            info.type === NavigationType.pop) {
+                            routerHistory.go(-1, false);
+                        }
+                    })
+                        .catch(noop);
+                    // avoid the then branch
+                    return Promise.reject();
+                }
+                // do not restore history on unknown direction
+                if (info.delta) {
+                    routerHistory.go(-info.delta, false);
+                }
+                // unrecognized error, transfer to the global handler
+                return triggerError(error, toLocation, from);
+            })
+                .then((failure) => {
+                failure =
+                    failure ||
+                        finalizeNavigation(
+                        // after navigation, all matched components are resolved
+                        toLocation, from, false);
+                // revert the navigation
+                if (failure) {
+                    if (info.delta &&
+                        // a new navigation has been triggered, so we do not want to revert, that will change the current history
+                        // entry while a different route is displayed
+                        !isNavigationFailure(failure, 8 /* ErrorTypes.NAVIGATION_CANCELLED */)) {
+                        routerHistory.go(-info.delta, false);
+                    }
+                    else if (info.type === NavigationType.pop &&
+                        isNavigationFailure(failure, 4 /* ErrorTypes.NAVIGATION_ABORTED */ | 16 /* ErrorTypes.NAVIGATION_DUPLICATED */)) {
+                        // manual change in hash history #916
+                        // it's like a push but lacks the information of the direction
+                        routerHistory.go(-1, false);
+                    }
+                }
+                triggerAfterEach(toLocation, from, failure);
+            })
+                .catch(noop);
+        });
+    }
+    // Initialization and Errors
+    let readyHandlers = useCallbacks();
+    let errorHandlers = useCallbacks();
+    let ready;
+    /**
+     * Trigger errorHandlers added via onError and throws the error as well
+     *
+     * @param error - error to throw
+     * @param to - location we were navigating to when the error happened
+     * @param from - location we were navigating from when the error happened
+     * @returns the error as a rejected promise
+     */
+    function triggerError(error, to, from) {
+        markAsReady(error);
+        const list = errorHandlers.list();
+        if (list.length) {
+            list.forEach(handler => handler(error, to, from));
+        }
+        else {
+            if ((true)) {
+                warn('uncaught error during route navigation:');
+            }
+            console.error(error);
+        }
+        return Promise.reject(error);
+    }
+    function isReady() {
+        if (ready && currentRoute.value !== START_LOCATION_NORMALIZED)
+            return Promise.resolve();
+        return new Promise((resolve, reject) => {
+            readyHandlers.add([resolve, reject]);
+        });
+    }
+    function markAsReady(err) {
+        if (!ready) {
+            // still not ready if an error happened
+            ready = !err;
+            setupListeners();
+            readyHandlers
+                .list()
+                .forEach(([resolve, reject]) => (err ? reject(err) : resolve()));
+            readyHandlers.reset();
+        }
+        return err;
+    }
+    // Scroll behavior
+    function handleScroll(to, from, isPush, isFirstNavigation) {
+        const { scrollBehavior } = options;
+        if (!isBrowser || !scrollBehavior)
+            return Promise.resolve();
+        const scrollPosition = (!isPush && getSavedScrollPosition(getScrollKey(to.fullPath, 0))) ||
+            ((isFirstNavigation || !isPush) &&
+                history.state &&
+                history.state.scroll) ||
+            null;
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)()
+            .then(() => scrollBehavior(to, from, scrollPosition))
+            .then(position => position && scrollToPosition(position))
+            .catch(err => triggerError(err, to, from));
+    }
+    const go = (delta) => routerHistory.go(delta);
+    let started;
+    const installedApps = new Set();
+    const router = {
+        currentRoute,
+        listening: true,
+        addRoute,
+        removeRoute,
+        hasRoute,
+        getRoutes,
+        resolve,
+        options,
+        push,
+        replace,
+        go,
+        back: () => go(-1),
+        forward: () => go(1),
+        beforeEach: beforeGuards.add,
+        beforeResolve: beforeResolveGuards.add,
+        afterEach: afterGuards.add,
+        onError: errorHandlers.add,
+        isReady,
+        install(app) {
+            const router = this;
+            app.component('RouterLink', RouterLink);
+            app.component('RouterView', RouterView);
+            app.config.globalProperties.$router = router;
+            Object.defineProperty(app.config.globalProperties, '$route', {
+                enumerable: true,
+                get: () => (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(currentRoute),
+            });
+            // this initial navigation is only necessary on client, on server it doesn't
+            // make sense because it will create an extra unnecessary navigation and could
+            // lead to problems
+            if (isBrowser &&
+                // used for the initial navigation client side to avoid pushing
+                // multiple times when the router is used in multiple apps
+                !started &&
+                currentRoute.value === START_LOCATION_NORMALIZED) {
+                // see above
+                started = true;
+                push(routerHistory.location).catch(err => {
+                    if ((true))
+                        warn('Unexpected error when starting the router:', err);
+                });
+            }
+            const reactiveRoute = {};
+            for (const key in START_LOCATION_NORMALIZED) {
+                // @ts-expect-error: the key matches
+                reactiveRoute[key] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => currentRoute.value[key]);
+            }
+            app.provide(routerKey, router);
+            app.provide(routeLocationKey, (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)(reactiveRoute));
+            app.provide(routerViewLocationKey, currentRoute);
+            const unmountApp = app.unmount;
+            installedApps.add(app);
+            app.unmount = function () {
+                installedApps.delete(app);
+                // the router is not attached to an app anymore
+                if (installedApps.size < 1) {
+                    // invalidate the current navigation
+                    pendingLocation = START_LOCATION_NORMALIZED;
+                    removeHistoryListener && removeHistoryListener();
+                    removeHistoryListener = null;
+                    currentRoute.value = START_LOCATION_NORMALIZED;
+                    started = false;
+                    ready = false;
+                }
+                unmountApp();
+            };
+            // TODO: this probably needs to be updated so it can be used by vue-termui
+            if (( true) && isBrowser) {
+                addDevtools(app, router, matcher);
+            }
+        },
+    };
+    return router;
+}
+function runGuardQueue(guards) {
+    return guards.reduce((promise, guard) => promise.then(() => guard()), Promise.resolve());
+}
+function extractChangingRecords(to, from) {
+    const leavingRecords = [];
+    const updatingRecords = [];
+    const enteringRecords = [];
+    const len = Math.max(from.matched.length, to.matched.length);
+    for (let i = 0; i < len; i++) {
+        const recordFrom = from.matched[i];
+        if (recordFrom) {
+            if (to.matched.find(record => isSameRouteRecord(record, recordFrom)))
+                updatingRecords.push(recordFrom);
+            else
+                leavingRecords.push(recordFrom);
+        }
+        const recordTo = to.matched[i];
+        if (recordTo) {
+            // the type doesn't matter because we are comparing per reference
+            if (!from.matched.find(record => isSameRouteRecord(record, recordTo))) {
+                enteringRecords.push(recordTo);
+            }
+        }
+    }
+    return [leavingRecords, updatingRecords, enteringRecords];
+}
+
+/**
+ * Returns the router instance. Equivalent to using `$router` inside
+ * templates.
+ */
+function useRouter() {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)(routerKey);
+}
+/**
+ * Returns the current route location. Equivalent to using `$route` inside
+ * templates.
+ */
+function useRoute() {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)(routeLocationKey);
 }
 
 
-/***/ }),
 
-/***/ "./resources/js/components/App.vue":
-/*!*****************************************!*\
-  !*** ./resources/js/components/App.vue ***!
-  \*****************************************/
-/***/ (() => {
-
-throw new Error("Module parse failed: Unexpected token (1:0)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n> <template>\n| <div id=\"app\">\n|   <button>{{ count }}</button>");
 
 /***/ }),
 
@@ -37508,18 +45071,6 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
 /******/ 		};
 /******/ 	})();
 /******/ 	

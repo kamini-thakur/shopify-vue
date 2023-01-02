@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BuilderController;
+use App\Http\Controllers\BundleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +18,12 @@ use App\Http\Controllers\BuilderController;
 //     return view('welcome');
 // });
 
+// Route::get('/', function () {
+//     return view('welcome');
+// })->middleware(['verify.shopify'])->name('home');
+
 Route::get('/', function () {
     return view('welcome');
-})->middleware(['verify.shopify'])->name('home');
+})->middleware(['verify.shopify'])->where('any', '.*')->name('home');
 
-Route::resource('builder', BuilderController::class)->middleware(['verify.shopify']);
+
